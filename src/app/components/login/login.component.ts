@@ -11,10 +11,12 @@ export class LoginComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
 
+  email: string;
   ngOnInit() {
   }
 
   login(form: NgForm){
+    this.email=form.value.email;
     this.http.post("", {
       email: form.value.email,
       password: form.value.password
