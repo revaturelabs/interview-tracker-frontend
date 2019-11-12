@@ -1,4 +1,4 @@
-<form action='POST' value='*.login'>
+<form action='POST' #LoginInfo="ngForm" (ngSubmit)=login(LoginInfo)>
     <input type="text" name="email" value="email">
     <input type="password" name="password" value="password">
     <input type="submit" value="login">
