@@ -1,22 +1,9 @@
-<<<<<<< HEAD
 <div id="libox">
 
-<form action='POST' value='*.login'>
+    <form #serv=ngForm (ngSubmit)="submission(serv)">
     <input type="text" name="username" value="username">
     <input type="password" name="password" value="password">
     <input type="submit" value="login">
 </form>
 
 </div>
-=======
-
-<div>
-<h1>Please Log-in!</h1>
-<form #serv=ngForm (ngSubmit)="submission(serv)">
-    <input type="text" name="email" value="email">
-    <input type="password" name="password" value="password">
-    <input type="submit" value="login">
-</form>
-</div>
-
->>>>>>> 191e156e46031e6612ac392a26453dec84fd3015
