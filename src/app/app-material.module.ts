@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import {
+  MatCardModule,
    MatButtonModule,
    MatToolbarModule,
    MatIconModule,
@@ -23,6 +24,7 @@ import {
 } from '@angular/material';
 
 const MaterialComponents = [
+  MatCardModule,
    CommonModule,
    MatButtonModule,
    MatToolbarModule,
