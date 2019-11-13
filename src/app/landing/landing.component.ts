@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+<<<<<<< HEAD
+=======
+import { Location } from '@angular/common';
+>>>>>>> origin/ramseslt
 
 @Component({
   selector: 'app-landing',
@@ -8,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class LandingComponent implements OnInit {
 
+<<<<<<< HEAD
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -18,4 +23,14 @@ export class LandingComponent implements OnInit {
     }, 2000);  //5s
   }
 
+=======
+  constructor(private router: Router, private location: Location) { }
+
+  ngOnInit() {
+   setTimeout(() => {
+    this.location.back();
+}, 3500)
+  }
+; 
+>>>>>>> origin/ramseslt
 }

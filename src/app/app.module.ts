@@ -11,6 +11,11 @@ import { InsideComponent } from './inside/inside.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppMaterialModule } from './app-material.module';
 
+
+import { HomeComponent } from './home/home.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +30,13 @@ import { AppMaterialModule } from './app-material.module';
 
     AppRoutingModule,
     BrowserAnimationsModule,
-    AppMaterialModule
+    AppMaterialModule,
+    HomeComponent,
+
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
