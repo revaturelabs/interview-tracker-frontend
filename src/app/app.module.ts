@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { LandingComponent } from './landing/landing.component';
 import { InsideComponent } from './inside/inside.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppMaterialModule } from './app-material.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,10 @@ import { InsideComponent } from './inside/inside.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    AppMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
