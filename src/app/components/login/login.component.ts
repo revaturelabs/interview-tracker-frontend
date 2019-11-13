@@ -18,25 +18,14 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
-  
-  login(form: NgForm){
-
-    this.http.post("", {
-      username: form.value.username,
-      password: form.value.password
-    })
-    .toPromise().then((r: {username: string; password: string})=> {
-      console.log(r);
-    }).catch(e=>console.log(e));
-  }
 
   submission(form: NgForm) {
     this.http.post("localhost:4200", {
-      email: form.value.email,
+      username: form.value.username,
       password: form.value.password,
     })
     .toPromise()
-    .then((r: {email: string;password: string}) => {
+    .then((r: {username: string;password: string}) => {
       console.log(r);
       sessionStorage.setItem("user", JSON.stringify(r));
       if(r!=null){
