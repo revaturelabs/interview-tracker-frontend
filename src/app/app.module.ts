@@ -31,7 +31,8 @@ import { HomeComponent } from './home/home.component';
 
     AppRoutingModule,
     BrowserAnimationsModule,
-    AppMaterialModule
+    AppMaterialModule,
+    HomeComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
