@@ -17,6 +17,14 @@ import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
+<<<<<<< HEAD
+=======
+    AppComponent,
+    LoginComponent,
+    LandingComponent,
+    HomeComponent,
+    InsideComponent
+>>>>>>> f6e6b9bd0e3b9e8cfdcfa899ca6b0a3f468c34b7
 
   ],
   imports: [
@@ -35,7 +43,7 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     AppMaterialModule,
-    HomeComponent,
+    
 
     BrowserModule,
     AppRoutingModule,
