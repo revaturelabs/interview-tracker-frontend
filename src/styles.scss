@@ -16,11 +16,6 @@
     
   }
 
-  #topdiv{
-      margin-left: 275px;
-      margin-top: 100px;
-      position: relative;
-  }
 
   .login-card{
     padding: 8px;
@@ -28,15 +23,13 @@
     background-color: rgba(255, 166, 0, 0.89);
   }
 
-  .login-div login-card {
-    font-size: 30px;
-    margin: 0;
-    color:  rgba(181, 206, 39, 0.932);
+  margin:0;
+  
+  padding:0;
+  
+  
+  
   }
-
-
-
-
 
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
@@ -67,5 +60,5 @@ $Interview-Angular-theme: mat-light-theme($Interview-Angular-primary, $Interview
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html, body { margin: 0; height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

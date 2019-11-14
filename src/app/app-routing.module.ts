@@ -5,7 +5,7 @@ import { LandingComponent } from './landing/landing.component';
 import { HomeComponent } from './home/home.component';
 import {ProjectHubComponent} from './project-hub/project-hub.component';
 
-
+// Ramses, plese make sure to route to the hub compnent upon login, and move your script from the index to the ts file. also, test our methos using jasmine
 const routes: Routes = [
   {path: 'landing', component: LandingComponent},
   {path: '', pathMatch: 'full', redirectTo: 'login'},
