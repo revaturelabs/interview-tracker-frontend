@@ -10,6 +10,7 @@ import { InsideComponent } from './inside/inside.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppMaterialModule } from './app-material.module';
 import { ProjectHubComponent } from './project-hub/project-hub.component';
+import { SkillsFormComponent } from './components/skills-form/skills-form.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { AuthService } from './services/auth.service';
 
@@ -21,7 +22,8 @@ import { AuthService } from './services/auth.service';
     LandingComponent,
     InsideComponent,
     ProjectHubComponent,
-    LogoutComponent, 
+    SkillsFormComponent, 
+    LogoutComponent
 
   ],
   
