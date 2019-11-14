@@ -12,35 +12,23 @@ import { AppMaterialModule } from './app-material.module';
 import { ProjectHubComponent } from './project-hub/project-hub.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     LandingComponent,
     InsideComponent,
-    LoginComponent,
-    LandingComponent,
-    InsideComponent,
-    ProjectHubComponent,
+    ProjectHubComponent
   ],
   
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    AppMaterialModule,
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
+    AppMaterialModule
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
