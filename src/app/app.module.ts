@@ -9,13 +9,9 @@ import { LandingComponent } from './landing/landing.component';
 import { InsideComponent } from './inside/inside.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppMaterialModule } from './app-material.module';
-
-
-import { HomeComponent } from './home/home.component';
 import { ProjectHubComponent } from './project-hub/project-hub.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { AuthService } from './services/auth.service';
-
 
 
 @NgModule({
@@ -23,34 +19,20 @@ import { AuthService } from './services/auth.service';
     AppComponent,
     LoginComponent,
     LandingComponent,
-    HomeComponent,
-    InsideComponent,
-    LoginComponent,
-    LandingComponent,
     InsideComponent,
     ProjectHubComponent,
     LogoutComponent, 
+
   ],
   
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
-    
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    AppMaterialModule,
-      
-
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
+    AppMaterialModule
+   
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
