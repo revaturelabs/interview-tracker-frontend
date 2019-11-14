@@ -13,6 +13,8 @@ import { AppMaterialModule } from './app-material.module';
 
 import { HomeComponent } from './home/home.component';
 import { ProjectHubComponent } from './project-hub/project-hub.component';
+import { LogoutComponent } from './components/logout/logout.component';
+import { AuthService } from './services/auth.service';
 
 
 
@@ -26,7 +28,8 @@ import { ProjectHubComponent } from './project-hub/project-hub.component';
     LoginComponent,
     LandingComponent,
     InsideComponent,
-    ProjectHubComponent, 
+    ProjectHubComponent,
+    LogoutComponent, 
   ],
   
   imports: [
@@ -49,7 +52,7 @@ import { ProjectHubComponent } from './project-hub/project-hub.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

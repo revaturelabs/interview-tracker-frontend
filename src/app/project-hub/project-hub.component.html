@@ -4,13 +4,16 @@
 <br>
 <p style="margin: 0;">create view button</p>
 <!-- Mason, create a toggle button that hides (display none) div 4 on and off, then make a button #2 
-that would appear where div 4 would whne its gone that makes it pop back out but hides the button, and this button must also go away when
+that would appear where div 4 would when its gone that makes it pop back out but hides the button, and this button must also go away when
 button 1 is pressed. make a testcase for it using jasmine when done.
 -->
+
+<mat-button-toggle #toggleBtn unchecked (click)="toggle()">Create View</mat-button-toggle>
 
 <br>
 <p style="margin: 0;">Search Bar</p><br>
 <p style="margin: 0;">Log Out</p><br>
+<button (click)="logout()">Logout</button>
 
 <!-- Mason, create a log out that is compatible with our log in logic and make jasmine yest with it.
 -->
@@ -22,7 +25,7 @@ button 1 is pressed. make a testcase for it using jasmine when done.
 <div id="mainDiv2">
 
 
-        <p style="margin: 0;">give me a tittle</p>
+        <p style="margin: 0;">give me a title</p>
         
         
         </div>
@@ -30,25 +33,26 @@ button 1 is pressed. make a testcase for it using jasmine when done.
 <div id="mainDiv3">
 
 
-    <p style="margin: 0;">give me a tittle</p>
+    <p style="margin: 0;">give me a title</p>
                 
                 
         </div>
-
+        <ng-container *ngIf="show">
         <div id="mainDiv4">
-
+                <mat-button-toggle #toggleBtn unchecked (click)="toggle()">Create View</mat-button-toggle>
+       
 
                 <div id="mainDiv5">
 
 
-                        <p style="margin: 0;">create a job form L Tuppy</p>
+                        <p style="margin: 0;">create a job form L Tupy</p>
 <!-- these are modules, your module lives in this div -->                    
                                     
                             </div>
                 <div id="mainDiv5">
 
 
-                        <p style="margin: 0;">create a Profile form L Tuppy</p>
+                        <p style="margin: 0;">create a Profile form L Tupy</p>
 <!-- these are modules, your module lives in this div -->                
                                                 
                             </div>
@@ -59,7 +63,7 @@ button 1 is pressed. make a testcase for it using jasmine when done.
                     <div id="mainDiv5">
 
 
-                            <p style="margin: 0;">create an interview form L Tuppy</p>
+                            <p style="margin: 0;">create an interview form L Tupy</p>
   <!-- these are modules, your module lives in this div -->
 
                                                     
@@ -78,7 +82,6 @@ button 1 is pressed. make a testcase for it using jasmine when done.
                                 
                                 
                         </div>
-
-
+                </ng-container>
 
                    
