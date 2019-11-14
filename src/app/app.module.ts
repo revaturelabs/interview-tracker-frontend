@@ -12,21 +12,23 @@ import { AppMaterialModule } from './app-material.module';
 
 
 import { HomeComponent } from './home/home.component';
+import { ProjectHubComponent } from './project-hub/project-hub.component';
 
 
 
 @NgModule({
   declarations: [
-<<<<<<< HEAD
-=======
     AppComponent,
     LoginComponent,
     LandingComponent,
     HomeComponent,
-    InsideComponent
->>>>>>> f6e6b9bd0e3b9e8cfdcfa899ca6b0a3f468c34b7
-
+    InsideComponent,
+    LoginComponent,
+    LandingComponent,
+    InsideComponent,
+    ProjectHubComponent, 
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -36,14 +38,11 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    AppComponent,
-    LoginComponent,
-    LandingComponent,
-    InsideComponent,
+    
     AppRoutingModule,
     BrowserAnimationsModule,
     AppMaterialModule,
-    
+      
 
     BrowserModule,
     AppRoutingModule,

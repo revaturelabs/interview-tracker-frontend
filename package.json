@@ -21,10 +21,7 @@
     "@angular/platform-browser": "~8.2.11",
     "@angular/platform-browser-dynamic": "~8.2.11",
     "@angular/router": "~8.2.11",
-<<<<<<< HEAD
-=======
     "hammerjs": "^2.0.8",
->>>>>>> f6e6b9bd0e3b9e8cfdcfa899ca6b0a3f468c34b7
     "node-modules": "^1.0.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",

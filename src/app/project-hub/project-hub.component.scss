@@ -1,0 +1,50 @@
+
+
+body{
+    margin: 0;
+}
+#mainDiv{
+    background-color:  #f3a55d;
+    margin-top: 0px;
+    height: 100vh;
+    position: absolute;
+    width: 10vw;
+}
+
+#mainDiv2{
+ margin-left: 10vw;
+        background-color:  #f3a55d;
+        margin-top: 0px;
+        width: 90vw;
+        position: absolute;
+        height: 70px;
+    }
+
+#mainDiv3{
+               margin-left: 11vw;
+               background-color:  #5d8df3;
+               margin-top: 10vh;
+               width: 89vw;
+               position: absolute;
+               height: 90vh;
+           }  
+           
+#mainDiv4{
+            margin-left: 11vw;
+            background-color:  #5df376;
+            margin-top: 12vh;
+            width: 89vw;
+            position: absolute;
+            height: 86vh;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }  
+
+#mainDiv5{
+            margin-left: 0;
+            background-color:  #f35d5d;
+            margin-top: 1vh;
+            width: 89vw;
+            position: relative;
+            height: 84vh;
+        }  
