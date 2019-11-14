@@ -17,17 +17,17 @@ export class LoginComponent implements OnInit {
   }
 
   login(form: NgForm){
-    this.email=form.value.email;
+    this.email=form.value.username;
    this.http.post("", {
-      email: form.value.email,
+      email: form.value.username,
      password: form.value.password
     })
-    .toPromise().then((r: {email: string; password: string})=> {
-     this.router.navigate(['home'])
+    .toPromise().then((r: {username: string; password: string})=> {
+     this.router.navigate(['hub'])
       console.log(r);
     }).catch(e=>console.log(e));
   }
   Logged(){
-     this.router.navigate(["home"])
+     this.router.navigate(['hub'])
   }
 }
