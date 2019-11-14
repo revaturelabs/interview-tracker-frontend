@@ -1,12 +1,13 @@
 <div id="libox">
 
-<form #serv=ngForm (ngSubmit)="submission(serv)">
-    <input type="text" name="username" value="username">
-    <input type="password" name="password" value="password">
-    <input type="submit" value="login">
-</form>
+    <form #serv=ngForm (ngSubmit)="submission(serv)">
+        <input type="text" name="username" value="username">
+        <input type="password" name="password" value="password">
+        <input type="submit" value="login">
+    </form>
+    
+    </div>
 
-</div>
 <div id="topdiv"><div class="login-div" fxLayout="row" fxLayoutAlign="center center">
         <mat-card class="login-card">
             <form action='POST' value='*.login'>
