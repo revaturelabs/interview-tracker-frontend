@@ -7,11 +7,8 @@ import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LandingComponent } from './landing/landing.component';
 import { InsideComponent } from './inside/inside.component';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppMaterialModule } from './app-material.module';
-
-
 import { HomeComponent } from './home/home.component';
 
 
@@ -21,7 +18,8 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     LoginComponent,
     LandingComponent,
-    InsideComponent
+    InsideComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +29,7 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     AppMaterialModule,
-    HomeComponent,
+    
 
     BrowserModule,
     AppRoutingModule,
