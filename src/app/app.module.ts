@@ -22,7 +22,7 @@ import { ProjectHubComponent } from './project-hub/project-hub.component';
     LoginComponent,
     LandingComponent,
     InsideComponent,
-    ProjectHubComponent, 
+    ProjectHubComponent,
   ],
   
   imports: [
