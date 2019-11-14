@@ -11,9 +11,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'hub', component: ProjectHubComponent },
   { path: '**', component: LandingComponent  },
-
+  {path: 'logout', component: LogoutComponent}
   
-
 ];
 
 @NgModule({
