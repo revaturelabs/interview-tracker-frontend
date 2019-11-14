@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { Location } from '@angular/common';
 
 @Component({
@@ -17,4 +16,5 @@ export class LandingComponent implements OnInit {
     this.location.back();
 }, 3500)
   }
-; }
+; 
+}
