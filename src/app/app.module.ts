@@ -13,6 +13,7 @@ import { AppMaterialModule } from './app-material.module';
 
 import { HomeComponent } from './home/home.component';
 import { ProjectHubComponent } from './project-hub/project-hub.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 
@@ -26,7 +27,8 @@ import { ProjectHubComponent } from './project-hub/project-hub.component';
     LoginComponent,
     LandingComponent,
     InsideComponent,
-    ProjectHubComponent, 
+    ProjectHubComponent,
+    NavbarComponent, 
   ],
   
   imports: [

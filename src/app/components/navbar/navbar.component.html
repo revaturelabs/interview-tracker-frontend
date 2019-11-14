@@ -1,0 +1,40 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <div>
+      <button mat-button (click)="sidenav.toggle()">
+        Create New
+     <!-- <button mat-icon-button>
+    <mat-icon (click)="sidenav.toggle()">Create New</mat-icon> -->
+    </button>
+  </div>
+    <span class="menu-spacer"></span>
+    <div>
+      <a mat-button [routerLink]="'/accounts'"> Accounts </a>
+      <a mat-button [routerLink]="'/jobs'"> Jobs </a>
+      <a mat-button [routerLink]="'/interview'"> Interviews </a>
+      
+      <button mat-button class="emptyspace" >a button</button>
+    
+    </div>
+  </mat-toolbar-row>
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <mat-nav-list>
+
+      <a mat-list-item [routerLink]="'/create-job'"> Create Job Offering </a>
+      <a mat-list-item [routerLink]="'/create-account'"> Create Account </a>
+      <a mat-list-item [routerLink]="'/create-interview'"> Create Interview </a>
+      <a mat-list-item (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+     
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height: 90vh;">
+
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
