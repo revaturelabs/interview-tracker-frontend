@@ -26,15 +26,11 @@ import { ProjectHubComponent } from './project-hub/project-hub.component';
   
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
     
-    BrowserAnimationsModule,
     AppMaterialModule
   ],
   providers: [],
