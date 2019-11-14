@@ -1,0 +1,40 @@
+<form class="interview-form">
+        <mat-form-field>
+          <input type="text" placeholder="Employee" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of options" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+                <input matInput placeholder="Comments">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <br> 
+          <mat-form-field>
+          <input type="text" placeholder="Job" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of options" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+        <input type="text" placeholder="Interviewer" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of options" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <br>
+          <button mat-raised-button>Submit</button>
+      </form>
