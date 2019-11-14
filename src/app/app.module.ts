@@ -21,6 +21,7 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     LoginComponent,
     LandingComponent,
+    HomeComponent,
     InsideComponent
   ],
   imports: [
@@ -31,7 +32,7 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     AppMaterialModule,
-    HomeComponent,
+    
 
     BrowserModule,
     AppRoutingModule,
