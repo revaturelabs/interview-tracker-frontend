@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppMaterialModule } from './app-material.module';
 import { HomeComponent } from './home/home.component';
 import { ProjectHubComponent } from './project-hub/project-hub.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 
 
@@ -21,7 +22,8 @@ import { ProjectHubComponent } from './project-hub/project-hub.component';
     LandingComponent,
     HomeComponent,
     InsideComponent,
-    ProjectHubComponent
+    ProjectHubComponent,
+    LogoutComponent
   ],
   
   imports: [
