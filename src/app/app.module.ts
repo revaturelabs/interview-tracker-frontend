@@ -10,6 +10,12 @@ import { InsideComponent } from './inside/inside.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppMaterialModule } from './app-material.module';
 import { ProjectHubComponent } from './project-hub/project-hub.component';
+<<<<<<< HEAD
+=======
+import { SkillsFormComponent } from './components/skills-form/skills-form.component';
+import { LogoutComponent } from './components/logout/logout.component';
+import { AuthService } from './services/auth.service';
+>>>>>>> d23914c5dd2883827f6347a661ceb4eabed8e972
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { InterviewFormComponent } from './components/interview-form/interview-form.component';
 import { JobFormComponent } from './components/job-form/job-form.component';
@@ -22,7 +28,11 @@ import { ProfileFormComponent } from './components/profile-form/profile-form.com
     AppComponent,
     LoginComponent,
     LandingComponent,
+<<<<<<< HEAD
     
+=======
+    HomeComponent,
+>>>>>>> d23914c5dd2883827f6347a661ceb4eabed8e972
     InsideComponent,
     LoginComponent,
     LandingComponent,
@@ -31,7 +41,13 @@ import { ProfileFormComponent } from './components/profile-form/profile-form.com
     NavbarComponent,
     InterviewFormComponent,
     JobFormComponent,
+<<<<<<< HEAD
     ProfileFormComponent, 
+=======
+    ProfileFormComponent,
+    SkillsFormComponent, 
+    LogoutComponent
+>>>>>>> d23914c5dd2883827f6347a661ceb4eabed8e972
   ],
   
   imports: [
