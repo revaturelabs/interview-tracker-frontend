@@ -16,11 +16,16 @@ export class LoginComponent implements OnInit {
 
   constructor(private http:HttpClient, private activatedRoute: ActivatedRoute,
     private router: Router) { }
+
+
+  constructor(private http:HttpClient, private activatedRoute: ActivatedRoute,
+    private router: Router) { }
   ngOnInit() {
   }
 
   submission(form: NgForm) {
-     
+    this.router.navigate(['hub']);
+
     this.http.post("localhost:4200", {
       username: form.value.username,
       password: form.value.password,
