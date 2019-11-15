@@ -9,10 +9,10 @@ import { LandingComponent } from './landing/landing.component';
 import { InsideComponent } from './inside/inside.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppMaterialModule } from './app-material.module';
-
-
-import { HomeComponent } from './home/home.component';
 import { ProjectHubComponent } from './project-hub/project-hub.component';
+import { SkillsFormComponent } from './components/skills-form/skills-form.component';
+import { LogoutComponent } from './components/logout/logout.component';
+import { AuthService } from './services/auth.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { InterviewFormComponent } from './components/interview-form/interview-form.component';
 import { JobFormComponent } from './components/job-form/job-form.component';
@@ -34,17 +34,14 @@ import { ProfileFormComponent } from './components/profile-form/profile-form.com
     NavbarComponent,
     InterviewFormComponent,
     JobFormComponent,
-    ProfileFormComponent, 
+    ProfileFormComponent,
+    SkillsFormComponent, 
+    LogoutComponent
   ],
   
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule,
-    HttpClientModule,
-    AppRoutingModule,
-    FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
     AppRoutingModule,
@@ -53,9 +50,10 @@ import { ProfileFormComponent } from './components/profile-form/profile-form.com
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    AppMaterialModule
+   
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
