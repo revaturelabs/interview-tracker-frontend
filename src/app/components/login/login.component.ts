@@ -13,6 +13,11 @@ export class LoginComponent implements OnInit {
 
   loginUserData = {}
 
+<<<<<<< HEAD
+=======
+  constructor(private http:HttpClient, private activatedRoute: ActivatedRoute,
+    private router: Router) { }
+>>>>>>> AimeeBranch
 
   constructor(private http:HttpClient, private activatedRoute: ActivatedRoute,
     private router: Router) { }
@@ -20,7 +25,11 @@ export class LoginComponent implements OnInit {
   }
 
   submission(form: NgForm) {
+<<<<<<< HEAD
      
+=======
+    this.router.navigate(['hub']);
+>>>>>>> AimeeBranch
     this.http.post("localhost:4200", {
       username: form.value.username,
       password: form.value.password,

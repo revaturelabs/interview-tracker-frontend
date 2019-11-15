@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -10,9 +10,17 @@ import { InsideComponent } from './inside/inside.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppMaterialModule } from './app-material.module';
 import { ProjectHubComponent } from './project-hub/project-hub.component';
+<<<<<<< HEAD
 import { SkillsFormComponent } from './components/skills-form/skills-form.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { AuthService } from './services/auth.service';
+=======
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { InterviewFormComponent } from './components/interview-form/interview-form.component';
+import { JobFormComponent } from './components/job-form/job-form.component';
+import { ProfileFormComponent } from './components/profile-form/profile-form.component';
+
+>>>>>>> AimeeBranch
 
 
 @NgModule({
@@ -20,17 +28,38 @@ import { AuthService } from './services/auth.service';
     AppComponent,
     LoginComponent,
     LandingComponent,
+<<<<<<< HEAD
     InsideComponent,
     ProjectHubComponent,
     SkillsFormComponent, 
     LogoutComponent
 
+=======
+    HomeComponent,
+    InsideComponent,
+    LoginComponent,
+    LandingComponent,
+    InsideComponent,
+    ProjectHubComponent,
+    NavbarComponent,
+    InterviewFormComponent,
+    JobFormComponent,
+    ProfileFormComponent, 
+>>>>>>> AimeeBranch
   ],
   
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+<<<<<<< HEAD
+=======
+    ReactiveFormsModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    AppMaterialModule,
+    BrowserModule,
+>>>>>>> AimeeBranch
     AppRoutingModule,
     FormsModule,
     AppMaterialModule
