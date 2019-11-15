@@ -23,6 +23,18 @@
   padding: 0;
 }
 
+html, body {
+  margin:0;
+  padding:0;
+  }
+
+ .lightColor {
+color: #f3a55d;
+}
+.strongColor {
+ color: #f26925;
+}
+
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import "~@angular/material/theming";
