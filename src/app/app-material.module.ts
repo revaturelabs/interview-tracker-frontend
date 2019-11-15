@@ -20,7 +20,10 @@ import {
    MatTooltipModule,
    MatTableModule,
    MatPaginatorModule,
-   MatButtonToggleModule
+   MatButtonToggleModule,
+   MatSlideToggleModule,
+   MatAutocompleteModule,
+   MatCheckboxModule
 } from '@angular/material';
 
 const MaterialComponents = [
@@ -43,7 +46,10 @@ const MaterialComponents = [
    MatTooltipModule,
    MatTableModule,
    MatButtonToggleModule,
-   MatPaginatorModule
+   MatPaginatorModule,
+   MatSlideToggleModule,
+   MatAutocompleteModule,
+   MatCheckboxModule
 ];
 @NgModule({
    imports: [
