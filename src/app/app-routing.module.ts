@@ -5,15 +5,21 @@ import { LandingComponent } from './landing/landing.component';
 import { HomeComponent } from './home/home.component';
 import { ProjectHubComponent } from './project-hub/project-hub.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { InterviewFormComponent } from './components/interview-form/interview-form.component';
+import { JobFormComponent } from './components/job-form/job-form.component';
+import { ProfileFormComponent } from './components/profile-form/profile-form.component';
 
-// Ramses, plese make sure to route to the hub compnent upon login, and move your script from the index to the ts file. also, test our methos using jasmine
 const routes: Routes = [
-  {path: 'landing', component: LandingComponent},
-  {path: '', pathMatch: 'full', redirectTo: 'login'},
-  {path: 'login', component: LoginComponent },
-  {path: 'home', component: HomeComponent}
+  { path: '', pathMatch: 'full', redirectTo: 'login' },
+  { path: 'login', component: LoginComponent },
+  { path: 'hub', component: ProjectHubComponent },
+  { path: 'create-job', component: JobFormComponent },
+  { path: 'create-account', component: ProfileFormComponent },
+  { path: 'create-interview', component: InterviewFormComponent },
+  { path: '**', component: LandingComponent }
   
-
+  
+ // {path: 'logout', component: LogoutComponent}
 ];
 
 @NgModule({
