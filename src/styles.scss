@@ -1,4 +1,122 @@
+$black_50: rgba(0, 0, 0, 0.5);
+$coral: coral;
+$black_67_1: rgba(0, 0, 0, 0.671);
 
+#revaturelogo {
+    position: absolute;
+    position: fixed;
+    margin-top: 80vh;
+    margin-left: 80vw;
+    margin-right: 10px;
+    z-index: 2;
+    color: $black_50;
+}
+#orange1 {
+    background-color: $coral;
+    height: 4px;
+    width: 4px;
+    display: inline-block;
+    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+    transform: rotate(-80deg);
+    margin-left: 70px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+#orange2 {
+    background-color: $coral;
+    height: 8px;
+    width: 4px;
+    margin-bottom: 6px;
+    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+    transform: rotate(-30deg);
+    display: inline-block;
+    margin-left: 5px;
+}
+#orange3 {
+    background-color: $coral;
+    height: 10px;
+    width: 4px;
+    display: inline-block;
+    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+    transform: rotate(-15deg);
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+#orange4 {
+    background-color: $coral;
+    height: 12px;
+    width: 4px;
+    display: inline-block;
+    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+    transform: rotate(-6deg);
+    margin-bottom: 15px;
+    margin-left: 5px;
+}
+#orange5 {
+    background-color: $coral;
+    height: 14px;
+    width: 4px;
+    display: inline-block;
+    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+    transform: rotate(7deg);
+    margin-bottom: 16px;
+    margin-left: 5px;
+}
+#orange6 {
+    background-color: $coral;
+    height: 17px;
+    width: 4px;
+    display: inline-block;
+    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+    transform: rotate(16deg);
+    margin-bottom: 16px;
+    margin-left: 5px;
+}
+#orange7 {
+    background-color: $coral;
+    height: 20px;
+    width: 4px;
+    display: inline-block;
+    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+    transform: rotate(24deg);
+    margin-bottom: 14px;
+    margin-left: 5px;
+}
+#orange8 {
+    background-color: $coral;
+    height: 23px;
+    width: 4px;
+    display: inline-block;
+    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+    transform: rotate(35deg);
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+#orange9 {
+    background-color: $coral;
+    height: 27px;
+    width: 4px;
+    display: inline-block;
+    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+    transform: rotate(40deg);
+    margin-bottom: 4px;
+    margin-left: 5px;
+}
+#orange10 {
+    background-color: $coral;
+    height: 30px;
+    width: 4px;
+    display: inline-block;
+    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+    transform: rotate(50deg);
+    margin-bottom: -6px;
+    margin-left: 5px;
+}
+#logo-text {
+    color: $black_67_1;
+    padding-top: 0;
+    margin-top: 0;
+}
 .login-div {
   
 
