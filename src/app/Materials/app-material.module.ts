@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+
 import {
   MatCardModule,
    MatButtonModule,
@@ -8,6 +9,7 @@ import {
    MatIconModule,
    MatBadgeModule,
    MatSidenavModule,
+   MatSidenav,
    MatListModule,
    MatGridListModule,
    MatFormFieldModule,
@@ -30,6 +32,7 @@ const MaterialComponents = [
    MatToolbarModule,
    MatIconModule,
    MatSidenavModule,
+   MatSidenav,
    MatBadgeModule,
    MatListModule,
    MatGridListModule,
