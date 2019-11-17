@@ -18,8 +18,4 @@ export class LogoutComponent implements OnInit {
 logout(){
   this._authService.logout();
 }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/AimeeBranch
