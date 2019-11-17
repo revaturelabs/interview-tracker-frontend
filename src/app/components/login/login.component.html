@@ -1,6 +1,6 @@
 
 
-<div id="topdiv"><div class="login-div" fxLayout="row" fxLayoutAlign="center center">
+<div id="topdiv"><div class="login-div" fxLayout="column" fxLayoutAlign="center center" >
         <mat-card class="login-card">
             <form action='POST' #serv=ngForm value='*.login' (ngSubmit)="submission(serv)">           
            
@@ -9,7 +9,7 @@
               <mat-card-title>Log in</mat-card-title>
             </mat-card-header>
             <mat-card-content  >
-                <mat-form-field style="width: 300px; margin-top: 10px">
+                <mat-form-field style="width: 300px; margin-top: 10px" position="relative">
                     <input type="text" name="username" matInput placeholder="Username" ngModel value="username"/>
                 </mat-form-field>
                 <br>
