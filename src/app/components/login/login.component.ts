@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-
+import { NavbarservService } from '../../services/navbarserv.service';
 
 @Component({
   selector: 'app-login',
@@ -15,12 +15,9 @@ export class LoginComponent implements OnInit {
 
 
   constructor(private http:HttpClient, private activatedRoute: ActivatedRoute,
-    private router: Router) { }
-
-
-  constructor(private http:HttpClient, private activatedRoute: ActivatedRoute,
-    private router: Router) { }
+    private router: Router, private nav: NavbarservService) { }
   ngOnInit() {
+    this.nav.hide();
   }
 
   submission(form: NgForm) {
@@ -41,7 +38,7 @@ export class LoginComponent implements OnInit {
     .catch(e => console.log(e));
   }
   onLogInButtonClick(): void{
-this.router.navigate(['hub'])
+    this.router.navigate(['hub'])
   }
 
 }
