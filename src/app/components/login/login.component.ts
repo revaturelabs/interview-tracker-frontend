@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   }
 
   submission(form: NgForm) {
-    this.router.navigate(['hub']);
+    
 
     this.http.post("localhost:4200", {
       username: form.value.username,
