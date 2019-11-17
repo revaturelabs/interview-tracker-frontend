@@ -25,7 +25,11 @@ import { ProfileFormComponent } from './components/profile-form/profile-form.com
     AppComponent,
     LoginComponent,
     LandingComponent,
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> AimeeBranch
     InsideComponent,
     LoginComponent,
     LandingComponent,

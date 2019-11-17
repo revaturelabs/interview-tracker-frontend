@@ -9,7 +9,7 @@
   </div>
     <span class="menu-spacer"></span>
     <div>
-      <a mat-button [routerLink]="'/accounts'"> Accounts </a>
+      <a mat-button [routerLink]="'/profiles'"> Profile </a>
       <a mat-button [routerLink]="'/jobs'"> Jobs </a>
       <a mat-button [routerLink]="'/interview'"> Interviews </a>
       
@@ -25,7 +25,11 @@
     <mat-nav-list>
 
       <a mat-list-item [routerLink]="'/create-job'" (click)="sidenav.toggle()"> Create Job Offering </a>
+<<<<<<< HEAD
       <a mat-list-item [routerLink]="'/create-account'" (click)="sidenav.toggle()"> Create Profile </a>
+=======
+      <a mat-list-item [routerLink]="'/create-profile'" (click)="sidenav.toggle()"> Create Profile </a>
+>>>>>>> AimeeBranch
       <a mat-list-item [routerLink]="'/create-interview'" (click)="sidenav.toggle()"> Create Interview </a>
 <!--    <a mat-list-item (click)="sidenav.toggle()" mat-list-item>Close</a> -->
      
