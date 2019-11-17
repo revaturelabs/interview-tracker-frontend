@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class LoginComponent implements OnInit {
 
 
   submission(form: NgForm) {
-     this.router.navigate(['hub'])
+      
     this.http.post("localhost:4200", {
       username: form.value.username,
       password: form.value.password,
@@ -34,13 +35,14 @@ export class LoginComponent implements OnInit {
       console.log(r);
       sessionStorage.setItem("user", JSON.stringify(r));
       if(r!=null){
-        this.onLogInButtonClick();
+       this.onLogInButtonClick();
       }
     })
     .catch(e => console.log(e));
   }
   onLogInButtonClick(): void{
-
+  this.router.navigateByUrl('/hub')
+  
   }
 
 }
