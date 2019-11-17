@@ -15,6 +15,7 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { JobFormComponent } from './components/job-form/job-form.component';
 import { SkillsFormComponent } from './components/skills-form/skills-form.component';
 import { ProfileFormComponent } from './components/profile-form/profile-form.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 
@@ -29,7 +30,8 @@ import { ProfileFormComponent } from './components/profile-form/profile-form.com
     LogoutComponent,
     JobFormComponent,
     SkillsFormComponent,
-    ProfileFormComponent
+    ProfileFormComponent,
+    NavbarComponent
   ],
   
   imports: [
