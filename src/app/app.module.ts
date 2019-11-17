@@ -25,7 +25,7 @@ import { ProfileFormComponent } from './components/profile-form/profile-form.com
     AppComponent,
     LoginComponent,
     LandingComponent,
-    HomeComponent,
+
     InsideComponent,
     LoginComponent,
     LandingComponent,

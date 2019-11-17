@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'hub', component: ProjectHubComponent },
   { path: 'create-job', component: JobFormComponent },
-  { path: 'create-account', component: ProfileFormComponent },
+  { path: 'create-profile', component: ProfileFormComponent },
   { path: 'create-interview', component: InterviewFormComponent },
   { path: '**', component: LandingComponent }
   
