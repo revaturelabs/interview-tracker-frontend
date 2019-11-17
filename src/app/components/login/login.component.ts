@@ -13,16 +13,14 @@ export class LoginComponent implements OnInit {
 
   loginUserData = {}
 
-
   constructor(private http:HttpClient, private activatedRoute: ActivatedRoute,
     private router: Router, private nav: NavbarservService) { }
+
   ngOnInit() {
     this.nav.hide();
   }
 
   submission(form: NgForm) {
-    
-
     this.http.post("localhost:4200", {
       username: form.value.username,
       password: form.value.password,
@@ -40,5 +38,4 @@ export class LoginComponent implements OnInit {
   onLogInButtonClick(): void{
     this.router.navigate(['hub'])
   }
-
 }
