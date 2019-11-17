@@ -1,0 +1,36 @@
+<!-- <form class="skill-form">
+    <mat-form-field class="example-full-width">
+      <input skillInput placeholder="skill input field">
+    </mat-form-field> -->
+
+    <mat-card-content>
+        <mat-form-field class="full-width" demo-secondary-text [style.fontSize]="fontSize.value">
+          <mat-label>Autosize textarea</mat-label>
+          <textarea
+            type="text"
+            matInput placeholder="Enter Skills"
+            name="content"
+            ngModel
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="20"
+          ></textarea>
+        </mat-form-field>
+        <br />
+        <mat-card-actions>
+          <button
+            mat-raised-button
+            color="primary"
+            input
+            type="submit"
+            value="submit"
+          >
+            SUBMIT SKILL(S)
+          </button>
+        </mat-card-actions>
+      </mat-card-content>
+
+
+
+

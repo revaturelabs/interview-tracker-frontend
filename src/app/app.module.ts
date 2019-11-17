@@ -12,6 +12,9 @@ import { AppMaterialModule } from './app-material.module';
 import { HomeComponent } from './home/home.component';
 import { ProjectHubComponent } from './project-hub/project-hub.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { JobFormComponent } from './components/job-form/job-form.component';
+import { SkillsFormComponent } from './components/skills-form/skills-form.component';
+import { ProfileFormComponent } from './components/profile-form/profile-form.component';
 
 
 
@@ -23,7 +26,10 @@ import { LogoutComponent } from './components/logout/logout.component';
     HomeComponent,
     InsideComponent,
     ProjectHubComponent,
-    LogoutComponent
+    LogoutComponent,
+    JobFormComponent,
+    SkillsFormComponent,
+    ProfileFormComponent
   ],
   
   imports: [
