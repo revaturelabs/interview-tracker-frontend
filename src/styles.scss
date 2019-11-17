@@ -23,6 +23,18 @@
   padding: 0;
 }
 
+html, body {
+  margin:0;
+  padding:0;
+  }
+
+ .lightColor {
+color: #f3a55d;
+}
+.strongColor {
+ color: #f26925;
+}
+
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import "~@angular/material/theming";
@@ -56,12 +68,6 @@ $Interview-Angular-theme: mat-light-theme(
 
 /* You can add global styles to this file, and also import other style files */
 
-html,
-body {
-  margin: 0;
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
+html, body { margin: 0; height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
