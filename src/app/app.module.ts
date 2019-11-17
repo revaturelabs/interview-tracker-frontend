@@ -17,7 +17,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { InterviewFormComponent } from './components/interview-form/interview-form.component';
 import { JobFormComponent } from './components/job-form/job-form.component';
 import { ProfileFormComponent } from './components/profile-form/profile-form.component';
-
+import { NavbarservService } from './services/navbarserv.service';
 
 
 @NgModule({
@@ -25,7 +25,6 @@ import { ProfileFormComponent } from './components/profile-form/profile-form.com
     AppComponent,
     LoginComponent,
     LandingComponent,
-    
     InsideComponent,
     LoginComponent,
     LandingComponent,
@@ -53,7 +52,8 @@ import { ProfileFormComponent } from './components/profile-form/profile-form.com
     AppMaterialModule
    
   ],
-  providers: [],
+  providers: [AuthService,
+              NavbarservService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

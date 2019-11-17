@@ -1,5 +1,6 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
+import { NavbarservService } from '../../services/navbarserv.service';
 
 
 @Component({
@@ -11,9 +12,10 @@ import { MatSidenav } from '@angular/material/sidenav';
 
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public nav: NavbarservService) { }
 
   ngOnInit() {
+    this.nav.show();
   }
 
   @ViewChild('sidenav', {static: false}) navbar: MatSidenav;
