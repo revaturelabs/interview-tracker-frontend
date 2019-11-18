@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
+import { NavbarservService } from '../../services/navbarserv.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -34,27 +35,11 @@ export class JobFormComponent implements OnInit {
     { skill_id: 21, skill_title: 'System Admin'}
   ];
 
-
-
-
-  constructor(private http: HttpClient, private router: Router, private formBuilder: FormBuilder) {
-    this.form = this.formBuilder.group({
-      skills: new FormArray ([])
-    });
-
-  //   this.addCheckboxes();
-  //  }
-
-  //  private addCheckboxes() {
-  //    this.skillData.forEach(o, i) => {
-  //      const control = new FormControl(i===0);
-  //      (this.form.controls.skills as FormArray).push(control);
-  //    });
-   }
+  constructor( public nav: NavbarservService, private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
+    this.nav.show();
   }
-
   submission(form: NgForm) {
     this.http.post('http://localhost:8765/interview-service/jobs/saveJob', {
       title: form.value.title,
@@ -67,7 +52,7 @@ export class JobFormComponent implements OnInit {
     .catch(e => console.log(e));
   }
   onLogInButtonClick(): void {
-this.router.navigate(['hub']);
+    this.router.navigate(['hub']);
   }
 
 }

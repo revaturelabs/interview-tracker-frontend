@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  login_url: 'http://localhost:8765/user-service/users/login'
+  login_url : 'http://localhost:8765/user-service/users/login'
 };
 
 /*
