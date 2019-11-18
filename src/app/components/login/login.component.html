@@ -1,0 +1,27 @@
+
+<div id="topdiv"><div class="login-div" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="login-card">
+        <form action='POST' #serv=ngForm value='*.login' (ngSubmit)="submission(serv)">           
+       
+
+
+        <mat-card-header class="login-card">
+          <mat-card-title>Log in</mat-card-title>
+        </mat-card-header>
+        <mat-card-content  >
+            <mat-form-field style="width: 300px; margin-top: 10px">
+                <input type="text" name="username" matInput placeholder="Username" ngModel value="username"/>
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 300px; margin-top: 10px">
+                <input type="password" name="password" matInput placeholder="Password" ngModel value="password"/>
+            </mat-form-field>
+        </mat-card-content>
+        <button input type="submit" style="background-color: #f3a55d; color:black" value="Login" mat-raised-button color="primary" class="btn-block">Log in</button>
+        </form>
+    </mat-card>
+</div>
+
+
+</div>
+

@@ -1,0 +1,13 @@
+<form class="job-form" action="POST" #jobform=ngForm (ngSubmit)="submission(jobform)">
+        <mat-form-field>
+          <input name="title" value="title" matInput placeholder="Job Title" ngModel>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <textarea name="description" value="description" matInput placeholder="Job Description" ngModel></textarea>
+        </mat-form-field>
+        <h3>Skills</h3>
+                    <!-- <mat-checkbox>Skill 1</mat-checkbox> -->
+                <br>
+                <button input type="submit" mat-raised-button>Submit</button>      
+      </form>
