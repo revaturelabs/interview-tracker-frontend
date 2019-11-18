@@ -10,9 +10,9 @@ padding: 10px;
     position: relative;
     height: 50%;
     width: 50%;
-    background-color: rgb(255, 153, 0);
+    background-color: rgb(255, 150, 13);
     box-shadow: 0 3px 5px -1px rgb(32, 18, 5), 0 6px 10px 0 rgba(119, 90, 8, 0.87),
-      0 1px 18px 0 rgba(245, 124, 11, 0.671);
+      0 1px 18px 0 #f26925;
     padding: 40px 70px;
     
     top: 80;
@@ -23,7 +23,10 @@ padding: 10px;
   }
 
   #topdiv{
-      margin-left: 275px;
+
+      margin-left: 26%;
+  
+
       margin-top: 100px;
       position: relative;
   }
@@ -31,6 +34,7 @@ padding: 10px;
   .login-card{
     padding: 8px;
     text-align: center;
+
     background-color: #f26924;
   }
 

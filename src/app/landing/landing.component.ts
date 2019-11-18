@@ -16,5 +16,4 @@ export class LandingComponent implements OnInit {
     this.location.back();
 }, 3500)
   }
-; 
 }
