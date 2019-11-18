@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 export class AuthService {
   _authService: any;
   logout() {
-    this._authService.logout();;
+    this._authService.logout();
   }
 
   private _loginUrl = "http://localhost:4200/login";
