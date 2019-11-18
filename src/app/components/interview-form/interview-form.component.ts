@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavbarservService } from '../../services/navbarserv.service';
 
 @Component({
   selector: 'app-interview-form',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InterviewFormComponent implements OnInit {
 
-  constructor() { }
+  constructor( public nav: NavbarservService) { }
 
   ngOnInit() {
+    this.nav.show();
   }
 
 }
