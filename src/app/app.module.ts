@@ -20,6 +20,7 @@ import { ProfileFormComponent } from './components/profile-form/profile-form.com
 import { NavbarservService } from './services/navbarserv.service';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
