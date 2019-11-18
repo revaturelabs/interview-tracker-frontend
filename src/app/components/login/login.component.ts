@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { NavbarservService } from '../../services/navbarserv.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,8 @@ export class LoginComponent implements OnInit {
   }
 
   submission(form: NgForm) {
-    this.http.post("localhost:4200", {
+
+    this.http.post(environment.login_url, {
       username: form.value.username,
       password: form.value.password,
     })
