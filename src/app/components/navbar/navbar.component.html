@@ -3,8 +3,7 @@
     <div>
       <button mat-button (click)="sidenav.toggle()">
         Create New
-     <!-- <button mat-icon-button>
-    <mat-icon (click)="sidenav.toggle()">Create New</mat-icon> -->
+    
     </button>
   </div>
     <span class="menu-spacer"></span>
@@ -27,7 +26,6 @@
       <a mat-list-item [routerLink]="'/create-job'" (click)="sidenav.toggle()"> Create Job </a>
       <a mat-list-item [routerLink]="'/create-account'" (click)="sidenav.toggle()"> Create Profile </a>
       <a mat-list-item [routerLink]="'/create-interview'" (click)="sidenav.toggle()"> Create Interview </a>
-<!--    <a mat-list-item (click)="sidenav.toggle()" mat-list-item>Close</a> -->
      
     </mat-nav-list>
   </mat-sidenav>
