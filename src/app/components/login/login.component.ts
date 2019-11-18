@@ -1,8 +1,10 @@
+
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-
+import { NavbarservService } from '../../services/navbarserv.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -14,14 +16,15 @@ export class LoginComponent implements OnInit {
   loginUserData = {}
 
   constructor(private http:HttpClient, private activatedRoute: ActivatedRoute,
-    private router: Router) { }
+    private router: Router, private nav: NavbarservService) { }
 
   ngOnInit() {
+    this.nav.hide();
   }
 
   submission(form: NgForm) {
-    this.router.navigate(['hub']);
-    this.http.post("localhost:4200", {
+    
+    this.http.post(environment.login_url, {
       username: form.value.username,
       password: form.value.password,
     })
@@ -35,6 +38,12 @@ export class LoginComponent implements OnInit {
     })
     .catch(e => console.log(e));
   }
-  onLogInButtonClick(): void{}
-
+  onLogInButtonClick(): void{
+    this.router.navigate(['hub'])
+  }
 }
+
+
+
+
+
