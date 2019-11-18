@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-<<<<<<< HEAD
-
-=======
->>>>>>> UserFeature
 @Component({
   selector: 'app-project-hub',
   templateUrl: './project-hub.component.html',

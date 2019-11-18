@@ -1,0 +1,23 @@
+.emptyspace {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgb(231, 145, 33);
+    margin-left: auto;
+    
+      // This fills the remaining space, by using flexbox. 
+      // Every toolbar row uses a flexbox row layout.
+      
+    
+  }
+
+  .bgcolor{
+    background: #f26925;
+  }
+
+  .bgcolor2{
+    background: #f3a55d;
+  }
+

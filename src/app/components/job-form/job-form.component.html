@@ -1,33 +1,14 @@
-<form class="job-form">
+<form class="job-form" action="POST" #jobform=ngForm (ngSubmit)="submission(jobform)">
         <mat-form-field>
-          <input matInput placeholder="Job Title">
+          <input name="title" matInput placeholder="Job Title" ngModel value="title">
         </mat-form-field>
-      
+        <br>
         <mat-form-field>
-          <textarea matInput placeholder="Job Description"></textarea>
+          <textarea name="description" matInput placeholder="Job Description" ngModel value="description"></textarea>
         </mat-form-field>
         <h3>Skills</h3>
-                <span class="front-end">
-                    <p>Front-end</p>
-                    <mat-checkbox>Skill 1</mat-checkbox>
-                    <mat-checkbox>Skill 2</mat-checkbox>
-                    <mat-checkbox>Skill 3</mat-checkbox>
-                    <mat-checkbox>Skill 4</mat-checkbox> 
-                </span>
-                <span>
-                    <p>Middle-end</p>
-                    <mat-checkbox>Skill 1</mat-checkbox>
-                    <mat-checkbox>Skill 2</mat-checkbox>
-                    <mat-checkbox>Skill 3</mat-checkbox>
-                    <mat-checkbox>Skill 4</mat-checkbox>
-                </span>
-                <span>
-                    <p>Back-end</p>
-                    <mat-checkbox>Skill 1</mat-checkbox>
-                    <mat-checkbox>Skill 2</mat-checkbox>
-                    <mat-checkbox>Skill 3</mat-checkbox>
-                    <mat-checkbox>Skill 4</mat-checkbox>
-                </span> 
                 <br>
-                <button mat-raised-button>Submit</button>      
+                    <!-- <mat-checkbox [formControlName]="i"></mat-checkbox> -->
+                <br>
+                <button input type="submit" mat-raised-button>Submit</button>      
       </form>

@@ -1,6 +1,6 @@
 <form class="interview-form">
         <mat-form-field>
-          <input type="text" placeholder="Employee" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+          <input type="text" placeholder="Interviewee" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
           <mat-autocomplete #auto="matAutocomplete">
             <mat-option *ngFor="let option of options" [value]="option">
               {{option}}
