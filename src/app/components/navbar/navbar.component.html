@@ -8,7 +8,7 @@
   </div>
     <span class="menu-spacer"></span>
     <div>
-      <a mat-button [routerLink]="'/accounts'"> Accounts </a>
+      <a mat-button [routerLink]="'/accounts'"> Profiles </a>
       <a mat-button [routerLink]="'/jobs'"> Jobs </a>
       <a mat-button [routerLink]="'/interview'"> Interviews </a>
       
@@ -23,8 +23,8 @@
   <mat-sidenav #sidenav class="bgcolor2">
     <mat-nav-list>
 
-      <a mat-list-item [routerLink]="'/create-job'" (click)="sidenav.toggle()"> Create Job Offering </a>
-      <a mat-list-item [routerLink]="'/create-account'" (click)="sidenav.toggle()"> Create Account </a>
+      <a mat-list-item [routerLink]="'/create-job'" (click)="sidenav.toggle()"> Create Job </a>
+      <a mat-list-item [routerLink]="'/create-account'" (click)="sidenav.toggle()"> Create Profile </a>
       <a mat-list-item [routerLink]="'/create-interview'" (click)="sidenav.toggle()"> Create Interview </a>
      
     </mat-nav-list>

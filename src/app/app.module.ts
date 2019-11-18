@@ -26,7 +26,6 @@ import { NavbarservService } from './services/navbarserv.service';
     AppComponent,
     LoginComponent,
     LandingComponent,
-    
     InsideComponent,
     LoginComponent,
     LandingComponent,
@@ -55,7 +54,7 @@ import { NavbarservService } from './services/navbarserv.service';
    
   ],
   providers: [AuthService,
-    NavbarservService],
+              NavbarservService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
