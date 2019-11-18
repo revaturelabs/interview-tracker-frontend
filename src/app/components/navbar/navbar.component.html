@@ -1,5 +1,7 @@
 <mat-toolbar class="bgcolor">
   <mat-toolbar-row>
+
+    
     <div>
       <button mat-button (click)="sidenav.toggle()">
         Create New
@@ -8,11 +10,17 @@
     </button>
   </div>
     <span class="menu-spacer"></span>
+
+
+
+
+
     <div>
       <a mat-button [routerLink]="'/profiles'"> Profile </a>
       <a mat-button [routerLink]="'/jobs'"> Jobs </a>
       <a mat-button [routerLink]="'/interview'"> Interviews </a>
-      
+    </div>
+    <div>
       <button mat-button class="emptyspace" [routerLink]="'/login'">Logout</button>
     
     </div>

@@ -1,13 +1,14 @@
-<div><div class="center">
-        <mat-card class="login-card">
-
+<!--<div class="center"><div>
+        <mat-card class="login-div">
+            <mat-card class="login-card">
+            -->
+<div class="post-div" fxLayout="row" fxLayoutAlign="center center">
+        <mat-card class="orangebox"><mat-card>
             <form action='POST' value='*.login' #serv=ngForm (ngSubmit)="submission(serv)">
-           
-
-            <mat-card-header class="login-card">
+            <mat-card-header class="logn-card">
               <mat-card-title>Log in</mat-card-title>
             </mat-card-header>
-            <mat-card-content  >
+            <mat-card-content>
                 <mat-form-field >
                     <input type="text" name="username" matInput placeholder="Username" ngModel value="username"/>
                 </mat-form-field>
@@ -19,6 +20,10 @@
             <button input type="submit" value="Login" mat-raised-button color="primary" class="btn-block">Log in</button>
             </form>
         </mat-card>
+    </mat-card>
     </div>
-
+    <!--    </mat-card>
+        </mat-card>
+    </div>
 </div>
+-->
