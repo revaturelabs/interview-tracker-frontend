@@ -1,12 +1,11 @@
-<mat-toolbar class="bgcolor">
+<mat-toolbar class="bgcolor" *ngIf="nav.visible">
   <mat-toolbar-row>
 
     
     <div>
       <button mat-button (click)="sidenav.toggle()">
         Create New
-     <!-- <button mat-icon-button>
-    <mat-icon (click)="sidenav.toggle()">Create New</mat-icon> -->
+    
     </button>
   </div>
     <span class="menu-spacer"></span>
@@ -32,10 +31,9 @@
   <mat-sidenav #sidenav class="bgcolor2">
     <mat-nav-list>
 
-      <a mat-list-item [routerLink]="'/create-job'" (click)="sidenav.toggle()"> Create Job Offering </a>
+      <a mat-list-item [routerLink]="'/create-job'" (click)="sidenav.toggle()"> Create Job </a>
       <a mat-list-item [routerLink]="'/create-profile'" (click)="sidenav.toggle()"> Create Profile </a>
       <a mat-list-item [routerLink]="'/create-interview'" (click)="sidenav.toggle()"> Create Interview </a>
-<!--    <a mat-list-item (click)="sidenav.toggle()" mat-list-item>Close</a> -->
      
     </mat-nav-list>
   </mat-sidenav>

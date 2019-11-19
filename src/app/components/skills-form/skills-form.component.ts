@@ -1,7 +1,7 @@
 import { Component, ViewChild, OnInit, NgZone } from '@angular/core';
 import { CdkTextareaAutosize } from "@angular/cdk/text-field";
 import { take } from "rxjs/operators";
-
+import { NavbarservService } from '../../services/navbarserv.service';
 
 
 
@@ -14,12 +14,13 @@ export class SkillsFormComponent implements OnInit {
 
   constructor( 
     private _ngZone: NgZone,
-    
+    public nav: NavbarservService
   ) {
 
   }
 
   ngOnInit() {
+    this.nav.show();
   }
   @ViewChild("autosize", { static: false }) autosize: CdkTextareaAutosize; 
 

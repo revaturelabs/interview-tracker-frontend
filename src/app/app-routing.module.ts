@@ -9,7 +9,6 @@ import { InterviewFormComponent } from './components/interview-form/interview-fo
 import { JobFormComponent } from './components/job-form/job-form.component';
 import { ProfileFormComponent } from './components/profile-form/profile-form.component';
 
-
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'login', component: LoginComponent },
@@ -21,7 +20,6 @@ const routes: Routes = [
   
   
  // {path: 'logout', component: LogoutComponent}
-
 ];
 
 @NgModule({
