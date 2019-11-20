@@ -4,6 +4,9 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { MatCardModule, MatFormFieldModule, MatToolbarModule, MatListModule, MatSidenavModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -11,11 +14,18 @@ describe('AppComponent', () => {
       imports: [
         RouterTestingModule,
         FormsModule,
-        HttpClientModule
+        HttpClientModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatToolbarModule,
+        MatListModule,
+        MatSidenavModule,
+        BrowserAnimationsModule
       ],
       declarations: [
         AppComponent,
-        LoginComponent
+        LoginComponent,
+        NavbarComponent
       ],
     }).compileComponents();
   }));
