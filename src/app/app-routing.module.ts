@@ -9,6 +9,7 @@ import { InterviewFormComponent } from './components/interview-form/interview-fo
 import { JobFormComponent } from './components/job-form/job-form.component';
 import { ProfileFormComponent } from './components/profile-form/profile-form.component';
 
+
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'login', component: LoginComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'create-job', component: JobFormComponent },
   { path: 'create-account', component: ProfileFormComponent },
   { path: 'create-interview', component: InterviewFormComponent },
+  
   { path: '**', component: LandingComponent }
   
   
