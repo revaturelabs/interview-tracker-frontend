@@ -7,6 +7,9 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { InterviewFormComponent } from './components/interview-form/interview-form.component';
 import { JobFormComponent } from './components/job-form/job-form.component';
 import { ProfileFormComponent } from './components/profile-form/profile-form.component';
+import { ViewProfilesComponent } from './view-profiles/view-profiles.component';
+import { ViewJobsComponent } from './view-jobs/view-jobs.component';
+import { ViewInterviewsComponent } from './view-interviews/view-interviews.component';
 
 
 const routes: Routes = [
@@ -21,9 +24,10 @@ const routes: Routes = [
   { path: 'logout' , component: LogoutComponent },
   { path: 'create-profile', component: ProfileFormComponent },
   { path: 'create-interview', component: InterviewFormComponent },
+  { path: 'view-profiles',  component: ViewProfilesComponent},
+  { path: 'view-jobs', component: ViewJobsComponent},
+  { path: 'view-interviews', component: ViewInterviewsComponent },
   { path: '**', component: LandingComponent }
-  
-  
  
 ];
 

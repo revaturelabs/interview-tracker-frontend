@@ -18,6 +18,9 @@ import { InterviewFormComponent } from './components/interview-form/interview-fo
 import { JobFormComponent } from './components/job-form/job-form.component';
 import { ProfileFormComponent } from './components/profile-form/profile-form.component';
 import { NavbarservService } from './services/navbarserv.service';
+import { ViewProfilesComponent } from './view-profiles/view-profiles.component';
+import { ViewInterviewsComponent } from './view-interviews/view-interviews.component';
+import { ViewJobsComponent } from './view-jobs/view-jobs.component';
 
 
 
@@ -36,7 +39,10 @@ import { NavbarservService } from './services/navbarserv.service';
     JobFormComponent,
     ProfileFormComponent,
     SkillsFormComponent, 
-    LogoutComponent
+    LogoutComponent,
+     ViewProfilesComponent, 
+     ViewInterviewsComponent, 
+     ViewJobsComponent
   ],
   
   imports: [

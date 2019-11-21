@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
 
   submission(form: NgForm) {
 
-    
+    this.router.navigateByUrl('/hub')
     this.http.post(environment.login_url, {
 
       username: form.value.username,
@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
     .catch(e => console.log(e));
   }
   onLogInButtonClick(): void{
-  this.router.navigateByUrl('/hub')
+  
   
   }
 }
