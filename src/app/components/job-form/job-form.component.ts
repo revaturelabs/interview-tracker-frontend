@@ -25,20 +25,20 @@ export class JobFormComponent implements OnInit {
       this.skill = r;
     });
   }
-  // submission(form: NgForm) {
-  //   this.http.post(environment.main_url + 'jobs/saveJob', {
-  //     title: form.value.title,
-  //     description: form.value.description,
-  //     skills: [],
-  //   })
-  //   .toPromise()
-  //   .then((r: {title: string; description: string; skills: any}) => {
-  //     console.log(r);
-  //   })
-  //   .catch(e => console.log(e));
-  // }
-  // onLogInButtonClick(): void {
-  //   this.router.navigate(['hub']);
-  // }
+  submission(form: NgForm) {
+    this.http.post(environment.main_url + 'jobs/saveJob', {
+      title: form.value.title,
+      description: form.value.description,
+      skills: [],
+    })
+    .toPromise()
+    .then((r: {title: string; description: string; skills: any}) => {
+      console.log(r);
+    })
+    .catch(e => console.log(e));
+  }
+  onLogInButtonClick(): void {
+    this.router.navigate(['hub']);
+  }
 
 }
