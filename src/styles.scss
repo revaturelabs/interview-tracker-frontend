@@ -119,19 +119,17 @@ $revature-orange-light:#f3a55d;
     margin-top: 0;
 }
 .login-div {
-  align-items: center;
-  position: relative;
-  height: 50%;
-  width: 50%;
+  
+
   background-color: rgba(255, 153, 0, 0.74);
   box-shadow: 0 3px 5px -1px rgb(32, 18, 5),
     0 6px 10px 0 rgba(119, 89, 8, 0.603), 0 1px 18px 0 rgba(245, 124, 11, 0.411);
-  padding: 40px 70px;
+  
 
-  top: 80;
+  
   opacity: 1;
-  float: center;
-  padding: 60px 50px 40px 50px;
+  
+  
 }
 
 .login-card {
@@ -139,7 +137,7 @@ $revature-orange-light:#f3a55d;
   text-align: center;
   background-color: rgba(255, 166, 0, 0.89);
   margin: 0;
-
+  align-self: center;
   padding: 0;
 }
 
@@ -158,6 +156,16 @@ $revature-orange-light:#f3a55d;
 .strongColor {
  color: #f26925;
 }
+
+.center {
+  display: flex;
+  background-color: #ff1124;
+  justify-content: center;
+  height: 100vh;
+}
+
+
+
 
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming

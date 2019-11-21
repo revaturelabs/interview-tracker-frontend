@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { NavbarservService } from '../../services/navbarserv.service';
 
+
 import { environment } from 'src/environments/environment';
 
 
@@ -17,8 +18,7 @@ export class LoginComponent implements OnInit {
 
   loginUserData = {};
 
-  constructor(private http:HttpClient, private activatedRoute: ActivatedRoute,
-    private router: Router, private nav: NavbarservService) { }
+  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute, private router: Router, private nav: NavbarservService) { }
 
   ngOnInit() {
     this.nav.hide();
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
 
   submission(form: NgForm) {
 
-    
+    this.router.navigateByUrl('/hub');
     this.http.post(environment.login_url, {
 
       username: form.value.username,
@@ -37,13 +37,12 @@ export class LoginComponent implements OnInit {
       console.log(r);
       sessionStorage.setItem('user', JSON.stringify(r));
       if (r != null) {
-        this.onLogInButtonClick();
+       this.onLogInButtonClick();
       }
     })
     .catch(e => console.log(e));
   }
-  onLogInButtonClick(): void{
-    this.router.navigate(['hub'])
+  onLogInButtonClick(): void {
   }
 }
 
