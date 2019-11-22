@@ -1,44 +1,44 @@
+<<<<<<< HEAD
+<div class="post-div" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="orangebox"><mat-card>
+
+=======
 <div id="jobfromwrapper">
     <div id="jobform">
+>>>>>>> 79bc987974f837a6ca04c2c9a803763e150d6199
 <form class="job-form">
+<<<<<<< HEAD
 <div id="rightwing"><div id="rightwingtip"></div></div>
 <div id="leftwing"><div id="leftwingtip"></div></div>
 
+=======
+ 
+>>>>>>> de2d48070cd4d440222a1afc2d7c65d5f4e20936
         <mat-form-field>
-          <input matInput placeholder="First Name">
+          <input value="firstName" name="firstName" matInput placeholder="First Name" ngModel>
         </mat-form-field>
         <br>
         <mat-form-field>
-          <textarea matInput placeholder="Last Name"></textarea>
+          <input value="lastName" name="lastName" matInput placeholder="Last Name" ngModel>
         </mat-form-field>
+<mat-card class="skills-field">  
 <h4>Skills:</h4>
-                <span class="front-end">
-                <p>Front-end</p>
-                <mat-checkbox>Skill 1</mat-checkbox>
-                <mat-checkbox>Skill 2</mat-checkbox>
-                <mat-checkbox>Skill 3</mat-checkbox>
-                <mat-checkbox>Skill 4</mat-checkbox> 
-                </span>
-                <span>
-                <p>Middle-end</p>
-                <mat-checkbox>Skill 1</mat-checkbox>
-                <mat-checkbox>Skill 2</mat-checkbox>
-                <mat-checkbox>Skill 3</mat-checkbox>
-                <mat-checkbox>Skill 4</mat-checkbox>
-                </span>
-                <span>
-                <p>Back-end</p>
-                <mat-checkbox>Skill 1</mat-checkbox>
-                <mat-checkbox>Skill 2</mat-checkbox>
-                <mat-checkbox>Skill 3</mat-checkbox>
-                <mat-checkbox>Skill 4</mat-checkbox>
-                </span>
-        <h3>Description</h3>
+<mat-card *ngFor="let s of skill">
+  <mat-checkbox>{{s.title}}</mat-checkbox>
+</mat-card>
+</mat-card>
                 <mat-form-field>
-                                <textarea matInput placeholder="Description"></textarea>
+                                <textarea value="description" name="description" matInput placeholder="Description" ngModel></textarea>
                 </mat-form-field>
                 <br>
                 <button mat-raised-button>Submit</button>
        
+<<<<<<< HEAD
+      </form>   
+</mat-card>
+</mat-card>
+</div>
+=======
       </form>      
 </div></div>
+>>>>>>> 79bc987974f837a6ca04c2c9a803763e150d6199

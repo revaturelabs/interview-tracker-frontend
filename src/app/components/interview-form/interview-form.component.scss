@@ -1,21 +1,6 @@
-#jobform{
-    background-color: white;
- padding: 5px;
- 
- }
- 
- #jobfromwrapper{
- background-color: #ff960d;
- margin-top: 20vh;
-     padding: 20px;
- margin-left: 40%;
- margin-top: 20vh;
- width: 20%;
- border-radius: 10px;
- text-align: center;
- 
- }
+$revature-orange-light:#f3a55d; 
 
+<<<<<<< HEAD
  #jobsbutton{
     margin-bottom: 40px;
 }
@@ -69,3 +54,27 @@
     margin-top: -160px;
     margin-left: 100px;
 }
+=======
+body{
+    background: white;
+}
+
+.orangebox{
+    color: black;
+    max-height: 500px;
+    position:relative;
+    top:20px;opacity:1;float:center;padding:50px;
+    width:100%;background: $revature-orange-light;
+    border-radius:10px;transform:scale(1);
+    -webkit-transform:scale(1);-ms-transform:scale(1);z-index:5;max-width:600px;
+    overflow: hidden; display: flex; flex-direction: column;overflow-y: auto;
+    box-shadow: 0 3px 5px -1px rgb(32, 18, 5), 0 6px 10px 0 rgba(119, 89, 8, 0.603), 0 1px 18px 0 rgba(245, 124, 11, 0.411);
+}
+.post-div{
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+  }
+>>>>>>> de2d48070cd4d440222a1afc2d7c65d5f4e20936
