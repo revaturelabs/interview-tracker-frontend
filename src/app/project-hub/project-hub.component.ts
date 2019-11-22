@@ -10,7 +10,6 @@ export class ProjectHubComponent implements OnInit {
   public show:boolean = false;
   public buttonName:any = 'Show';
 
-
   constructor( public nav: NavbarservService ) { }
 
   ngOnInit() {
