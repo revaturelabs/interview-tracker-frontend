@@ -1,24 +1,18 @@
-<<<<<<< HEAD
-<div class="post-div" fxLayout="row" fxLayoutAlign="center center">
-  <mat-card class="orangebox"><mat-card>
-
-=======
 <div id="jobfromwrapper">
     <div id="jobform">
->>>>>>> 79bc987974f837a6ca04c2c9a803763e150d6199
-<form class="job-form">
+<form [formGroup]="profile-form" class="profile-form" #profileform="ngForm" (ngSubmit)="submission(profileform)">
  
         <mat-form-field>
-          <input value="firstName" name="firstName" matInput placeholder="First Name" ngModel>
+          <input name="firstName" matInput placeholder="First Name" ngModel>
         </mat-form-field>
         <br>
         <mat-form-field>
-          <input value="lastName" name="lastName" matInput placeholder="Last Name" ngModel>
+          <input name="lastName" matInput placeholder="Last Name" ngModel>
         </mat-form-field>
 <mat-card class="skills-field">  
 <h4>Skills:</h4>
 <mat-card *ngFor="let s of skill">
-  <mat-checkbox [name]="s.id" ngModel>{{s.title}}</mat-checkbox>
+  <mat-checkbox formControlName="{{s.title}}" ngModel>{{s.title}}</mat-checkbox>
 </mat-card>
 </mat-card>
                 <mat-form-field>
@@ -27,12 +21,5 @@
                 <br>
                 <button input type="submit" mat-raised-button>Submit</button>
        
-<<<<<<< HEAD
-      </form>   
-</mat-card>
-</mat-card>
-</div>
-=======
       </form>      
 </div></div>
->>>>>>> 79bc987974f837a6ca04c2c9a803763e150d6199

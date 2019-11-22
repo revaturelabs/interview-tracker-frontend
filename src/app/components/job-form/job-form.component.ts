@@ -21,7 +21,7 @@ export class JobFormComponent implements OnInit {
   ngOnInit() {
     this.nav.show();
 
-    this.http.get(environment.main_url + 'skills/allskills').toPromise().then(r => {
+    this.http.get(environment.main_url + 'skills/allSkills').toPromise().then(r => {
       this.skill = r;
     });
   }

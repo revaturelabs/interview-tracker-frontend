@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavbarservService } from '../../services/navbarserv.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup, FormArray} from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,8 +11,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./profile-form.component.scss']
 })
 export class ProfileFormComponent implements OnInit {
-  skillArray: any;
+  skillArray = new FormArray({
+});
   skill: any;
+
+
 
   constructor( public nav: NavbarservService, private http: HttpClient, private router: Router) { }
 
@@ -33,7 +36,9 @@ export class ProfileFormComponent implements OnInit {
  }
 
   submission(form: NgForm) {
-    console.log(form.value);
+    console.log(form.value.firstName);
+    console.log(form.value.lastName);
+    console.log(form.value.skills);
     /*
     this.http.post(environment.main_url + 'profile', {
       firstName: form.value.firstName,
