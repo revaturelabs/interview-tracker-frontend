@@ -7,7 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LandingComponent } from './landing/landing.component';
 import { InsideComponent } from './inside/inside.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppMaterialModule } from './app-material.module';
 import { ProjectHubComponent } from './project-hub/project-hub.component';
 import { SkillsFormComponent } from './components/skills-form/skills-form.component';
@@ -18,6 +18,9 @@ import { InterviewFormComponent } from './components/interview-form/interview-fo
 import { JobFormComponent } from './components/job-form/job-form.component';
 import { ProfileFormComponent } from './components/profile-form/profile-form.component';
 import { NavbarservService } from './services/navbarserv.service';
+
+import { ErrorInterceptor } from './error-interceptor';
+import { JwtInterceptor } from './jwt-interceptor';
 
 
 
@@ -53,8 +56,11 @@ import { NavbarservService } from './services/navbarserv.service';
     AppMaterialModule
    
   ],
-  providers: [AuthService,
-              NavbarservService],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    AuthService,
+    NavbarservService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
