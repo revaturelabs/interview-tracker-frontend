@@ -13,14 +13,14 @@
 <mat-card class="skills-field">  
 <h4>Skills:</h4>
 <mat-card *ngFor="let s of skill">
-  <mat-checkbox>{{s.title}}</mat-checkbox>
+  <mat-checkbox [name]="s.id" ngModel>{{s.title}}</mat-checkbox>
 </mat-card>
 </mat-card>
                 <mat-form-field>
                                 <textarea value="description" name="description" matInput placeholder="Description" ngModel></textarea>
                 </mat-form-field>
                 <br>
-                <button mat-raised-button>Submit</button>
+                <button input type="submit" mat-raised-button>Submit</button>
        
       </form>   
 </mat-card>

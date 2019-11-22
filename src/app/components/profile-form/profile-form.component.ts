@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./profile-form.component.scss']
 })
 export class ProfileFormComponent implements OnInit {
+  skillArray: any;
   skill: any;
 
   constructor( public nav: NavbarservService, private http: HttpClient, private router: Router) { }
@@ -18,21 +19,33 @@ export class ProfileFormComponent implements OnInit {
   ngOnInit() {
     this.nav.show();
 
-    this.http.get(environment.main_url + 'skills/allskills').toPromise().then(r => {
+    this.http.get(environment.main_url + 'skills/allSkills').toPromise().then(r => {
       this.skill = r;
     });
   }
 
+ checkedskills() {
+    this.skill.foreach(function(s) {
+      if (s.title) {
+        this.skillArray.add({id: s.id});
+      }
+    });
+ }
+
   submission(form: NgForm) {
+    console.log(form.value);
+    /*
     this.http.post(environment.main_url + 'profile', {
       firstName: form.value.firstName,
       lastName: form.value.lastName,
+      skills: this.skillArray,
       description: form.value.description
     })
-    .toPromise().then((r: {firstName: string; lastName: string; description: string;}) => {
+    .toPromise().then((r: {firstName: string; lastName: string; description: string; skills: any; }) => {
       console.log(r);
     })
     .catch(e => console.log(e));
+    */
   }
 
 
