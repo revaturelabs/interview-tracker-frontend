@@ -1,33 +1,33 @@
-<form class="job-form">
+<div id="jobformwrapper">
+  <div id="jobform">
+    <div id="leftwing">
+      <div id="leftwingtip"></div>
+    </div>
+
+    <div id="rightwing">
+<div id="rightwingtip"></div>
+
+    </div>
+
+<div class="post-div" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="orangebox"><mat-card>
+<form class="job-form" action="POST" #jobform=ngForm (ngSubmit)="submission(jobform)">
         <mat-form-field>
-          <input matInput placeholder="Job Title">
+          <input name="title" value="title" matInput placeholder="Job Title" ngModel>
         </mat-form-field>
         <br>
         <mat-form-field>
-          <textarea matInput placeholder="Job Description"></textarea>
+          <textarea name="description" value="description" matInput placeholder="Job Description" ngModel></textarea>
         </mat-form-field>
+        <mat-card class="skills-field">
         <h3>Skills</h3>
-                <span class="front-end">
-                    <p>Front-end</p>
-                    <mat-checkbox>Skill 1</mat-checkbox>
-                    <mat-checkbox>Skill 2</mat-checkbox>
-                    <mat-checkbox>Skill 3</mat-checkbox>
-                    <mat-checkbox>Skill 4</mat-checkbox> 
-                </span>
-                <span>
-                    <p>Middle-end</p>
-                    <mat-checkbox>Skill 1</mat-checkbox>
-                    <mat-checkbox>Skill 2</mat-checkbox>
-                    <mat-checkbox>Skill 3</mat-checkbox>
-                    <mat-checkbox>Skill 4</mat-checkbox>
-                </span>
-                <span>
-                    <p>Back-end</p>
-                    <mat-checkbox>Skill 1</mat-checkbox>
-                    <mat-checkbox>Skill 2</mat-checkbox>
-                    <mat-checkbox>Skill 3</mat-checkbox>
-                    <mat-checkbox>Skill 4</mat-checkbox>
-                </span> 
+          <mat-card *ngFor="let s of skill">
+            <mat-checkbox [name]="s.id" ngModel>{{s.title}}</mat-checkbox>
+          </mat-card>
+        </mat-card>
                 <br>
-                <button mat-raised-button>Submit</button>      
+                <button id="jobsbutton" input type="submit" mat-raised-button>Submit</button>      
       </form>
+      </mat-card>
+  </mat-card>
+</div></div></div>

@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LandingComponent } from './landing/landing.component';
-import { InsideComponent } from './inside/inside.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppMaterialModule } from './app-material.module';
 import { ProjectHubComponent } from './project-hub/project-hub.component';
@@ -17,6 +16,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { InterviewFormComponent } from './components/interview-form/interview-form.component';
 import { JobFormComponent } from './components/job-form/job-form.component';
 import { ProfileFormComponent } from './components/profile-form/profile-form.component';
+import { NavbarservService } from './services/navbarserv.service';
+import { ViewProfilesComponent } from './view-profiles/view-profiles.component';
+import { ViewInterviewsComponent } from './view-interviews/view-interviews.component';
+import { ViewJobsComponent } from './view-jobs/view-jobs.component';
 
 
 
@@ -25,19 +28,18 @@ import { ProfileFormComponent } from './components/profile-form/profile-form.com
     AppComponent,
     LoginComponent,
     LandingComponent,
-    InsideComponent,
-    LoginComponent,
-    LandingComponent,
-    InsideComponent,
     ProjectHubComponent,
     NavbarComponent,
     InterviewFormComponent,
     JobFormComponent,
     ProfileFormComponent,
-    SkillsFormComponent, 
-    LogoutComponent
+    SkillsFormComponent,
+    LogoutComponent,
+     ViewProfilesComponent,
+     ViewInterviewsComponent,
+     ViewJobsComponent
   ],
-  
+
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -50,9 +52,9 @@ import { ProfileFormComponent } from './components/profile-form/profile-form.com
     AppRoutingModule,
     FormsModule,
     AppMaterialModule
-   
   ],
-  providers: [AuthService],
+  providers: [AuthService,
+              NavbarservService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
