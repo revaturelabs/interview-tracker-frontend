@@ -28,15 +28,19 @@ body{
    
   }
 
-<<<<<<< HEAD
-     padding: 20px;
- margin-left: 40%;
- margin-top: 5vh;
- width: 20%;
- border-radius: 10px;
- text-align: center;
- 
- }
+
+#jobfromwrapper{
+margin-left: 40%;
+margin-top: 200px;
+    width: 300px;
+background-color:     #f3a55d;
+padding: 30px;
+border-radius: 10px;
+}
+#jobform{
+    background-color: white;
+}
+
  
  #jobsbutton{
      margin-bottom: 20px;
@@ -44,7 +48,7 @@ body{
 
  #leftwing{
     position: absolute;
-    margin-top: 35vh;
+    margin-top: 25vh;
     margin-left: -280px;
     border-bottom: 50px solid #ff960d;
       border-left: 15px solid transparent;
@@ -69,7 +73,7 @@ body{
 
 #rightwing{
     position: absolute;
-    margin-top: 35vh;
+    margin-top: 25vh;
     margin-left: 245px;
     border-bottom: 50px solid #ff960d;
       border-left: 15px solid transparent;
@@ -91,5 +95,3 @@ body{
     margin-top: -160px;
     margin-left: 100px;
 }
-=======
->>>>>>> de2d48070cd4d440222a1afc2d7c65d5f4e20936
