@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { InterviewFormComponent } from './interview-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
 
 describe('InterviewFormComponent', () => {
   let component: InterviewFormComponent;
@@ -8,7 +10,8 @@ describe('InterviewFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InterviewFormComponent ]
+      declarations: [ InterviewFormComponent ],
+      imports: [FormsModule, MatAutocompleteModule, MatFormFieldModule, MatDatepickerModule, ReactiveFormsModule, MatNativeDateModule]
     })
     .compileComponents();
   }));
