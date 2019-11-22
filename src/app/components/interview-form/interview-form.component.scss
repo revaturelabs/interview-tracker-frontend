@@ -1,5 +1,60 @@
 $revature-orange-light:#f3a55d; 
 
+<<<<<<< HEAD
+ #jobsbutton{
+    margin-bottom: 40px;
+}
+
+#leftwing{
+    position: absolute;
+    margin-top: 25vh;
+    margin-left: -280px;
+    border-bottom: 50px solid #ff960d;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      height: 0;
+      width: 300px;
+      transform: rotate(-90deg);
+}
+
+#leftwingtip{
+    
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-right: 100px solid #ff960d;
+    border-bottom: 50px solid transparent;
+    transform: rotate(90deg);
+    margin-top: -160px;
+    margin-left: 100px;
+}
+
+#rightwing{
+    position: absolute;
+    margin-top: 25vh;
+    margin-left: 245px;
+    border-bottom: 50px solid #ff960d;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      height: 0;
+      width: 300px;
+      transform: rotate(90deg);
+}
+
+
+#rightwingtip{
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-right: 100px solid #ff960d;
+    border-bottom: 50px solid transparent;
+    transform: rotate(90deg);
+    margin-top: -160px;
+    margin-left: 100px;
+}
+=======
 body{
     background: white;
 }
@@ -22,3 +77,4 @@ body{
     align-items: center;
    
   }
+>>>>>>> de2d48070cd4d440222a1afc2d7c65d5f4e20936

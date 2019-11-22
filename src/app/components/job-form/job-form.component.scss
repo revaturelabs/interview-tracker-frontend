@@ -4,6 +4,73 @@ body{
     background: white;
 }
 
+<<<<<<< HEAD
+#jobfromwrapper{
+background-color: #ff960d;
+margin-top: 20vh;
+    padding: 20px;
+margin-left: 40%;
+margin-top: 20vh;
+width: 20%;
+border-radius: 10px;
+text-align: center;
+position: absolute;
+}
+
+#jobsbutton{
+    margin-bottom: 20px;
+}
+
+#leftwing{
+    position: absolute;
+    margin-top: 122px;
+    margin-left: -280px;
+    border-bottom: 50px solid #ff960d;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      height: 0;
+      width: 300px;
+      transform: rotate(-90deg);
+}
+
+#leftwingtip{
+    
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-right: 100px solid #ff960d;
+    border-bottom: 50px solid transparent;
+    transform: rotate(90deg);
+    margin-top: -160px;
+    margin-left: 100px;
+}
+
+#rightwing{
+    position: absolute;
+    margin-top: 122px;
+    margin-left: 245px;
+    border-bottom: 50px solid #ff960d;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      height: 0;
+      width: 300px;
+      transform: rotate(90deg);
+}
+
+
+#rightwingtip{
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-right: 100px solid #ff960d;
+    border-bottom: 50px solid transparent;
+    transform: rotate(90deg);
+    margin-top: -160px;
+    margin-left: 100px;
+}
+=======
 .skills-field {
     height: 100px; 
     overflow: scroll;
@@ -28,3 +95,4 @@ body{
     align-items: center;
    
   }
+>>>>>>> de2d48070cd4d440222a1afc2d7c65d5f4e20936
