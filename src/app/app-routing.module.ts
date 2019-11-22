@@ -12,6 +12,7 @@ import { ViewJobsComponent } from './view-jobs/view-jobs.component';
 import { ViewInterviewsComponent } from './view-interviews/view-interviews.component';
 
 
+
 const routes: Routes = [
   // @Author: Ramses
   // Set up the paths setting the blank space as the first page, providing a gateway and sending the user to the log-in page
@@ -24,9 +25,13 @@ const routes: Routes = [
   { path: 'logout' , component: LogoutComponent },
   { path: 'create-profile', component: ProfileFormComponent },
   { path: 'create-interview', component: InterviewFormComponent },
+<<<<<<< HEAD
   { path: 'view-profiles',  component: ViewProfilesComponent},
   { path: 'view-jobs', component: ViewJobsComponent},
   { path: 'view-interviews', component: ViewInterviewsComponent },
+=======
+  
+>>>>>>> 79bc987974f837a6ca04c2c9a803763e150d6199
   { path: '**', component: LandingComponent }
 ];
 
