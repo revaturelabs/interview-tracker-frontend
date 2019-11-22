@@ -25,8 +25,8 @@ const routes: Routes = [
   { path: 'logout' , component: LogoutComponent },
   { path: 'create-profile', component: ProfileFormComponent },
   { path: 'create-interview', component: InterviewFormComponent },
-  { path: 'view-profiles',  component: ViewProfilesComponent},
-  { path: 'view-jobs', component: ViewJobsComponent},
+  { path: 'view-profiles', component: ViewProfilesComponent },
+  { path: 'view-jobs', component: ViewJobsComponent },
   { path: 'view-interviews', component: ViewInterviewsComponent },
   { path: '**', component: LandingComponent }
 ];

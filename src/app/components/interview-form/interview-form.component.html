@@ -1,8 +1,16 @@
-<div id="jobfromwrapper">
 
-<div id="jobform">
+<div id="jobformwrapper">
+    <div id="jobform">
+      <div id="leftwing">
+        <div id="leftwingtip"></div>
+      </div>
+  
+      <div id="rightwing">
+  <div id="rightwingtip"></div>
+  
+      </div>
 
-<form class="interview-form">
+<form id="jobformwrapper" class="interview-form" style="margin-left: 40%; margin-top: 60px;" >
         <mat-form-field>
           <input type="text" placeholder="Interviewee" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
           <mat-autocomplete #auto="matAutocomplete">
@@ -43,4 +51,6 @@
           <button id="jobsbutton" mat-raised-button>Submit</button>
       </form>
 
-    </div></div>
+    </div>
+  </div>
+

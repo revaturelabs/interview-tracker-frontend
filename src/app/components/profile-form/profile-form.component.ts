@@ -11,8 +11,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./profile-form.component.scss']
 })
 export class ProfileFormComponent implements OnInit {
-  skillArray = new FormArray({
-});
+//   skillArray = new FormArray({
+// });
   skill: any;
 
 
@@ -27,13 +27,13 @@ export class ProfileFormComponent implements OnInit {
     });
   }
 
- checkedskills() {
-    this.skill.foreach(function(s) {
-      if (s.title) {
-        this.skillArray.add({id: s.id});
-      }
-    });
- }
+//  checkedskills() {
+//     this.skill.foreach(function(s) {
+//       if (s.title) {
+//         this.skillArray.add({id: s.id});
+//       }
+//     });
+//  }
 
   submission(form: NgForm) {
     console.log(form.value.firstName);
