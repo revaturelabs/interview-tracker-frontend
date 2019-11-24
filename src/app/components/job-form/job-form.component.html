@@ -22,7 +22,9 @@
         <mat-card class="skills-field">
         <h3>Skills</h3>
           <mat-card *ngFor="let s of skill">
-            <mat-checkbox [name]="s.id" ngModel>{{s.title}}</mat-checkbox>
+            <mat-checkbox [name]="s.id" (change)="getCheckboxes($event)">{{s.title}}</mat-checkbox>
+            <!-- <mat-checkbox [(ngModel)]="s.id" (change)="getCheckboxes()">{{s.title}}</mat-checkbox> -->
+
           </mat-card>
         </mat-card>
                 <br>

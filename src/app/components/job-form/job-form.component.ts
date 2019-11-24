@@ -13,7 +13,6 @@ import { environment } from 'src/environments/environment';
 
 
 export class JobFormComponent implements OnInit {
-  form: FormGroup;
   skill: any;
 
   constructor( public nav: NavbarservService, private http: HttpClient, private router: Router) { }
@@ -29,7 +28,7 @@ export class JobFormComponent implements OnInit {
     this.http.post(environment.main_url + 'jobs/saveJob', {
       title: form.value.title,
       description: form.value.description,
-      skills: [],
+      skill: []
     })
     .toPromise()
     .then((r: {title: string; description: string; skills: any}) => {
@@ -39,6 +38,10 @@ export class JobFormComponent implements OnInit {
   }
   onLogInButtonClick(): void {
     this.router.navigate(['hub']);
+  }
+ 
+  getCheckboxes() {
+    console.log(this.skill.filter(x => x.checked === true).map(x=>x.id));
   }
 
 }
