@@ -13,15 +13,15 @@ import { environment } from 'src/environments/environment';
 
 
 export class JobFormComponent implements OnInit {
-  form: FormGroup;
   skill: any;
+  skills: any[] = [];
 
   constructor( public nav: NavbarservService, private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
     this.nav.show();
 
-    this.http.get(environment.main_url + 'skills/allskills').toPromise().then(r => {
+    this.http.get(environment.main_url + 'skills/allSkills').toPromise().then(r => {
       this.skill = r;
     });
   }
@@ -29,7 +29,7 @@ export class JobFormComponent implements OnInit {
     this.http.post(environment.main_url + 'jobs/saveJob', {
       title: form.value.title,
       description: form.value.description,
-      skills: [],
+      skills: this.skills
     })
     .toPromise()
     .then((r: {title: string; description: string; skills: any}) => {
@@ -37,8 +37,13 @@ export class JobFormComponent implements OnInit {
     })
     .catch(e => console.log(e));
   }
-  onLogInButtonClick(): void {
-    this.router.navigate(['hub']);
-  }
+    getCheckboxes(event) {
+    if (event.checked === true) {
+    this.skills.push({id : event.source.id, title: event.source.name});
+    }
+    if (event.checked === false) {
+      this.skills.splice(this.skills.indexOf({id: event.source.id}) - 1, 1);
+    }
+    }
 
 }

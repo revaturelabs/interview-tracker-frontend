@@ -1,27 +1,32 @@
 <div id="jobfromwrapper">
-    <div id="jobform">
-<form class="job-form">
-<div id="rightwing"><div id="rightwingtip"></div></div>
-<div id="leftwing"><div id="leftwingtip"></div></div>
+  <div id="jobform">
+    <form class="profile-form" #profileform="ngForm" (ngSubmit)="submission(profileform)">
+      <div id="rightwing">
+        <div id="rightwingtip"></div>
+      </div>
+      <div id="leftwing">
+        <div id="leftwingtip"></div>
+      </div>
 
-        <mat-form-field>
-          <input value="firstName" name="firstName" matInput placeholder="First Name" ngModel>
-        </mat-form-field>
-        <br>
-        <mat-form-field>
-          <input value="lastName" name="lastName" matInput placeholder="Last Name" ngModel>
-        </mat-form-field>
-<mat-card style="overflow-x: hidden;" class="skills-field">  
-<h4>Skills:</h4>
-<mat-card *ngFor="let s of skill">
-  <mat-checkbox>{{s.title}}</mat-checkbox>
-</mat-card>
-</mat-card>
-                <mat-form-field>
-                                <textarea value="description" name="description" matInput placeholder="Description" ngModel></textarea>
-                </mat-form-field>
-                <br>
-                <button mat-raised-button>Submit</button>
-       
-      </form>      
-</div></div>
+      <mat-form-field>
+        <input name="firstName" matInput placeholder="First Name" ngModel>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input name="lastName" matInput placeholder="Last Name" ngModel>
+      </mat-form-field>
+      <mat-card style="overflow-x: hidden;" class="skills-field">
+        <h4>Skills:</h4>
+        <mat-card *ngFor="let s of skill">
+          <mat-checkbox [name]="s.title" [id]="s.id" (change)="getCheckboxes($event)">{{s.title}}</mat-checkbox>
+        </mat-card>
+      </mat-card>
+      <mat-form-field>
+        <textarea value="description" name="description" matInput placeholder="Description" ngModel></textarea>
+      </mat-form-field>
+      <br>
+      <button input type="submit" mat-raised-button>Submit</button>
+
+    </form>
+  </div>
+</div>
