@@ -23,7 +23,8 @@ import {
    MatButtonToggleModule,
    MatSlideToggleModule,
    MatAutocompleteModule,
-   MatCheckboxModule
+   MatCheckboxModule,
+   MatSidenav
 } from '@angular/material';
 
 const MaterialComponents = [
@@ -33,6 +34,7 @@ const MaterialComponents = [
    MatToolbarModule,
    MatIconModule,
    MatSidenavModule,
+   MatSidenav,
    MatBadgeModule,
    MatListModule,
    MatGridListModule,

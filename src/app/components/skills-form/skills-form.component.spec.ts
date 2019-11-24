@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SkillsFormComponent } from './skills-form.component';
+import { MatFormFieldModule, MatCardModule, MatInputModule } from '@angular/material';
+import { TextFieldModule } from '@angular/cdk/text-field';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 describe('SkillsFormComponent', () => {
   let component: SkillsFormComponent;
@@ -8,7 +11,8 @@ describe('SkillsFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SkillsFormComponent ]
+      declarations: [ SkillsFormComponent ],
+      imports: [MatFormFieldModule, MatCardModule, TextFieldModule, ReactiveFormsModule, FormsModule, MatInputModule]
     })
     .compileComponents();
   }));

@@ -1,7 +1,15 @@
-<div class="post-div" fxLayout="row" fxLayoutAlign="center center">
-  <mat-card class="orangebox"><mat-card>
+<div id="jobformwrapper" class="interview">
+    <div id="jobform">
+      <div id="leftwing">
+        <div id="leftwingtip"></div>
+      </div>
+  
+      <div id="rightwing">
+  <div id="rightwingtip"></div>
+  
+      </div>
 
-<form class="interview-form" fxLayout="column" fxLayoutAlign="center">
+<form id="jobformwrapper" class="interview-form interview" style="margin-left: 40%; margin-top: 60px;" >
         <mat-form-field>
           <input type="text" placeholder="Interviewee" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
           <mat-autocomplete #auto="matAutocomplete">
@@ -39,8 +47,9 @@
           </mat-autocomplete>
         </mat-form-field>
         <br>
-          <button mat-raised-button color="primary">Submit</button>
+          <button id="jobsbutton" mat-raised-button>Submit</button>
       </form>
-      </mat-card>
-    </mat-card>
-  </div>
+
+    </div>
+  </div> 
+

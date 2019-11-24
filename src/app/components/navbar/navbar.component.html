@@ -4,7 +4,7 @@
     
     <div>
       <button mat-button (click)="sidenav.toggle()">
-        Create New
+        Create
     
     </button>
   </div>
@@ -15,11 +15,10 @@
 
 
     <div>
-      <a mat-button [routerLink]="'/profiles'"> Profile </a>
-      <a mat-button [routerLink]="'/jobs'"> Jobs </a>
-      <a mat-button [routerLink]="'/interview'"> Interviews </a>
-    </div>
-    <div>
+      <a mat-button [routerLink]="'/view-profiles'">View Profiles </a>
+      <a mat-button [routerLink]="'/view-jobs'">View Jobs </a>
+      <a mat-button [routerLink]="'/view-interviews'">View Interviews </a>
+      
       <button mat-button class="emptyspace" [routerLink]="'/login'">Logout</button>
     
     </div>

@@ -35,8 +35,51 @@ padding: 10px;
   padding: 8px;
   text-align: center;
 
-  background-color: #f26924;
+    background-color: #f26924;
+  }
+
+  .login-div login-card {
+    font-size: 30px;
+    margin: 0;
+    color: #f26925;
+  }
+
+
+  #leftwing{
+    position: absolute;
+    margin-top: 45vh;
+    margin-left: 20%;
+    border-bottom: 50px solid #ff960d;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      height: 0;
+      width: 300px;
+      transform: rotate(180deg);
 }
+
+#leftwingtip{
+    
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-right: 100px solid #ff960d;
+    border-bottom: 50px solid transparent;
+    transform: rotate(90deg);
+    margin-top: -160px;
+    margin-left: 100px;
+}
+
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
 
 .login-div login-card {
   font-size: 30px;
@@ -79,3 +122,5 @@ $revature-orange: #f26925;
   align-items: center;
     
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

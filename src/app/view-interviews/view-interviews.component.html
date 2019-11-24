@@ -1,0 +1,12 @@
+<mat-card *ngFor="let int of interviews">
+    <h4>{{int.profile}}</h4>
+    <h4>Skills</h4>
+    <mat-card>{{int.comments}}</mat-card>
+    <h4>Date:</h4><p>{{int.date}}</p>
+    <p>{{int.isComplete}}</p>
+    <h4>Job</h4>
+    <p>{{int.job}}</p>
+    <ul>
+        <li *ngFor=" let u of int.users; index as i">{{int.users[i] | json}}</li>
+    </ul>
+</mat-card>

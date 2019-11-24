@@ -1,45 +1,30 @@
-<div class="post-div" fxLayout="row" fxLayoutAlign="center center">
-  <mat-card class="orangebox"><mat-card>
+<div id="jobfromwrapper">
+    <div id="jobform">
+<!-- <form [formGroup]="profile-form" class="profile-form" #profileform="ngForm" (ngSubmit)="submission(profileform)"> -->
+    <form class="profile-form" #profileform="ngForm" (ngSubmit)="submission(profileform)">
+<div id="rightwing"><div id="rightwingtip"></div></div>
+<div id="leftwing"><div id="leftwingtip"></div></div>
 
-
-<form class="job-form" fxLayout="row" fxLayoutAlign="center center">
         <mat-form-field>
-          <input matInput placeholder="First Name">
+          <input name="firstName" matInput placeholder="First Name" ngModel>
         </mat-form-field>
         <br>
         <mat-form-field>
-          <textarea matInput placeholder="Last Name"></textarea>
+          <input name="lastName" matInput placeholder="Last Name" ngModel>
         </mat-form-field>
+<mat-card style="overflow-x: hidden;" class="skills-field">  
 <h4>Skills:</h4>
-                <span class="front-end">
-                <p>Front-end</p>
-                <mat-checkbox>Skill 1</mat-checkbox>
-                <mat-checkbox>Skill 2</mat-checkbox>
-                <mat-checkbox>Skill 3</mat-checkbox>
-                <mat-checkbox>Skill 4</mat-checkbox> 
-                </span>
-                <span>
-                <p>Middle-end</p>
-                <mat-checkbox>Skill 1</mat-checkbox>
-                <mat-checkbox>Skill 2</mat-checkbox>
-                <mat-checkbox>Skill 3</mat-checkbox>
-                <mat-checkbox>Skill 4</mat-checkbox>
-                </span>
-                <span>
-                <p>Back-end</p>
-                <mat-checkbox>Skill 1</mat-checkbox>
-                <mat-checkbox>Skill 2</mat-checkbox>
-                <mat-checkbox>Skill 3</mat-checkbox>
-                <mat-checkbox>Skill 4</mat-checkbox>
-                </span>
-        <h3>Description</h3>
+<mat-card *ngFor="let s of skill">
+  <!-- <mat-checkbox formControlName="{{s.title}}" ngModel>{{s.title}}</mat-checkbox> -->
+  <mat-checkbox>{{s.title}}</mat-checkbox>
+
+</mat-card>
+</mat-card>
                 <mat-form-field>
-                                <textarea matInput placeholder="Description"></textarea>
+                                <textarea value="description" name="description" matInput placeholder="Description" ngModel></textarea>
                 </mat-form-field>
                 <br>
-                <button mat-raised-button>Submit</button>     
-    </form>
-
-  </mat-card>
-</mat-card>
-</div>
+                <button input type="submit" mat-raised-button>Submit</button>
+       
+      </form>      
+</div></div>
