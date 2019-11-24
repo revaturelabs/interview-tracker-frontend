@@ -15,7 +15,6 @@ profile: any;
 
   ngOnInit() {
     this.nav.show();
-
     this.http.get(environment.main_url + 'profiles/allProfiles').toPromise().then(r => {
       this.profile = r;
     });
