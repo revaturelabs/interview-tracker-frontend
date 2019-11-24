@@ -5,5 +5,6 @@
         <li *ngFor=" let s of j.skills; index as i">{{j.skills[i].title | json}}</li>
         </ul>
         <p>{{j.filled}}</p>
-        <!-- <p>{{j.profiles | json}}</p> -->
+        <h4>Recommended Profiles</h4>
+        <p>{{j.profiles | json}}</p>
 </mat-card>

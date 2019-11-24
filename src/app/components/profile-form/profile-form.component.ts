@@ -11,9 +11,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./profile-form.component.scss']
 })
 export class ProfileFormComponent implements OnInit {
-//   skillArray = new FormArray({
-// });
   skill: any;
+  skills: any[] = [];
 
 
 
@@ -27,31 +26,25 @@ export class ProfileFormComponent implements OnInit {
     });
   }
 
-//  checkedskills() {
-//     this.skill.foreach(function(s) {
-//       if (s.title) {
-//         this.skillArray.add({id: s.id});
-//       }
-//     });
-//  }
-
   submission(form: NgForm) {
-    console.log(form.value.firstName);
-    console.log(form.value.lastName);
-    console.log(form.value.skills);
-    /*
-    this.http.post(environment.main_url + 'profile', {
+    this.http.post(environment.main_url + 'profiles/saveProfile', {
       firstName: form.value.firstName,
       lastName: form.value.lastName,
-      skills: this.skillArray,
+      skills: this.skills,
       description: form.value.description
     })
-    .toPromise().then((r: {firstName: string; lastName: string; description: string; skills: any; }) => {
+    .toPromise()
+    .then((r: {firstName: string; lastName: string; skills: any; description: string}) => {
       console.log(r);
     })
     .catch(e => console.log(e));
-    */
   }
-
-
+    getCheckboxes(event) {
+    if (event.checked === true) {
+    this.skills.push({id : event.source.id, title: event.source.name});
+    }
+    if (event.checked === false) {
+      this.skills.splice(this.skills.indexOf({id: event.source.id}) - 1, 1);
+    }
+    }
 }
