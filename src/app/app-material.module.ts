@@ -24,7 +24,7 @@ import {
    MatSlideToggleModule,
    MatAutocompleteModule,
    MatCheckboxModule,
-   MatSidenav
+   
 } from '@angular/material';
 
 const MaterialComponents = [
@@ -34,7 +34,7 @@ const MaterialComponents = [
    MatToolbarModule,
    MatIconModule,
    MatSidenavModule,
-   MatSidenav,
+   
    MatBadgeModule,
    MatListModule,
    MatGridListModule,
@@ -53,6 +53,7 @@ const MaterialComponents = [
    MatAutocompleteModule,
    MatCheckboxModule
 ];
+
 @NgModule({
    imports: [
       MaterialComponents

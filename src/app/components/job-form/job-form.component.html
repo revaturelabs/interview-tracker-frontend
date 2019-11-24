@@ -3,15 +3,13 @@
     <div id="leftwing">
       <div id="leftwingtip"></div>
     </div>
-
     <div id="rightwing">
 <div id="rightwingtip"></div>
-
-    </div>
+  </div>
 
 <div class="post-div" fxLayout="row" fxLayoutAlign="center center">
   <mat-card class="orangebox"><mat-card>
-<form class="job-form" action="POST" #jobform=ngForm (ngSubmit)="submission(jobform)">
+  <form class="job-form" action="POST" #jobform=ngForm (ngSubmit)="submission(jobform)">
         <mat-form-field>
           <input name="title" value="title" matInput placeholder="Job Title" ngModel>
         </mat-form-field>
@@ -23,13 +21,11 @@
         <h3>Skills</h3>
           <mat-card *ngFor="let s of skill">
             <mat-checkbox [name]="s.id" (change)="getCheckboxes($event)">{{s.title}}</mat-checkbox>
-            <!-- <mat-checkbox [(ngModel)]="s.id" (change)="getCheckboxes()">{{s.title}}</mat-checkbox> -->
-
           </mat-card>
         </mat-card>
-                <br>
-                <button id="jobsbutton" input type="submit" mat-raised-button>Submit</button>      
+          <br>
+          <button id="jobsbutton" input type="submit" mat-raised-button>Submit</button>      
       </form>
-      </mat-card>
+    </mat-card>
   </mat-card>
 </div></div></div>

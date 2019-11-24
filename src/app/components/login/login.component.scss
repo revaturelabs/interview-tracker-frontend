@@ -1,126 +1,65 @@
-#libox{
-    background-color: grey;
+$revature-orange-light: #f3a55d;
+$revature-orange: #f26925;
 
-margin: 10px;
-padding: 10px;
+#libox{
+  background-color: grey;
+  margin: 10px;
+  padding: 10px;
 }
 
 .login-div {
-    align-items: center;
-    position: relative;
-    height: 50%;
-    width: 50%;
-    background-color: rgb(255, 150, 13);
-    box-shadow: 0 3px 5px -1px rgb(32, 18, 5), 0 6px 10px 0 rgba(119, 90, 8, 0.87),
-      0 1px 18px 0 #f26925;
-    padding: 40px 70px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 300px;
+  width: 400px;
+  background-color:$revature-orange;
+  box-shadow: 0 3px 5px -1px rgb(32, 18, 5), 0 6px 10px 0 rgba(119, 90, 8, 0.87),
+    0 1px 18px 0 #f26925;
+
+  opacity: 1;
+  float: center;
     
-    top: 80;
-    opacity: 1;
-    float: center;
-    padding: 60px 50px 40px 50px;
-    
-  }
-
-  #topdiv{
-
-      margin-left: 26%;
-  
-
-      margin-top: 100px;
-      position: relative;
-  }
+}
 
 .login-card{
   padding: 8px;
   text-align: center;
-
-    background-color: #f26924;
+  width: 80%;
+  height: 80%
   }
 
-  .login-div login-card {
-    font-size: 30px;
-    margin: 0;
-    color: #f26925;
-  }
-
-
-  #leftwing{
-    position: absolute;
-    margin-top: 45vh;
-    margin-left: 20%;
-    border-bottom: 50px solid #ff960d;
-      border-left: 15px solid transparent;
-      border-right: 15px solid transparent;
-      height: 0;
-      width: 300px;
-      transform: rotate(180deg);
-}
-
-#leftwingtip{
-    
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-top: 50px solid transparent;
-    border-right: 100px solid #ff960d;
-    border-bottom: 50px solid transparent;
-    transform: rotate(90deg);
-    margin-top: -160px;
-    margin-left: 100px;
-}
-
-
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
-@import '~@angular/material/theming';
-// Plus imports for other components in your app.
-
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
-@include mat-core();
-
-.login-div login-card {
-  font-size: 30px;
-  margin: 0;
-  color: #f26925;
-}
-
-.login-div {   
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
-  padding-top: 50px;
-  height: 250px;
-  width: 300px;
-  background-color: rgba(255, 166, 0, 0.89);
-  box-shadow: 0 3px 5px -1px rgb(32, 18, 5), 0 6px 10px 0 rgba(119, 89, 8, 0.603), 0 1px 18px 0 rgba(245, 124, 11, 0.411);
-  opacity: 1;
-}
-
-$revature-orange-light: #f3a55d;
-$revature-orange: #f26925;
-
-
-.orangebox{
-    color: black;
-    max-height: 500px;
-    position:relative;
-    top:20px;opacity:1;float:center;padding:50px;
-    width:100%;background: $revature-orange-light;
-    border-radius:10px;transform:scale(1);
-    -webkit-transform:scale(1);-ms-transform:scale(1);z-index:5;max-width:400px;
-    overflow: hidden; display: flex; flex-direction: column;overflow-y: auto;
-    box-shadow: 0 3px 5px -1px rgb(32, 18, 5), 0 6px 10px 0 rgba(119, 89, 8, 0.603), 0 1px 18px 0 rgba(245, 124, 11, 0.411);
-}
-
-.post-div{
-  margin: 80px;
+#topdiv{
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-    
+
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+#leftwing{
+  position: absolute;
+  margin-top: 45vh;
+  margin-left: 20%;
+  border-bottom: 50px solid #ff960d;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  height: 0;
+  width: 300px;
+  transform: rotate(180deg);
+}
+
+#leftwingtip{  
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent;
+  border-right: 100px solid #ff960d;
+  border-bottom: 50px solid transparent;
+  transform: rotate(90deg);
+  margin-top: -160px;
+  margin-left: 100px;
+}
+
+
+

@@ -1,37 +1,35 @@
 $revature-orange-light:#f3a55d; 
-
-
-body{
-    background: white;
-}
+$revature-orange: #f26925;
 
 .skills-field{
     height:100px;
     overflow: scroll;
 }
+
 .orangebox{
     color: black;
     max-height: 500px;
     position:relative;
     top:20px;opacity:1;float:center;padding:50px;
-    width:100%;background: $revature-orange-light;
+    width:100%;background: $revature-orange;
     border-radius:10px;transform:scale(1);
     -webkit-transform:scale(1);-ms-transform:scale(1);z-index:5;max-width:600px;
     overflow: hidden; display: flex; flex-direction: column;overflow-y: auto;
     box-shadow: 0 3px 5px -1px rgb(32, 18, 5), 0 6px 10px 0 rgba(119, 89, 8, 0.603), 0 1px 18px 0 rgba(245, 124, 11, 0.411);
 }
+
 .post-div{
-    margin: 20px;
+        
     display: flex;
     justify-content: center;
-    align-items: center;
-   
+    align-items: center;   
   }
 
 .interview{
     border-style: solid;
     border: hotpink;
 }
+
 #jobfromwrapper{
 margin-left: 40%;
 margin-top: 120px;
@@ -40,11 +38,11 @@ background-color:     #f3a55d;
 padding: 30px;
 border-radius: 10px;
 }
+
 #jobform{
     background-color: white;
 }
 
- 
  #jobsbutton{
      margin-bottom: 20px;
  }
@@ -54,15 +52,14 @@ border-radius: 10px;
     margin-top: 25vh;
     margin-left: -280px;
     border-bottom: 50px solid #ff960d;
-      border-left: 15px solid transparent;
-      border-right: 15px solid transparent;
-      height: 0;
-      width: 300px;
-      transform: rotate(-90deg);
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    height: 0;
+    width: 300px;
+    transform: rotate(-90deg);
 }
 
-#leftwingtip{
-    
+#leftwingtip{  
     position: absolute;
     width: 0;
     height: 0;
@@ -79,13 +76,12 @@ border-radius: 10px;
     margin-top: 25vh;
     margin-left: 245px;
     border-bottom: 50px solid #ff960d;
-      border-left: 15px solid transparent;
-      border-right: 15px solid transparent;
-      height: 0;
-      width: 300px;
-      transform: rotate(90deg);
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    height: 0;
+    width: 300px;
+    transform: rotate(90deg);
 }
-
 
 #rightwingtip{
     position: absolute;

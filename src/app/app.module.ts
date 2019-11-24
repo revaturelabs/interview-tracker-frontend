@@ -35,9 +35,9 @@ import { ViewJobsComponent } from './view-jobs/view-jobs.component';
     ProfileFormComponent,
     SkillsFormComponent,
     LogoutComponent,
-     ViewProfilesComponent,
-     ViewInterviewsComponent,
-     ViewJobsComponent
+    ViewProfilesComponent,
+    ViewInterviewsComponent,
+    ViewJobsComponent
   ],
 
   imports: [
@@ -51,7 +51,8 @@ import { ViewJobsComponent } from './view-jobs/view-jobs.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    AppMaterialModule
+    AppMaterialModule,
+    
   ],
   providers: [AuthService,
               NavbarservService],
