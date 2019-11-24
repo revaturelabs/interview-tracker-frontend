@@ -1,39 +1,32 @@
+<div id="jobfromwrapper">
+  <div id="jobform">
+    <form class="profile-form" #profileform="ngForm" (ngSubmit)="submission(profileform)">
+      <div id="rightwing">
+        <div id="rightwingtip"></div>
+      </div>
+      <div id="leftwing">
+        <div id="leftwingtip"></div>
+      </div>
 
-<form class="job-form">
-        <mat-form-field>
-          <input matInput placeholder="First Name">
-        </mat-form-field>
-        <br>
-        <mat-form-field>
-          <textarea matInput placeholder="Last Name"></textarea>
-        </mat-form-field>
-<h4>Skills:</h4>
-                <span class="front-end">
-                <p>Front-end</p>
-                <mat-checkbox>Skill 1</mat-checkbox>
-                <mat-checkbox>Skill 2</mat-checkbox>
-                <mat-checkbox>Skill 3</mat-checkbox>
-                <mat-checkbox>Skill 4</mat-checkbox> 
-                </span>
-                <span>
-                <p>Middle-end</p>
-                <mat-checkbox>Skill 1</mat-checkbox>
-                <mat-checkbox>Skill 2</mat-checkbox>
-                <mat-checkbox>Skill 3</mat-checkbox>
-                <mat-checkbox>Skill 4</mat-checkbox>
-                </span>
-                <span>
-                <p>Back-end</p>
-                <mat-checkbox>Skill 1</mat-checkbox>
-                <mat-checkbox>Skill 2</mat-checkbox>
-                <mat-checkbox>Skill 3</mat-checkbox>
-                <mat-checkbox>Skill 4</mat-checkbox>
-                </span>
-        <h3>Description</h3>
-                <mat-form-field>
-                                <textarea matInput placeholder="Description"></textarea>
-                </mat-form-field>
-                <br>
-                <button mat-raised-button>Submit</button>
-       
-      </form>      
+      <mat-form-field>
+        <input name="firstName" matInput placeholder="First Name" ngModel>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input name="lastName" matInput placeholder="Last Name" ngModel>
+      </mat-form-field>
+      <mat-card style="overflow-x: hidden;" class="skills-field">
+        <h4>Skills:</h4>
+        <mat-card *ngFor="let s of skill">
+          <mat-checkbox [name]="s.title" [id]="s.id" (change)="getCheckboxes($event)">{{s.title}}</mat-checkbox>
+        </mat-card>
+      </mat-card>
+      <mat-form-field>
+        <textarea value="description" name="description" matInput placeholder="Description" ngModel></textarea>
+      </mat-form-field>
+      <br>
+      <button input type="submit" mat-raised-button>Submit</button>
+
+    </form>
+  </div>
+</div>

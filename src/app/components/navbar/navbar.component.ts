@@ -1,6 +1,6 @@
 
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { MatSidenav } from '@angular/material/sidenav';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { NavbarservService } from '../../services/navbarserv.service';
 
 
@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
     this.nav.show();
   }
 
-  @ViewChild('sidenav', {static: false}) navbar: MatSidenav;
+  @ViewChild('sidenav', {static: false}) navbar: MatSidenavModule;
 
 
 }
