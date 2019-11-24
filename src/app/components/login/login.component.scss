@@ -45,7 +45,30 @@ padding: 10px;
   }
 
 
+  #leftwing{
+    position: absolute;
+    margin-top: 45vh;
+    margin-left: 20%;
+    border-bottom: 50px solid #ff960d;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      height: 0;
+      width: 300px;
+      transform: rotate(180deg);
+}
 
+#leftwingtip{
+    
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-right: 100px solid #ff960d;
+    border-bottom: 50px solid transparent;
+    transform: rotate(90deg);
+    margin-top: -160px;
+    margin-left: 100px;
+}
 
 
 // Custom Theming for Angular Material
