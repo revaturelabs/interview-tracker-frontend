@@ -12,10 +12,14 @@ import { LandingComponent } from '../landing/landing.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule, MatFormFieldModule, MatCheckboxModule, MatOptionModule, MatAutocompleteModule, MatDatepickerModule } from '@angular/material';
 import { APP_BASE_HREF } from '@angular/common';
+import { LogoutComponent } from '../components/logout/logout.component';
+import { ViewJobsComponent } from '../view-jobs/view-jobs.component';
+import { ViewProfilesComponent } from '../view-profiles/view-profiles.component';
+import { ViewInterviewsComponent } from '../view-interviews/view-interviews.component';
 
 describe('AuthService', () => {
   beforeEach(() => TestBed.configureTestingModule({
-    declarations: [LoginComponent, ProjectHubComponent, JobFormComponent, ProfileFormComponent, InterviewFormComponent, LandingComponent],
+    declarations: [LogoutComponent, ViewJobsComponent, ViewProfilesComponent, ViewInterviewsComponent, LoginComponent, ProjectHubComponent, JobFormComponent, ProfileFormComponent, InterviewFormComponent, LandingComponent],
     imports: [HttpClientModule, AppRoutingModule, FormsModule, MatCardModule, MatFormFieldModule, MatCheckboxModule, MatOptionModule, MatAutocompleteModule, MatDatepickerModule, ReactiveFormsModule],
     providers: [{provide: APP_BASE_HREF, useValue: '/my/app'}]
   }));
