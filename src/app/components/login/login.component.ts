@@ -26,11 +26,7 @@ export class LoginComponent implements OnInit {
 
   submission(form: NgForm) {
 
-<<<<<<< HEAD
-    this.router.navigate(['hub'])
-=======
     this.router.navigateByUrl('/hub');
->>>>>>> development
     this.http.post(environment.login_url, {
 
       username: form.value.username,
