@@ -15,8 +15,8 @@
       <mat-form-field>
         <input name="lastName" matInput placeholder="Last Name" ngModel>
       </mat-form-field>
+      <h4>Skills:</h4>
       <mat-card style="overflow-x: hidden;" class="skills-field">
-        <h4>Skills:</h4>
         <mat-card *ngFor="let s of skill">
           <mat-checkbox [name]="s.title" [id]="s.id" (change)="getCheckboxes($event)">{{s.title}}</mat-checkbox>
         </mat-card>

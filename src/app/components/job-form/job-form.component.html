@@ -21,8 +21,8 @@
               <textarea name="description" value="description" matInput placeholder="Job Description"
                 ngModel></textarea>
             </mat-form-field>
+            <h3>Skills</h3>
             <mat-card class="skills-field">
-              <h3>Skills</h3>
               <mat-card *ngFor="let s of skill">
                 <mat-checkbox [name]="s.title" [id]="s.id" (change)="getCheckboxes($event)">{{s.title}}</mat-checkbox>
               </mat-card>
