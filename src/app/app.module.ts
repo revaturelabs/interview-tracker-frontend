@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LandingComponent } from './landing/landing.component';
-import { InsideComponent } from './inside/inside.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppMaterialModule } from './app-material.module';
 import { ProjectHubComponent } from './project-hub/project-hub.component';
@@ -18,6 +17,9 @@ import { InterviewFormComponent } from './components/interview-form/interview-fo
 import { JobFormComponent } from './components/job-form/job-form.component';
 import { ProfileFormComponent } from './components/profile-form/profile-form.component';
 import { NavbarservService } from './services/navbarserv.service';
+import { ViewProfilesComponent } from './view-profiles/view-profiles.component';
+import { ViewInterviewsComponent } from './view-interviews/view-interviews.component';
+import { ViewJobsComponent } from './view-jobs/view-jobs.component';
 
 import { ErrorInterceptor } from './error-interceptor';
 import { JwtInterceptor } from './jwt-interceptor';
@@ -29,19 +31,18 @@ import { JwtInterceptor } from './jwt-interceptor';
     AppComponent,
     LoginComponent,
     LandingComponent,
-    InsideComponent,
-    LoginComponent,
-    LandingComponent,
-    InsideComponent,
     ProjectHubComponent,
     NavbarComponent,
     InterviewFormComponent,
     JobFormComponent,
     ProfileFormComponent,
-    SkillsFormComponent, 
-    LogoutComponent
+    SkillsFormComponent,
+    LogoutComponent,
+     ViewProfilesComponent,
+     ViewInterviewsComponent,
+     ViewJobsComponent
   ],
-  
+
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -54,7 +55,6 @@ import { JwtInterceptor } from './jwt-interceptor';
     AppRoutingModule,
     FormsModule,
     AppMaterialModule
-   
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

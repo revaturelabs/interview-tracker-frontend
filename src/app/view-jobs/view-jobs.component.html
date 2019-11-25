@@ -1,0 +1,10 @@
+<mat-card *ngFor="let j of job">
+        <h4>{{j.title}}</h4>
+        <p>{{j.description}}</p>
+        <ul>
+        <li *ngFor=" let s of j.skills; index as i">{{j.skills[i].title | json}}</li>
+        </ul>
+        <p>{{j.filled}}</p>
+        <h4>Recommended Profiles</h4>
+        <p>{{j.profiles | json}}</p>
+</mat-card>
