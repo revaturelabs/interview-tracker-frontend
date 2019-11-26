@@ -14,6 +14,7 @@ import { environment } from 'src/environments/environment';
 
 export class JobFormComponent implements OnInit {
   skill: any;
+  skills: any[] = [];
 
   constructor( public nav: NavbarservService, private http: HttpClient, private router: Router) { }
 
@@ -28,20 +29,22 @@ export class JobFormComponent implements OnInit {
     this.http.post(environment.main_url + 'jobs/saveJob', {
       title: form.value.title,
       description: form.value.description,
-      skill: []
+      skills: this.skills
     })
     .toPromise()
     .then((r: {title: string; description: string; skills: any}) => {
       console.log(r);
+      this.router.navigateByUrl('/hub');
     })
     .catch(e => console.log(e));
   }
-  onLogInButtonClick(): void {
-    this.router.navigate(['hub']);
-  }
- 
-  getCheckboxes() {
-    console.log(this.skill.filter(x => x.checked === true).map(x=>x.id));
-  }
+    getCheckboxes(event) {
+    if (event.checked === true) {
+    this.skills.push({id : event.source.id, title: event.source.name});
+    }
+    if (event.checked === false) {
+      this.skills.splice(this.skills.indexOf({id: event.source.id}) - 1, 1);
+    }
+    }
 
 }

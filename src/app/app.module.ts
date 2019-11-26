@@ -51,9 +51,8 @@ import { ViewJobsComponent } from './view-jobs/view-jobs.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    AppMaterialModule,
-    
-  ],
+    AppMaterialModule
+],
   providers: [AuthService,
               NavbarservService],
   bootstrap: [AppComponent]

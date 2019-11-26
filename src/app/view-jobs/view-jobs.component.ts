@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ViewJobsComponent implements OnInit {
   job: any;
+  slider: string;
   constructor(public nav: NavbarservService, private http: HttpClient) { }
 
   ngOnInit() {
@@ -18,5 +19,12 @@ export class ViewJobsComponent implements OnInit {
       this.job = r;
   });
 }
-
+sliderChange(event) {
+  if (event.checked === true) {
+  this.slider = 'Job is filled';
+  }
+  if (event.checked === false) {
+    this.slider = 'Job is open';
+  }
+}
 }

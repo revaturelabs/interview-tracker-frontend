@@ -9,25 +9,29 @@
 
 <div class="post-div" fxLayout="row" fxLayoutAlign="center center">
     <mat-card class="orangebox"><mat-card>
-<form>
+<form id="jobformwrapper" class="interview-form interview" style="margin-left: 40%; margin-top: 60px;" #interviewform=ngForm (ngSubmit)="submission(interviewform)" >
         <mat-form-field>
-          <input type="text" placeholder="Interviewee" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
-          <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let option of options" [value]="option">
-              {{option}}
+          <input type="text" placeholder="Interviewee" aria-label="Interviewee" matInput [formControl]="myControl" [matAutocomplete]="auto" name="interviewee" ngModel>
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{option.name}}
             </mat-option>
           </mat-autocomplete>
         </mat-form-field>
-        <br>
+       <br>
         <mat-form-field>
-                <input matInput placeholder="Comments">
+          <input matInput type="datetime-local" placeholder="Interview date and time:" value="date" name="date" ngModel>
         </mat-form-field>
         <br>
-        <mat-form-field>
-            <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
+       <mat-form-field>
+          <input type="text" placeholder="Job" aria-label="Job" matInput [formControl]="jobControl" [matAutocomplete]="autojob" name="job" ngModel>
+          <mat-autocomplete #autojob="matAutocomplete" [displayWith]="displayJ">
+            <mat-option *ngFor="let jobOption of filteredJobOptions | async" [value]="jobOption">
+              {{jobOption.title}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <!--
           <br> 
           <mat-form-field>
           <input type="text" placeholder="Job" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
@@ -45,7 +49,7 @@
               {{option}}
             </mat-option>
           </mat-autocomplete>
-        </mat-form-field>
+        </mat-form-field> -->
         <br>
           <button id="jobsbutton" mat-raised-button>Submit</button>
       </form>
