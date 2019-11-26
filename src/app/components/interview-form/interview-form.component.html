@@ -11,20 +11,27 @@
 
 <form id="jobformwrapper" class="interview-form interview" style="margin-left: 40%; margin-top: 60px;" >
         <mat-form-field>
-          <input type="text" placeholder="Assignee" aria-label="Assignee" matInput [formControl]="myControl" [matAutocomplete]="auto">
+          <input type="text" placeholder="Interviewee" aria-label="Interviewee" matInput [formControl]="myControl" [matAutocomplete]="auto">
           <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
             <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
               {{option.firstName}}
             </mat-option>
           </mat-autocomplete>
         </mat-form-field>
-        <!-- <br>
-        <br>
+       <br>
         <mat-form-field>
-            <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
+          <input matInput type="datetime-local" placeholder="Interview date and time:">
+        </mat-form-field>
+        <br>
+       <mat-form-field>
+          <input type="text" placeholder="Job" aria-label="Job" matInput [formControl]="jobControl" [matAutocomplete]="autojob">
+          <mat-autocomplete #autojob="matAutocomplete" [displayWith]="displayJ">
+            <mat-option *ngFor="let jobOption of filteredJobOptions | async" [value]="jobOption">
+              {{jobOption.title}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <!--
           <br> 
           <mat-form-field>
           <input type="text" placeholder="Job" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
