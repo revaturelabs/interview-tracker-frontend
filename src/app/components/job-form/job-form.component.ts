@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm, FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
 import { NavbarservService } from '../../services/navbarserv.service';
 import { HttpClient } from '@angular/common/http';
@@ -11,9 +11,15 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./job-form.component.scss']
 })
 
+// @ViewChild('ref') ref;
+
 
 export class JobFormComponent implements OnInit {
-  skill: any;
+
+  skills: any[]=[];
+
+  skill: any
+
 
   constructor( public nav: NavbarservService, private http: HttpClient, private router: Router) { }
 
@@ -28,7 +34,7 @@ export class JobFormComponent implements OnInit {
     this.http.post(environment.main_url + 'jobs/saveJob', {
       title: form.value.title,
       description: form.value.description,
-      skill: []
+      skills: this.skills
     })
     .toPromise()
     .then((r: {title: string; description: string; skills: any}) => {
@@ -39,9 +45,19 @@ export class JobFormComponent implements OnInit {
   onLogInButtonClick(): void {
     this.router.navigate(['hub']);
   }
- 
-  getCheckboxes() {
-    console.log(this.skill.filter(x => x.checked === true).map(x=>x.id));
-  }
 
+ 
+  getCheckboxes(event) {
+    // alert(event.checked);
+    
+    if(event.checked===true){
+    this.skills.push({id:event.source.id, title:event.source.name});
+    
+    }
+    if(event.checked===false){
+      this.skills.splice(this.skills.indexOf({id:event.source.id})-1,1)
+    }
+    console.log(this.skills)
+  
+    }
 }
