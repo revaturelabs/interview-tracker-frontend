@@ -15,6 +15,7 @@ import { ViewProfilesComponent } from 'src/app/view-profiles/view-profiles.compo
 import { ViewJobsComponent } from 'src/app/view-jobs/view-jobs.component';
 import { ViewInterviewsComponent } from 'src/app/view-interviews/view-interviews.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { APP_BASE_HREF } from '@angular/common';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -23,7 +24,8 @@ describe('LoginComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ LoginComponent, ProjectHubComponent, JobFormComponent, InterviewFormComponent, SkillsFormComponent, ProfileFormComponent, LandingComponent, LogoutComponent, ViewProfilesComponent, ViewJobsComponent, ViewInterviewsComponent ],
-      imports: [FormsModule, MatInputModule, HttpClientModule, MatCardModule, MatFormFieldModule, AppRoutingModule, MatCheckboxModule, MatAutocompleteModule, MatDatepickerModule, ReactiveFormsModule, BrowserAnimationsModule]
+      imports: [FormsModule, MatInputModule, HttpClientModule, MatCardModule, MatFormFieldModule, AppRoutingModule, MatCheckboxModule, MatAutocompleteModule, MatDatepickerModule, ReactiveFormsModule, BrowserAnimationsModule],
+      providers: [{provide: APP_BASE_HREF, useValue: '/my/app'}]
     })
     .compileComponents();
   }));
