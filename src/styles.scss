@@ -1,6 +1,41 @@
-$black_50: rgba(0, 0, 0, 0.5);
-$coral: coral;
-$black_67_1: rgba(0, 0, 0, 0.671);
+@keyframes circle {
+	from {
+		transform: scale(0)
+	}
+	to {
+		transform: scale(6)
+	}
+}
+.circle {
+  margin: 0 auto;
+  width: 300px;
+  height: 300px;
+  border: 20px solid rgb(206, 116, 33);
+  border-radius: 50%;
+  position: absolute;
+  top: 5%;
+  left: 40%;
+}
+.one {
+  animation: circle 4s infinite linear;
+}
+.two {
+  animation: circle 3s infinite linear;
+}
+.three {
+  animation: circle 2s infinite linear;
+}
+
+
+
+  
+  
+
+  $black_50: rgba(0, 0, 0, 0.5);
+  $coral: coral;
+  $black_67_1: rgba(0, 0, 0, 0.671);
+  $revature-orange-light:#f3a55d; 
+  
 
 #revaturelogo {
     position: absolute;
@@ -118,19 +153,17 @@ $black_67_1: rgba(0, 0, 0, 0.671);
     margin-top: 0;
 }
 .login-div {
-  align-items: center;
-  position: relative;
-  height: 50%;
-  width: 50%;
+  
+
   background-color: rgba(255, 153, 0, 0.74);
   box-shadow: 0 3px 5px -1px rgb(32, 18, 5),
     0 6px 10px 0 rgba(119, 89, 8, 0.603), 0 1px 18px 0 rgba(245, 124, 11, 0.411);
-  padding: 40px 70px;
+  
 
-  top: 80;
+  
   opacity: 1;
-  float: center;
-  padding: 60px 50px 40px 50px;
+  
+  
 }
 
 .login-card {
@@ -138,23 +171,35 @@ $black_67_1: rgba(0, 0, 0, 0.671);
   text-align: center;
   background-color: rgba(255, 166, 0, 0.89);
   margin: 0;
-
+  align-self: center;
   padding: 0;
 }
 
-
-html, body {
-  margin:0;
-  padding:0;
-  }
-
-
- .lightColor {
-color: #f3a55d;
+.orangebox{
+    color: black;
+    max-height: 400px;
+    position:relative;
+    top:20px;opacity:1;float:center;padding:50px;
+    width:100%;background: $revature-orange-light;
+    border-radius:10px;transform:scale(1);
+    -webkit-transform:scale(1);-ms-transform:scale(1);z-index:5;max-width:600px;
+    overflow: hidden; display: flex; flex-direction: column;overflow-y: auto;
+    box-shadow: 0 3px 5px -1px rgb(32, 18, 5), 0 6px 10px 0 rgba(119, 89, 8, 0.603), 0 1px 18px 0 rgba(245, 124, 11, 0.411);
 }
+
 .strongColor {
  color: #f26925;
 }
+
+.center {
+  display: flex;
+  background-color: #ff1124;
+  justify-content: center;
+  height: 100vh;
+}
+
+
+
 
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming

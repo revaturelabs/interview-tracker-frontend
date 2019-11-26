@@ -1,5 +1,6 @@
+
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { MatSidenav } from '@angular/material/sidenav';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { NavbarservService } from '../../services/navbarserv.service';
 
 
@@ -18,7 +19,7 @@ export class NavbarComponent implements OnInit {
     this.nav.show();
   }
 
-  @ViewChild('sidenav', {static: false}) navbar: MatSidenav;
+  @ViewChild('sidenav', {static: false}) navbar: MatSidenavModule;
 
 
 }
@@ -27,10 +28,3 @@ export class NavbarComponent implements OnInit {
 /**  Copyright 2019 Google LLC. All Rights Reserved.
     Use of this source code is governed by an MIT-style license that
     can be found in the LICENSE file at http://angular.io/license */
-
-
-
-
-
-
-

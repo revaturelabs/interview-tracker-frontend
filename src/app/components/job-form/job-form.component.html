@@ -1,13 +1,32 @@
-<form class="job-form" action="POST" #jobform=ngForm (ngSubmit)="submission(jobform)">
-        <mat-form-field>
-          <input name="title" value="title" matInput placeholder="Job Title" ngModel>
-        </mat-form-field>
-        <br>
-        <mat-form-field>
-          <textarea name="description" value="description" matInput placeholder="Job Description" ngModel></textarea>
-        </mat-form-field>
-        <h3>Skills</h3>
-                    <!-- <mat-checkbox>Skill 1</mat-checkbox> -->
-                <br>
-                <button input type="submit" mat-raised-button>Submit</button>      
-      </form>
+<div id="jobformwrapper">
+  <div id="jobform">
+   
+    
+
+
+    <div class="post-div" fxLayout="row" fxLayoutAlign="center center">
+      <mat-card class="orangebox">
+        <mat-card>
+          <form class="job-form" action="POST" #jobform=ngForm (ngSubmit)="submission(jobform)">
+            <mat-form-field>
+              <input name="title" value="title" matInput placeholder="Job Title" ngModel>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+              <textarea name="description" value="description" matInput placeholder="Job Description"
+                ngModel></textarea>
+            </mat-form-field>
+            <h3 class="bigwords1">Skills</h3>
+            <mat-card class="skills-field">
+              <mat-card *ngFor="let s of skill">
+                <mat-checkbox [name]="s.title" [id]="s.id" (change)="getCheckboxes($event)">{{s.title}}</mat-checkbox>
+              </mat-card>
+            </mat-card>
+            <br>
+            <button id="jobsbutton" input type="submit" class="btn-block glow-on-hover bigwords">Submit</button>
+          </form>
+        </mat-card>
+      </mat-card>
+    </div>
+  </div>
+</div>

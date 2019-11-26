@@ -1,19 +1,21 @@
 <mat-toolbar class="bgcolor" *ngIf="nav.visible">
   <mat-toolbar-row>
     <div>
-      <button mat-button (click)="sidenav.toggle()">
-        Create New
-     <!-- <button mat-icon-button>
-    <mat-icon (click)="sidenav.toggle()">Create New</mat-icon> -->
+      <button class="bigwords2" mat-button (click)="sidenav.toggle()">
+        Create
+    
     </button>
   </div>
     <span class="menu-spacer"></span>
     <div>
-      <a mat-button [routerLink]="'/accounts'"> Profiles </a>
-      <a mat-button [routerLink]="'/jobs'"> Jobs </a>
-      <a mat-button [routerLink]="'/interview'"> Interviews </a>
-      
-      <button mat-button class="emptyspace" [routerLink]="'/login'">Logout</button>
+        <div class="twisteddiv"></div>
+      <a class="bigwords2" mat-button [routerLink]="'/view-profiles'">View Profiles </a>
+      <div class="twisteddiv"></div>
+      <a class="bigwords2" mat-button [routerLink]="'/view-jobs'">View Jobs </a>
+      <div class="twisteddiv"></div>
+      <a class="bigwords2" mat-button [routerLink]="'/view-interviews'">View Interviews </a>
+      <div class="twisteddiv"></div>
+      <button  mat-button class="bigwords3" [routerLink]="'/login'">Logout</button>
     
     </div>
   </mat-toolbar-row>
@@ -24,10 +26,9 @@
   <mat-sidenav #sidenav class="bgcolor2">
     <mat-nav-list>
 
-      <a mat-list-item [routerLink]="'/create-job'" (click)="sidenav.toggle()"> Create Job </a>
-      <a mat-list-item [routerLink]="'/create-account'" (click)="sidenav.toggle()"> Create Profile </a>
-      <a mat-list-item [routerLink]="'/create-interview'" (click)="sidenav.toggle()"> Create Interview </a>
-<!--    <a mat-list-item (click)="sidenav.toggle()" mat-list-item>Close</a> -->
+      <a class="bigwords1" mat-list-item [routerLink]="'/create-job'" (click)="sidenav.toggle()"> Create Job </a>
+      <a class="bigwords1"  mat-list-item [routerLink]="'/create-profile'" (click)="sidenav.toggle()"> Create Profile </a>
+      <a class="bigwords1" mat-list-item [routerLink]="'/create-interview'" (click)="sidenav.toggle()"> Create Interview </a>
      
     </mat-nav-list>
   </mat-sidenav>

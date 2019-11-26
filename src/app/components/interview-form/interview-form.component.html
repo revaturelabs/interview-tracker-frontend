@@ -1,16 +1,17 @@
-<form class="interview-form">
+<div id="jobformwrapper" class="interview">
+    <div id="jobform">
+     
+
+<form id="jobformwrapper" class="interview-form interview" style="margin-left: 40%; margin-top: 60px;" >
         <mat-form-field>
-          <input type="text" placeholder="Interviewee" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
-          <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let option of options" [value]="option">
-              {{option}}
+          <input type="text" placeholder="Assignee" aria-label="Assignee" matInput [formControl]="myControl" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{option.firstName}}
             </mat-option>
           </mat-autocomplete>
         </mat-form-field>
-        <br>
-        <mat-form-field>
-                <input matInput placeholder="Comments">
-        </mat-form-field>
+        <!-- <br>
         <br>
         <mat-form-field>
             <input matInput [matDatepicker]="picker" placeholder="Choose a date">
@@ -34,7 +35,11 @@
               {{option}}
             </mat-option>
           </mat-autocomplete>
-        </mat-form-field>
+        </mat-form-field> -->
         <br>
-          <button mat-raised-button>Submit</button>
+          <button id="jobsbutton" class="btn-block glow-on-hover bigwords">Submit</button>
       </form>
+
+    </div>
+  </div> 
+

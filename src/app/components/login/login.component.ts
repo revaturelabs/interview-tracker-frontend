@@ -1,9 +1,14 @@
+
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { NavbarservService } from '../../services/navbarserv.service';
 import { environment } from 'src/environments/environment';
+
+
+import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-login',
@@ -12,10 +17,9 @@ import { environment } from 'src/environments/environment';
 })
 export class LoginComponent implements OnInit {
 
-  loginUserData = {}
+  loginUserData = {};
 
-  constructor(private http:HttpClient, private activatedRoute: ActivatedRoute,
-    private router: Router, private nav: NavbarservService) { }
+  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute, private router: Router, private nav: NavbarservService) { }
 
   ngOnInit() {
     this.nav.hide();
@@ -23,21 +27,27 @@ export class LoginComponent implements OnInit {
 
   submission(form: NgForm) {
 
+
     this.http.post(environment.login_url, {
+
       username: form.value.username,
       password: form.value.password,
     })
     .toPromise()
-    .then((r: {username: string;password: string}) => {
+    .then((r: {username: string; password: string}) => {
       console.log(r);
-      sessionStorage.setItem("user", JSON.stringify(r));
-      if(r!=null){
-        this.onLogInButtonClick();
+      sessionStorage.setItem('user', JSON.stringify(r));
+      if (r != null) {
+       this.onLogInButtonClick();
       }
     })
     .catch(e => console.log(e));
   }
-  onLogInButtonClick(): void{
-    this.router.navigate(['hub'])
+  onLogInButtonClick(): void {
   }
 }
+
+
+
+
+
