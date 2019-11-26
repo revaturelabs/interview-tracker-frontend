@@ -1,4 +1,5 @@
 <mat-card *ngFor="let j of job">
+        <mat-card *ngIf="!j.skills">
         <h4>Job Title</h4>
         <p>{{j.title}}</p>
         <h4>Job Description</h4>
@@ -11,4 +12,5 @@
         <h4>Recommended Profiles</h4>
         <p>{{j.profiles | json}}</p>
         </mat-card>
+</mat-card>
 </mat-card>
