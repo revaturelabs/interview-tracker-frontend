@@ -8,12 +8,16 @@ import { startWith, map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Timestamp } from 'rxjs/internal/operators/timestamp';
 
-export interface User {
+export interface Profile {
   name: any;
-  id: any;
+  id: number;
 }
 export interface Job {
   title: any;
+}
+export interface User {
+  username: any;
+  id: number;
 }
 
 @Component({
@@ -24,13 +28,17 @@ export interface Job {
 export class InterviewFormComponent implements OnInit {
   myControl = new FormControl();
   jobControl = new FormControl();
+  userControl = new FormControl();
 
-  options: User[] = [];
+  options: Profile[] = [];
   jobOptions: Job[] = [];
+  userOptions: User[] = [];
   profiles: any;
   jobs: any;
-  filteredOptions: Observable<User[]>;
+  users: any;
+  filteredOptions: Observable<Profile[]>;
   filteredJobOptions: Observable<Job[]>;
+  filteredUserOptions: Observable<User[]>;
   constructor( public nav: NavbarservService, private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
@@ -48,11 +56,21 @@ export class InterviewFormComponent implements OnInit {
     this.http.get(environment.main_url + 'jobs/allJobs').toPromise().then(s => {
       this.jobs = s;
       console.log(this.jobs);
-      for (let j of this.jobs) {
+      for (const j of this.jobs) {
         this.jobOptions.push({title: j.title});
       }
       console.log(this.jobOptions);
     });
+
+    this.http.get(environment.login_url + 'users/allusers').toPromise().then(r => {
+      this.users = r;
+      console.log(this.users);
+      for (const u of this.users) {
+        this.userOptions.push({username: u.username, id: u.id});
+        console.log(this.userOptions);
+      }
+    });
+
 
     this.filteredOptions = this.myControl.valueChanges
       .pipe(
@@ -68,17 +86,27 @@ export class InterviewFormComponent implements OnInit {
         map(title => title ? this._jobfilter(title) : this.jobOptions.slice())
       );
 
+    this.filteredUserOptions = this.userControl.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => typeof value === 'string' ? value : value.username),
+        map(username => username ? this._userfilter(username) : this.userOptions.slice())
+      );
+
   }
 
-  displayFn(user?: User): string | undefined {
-    return user ? user.name : undefined;
+  displayFn(profile?: Profile): string | undefined {
+    return profile ? profile.name : undefined;
   }
 
   displayJ(job?: Job): string | undefined {
     return job ? job.title : undefined;
   }
+  displayU(user?: User): string | undefined {
+    return user ? user.username : undefined;
+  }
 
-  private _filter(name: string): User[] {
+  private _filter(name: string): Profile[] {
     const filterValue = name.toLowerCase();
 
     return this.options.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
@@ -90,6 +118,12 @@ export class InterviewFormComponent implements OnInit {
     return this.jobOptions.filter(jobOption => jobOption.title.toLowerCase().indexOf(jobFilterValue) === 0);
   }
 
+  private _userfilter(username: string): User[] {
+    const userFilterValue = username.toLowerCase();
+
+    return this.userOptions.filter(userOption => userOption.username.toLowerCase().indexOf(userFilterValue) === 0);
+  }
+
   submission(form: NgForm) {
     this.http.post(environment.main_url + 'interviews/saveInterview', {
       profile: form.value.option,
@@ -97,18 +131,12 @@ export class InterviewFormComponent implements OnInit {
       date: form.value.date
     })
     .toPromise()
-    .then((r: {profile: object; job: object; date: Timestamp<Date>}) => {
+    .then((r: {id: number; job: object; date: Timestamp<Date>}) => {
       console.log(r);
       this.router.navigateByUrl('/hub');
     })
     .catch(e => console.log(e));
   }
-
-  // getPrint() {
-  //   console.log(this.jobOptions.indexOf({title: 'Software Person'}, 0 ));
-  //   console.log('1');
-
-  // }
 
    }
 

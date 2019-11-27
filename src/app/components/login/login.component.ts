@@ -6,10 +6,6 @@ import { HttpClient } from '@angular/common/http';
 import { NavbarservService } from '../../services/navbarserv.service';
 import { environment } from 'src/environments/environment';
 
-
-import { environment } from 'src/environments/environment';
-
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -28,7 +24,7 @@ export class LoginComponent implements OnInit {
   submission(form: NgForm) {
 
 
-    this.http.post(environment.login_url, {
+    this.http.post(environment.login_url + 'users/login', {
 
       username: form.value.username,
       password: form.value.password,
@@ -44,6 +40,7 @@ export class LoginComponent implements OnInit {
     .catch(e => console.log(e));
   }
   onLogInButtonClick(): void {
+    this.router.navigate(['hub']);
   }
 }
 
