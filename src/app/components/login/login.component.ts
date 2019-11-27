@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { NavbarservService } from '../../services/navbarserv.service';
+import { environment } from 'src/environments/environment';
 
 
 import { environment } from 'src/environments/environment';
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit {
 
   submission(form: NgForm) {
 
-    this.router.navigateByUrl('/hub');
+
     this.http.post(environment.login_url, {
 
       username: form.value.username,

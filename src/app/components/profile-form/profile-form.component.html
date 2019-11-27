@@ -1,12 +1,7 @@
 <div id="jobfromwrapper">
   <div id="jobform">
     <form class="profile-form" #profileform="ngForm" (ngSubmit)="submission(profileform)">
-      <div id="rightwing">
-        <div id="rightwingtip"></div>
-      </div>
-      <div id="leftwing">
-        <div id="leftwingtip"></div>
-      </div>
+      
 
       <mat-form-field>
         <input name="firstName" matInput placeholder="First Name" ngModel>
@@ -25,7 +20,7 @@
         <textarea value="description" name="description" matInput placeholder="Description" ngModel></textarea>
       </mat-form-field>
       <br>
-      <button input type="submit" mat-raised-button>Submit</button>
+      <button input type="submit"   class="btn-block glow-on-hover bigwords">Submit</button>
 
     </form>
   </div>
