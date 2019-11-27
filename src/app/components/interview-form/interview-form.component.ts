@@ -91,10 +91,9 @@ export class InterviewFormComponent implements OnInit {
   }
 
   submission(form: NgForm) {
-    console.log(this.options.indexOf(form.value.option));
     this.http.post(environment.main_url + 'interviews/saveInterview', {
-      profile: this.profiles[this.options.indexOf(form.value.option)],
-      job: this.jobs(this.jobOptions.indexOf({title: form.value.jobOption})),
+      profile: form.value.option,
+      job: form.value.jobOption,
       date: form.value.date
     })
     .toPromise()
