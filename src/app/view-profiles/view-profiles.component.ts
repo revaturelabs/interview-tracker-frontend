@@ -20,4 +20,11 @@ profile: any;
     });
   }
 
+   filterS(fname:string, lname:string, searchName:string):boolean {
+    if(typeof searchName == "undefined"){
+      searchName="";
+    }
+    return (fname+lname+'').toLowerCase().includes((searchName+'').toLowerCase())
+  }
+
 }
