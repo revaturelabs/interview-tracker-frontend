@@ -15,11 +15,8 @@ import { environment } from 'src/environments/environment';
 
 
 export class JobFormComponent implements OnInit {
-
-  skills: any[]=[];
-
-  skill: any
-
+  skill: any;
+  skills: any[] = [];
 
   constructor( public nav: NavbarservService, private http: HttpClient, private router: Router) { }
 
@@ -39,25 +36,18 @@ export class JobFormComponent implements OnInit {
     .toPromise()
     .then((r: {title: string; description: string; skills: any}) => {
       console.log(r);
+      this.router.navigateByUrl('/hub');
     })
     .catch(e => console.log(e));
   }
-  onLogInButtonClick(): void {
-    this.router.navigate(['hub']);
-  }
+    getCheckboxes(event) {
+    if (event.checked === true) {
+    this.skills.push({id : event.source.id, title: event.source.name});
+    }
+    if (event.checked === false) {
+      this.skills.splice(this.skills.indexOf({id: event.source.id}) - 1, 1);
+    }
+    }
 
  
-  getCheckboxes(event) {
-    // alert(event.checked);
-    
-    if(event.checked===true){
-    this.skills.push({id:event.source.id, title:event.source.name});
-    
-    }
-    if(event.checked===false){
-      this.skills.splice(this.skills.indexOf({id:event.source.id})-1,1)
-    }
-    console.log(this.skills)
-  
-    }
 }
