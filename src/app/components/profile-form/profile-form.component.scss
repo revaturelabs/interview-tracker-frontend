@@ -1,6 +1,12 @@
 $revature-orange-light:#f3a55d; 
 $revature-orange: #f26925;
 
+.mat-input-wrapper{
+    width:600px;
+    max-width: 100%;
+    min-width: 70px;
+}
+
 .skills-field{
     height:100px;
     overflow: scroll;
@@ -18,8 +24,7 @@ $revature-orange: #f26925;
     box-shadow: 0 3px 5px -1px rgb(32, 18, 5), 0 6px 10px 0 rgba(119, 89, 8, 0.603), 0 1px 18px 0 rgba(245, 124, 11, 0.411);
 }
 
-.post-div{
-        
+.post-div{  
     display: flex;
     justify-content: center;
     align-items: center;   
@@ -31,12 +36,12 @@ $revature-orange: #f26925;
 }
 
 #jobfromwrapper{
-margin-left: 40%;
-margin-top: 120px;
+    margin-left: 40%;
+    margin-top: 120px;
     width: 300px;
-background-color:     #f3a55d;
-padding: 30px;
-border-radius: 10px;
+    background-color:#f3a55d;
+    padding: 30px;
+    border-radius: 10px;
 }
 
 #jobform{

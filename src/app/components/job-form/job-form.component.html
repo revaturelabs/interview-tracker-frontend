@@ -12,13 +12,16 @@
       <mat-card class="orangebox">
         <mat-card>
           <form class="job-form" action="POST" #jobform=ngForm (ngSubmit)="submission(jobform)">
-            <mat-form-field>
+            <mat-form-field class="mat-input-wrapper">
               <input name="title" value="title" matInput placeholder="Job Title" ngModel>
             </mat-form-field>
             <br>
-            <mat-form-field>
+            <mat-form-field class="mat-input-wrapper">
               <textarea name="description" value="description" matInput placeholder="Job Description"
-                ngModel></textarea>
+              cdkTextareaAutosize
+              cdkAutosizeMinRows="1"
+              cdkAutosizeMaxRows="5"
+              ngModel></textarea>
             </mat-form-field>
             <h3>Skills</h3>
             <mat-card class="skills-field">
