@@ -1,12 +1,16 @@
 <div id="jobformwrapper">
   <div id="jobform">
+<<<<<<< HEAD
     <div id="leftwing">
       <div id="leftwingtip"></div>
     </div>
     <div id="rightwing">
       <div id="rightwingtip"></div>
+=======
+   
+    
+>>>>>>> UserFeatureThree
 
-    </div>
 
     <div class="post-div" fxLayout="row" fxLayoutAlign="center center">
       <mat-card class="orangebox">
@@ -23,14 +27,14 @@
               cdkAutosizeMaxRows="5"
               ngModel></textarea>
             </mat-form-field>
-            <h3>Skills</h3>
+            <h3 class="bigwords1">Skills</h3>
             <mat-card class="skills-field">
               <mat-card *ngFor="let s of skill">
                 <mat-checkbox [name]="s.title" [id]="s.id" (change)="getCheckboxes($event)">{{s.title}}</mat-checkbox>
               </mat-card>
             </mat-card>
             <br>
-            <button id="jobsbutton" input type="submit" mat-raised-button>Submit</button>
+            <button id="jobsbutton" input type="submit" class="btn-block glow-on-hover bigwords">Submit</button>
           </form>
         </mat-card>
       </mat-card>
