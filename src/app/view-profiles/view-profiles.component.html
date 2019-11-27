@@ -1,4 +1,8 @@
-<mat-card *ngFor="let p of profile">
+<br>
+<label for="sch">Filter : </label> <input [(ngModel)]="name" id="sch" >
+<br>
+<div *ngFor="let p of profile">
+<mat-card  *ngIf="filterS(p.firstName,p.lastName,name);">
     <h4>{{p.firstName}} {{p.lastName}}</h4>
     <h4>Skills</h4>
     <ul>
@@ -11,3 +15,4 @@
     <h4>Description</h4>
     <p>{{p.description}}</p>
 </mat-card>
+</div>
