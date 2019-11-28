@@ -14,7 +14,8 @@ interview: any;
 
   ngOnInit() {
     this.nav.show();
-    this.http.get(environment.main_url + 'interviews/allInterviews').toPromise().then(r => {
+    this.http.get(environment.main_url + 'interviews/allInterviews').toPromise().then(
+      r => {
       this.interview = r;
     });
   }
