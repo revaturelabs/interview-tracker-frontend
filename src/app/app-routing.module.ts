@@ -20,7 +20,7 @@ const routes: Routes = [
   // is either non existent, or the user is not currently allowed to access said feature.
   { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'login', component: LoginComponent },
-  { path: 'hub', component: ProjectHubComponent },
+  { path: 'hub', component: ProjectHubComponent},
   { path: 'create-job', component: JobFormComponent },
   { path: 'logout' , component: LogoutComponent },
   { path: 'create-profile', component: ProfileFormComponent },
