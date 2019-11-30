@@ -1,8 +1,9 @@
+$revature-orange-light: #f3a55d;
+$revature-orange: #f26925;
 #libox{
-    background-color: grey;
-
-margin: 10px;
-padding: 10px;
+  background-color: grey;
+  margin: 10px;
+  padding: 10px;
 }
 
 .border-div {
@@ -12,14 +13,16 @@ padding: 10px;
 .border-div:hover { border-width: 9px; }
 
 .login-div {
-    align-items: center;
-    position: relative;
-    height: 50%;
-    width: 50%;
-    background-color: rgb(255, 150, 13);
-    box-shadow: 0 3px 5px -1px rgb(32, 18, 5), 0 6px 10px 0 rgba(119, 90, 8, 0.87),
-      0 1px 18px 0 #f26925;
-    padding: 40px 70px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 300px;
+  width: 400px;
+  background-color:$revature-orange;
+  box-shadow: 0 3px 5px -1px rgb(32, 18, 5), 0 6px 10px 0 rgba(119, 90, 8, 0.87),
+    0 1px 18px 0 #f26925;
+  opacity: 1;
+  float: center;
     
     top: 80;
     opacity: 1;
@@ -49,31 +52,22 @@ padding: 10px;
     margin: 0;
     color: #f26925;
   }
-
-
-  #leftwing{
-    position: absolute;
-    margin-top: 45vh;
-    margin-left: 20%;
-    border-bottom: 50px solid #ff960d;
-      border-left: 15px solid transparent;
-      border-right: 15px solid transparent;
-      height: 0;
-      width: 300px;
-      transform: rotate(180deg);
+#topdiv{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-#leftwingtip{
-    
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-top: 50px solid transparent;
-    border-right: 100px solid #ff960d;
-    border-bottom: 50px solid transparent;
-    transform: rotate(90deg);
-    margin-top: -160px;
-    margin-left: 100px;
+#leftwing{
+  position: absolute;
+  margin-top: 45vh;
+  margin-left: 20%;
+  border-bottom: 50px solid #ff960d;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  height: 0;
+  width: 300px;
+  transform: rotate(180deg);
 }
 
 .glow-on-hover {
