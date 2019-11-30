@@ -34,6 +34,7 @@ export class JobFormComponent implements OnInit {
     .toPromise()
     .then((r: {title: string; description: string; skills: any}) => {
       console.log(r);
+      this.router.navigateByUrl('/hub');
     })
     .catch(e => console.log(e));
   }

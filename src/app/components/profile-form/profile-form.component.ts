@@ -36,6 +36,7 @@ export class ProfileFormComponent implements OnInit {
     .toPromise()
     .then((r: {firstName: string; lastName: string; skills: any; description: string}) => {
       console.log(r);
+      this.router.navigateByUrl('/hub');
     })
     .catch(e => console.log(e));
   }
