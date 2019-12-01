@@ -7,10 +7,10 @@
 
       <mat-form-field>
         <input type="text" placeholder="Interviewee" aria-label="Interviewee" matInput [formControl]="myControl"
-          [matAutocomplete]="auto" name="interviewee" ngModel>
+          [matAutocomplete]="auto" name="interviewee" value="option.name" ngModel>
         <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-            {{option.id}}
+          <mat-option name="profile" *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option.name}}
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
@@ -23,26 +23,16 @@
         <input type="text" placeholder="Job" aria-label="Job" matInput [formControl]="jobControl"
           [matAutocomplete]="autojob" name="job" ngModel>
         <mat-autocomplete #autojob="matAutocomplete" [displayWith]="displayJ">
-          <mat-option *ngFor="let jobOption of filteredJobOptions | async" [value]="jobOption">
+          <mat-option name="jobs" *ngFor="let jobOption of filteredJobOptions | async" [value]="jobOption">
             {{jobOption.title}}
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
       <br>
-      <mat-form-field>
-        <input type="text" placeholder="Interviewer" aria-label="Job" matInput [formControl]="userControl"
-          [matAutocomplete]="autouser" name="user" ngModel>
-        <mat-autocomplete #autouser="matAutocomplete" [displayWith]="displayU">
-          <mat-option *ngFor="let userOption of userOptions" [value]="userOption">
-            {{userOption.id}}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
-      <br>
       <h4>Select Interviewers</h4>
-      <mat-card *ngFor="let u of users">
-        <mat-checkbox [name]="u.username" [id]="u.id" (change)="getCheckboxes($event)">{{u.username}}</mat-checkbox>
-      </mat-card>
+      <!-- <mat-card *ngFor="let u of users"> -->
+        <mat-checkbox *ngFor="let u of users" [name]="u.username" [id]="u.id" (change)="getCheckboxes($event)">{{u.username   }}</mat-checkbox>
+      <!-- </mat-card> -->
       <br>
       <button id="jobsbutton" class="btn-block glow-on-hover bigwords">Submit</button>
     </form>

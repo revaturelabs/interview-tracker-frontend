@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm, FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
 import { NavbarservService } from '../../services/navbarserv.service';
 import { HttpClient } from '@angular/common/http';
@@ -10,6 +10,8 @@ import { environment } from 'src/environments/environment';
   templateUrl: './job-form.component.html',
   styleUrls: ['./job-form.component.scss']
 })
+
+// @ViewChild('ref') ref;
 
 
 export class JobFormComponent implements OnInit {
@@ -47,4 +49,5 @@ export class JobFormComponent implements OnInit {
     }
     }
 
+ 
 }
