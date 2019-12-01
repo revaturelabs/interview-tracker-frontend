@@ -1,5 +1,5 @@
 <br>
-<label for="sch">Filter : </label> <input [(ngModel)]="title" id="sch" >
+<label class="bigwords" for="sch">Filter : </label> <input [(ngModel)]="title" id="sch" >
 <br>
 <mat-card *ngFor="let j of job">
         <mat-card *ngIf="!j.filled && filterS(j.title,title);">

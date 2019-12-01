@@ -1,5 +1,14 @@
-$revature-orange-light:#f3a55d; 
+$revature-orange-light:#f26925; 
 $revature-orange: #f26925;
+
+.bigwords{
+  font-weight: bolder; 
+  font-family: 'Allerta', sans-serif;
+  text-align: center;
+  font-size: 31px;
+  letter-spacing: 4px;
+  color: rgb(0, 0, 0);
+}
 
 .post-div{  
     display: flex;

@@ -1,9 +1,9 @@
 <br>
-<label for="sch">Filter : </label> <input [(ngModel)]="name" id="sch" >
+<label for="sch" class="bigwords">Filter : </label> <input [(ngModel)]="name" id="sch" >
 <br>
 <div *ngFor="let p of profile" class="post-div" fxLayout="row" fxLayoutAlign="center center">
         
-<mat-card  class="orangebox"  *ngIf="filterS(p.firstName,p.lastName,name);">
+<mat-card style="margin-bottom: 20px;"  class="orangebox"  *ngIf="filterS(p.firstName,p.lastName,name);">
     <mat-card>
     <h4>{{p.firstName}} {{p.lastName}}</h4>
     <h4>Skills</h4>
