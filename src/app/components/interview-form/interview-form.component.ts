@@ -39,6 +39,8 @@ export class InterviewFormComponent implements OnInit {
   user: any[] = [];
   profile: any;
   job: any;
+  selectedValue: any;
+  selectedJobValue: any;
 
   filteredOptions: Observable<Profile[]>;
   filteredJobOptions: Observable<Job[]>;
@@ -50,23 +52,19 @@ export class InterviewFormComponent implements OnInit {
 
     this.http.get(environment.main_url + 'profiles/allProfiles').toPromise().then(r => {
       this.profiles = r;
-      console.log(this.profiles);
-      for (let p of this.profiles) {
+      for (const p of this.profiles) {
         this.options.push({name: p.firstName + ' ' + p.lastName});
-        console.log(this.options);
       }
     });
 
     this.http.get(environment.main_url + 'jobs/allJobs').toPromise().then(s => {
-      this.jobs = s;
-      console.log(this.jobs);
+      this.jobs = s
       for (const j of this.jobs) {
         this.jobOptions.push({title: j.title});
       }
-      console.log(this.jobOptions);
     });
 
-    this.http.get(environment.login_url + 'users/allUsers').toPromise().then(s => {
+    this.http.get(environment.login_url + 'users/allusers').toPromise().then(s => {
       this.users = s;
     });
 
@@ -107,11 +105,9 @@ export class InterviewFormComponent implements OnInit {
   }
 
   submission(form: NgForm) {
-    console.log(form.value.interviewee);
-    console.log(form.value.job);
     this.http.post(environment.main_url + 'interviews/saveInterview', {
-      profile: form.value.profile,
-      job: form.value.job,
+      profile: this.selectedValue,
+      job: this.selectedJobValue,
       date: form.value.date,
       user: this.user
 
@@ -131,6 +127,16 @@ export class InterviewFormComponent implements OnInit {
       this.user.splice(this.user.indexOf({username: event.source.name}) - 1, 1);
     }
     }
+
+    selectedOption(event) {
+      this.selectedValue = event.option.value;
+      console.log(this.selectedValue);
+   }
+
+   selectedJobOption(event) {
+    this.selectedJobValue = event.option.value;
+    console.log(this.selectedJobValue);
+ }
 
 
    }
