@@ -1,3 +1,5 @@
+<div class="post-div" fxLayout="row" fxLayoutAlign="center center">
+        <mat-card class="orangebox">
 <mat-card *ngFor="let int of interview">
     <h4>Interviewee</h4>
     <p>{{int.profile.firstName}} {{int.profile.lastName}}</p>
@@ -12,3 +14,6 @@
         <li *ngFor=" let u of int.users; index as i">{{int.users[i] | json}}</li>
     </ul>
 </mat-card>
+<div style="height: 20px;background-color: rgb(76, 64, 109);"></div>
+</mat-card>
+</div>

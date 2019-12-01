@@ -10,8 +10,10 @@ $revature-orange: #f26925;
   border: solid 5px #525252;
   transition: border-width 0.6s linear;
 }
-.border-div:hover { border-width: 9px; }
 
+.border-div:hover { 
+  border-width: 9px; 
+}
 .login-div {
   align-items: center;
   display: flex;
@@ -21,43 +23,32 @@ $revature-orange: #f26925;
   background-color:$revature-orange;
   box-shadow: 0 3px 5px -1px rgb(32, 18, 5), 0 6px 10px 0 rgba(119, 90, 8, 0.87),
     0 1px 18px 0 #f26925;
+
   opacity: 1;
   float: center;
     
-    top: 80;
-    opacity: 1;
-    float: center;
-    padding: 60px 50px 40px 50px;
-    
   }
 
-  #topdiv{
+  // #topdiv{
+  //     margin-left: 26%;
+  //     margin-top: 170px;
+  //     position: relative;
+  // }
 
-      margin-left: 26%;
-  
-
-      margin-top: 170px;
-      position: relative;
-  }
-
-  .login-card{
-    padding: 8px;
-    text-align: center;
-
-    background-color: #f26924;
-  }
-
-  .login-div login-card {
-    font-size: 30px;
-    margin: 0;
-    color: #f26925;
+.login-card{
+  padding: 8px;
+  text-align: center;
+  width: 80%;
+  height: 80%
   }
 #topdiv{
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
+
 #leftwing{
   position: absolute;
   margin-top: 45vh;
@@ -86,10 +77,10 @@ $revature-orange: #f26925;
 .bigwords{
   font-weight: bolder; 
   font-family: 'Allerta', sans-serif;
-          text-align: center;
-          font-size: 31px;
-          letter-spacing: 4px;
-          color: rgb(255, 255, 255);
+  text-align: center;
+  font-size: 31px;
+  letter-spacing: 4px;
+  color: rgb(255, 255, 255);
 }
 
 .glow-on-hover:before {
@@ -139,34 +130,14 @@ $revature-orange: #f26925;
   100% { background-position: 0 0; }
 }
 
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
-@import '~@angular/material/theming';
-// Plus imports for other components in your app.
 
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
-@include mat-core();
-
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$Interview-Angular-primary: mat-palette($mat-indigo);
-$Interview-Angular-accent: mat-palette($mat-pink, A200, A100, A400);
-
-// The warn palette is optional (defaults to red).
-$Interview-Angular-warn: mat-palette($mat-red);
-
-// Create the theme object (a Sass map containing all of the palettes).
-$Interview-Angular-theme: mat-light-theme($Interview-Angular-primary, $Interview-Angular-accent, $Interview-Angular-warn);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include angular-material-theme($Interview-Angular-theme);
+// @include angular-material-theme($Interview-Angular-theme);
 
-/* You can add global styles to this file, and also import other style files */
+// /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// html, body { height: 100%; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
