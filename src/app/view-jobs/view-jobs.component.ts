@@ -44,4 +44,10 @@ submission(form: NgForm) {
   })
   .catch(e => console.log(e));
 }
+filterS(title: string, searchJob: string): boolean {
+  if (typeof searchJob === 'undefined') {
+    searchJob = '';
+  }
+  return (title + '').toLowerCase().includes((searchJob + '').toLowerCase());
+}
 }

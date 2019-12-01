@@ -1,5 +1,8 @@
+<br>
+<label for="sch">Filter : </label> <input [(ngModel)]="title" id="sch" >
+<br>
 <mat-card *ngFor="let j of job">
-        <mat-card *ngIf="!j.filled">
+        <mat-card *ngIf="!j.filled && filterS(j.title,title);">
         <form #updatejobform="ngForm" (ngSubmit)="submission(updatejobform)">
         <h4>Job Title</h4>
         <p>{{j.title}}</p>
@@ -13,8 +16,9 @@
         <mat-card>
         <h4>Recommended Profiles</h4>
         <p>{{j.profiles | json}}</p>
-        <button input type="submit" mat-raised-button>Update</button>
         </mat-card>
+        <br>
+        <button input type="submit" mat-raised-button>Update</button>
 </form>
 </mat-card>
 </mat-card>
