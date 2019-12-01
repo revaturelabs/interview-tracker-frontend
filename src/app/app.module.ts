@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LandingComponent } from './landing/landing.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppMaterialModule } from './app-material.module';
 import { ProjectHubComponent } from './project-hub/project-hub.component';
 import { SkillsFormComponent } from './components/skills-form/skills-form.component';
@@ -21,6 +21,9 @@ import { ViewProfilesComponent } from './view-profiles/view-profiles.component';
 import { ViewInterviewsComponent } from './view-interviews/view-interviews.component';
 import { ViewJobsComponent } from './view-jobs/view-jobs.component';
 import { MatSlideToggleModule } from '@angular/material';
+
+import { ErrorInterceptor } from './error-interceptor';
+import { JwtInterceptor } from './jwt-interceptor';
 
 
 
@@ -48,10 +51,16 @@ import { MatSlideToggleModule } from '@angular/material';
     ReactiveFormsModule,
     AppRoutingModule,
     AppMaterialModule,
-    FormsModule    
-],
-  providers: [AuthService,
-              NavbarservService],
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    AppMaterialModule
+  ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    AuthService,
+    NavbarservService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
