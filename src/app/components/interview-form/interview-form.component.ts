@@ -9,11 +9,15 @@ import { Router } from '@angular/router';
 import { Timestamp } from 'rxjs/internal/operators/timestamp';
 import { MatRadioChange } from '@angular/material';
 
+// the firstName variable actually represents the first and last name together.
+
 export interface Profile {
-  name: any;
+  firstName: any;
+  id: number;
 }
 export interface Job {
   title: any;
+  id: number;
 }
 export interface User {
   username: any;
@@ -53,14 +57,14 @@ export class InterviewFormComponent implements OnInit {
     this.http.get(environment.main_url + 'profiles/allProfiles').toPromise().then(r => {
       this.profiles = r;
       for (const p of this.profiles) {
-        this.options.push({name: p.firstName + ' ' + p.lastName});
+        this.options.push({firstName: p.firstName + ' ' + p.lastName, id: p.id});
       }
     });
 
     this.http.get(environment.main_url + 'jobs/allJobs').toPromise().then(s => {
-      this.jobs = s
+      this.jobs = s;
       for (const j of this.jobs) {
-        this.jobOptions.push({title: j.title});
+        this.jobOptions.push({title: j.title, id: j.id});
       }
     });
 
@@ -71,8 +75,8 @@ export class InterviewFormComponent implements OnInit {
     this.filteredOptions = this.myControl.valueChanges
       .pipe(
         startWith(''),
-        map(value => typeof value === 'string' ? value : value.name),
-        map(name => name ? this._filter(name) : this.options.slice())
+        map(value => typeof value === 'string' ? value : value.firstName),
+        map(firstName => firstName ? this._filter(firstName) : this.options.slice())
       );
 
     this.filteredJobOptions = this.jobControl.valueChanges
@@ -85,17 +89,17 @@ export class InterviewFormComponent implements OnInit {
    }
 
   displayFn(profile?: Profile): string | undefined {
-    return profile ? profile.name : undefined;
+    return profile ? profile.firstName : undefined;
   }
 
   displayJ(job?: Job): string | undefined {
     return job ? job.title : undefined;
   }
 
-  private _filter(name: string): Profile[] {
-    const filterValue = name.toLowerCase();
+  private _filter(firstName: string): Profile[] {
+    const filterValue = firstName.toLowerCase();
 
-    return this.options.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
+    return this.options.filter(option => option.firstName.toLowerCase().indexOf(filterValue) === 0);
   }
 
   private _jobfilter(title: string): Job[] {
@@ -109,11 +113,11 @@ export class InterviewFormComponent implements OnInit {
       profile: this.selectedValue,
       job: this.selectedJobValue,
       date: form.value.date,
-      user: this.user
+      users: this.user
 
     })
     .toPromise()
-    .then((r: {profile: object; job: object; date: Timestamp<Date>, user: any}) => {
+    .then((r: {profile: object; job: object; date: Timestamp<Date>, users: any}) => {
       console.log(r);
       this.router.navigateByUrl('/hub');
     })
@@ -122,9 +126,11 @@ export class InterviewFormComponent implements OnInit {
   getCheckboxes(event) {
     if (event.checked === true) {
     this.user.push({username : event.source.name});
+    console.log(this.user);
     }
     if (event.checked === false) {
       this.user.splice(this.user.indexOf({username: event.source.name}) - 1, 1);
+      console.log(this.user);
     }
     }
 

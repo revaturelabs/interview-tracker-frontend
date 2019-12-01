@@ -10,7 +10,7 @@
           [matAutocomplete]="auto" name="interviewee" ngModel>
         <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="selectedOption($event)">
           <mat-option name="profile" *ngFor="let option of filteredOptions | async" [value]="option">
-            {{option.name}}
+            {{option.firstName}}
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
@@ -30,9 +30,7 @@
       </mat-form-field>
       <br>
       <h4>Select Interviewers</h4>
-      <!-- <mat-card *ngFor="let u of users"> -->
-        <mat-checkbox *ngFor="let u of users" [name]="u.username" [id]="u.id" (change)="getCheckboxes($event)">{{u.username   }}</mat-checkbox>
-      <!-- </mat-card> -->
+        <mat-checkbox *ngFor="let u of users" [name]="u.username" [id]="u.id" (change)="getCheckboxes($event)">{{u.username}}</mat-checkbox>
       <br>
       <button id="jobsbutton" class="btn-block glow-on-hover bigwords">Submit</button>
     </form>
