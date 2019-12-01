@@ -11,7 +11,6 @@ import { MatRadioChange } from '@angular/material';
 
 export interface Profile {
   name: any;
-  id: number;
 }
 export interface Job {
   title: any;
@@ -53,7 +52,7 @@ export class InterviewFormComponent implements OnInit {
       this.profiles = r;
       console.log(this.profiles);
       for (let p of this.profiles) {
-        this.options.push({name: p.firstName + ' ' + p.lastName, id: p.id});
+        this.options.push({name: p.firstName + ' ' + p.lastName});
         console.log(this.options);
       }
     });
@@ -65,6 +64,10 @@ export class InterviewFormComponent implements OnInit {
         this.jobOptions.push({title: j.title});
       }
       console.log(this.jobOptions);
+    });
+
+    this.http.get(environment.login_url + 'users/allUsers').toPromise().then(s => {
+      this.users = s;
     });
 
     this.filteredOptions = this.myControl.valueChanges
@@ -103,13 +106,14 @@ export class InterviewFormComponent implements OnInit {
     return this.jobOptions.filter(jobOption => jobOption.title.toLowerCase().indexOf(jobFilterValue) === 0);
   }
 
-
   submission(form: NgForm) {
+    console.log(form.value.interviewee);
+    console.log(form.value.job);
     this.http.post(environment.main_url + 'interviews/saveInterview', {
-      profile: form.value.option,
-      // job: form.value.jobOption,
+      profile: form.value.profile,
+      job: form.value.job,
       date: form.value.date,
-      // user: form.value.userOption
+      user: this.user
 
     })
     .toPromise()
@@ -121,10 +125,10 @@ export class InterviewFormComponent implements OnInit {
   }
   getCheckboxes(event) {
     if (event.checked === true) {
-    this.users.push({id : event.source.id});
+    this.user.push({username : event.source.name});
     }
     if (event.checked === false) {
-      this.users.splice(this.users.indexOf({id: event.source.id}) - 1, 1);
+      this.user.splice(this.user.indexOf({username: event.source.name}) - 1, 1);
     }
     }
 
