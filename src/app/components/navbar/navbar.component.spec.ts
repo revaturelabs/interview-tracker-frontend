@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavbarComponent } from './navbar.component';
-import { MatToolbarModule, MatSidenavModule, MatListModule, MatCardModule, MatFormFieldModule, MatCheckboxModule, MatOptionModule, MatAutocompleteModule, MatDatepickerModule } from '@angular/material';
+import { MatToolbarModule, MatSidenavModule, MatListModule, MatCardModule, MatFormFieldModule, MatCheckboxModule, MatOptionModule, MatAutocompleteModule, MatDatepickerModule, MatSlideToggleModule } from '@angular/material';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { LoginComponent } from '../login/login.component';
 import { ProjectHubComponent } from 'src/app/project-hub/project-hub.component';
@@ -24,7 +24,7 @@ describe('NavbarComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ NavbarComponent, LoginComponent, LogoutComponent, ViewProfilesComponent, ViewJobsComponent, ViewInterviewsComponent, ProjectHubComponent, JobFormComponent, InterviewFormComponent, ProfileFormComponent, LandingComponent ],
-      imports: [BrowserAnimationsModule,MatToolbarModule, AppRoutingModule, MatSidenavModule, MatFormFieldModule, MatListModule, MatCardModule, FormsModule, MatCheckboxModule, MatOptionModule, MatAutocompleteModule, MatDatepickerModule, ReactiveFormsModule],
+      imports: [BrowserAnimationsModule,MatToolbarModule, AppRoutingModule, MatSidenavModule, MatFormFieldModule, MatListModule, MatCardModule, FormsModule, MatCheckboxModule, MatOptionModule, MatAutocompleteModule, MatDatepickerModule, ReactiveFormsModule, MatSlideToggleModule],
       providers: [{provide: APP_BASE_HREF, useValue: '/my/app'}]
     })
     .compileComponents();

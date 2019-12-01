@@ -20,6 +20,7 @@ import { NavbarservService } from './services/navbarserv.service';
 import { ViewProfilesComponent } from './view-profiles/view-profiles.component';
 import { ViewInterviewsComponent } from './view-interviews/view-interviews.component';
 import { ViewJobsComponent } from './view-jobs/view-jobs.component';
+import { MatSlideToggleModule } from '@angular/material';
 
 
 
@@ -46,12 +47,8 @@ import { ViewJobsComponent } from './view-jobs/view-jobs.component';
     HttpClientModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     AppMaterialModule,
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    AppMaterialModule
+    FormsModule    
 ],
   providers: [AuthService,
               NavbarservService],

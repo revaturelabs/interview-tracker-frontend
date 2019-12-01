@@ -7,8 +7,6 @@ import { NavbarservService } from '../../services/navbarserv.service';
 import { environment } from 'src/environments/environment';
 
 
-import { environment } from 'src/environments/environment';
-
 
 @Component({
   selector: 'app-login',
