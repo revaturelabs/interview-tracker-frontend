@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { LoginComponent } from './login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MatCardModule, MatFormFieldModule, MatCheckboxModule, MatAutocompleteModule, MatDatepickerModule, MatInputModule } from '@angular/material';
+import { MatCardModule, MatFormFieldModule, MatCheckboxModule, MatAutocompleteModule, MatDatepickerModule, MatInputModule, MatSlideToggleModule } from '@angular/material';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { ProjectHubComponent } from 'src/app/project-hub/project-hub.component';
 import { JobFormComponent } from '../job-form/job-form.component';
@@ -24,7 +24,7 @@ describe('LoginComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ LoginComponent, ProjectHubComponent, JobFormComponent, InterviewFormComponent, SkillsFormComponent, ProfileFormComponent, LandingComponent, LogoutComponent, ViewProfilesComponent, ViewJobsComponent, ViewInterviewsComponent ],
-      imports: [FormsModule, MatInputModule, HttpClientModule, MatCardModule, MatFormFieldModule, AppRoutingModule, MatCheckboxModule, MatAutocompleteModule, MatDatepickerModule, ReactiveFormsModule, BrowserAnimationsModule],
+      imports: [FormsModule, MatInputModule, HttpClientModule, MatCardModule, MatFormFieldModule, AppRoutingModule, MatCheckboxModule, MatAutocompleteModule, MatDatepickerModule, ReactiveFormsModule, BrowserAnimationsModule, MatSlideToggleModule],
       providers: [{provide: APP_BASE_HREF, useValue: '/my/app'}]
     })
     .compileComponents();
