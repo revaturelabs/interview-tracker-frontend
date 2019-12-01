@@ -10,6 +10,10 @@ import { InterviewFormComponent } from '../interview-form/interview-form.compone
 import { SkillsFormComponent } from '../skills-form/skills-form.component';
 import { ProfileFormComponent } from '../profile-form/profile-form.component';
 import { LandingComponent } from 'src/app/landing/landing.component';
+import { LogoutComponent } from '../logout/logout.component';
+import { ViewProfilesComponent } from 'src/app/view-profiles/view-profiles.component';
+import { ViewJobsComponent } from 'src/app/view-jobs/view-jobs.component';
+import { ViewInterviewsComponent } from 'src/app/view-interviews/view-interviews.component';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -17,7 +21,7 @@ describe('LoginComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginComponent, ProjectHubComponent, JobFormComponent, InterviewFormComponent, SkillsFormComponent, ProfileFormComponent, LandingComponent ],
+      declarations: [ LoginComponent, ProjectHubComponent, JobFormComponent, InterviewFormComponent, SkillsFormComponent, ProfileFormComponent, LandingComponent, LogoutComponent, ViewProfilesComponent, ViewJobsComponent, ViewInterviewsComponent ],
       imports: [FormsModule, HttpClientModule, MatCardModule, MatFormFieldModule, AppRoutingModule, MatCheckboxModule, MatAutocompleteModule, MatDatepickerModule, ReactiveFormsModule]
     })
     .compileComponents();

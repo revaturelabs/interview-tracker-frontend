@@ -1,16 +1,24 @@
+<br>
+<label for="sch">Filter : </label> <input [(ngModel)]="title" id="sch" >
+<br>
 <mat-card *ngFor="let j of job">
-        <mat-card *ngIf="!j.skills">
+        <mat-card *ngIf="!j.filled && filterS(j.title,title);">
+        <form #updatejobform="ngForm" (ngSubmit)="submission(updatejobform)">
         <h4>Job Title</h4>
         <p>{{j.title}}</p>
+        <p></p>
         <h4>Job Description</h4>
         <p>{{j.description}}</p>
         <ul>
         <li *ngFor=" let s of j.skills; index as i">{{j.skills[i].title | json}}</li>
         </ul>
-        <mat-slide-toggle checked="{{j.filled}}" (change)="sliderChange($event)">{{slider}}</mat-slide-toggle>
+        <mat-slide-toggle checked="{{j.filled}}" [id]="j.id" (change)="sliderChange($event)">{{slider}}</mat-slide-toggle>
         <mat-card>
         <h4>Recommended Profiles</h4>
         <p>{{j.profiles | json}}</p>
         </mat-card>
+        <br>
+        <button input type="submit" mat-raised-button>Update</button>
+</form>
 </mat-card>
 </mat-card>
