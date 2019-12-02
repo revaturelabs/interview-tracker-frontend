@@ -17,6 +17,13 @@ export class JwtInterceptor implements HttpInterceptor {
                 }
             });
         }
+        else{
+            request = request.clone({
+                setHeaders: {
+                    Authorization: ``
+                }
+            });
+        }
 
         else {
             request = request.clone({

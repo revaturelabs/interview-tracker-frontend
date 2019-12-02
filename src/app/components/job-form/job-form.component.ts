@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./job-form.component.scss']
 })
 
+
 export class JobFormComponent implements OnInit {
   skill: any;
   skills: any[] = [];
