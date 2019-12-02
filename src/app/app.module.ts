@@ -39,9 +39,9 @@ import { JwtInterceptor } from './jwt-interceptor';
     ProfileFormComponent,
     SkillsFormComponent,
     LogoutComponent,
-     ViewProfilesComponent,
-     ViewInterviewsComponent,
-     ViewJobsComponent
+    ViewProfilesComponent,
+    ViewInterviewsComponent,
+    ViewJobsComponent
   ],
 
   imports: [
