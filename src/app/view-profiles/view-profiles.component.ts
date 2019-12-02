@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ViewProfilesComponent implements OnInit {
 profile: any;
+interviews: any;
 
   constructor(public nav: NavbarservService, private http: HttpClient) { }
 
@@ -18,6 +19,11 @@ profile: any;
     this.http.get(environment.main_url + 'profiles/allProfiles').toPromise().then(r => {
       this.profile = r;
     });
+
+    this.http.get(environment.main_url + 'interviews/allInterviews').toPromise().then(r => {
+      console.log(r);
+      this.interviews = r;
+    }).catch(e => console.log(e));
   }
 
   filterS(fname: string, lname: string, searchName: string): boolean {

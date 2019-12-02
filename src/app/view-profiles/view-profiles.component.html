@@ -8,11 +8,11 @@
     <h4>{{p.firstName}} {{p.lastName}}</h4>
     <h4>Skills</h4>
     <ul>
-    <li *ngFor=" let s of p.skills; index as i">{{p.skills[i].title | json}}</li>
+    <li *ngFor=" let s of p.skills; index as i">{{p.skills[i].title}}</li>
     </ul>
     <h4>Interviews</h4>
-    <ul>
-    <li *ngFor=" let int of p.interviews; index as i">{{p.interviews[i] | json}}</li>
+    <ul *ngFor=" let int of interviews; index as i">
+    <li *ngIf="int.profile.firstName===p.firstName">{{int.date | date:'short'}}</li>
     </ul>
     <h4>Description</h4>
     <p>{{p.description}}</p><br/>

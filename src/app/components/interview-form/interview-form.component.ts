@@ -18,6 +18,7 @@ export interface Profile {
 export interface Job {
   title: any;
   id: number;
+  filled: boolean;
 }
 export interface User {
   username: any;
@@ -64,7 +65,7 @@ export class InterviewFormComponent implements OnInit {
     this.http.get(environment.main_url + 'jobs/allJobs').toPromise().then(s => {
       this.jobs = s;
       for (const j of this.jobs) {
-        this.jobOptions.push({title: j.title, id: j.id});
+        this.jobOptions.push({title: j.title, id: j.id, filled: j.filled});
       }
     });
 
