@@ -14,10 +14,10 @@ import { ViewInterviewsComponent } from './view-interviews/view-interviews.compo
 
 
 const routes: Routes = [
-  // @Author: Ramses
-  // Set up the paths setting the blank space as the first page, providing a gateway and sending the user to the log-in page
-  // The ** wildcard has been used in order to send the user onto a error page in case the user tries to type in a path that
-  // is either non existent, or the user is not currently allowed to access said feature.
+  /** @Author: Ramses
+  Set up the paths setting the blank space as the first page, providing a gateway and sending the user to the log-in page
+  The ** wildcard has been used in order to send the user onto a error page in case the user tries to type in a path that
+  is either non existent, or the user is not currently allowed to access said feature.*/
   { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'login', component: LoginComponent },
   { path: 'hub', component: ProjectHubComponent},

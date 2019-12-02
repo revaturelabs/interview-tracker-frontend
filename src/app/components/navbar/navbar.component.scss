@@ -6,9 +6,6 @@
     right: 0;
     background: rgb(231, 145, 33);
     margin-left: auto;
-    
-      // This fills the remaining space, by using flexbox. 
-      // Every toolbar row uses a flexbox row layout.  
   }
 
   .bigwords1{
@@ -56,7 +53,6 @@
   }
 
 
- //colors
 $black_50: rgba(0, 0, 0, 0.5);
 $coral: coral;
 $black_67_1: rgba(0, 0, 0, 0.671);
@@ -75,7 +71,6 @@ $black_67_1: rgba(0, 0, 0, 0.671);
     height: 4px;
     width: 4px;
     display: inline-block;
-    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
     transform: rotate(-80deg);
     margin-left: 70px;
     padding-bottom: 0;
@@ -86,7 +81,6 @@ $black_67_1: rgba(0, 0, 0, 0.671);
     height: 8px;
     width: 4px;
     margin-bottom: 6px;
-    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
     transform: rotate(-30deg);
     display: inline-block;
     margin-left: 5px;
@@ -96,7 +90,6 @@ $black_67_1: rgba(0, 0, 0, 0.671);
     height: 10px;
     width: 4px;
     display: inline-block;
-    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
     transform: rotate(-15deg);
     margin-bottom: 10px;
     margin-left: 5px;
@@ -106,7 +99,6 @@ $black_67_1: rgba(0, 0, 0, 0.671);
     height: 12px;
     width: 4px;
     display: inline-block;
-    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
     transform: rotate(-6deg);
     margin-bottom: 15px;
     margin-left: 5px;
@@ -116,7 +108,6 @@ $black_67_1: rgba(0, 0, 0, 0.671);
     height: 14px;
     width: 4px;
     display: inline-block;
-    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
     transform: rotate(7deg);
     margin-bottom: 16px;
     margin-left: 5px;
@@ -126,7 +117,6 @@ $black_67_1: rgba(0, 0, 0, 0.671);
     height: 17px;
     width: 4px;
     display: inline-block;
-    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
     transform: rotate(16deg);
     margin-bottom: 16px;
     margin-left: 5px;
@@ -136,7 +126,6 @@ $black_67_1: rgba(0, 0, 0, 0.671);
     height: 20px;
     width: 4px;
     display: inline-block;
-    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
     transform: rotate(24deg);
     margin-bottom: 14px;
     margin-left: 5px;
@@ -146,7 +135,6 @@ $black_67_1: rgba(0, 0, 0, 0.671);
     height: 23px;
     width: 4px;
     display: inline-block;
-    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
     transform: rotate(35deg);
     margin-bottom: 10px;
     margin-left: 5px;
@@ -156,7 +144,6 @@ $black_67_1: rgba(0, 0, 0, 0.671);
     height: 27px;
     width: 4px;
     display: inline-block;
-    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
     transform: rotate(40deg);
     margin-bottom: 4px;
     margin-left: 5px;
@@ -166,7 +153,6 @@ $black_67_1: rgba(0, 0, 0, 0.671);
     height: 30px;
     width: 4px;
     display: inline-block;
-    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
     transform: rotate(50deg);
     margin-bottom: -6px;
     margin-left: 5px;

@@ -11,8 +11,6 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./job-form.component.scss']
 })
 
-// @ViewChild('ref') ref;
-
 
 export class JobFormComponent implements OnInit {
   skill: any;
