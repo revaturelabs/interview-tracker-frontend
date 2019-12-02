@@ -24,8 +24,8 @@ export class LoginComponent implements OnInit {
   submission(form: NgForm) {
 
 
-    this.http.post(environment.login_url + 'users/login', {
 
+    this.http.post(environment.login_url + 'users/login', {
       username: form.value.username,
       password: form.value.password,
     })

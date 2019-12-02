@@ -24,7 +24,9 @@
           [matAutocomplete]="autojob" name="job" ngModel>
         <mat-autocomplete #autojob="matAutocomplete" [displayWith]="displayJ" (optionSelected)="selectedJobOption($event)">
           <mat-option name="jobs" *ngFor="let jobOption of filteredJobOptions | async" [value]="jobOption">
+            <mat-card *ngIf="!jobOption.filled">
             {{jobOption.title}}
+            </mat-card>
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
