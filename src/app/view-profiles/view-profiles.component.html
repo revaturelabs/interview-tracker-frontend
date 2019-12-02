@@ -1,9 +1,11 @@
 <br>
-<label for="sch" class="bigwords">Filter : </label> <input [(ngModel)]="name" id="sch" >
-<br>
+<label for="sch">Filter : </label> <input [(ngModel)]="name" id="sch" >
+<select [(ngModel)]="opinions">
+    <option value="byname" selected>By Name</option>
+    <option value="byskills">By Skills</option>
+</select>
 <div *ngFor="let p of profile" class="post-div" fxLayout="row" fxLayoutAlign="center center">
-        
-<mat-card style="margin-bottom: 20px;"  class="orangebox"  *ngIf="filterS(p.firstName,p.lastName,name);">
+<mat-card style="margin-bottom: 20%;" class="orangebox" *ngIf="filterS(p,name);">
     <mat-card>
     <h4>{{p.firstName}} {{p.lastName}}</h4>
     <h4>Skills</h4>
@@ -15,6 +17,6 @@
     <li *ngIf="int.profile.firstName===p.firstName">{{int.date | date:'short'}}</li>
     </ul>
     <h4>Description</h4>
-    <p>{{p.description}}</p><br/>
-</mat-card><br/></mat-card><br/>
+    <p>{{p.description}}</p>
+</mat-card></mat-card>
 </div>

@@ -11,9 +11,6 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./job-form.component.scss']
 })
 
-// @ViewChild('ref') ref;
-
-
 export class JobFormComponent implements OnInit {
   skill: any;
   skills: any[] = [];
@@ -40,6 +37,12 @@ export class JobFormComponent implements OnInit {
     })
     .catch(e => console.log(e));
   }
+
+  /** @Author Lyssa Tupy, William Liederer
+   * @params event
+   * Method for mat-checkboxes, if the checkbox is checked the skill id and title are puhsed to
+   * this.skills. If box is then unchecked it removes that skill using splice and the index of the skill.
+   */
     getCheckboxes(event) {
     if (event.checked === true) {
     this.skills.push({id : event.source.id, title: event.source.name});
@@ -48,6 +51,4 @@ export class JobFormComponent implements OnInit {
       this.skills.splice(this.skills.indexOf({id: event.source.id}) - 1, 1);
     }
     }
-
- 
 }
