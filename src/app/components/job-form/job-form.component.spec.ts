@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { JobFormComponent } from './job-form.component';
-import { MatFormFieldModule, MatCheckboxModule, MatInputModule, MatCardModule, MatAutocompleteModule, MatDatepickerModule } from '@angular/material';
+import { MatFormFieldModule, MatCheckboxModule, MatInputModule, MatCardModule, MatAutocompleteModule, MatDatepickerModule, MatSlideToggleModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
@@ -25,7 +25,7 @@ describe('JobFormComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ JobFormComponent, LoginComponent, ProjectHubComponent, LogoutComponent, ProfileFormComponent, InterviewFormComponent, SkillsFormComponent, ViewInterviewsComponent, ViewProfilesComponent, ViewJobsComponent, LandingComponent ],
-      imports: [MatFormFieldModule, MatCheckboxModule, FormsModule, MatInputModule, BrowserAnimationsModule, MatCardModule, HttpClientModule, AppRoutingModule, MatAutocompleteModule, ReactiveFormsModule, MatDatepickerModule ],
+      imports: [MatFormFieldModule, MatCheckboxModule, FormsModule, MatInputModule, BrowserAnimationsModule, MatCardModule, HttpClientModule, AppRoutingModule, MatAutocompleteModule, ReactiveFormsModule, MatDatepickerModule, MatSlideToggleModule ],
       providers: [{provide: APP_BASE_HREF, useValue: '/my/app'}]
     })
     .compileComponents();

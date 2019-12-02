@@ -1,13 +1,16 @@
-<div id="jobfromwrapper">
-  <div id="jobform">
+<div id="">
+    <div id=""> 
+  
+  <div class="post-div" fxLayout="row" fxLayoutAlign="center center">
+      <mat-card class="orangebox"><mat-card>
     <form class="profile-form" #profileform="ngForm" (ngSubmit)="submission(profileform)">
       
 
-      <mat-form-field>
+      <mat-form-field class="mat-input-wrapper">
         <input name="firstName" matInput placeholder="First Name" ngModel>
       </mat-form-field>
       <br>
-      <mat-form-field>
+      <mat-form-field class="mat-input-wrapper">
         <input name="lastName" matInput placeholder="Last Name" ngModel>
       </mat-form-field>
       <h4>Skills:</h4>
@@ -16,12 +19,13 @@
           <mat-checkbox [name]="s.title" [id]="s.id" (change)="getCheckboxes($event)">{{s.title}}</mat-checkbox>
         </mat-card>
       </mat-card>
-      <mat-form-field>
+      <mat-form-field class="mat-input-wrapper">
         <textarea value="description" name="description" matInput placeholder="Description" ngModel></textarea>
       </mat-form-field>
       <br>
       <button input type="submit"   class="btn-block glow-on-hover bigwords">Submit</button>
 
     </form>
+    </mat-card></mat-card>
   </div>
 </div>
