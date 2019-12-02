@@ -25,4 +25,32 @@ describe('ViewJobsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should change event from open to filled', ()=>{
+    class tester{
+      checked: boolean;
+      constructor(
+      check: boolean
+      ){
+        this.checked=check;
+      }
+    }
+    let event=new tester(true);   
+    component.sliderChange(event);
+    expect(component.slider).toBe('Job is filled');
+  });
+
+  it('should change event from filled to open', ()=>{
+    class tester{
+      checked: boolean;
+      constructor(
+      check: boolean
+      ){
+        this.checked=check;
+      }
+    }
+    let event=new tester(false);   
+    component.sliderChange(event);
+    expect(component.slider).toBe('Job is open');
+  });
 });
