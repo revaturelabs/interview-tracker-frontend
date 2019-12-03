@@ -22,7 +22,7 @@ export class NavbarComponent implements OnInit {
   @ViewChild('sidenav', {static: false}) navbar: MatSidenavModule;
 
   logout(event) {
-    localStorage.clear();
+    sessionStorage.clear();
   }
 
 

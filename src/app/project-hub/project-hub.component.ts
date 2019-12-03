@@ -13,11 +13,11 @@ export class ProjectHubComponent implements OnInit {
   constructor( public nav: NavbarservService ) { }
 
   ngOnInit() {
-    if (!localStorage.getItem('loa')) { 
-      localStorage.setItem('loa', 'no reload') 
+    if (!sessionStorage.getItem('loa')) { 
+      sessionStorage.setItem('loa', 'no reload') 
       location.reload() 
     } else {
-      localStorage.removeItem('loa') 
+      sessionStorage.removeItem('loa') 
     }
     this.nav.show();
   }
