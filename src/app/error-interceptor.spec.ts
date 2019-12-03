@@ -16,11 +16,13 @@ import { ViewInterviewsComponent } from './view-interviews/view-interviews.compo
 import { LandingComponent } from './landing/landing.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule, MatFormFieldModule, MatCheckboxModule, MatAutocompleteModule, MatSlideToggleModule } from '@angular/material';
+import { APP_BASE_HREF } from '@angular/common';
 
 describe('ErrorInterceptor', () => {
   beforeEach(() => TestBed.configureTestingModule({
     declarations:[LoginComponent, ProjectHubComponent, JobFormComponent, LogoutComponent, ProfileFormComponent, InterviewFormComponent, ViewProfilesComponent, ViewJobsComponent, ViewInterviewsComponent, LandingComponent],
-    imports:[HttpClientModule, AppRoutingModule, FormsModule, MatCardModule, MatFormFieldModule, MatCheckboxModule, ReactiveFormsModule, MatAutocompleteModule, MatSlideToggleModule]
+    imports:[HttpClientModule, AppRoutingModule, FormsModule, MatCardModule, MatFormFieldModule, MatCheckboxModule, ReactiveFormsModule, MatAutocompleteModule, MatSlideToggleModule],
+    providers: [{provide: APP_BASE_HREF, useValue: '/my/app'}]
   }));
   it('should create an instance', () => {
     const service: AuthService = TestBed.get(AuthService);
