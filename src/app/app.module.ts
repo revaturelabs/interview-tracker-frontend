@@ -21,9 +21,8 @@ import { ViewProfilesComponent } from './view-profiles/view-profiles.component';
 import { ViewInterviewsComponent } from './view-interviews/view-interviews.component';
 import { ViewJobsComponent } from './view-jobs/view-jobs.component';
 import { MatSlideToggleModule } from '@angular/material';
-
 import { ErrorInterceptor } from './error-interceptor';
-// import { JwtInterceptor } from './jwt-interceptor';
+import { JwtInterceptor } from './jwt-interceptor';
 
 
 
@@ -57,7 +56,7 @@ import { ErrorInterceptor } from './error-interceptor';
     AppMaterialModule
   ],
   providers: [
-    // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     AuthService,
     NavbarservService],
