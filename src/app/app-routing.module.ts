@@ -10,6 +10,7 @@ import { ProfileFormComponent } from './components/profile-form/profile-form.com
 import { ViewProfilesComponent } from './view-profiles/view-profiles.component';
 import { ViewJobsComponent } from './view-jobs/view-jobs.component';
 import { ViewInterviewsComponent } from './view-interviews/view-interviews.component';
+import { AuthGuard } from './auth.guard';
 
 
 
@@ -20,14 +21,14 @@ const routes: Routes = [
   is either non existent, or the user is not currently allowed to access said feature.*/
   { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'login', component: LoginComponent },
-  { path: 'hub', component: ProjectHubComponent},
-  { path: 'create-job', component: JobFormComponent },
-  { path: 'logout' , component: LogoutComponent },
-  { path: 'create-profile', component: ProfileFormComponent },
-  { path: 'create-interview', component: InterviewFormComponent },
-  { path: 'view-profiles', component: ViewProfilesComponent },
-  { path: 'view-jobs', component: ViewJobsComponent },
-  { path: 'view-interviews', component: ViewInterviewsComponent },
+  { path: 'hub', component: ProjectHubComponent, canActivate : [AuthGuard]},
+  { path: 'create-job', component: JobFormComponent, canActivate : [AuthGuard] },
+  { path: 'logout' , component: LogoutComponent, canActivate : [AuthGuard] },
+  { path: 'create-profile', component: ProfileFormComponent, canActivate : [AuthGuard] },
+  { path: 'create-interview', component: InterviewFormComponent, canActivate : [AuthGuard] },
+  { path: 'view-profiles', component: ViewProfilesComponent, canActivate : [AuthGuard] },
+  { path: 'view-jobs', component: ViewJobsComponent, canActivate : [AuthGuard] },
+  { path: 'view-interviews', component: ViewInterviewsComponent, canActivate : [AuthGuard] },
   { path: '**', component: LandingComponent }
 ];
 
