@@ -3,6 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProjectHubComponent } from './project-hub.component';
 import { NavbarservService } from '../services/navbarserv.service';
 import { ActivatedRoute } from '@angular/router';
+import { AppRoutingModule } from '../app-routing.module';
+import { LoginComponent } from '../components/login/login.component';
+import { JobFormComponent } from '../components/job-form/job-form.component';
+import { InterviewFormComponent } from '../components/interview-form/interview-form.component';
+import { ProfileFormComponent } from '../components/profile-form/profile-form.component';
+import { LogoutComponent } from '../components/logout/logout.component';
+import { ViewInterviewsComponent } from '../view-interviews/view-interviews.component';
+import { ViewJobsComponent } from '../view-jobs/view-jobs.component';
+import { ViewProfilesComponent } from '../view-profiles/view-profiles.component';
+import { LandingComponent } from '../landing/landing.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppMaterialModule } from '../app-material.module';
+import { MatInputModule } from '@angular/material';
+import { APP_BASE_HREF } from '@angular/common';
+
 
 describe('ProjectHubComponent', () => {
   let component: ProjectHubComponent;
@@ -10,7 +25,9 @@ describe('ProjectHubComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProjectHubComponent ]
+      declarations: [ ProjectHubComponent, LogoutComponent, LoginComponent, JobFormComponent, InterviewFormComponent, ProfileFormComponent, ViewInterviewsComponent, ViewJobsComponent, ViewProfilesComponent, LandingComponent ],
+      imports: [AppRoutingModule, FormsModule, AppMaterialModule, MatInputModule, ReactiveFormsModule],
+      providers: [{provide: APP_BASE_HREF, useValue : '/' }]
     })
     .compileComponents();
   }));
