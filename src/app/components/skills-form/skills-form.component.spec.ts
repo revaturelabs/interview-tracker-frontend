@@ -4,6 +4,7 @@ import { SkillsFormComponent } from './skills-form.component';
 import { MatFormFieldModule, MatCardModule, MatInputModule } from '@angular/material';
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('SkillsFormComponent', () => {
   let component: SkillsFormComponent;
@@ -12,7 +13,7 @@ describe('SkillsFormComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ SkillsFormComponent ],
-      imports: [MatFormFieldModule, MatCardModule, TextFieldModule, ReactiveFormsModule, FormsModule, MatInputModule]
+      imports: [MatFormFieldModule, MatCardModule, TextFieldModule, ReactiveFormsModule, FormsModule, MatInputModule, BrowserAnimationsModule]
     })
     .compileComponents();
   }));

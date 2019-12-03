@@ -3,10 +3,10 @@ $revature-orange-light:#f26925;
 .bigwords1{
     font-weight: bolder; 
     font-family: 'Allerta', sans-serif;
-            text-align: center;
-            font-size: 18px;
-            letter-spacing: 1px;
-            color: #2e2c2c;
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: #2e2c2c;
   }
 
   .glow-on-hover {
@@ -25,10 +25,10 @@ $revature-orange-light:#f26925;
   .bigwords{
     font-weight: bolder; 
     font-family: 'Allerta', sans-serif;
-            text-align: center;
-            font-size: 20px;
-            letter-spacing: 4px;
-            color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 4px;
+    color: rgb(255, 255, 255);
   }
   
   .glow-on-hover:before {
@@ -79,15 +79,14 @@ $revature-orange-light:#f26925;
   }
 
 #jobfromwrapper{
-background-color: #f26925;
-
+    background-color: #f26925;
     padding: 20px;
-margin-left: 40%;
-margin-top: 50px;
-width: 20%;
-border-radius: 10px;
-text-align: center;
-position: absolute;
+    margin-left: 40%;
+    margin-top: 50px;
+    width: 20%;
+    border-radius: 10px;
+    text-align: center;
+    position: absolute;
 }
 
 
@@ -97,81 +96,16 @@ position: absolute;
     margin-bottom: 20px;
 }
 
-
-
-#leftwingtip{
-    
-    position: absolute;
-    display: inline-block;
-    width: 0;
-    height: 0;
-    border-top: 100px solid transparent;
-    border-right: 100px solid #ff960d;
-    border-bottom: 100px solid transparent;
-    transform: rotate(0deg);
-    margin-top: 0px;
-    margin-left: 80px;
-}
-
-#leftwingtip2{
-    
-    position: absolute;
-    display: inline-block;
-    width: 0;
-    height: 0;
-    border-top: 95px solid transparent;
-    border-right: 95px solid #ff960d;
-    border-bottom: 55px solid transparent;
-    transform: rotate(0deg);
-    margin-top: 150px;
-    margin-left: 300px;
-}
-
-#leftwingtip3{
-    
-    position: absolute;
-    display: inline-block;
-    width: 0;
-    height: 0;
-    border-top: 195px solid transparent;
-    border-right: 195px solid #ff960d;
-    border-bottom: 195px solid transparent;
-    transform: rotate(0deg);
-    margin-top: 300px;
-    margin-left: 110px;
-}
-
-
-#rightwingtip{
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-top: 50px solid transparent;
-    border-right: 100px solid #ff960d;
-    border-bottom: 50px solid transparent;
-    transform: rotate(50deg);
-    margin-top: 300px;
-    margin-right: 78px;
-    right: 0;
-}
-
-#rightwingtip2{
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-top: 50px solid transparent;
-    border-right: 50px solid #ff960d;
-    border-bottom: 50px solid transparent;
-    transform: rotate(50deg);
-    margin-top: 30px;
-    margin-right: 238px;
-    right: 0;
-}
-
 $revature-orange-light:#f26925; 
 
 
 
+
+.mat-input-wrapper{
+    width:500px;
+    max-width: 100%;
+    min-width: 70px;
+}
 
 .skills-field{
     height:100px;
@@ -194,5 +128,5 @@ $revature-orange-light:#f26925;
     justify-content: center;
     align-items: center;
    
-  }
+}
 

@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ViewProfilesComponent } from './view-profiles.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MatCardModule } from '@angular/material';
+import { AppMaterialModule } from '../app-material.module';
+import { FormsModule } from '@angular/forms';
 
 describe('ViewProfilesComponent', () => {
   let component: ViewProfilesComponent;
@@ -8,7 +12,8 @@ describe('ViewProfilesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ViewProfilesComponent ]
+      declarations: [ ViewProfilesComponent ],
+      imports: [MatCardModule, HttpClientModule, AppMaterialModule, FormsModule]
     })
     .compileComponents();
   }));
