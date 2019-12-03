@@ -12,6 +12,7 @@ export class ViewProfilesComponent implements OnInit {
 profile: any;
 interviews: any;
 opinions: any;
+name: string;
 
   constructor(public nav: NavbarservService, private http: HttpClient) { }
 
