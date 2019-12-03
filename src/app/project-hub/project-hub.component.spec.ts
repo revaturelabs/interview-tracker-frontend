@@ -23,12 +23,7 @@ describe('ProjectHubComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // it('should initialize as false', ()=>{
-  //   expect(component.show).toBeFalsy();
-  // });
 
-  // it('toggle should change hub from hidden to shown', ()=>{
-  //   component.toggle();
-  //   expect(component.show).toBeTruthy();
-  //   });
+
+
 });
