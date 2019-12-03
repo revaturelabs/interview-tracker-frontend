@@ -10,7 +10,7 @@ export class JwtInterceptor implements HttpInterceptor {
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const customReq = request.clone({
-            headers: request.headers.set("auth", localStorage.getItem("user"))
+            headers: request.headers.set("auth", localStorage.getItem('user'))
         });
         return next.handle(customReq);
     }
