@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProjectHubComponent } from './project-hub.component';
 import { NavbarservService } from '../services/navbarserv.service';
+import { ActivatedRoute } from '@angular/router';
 
 describe('ProjectHubComponent', () => {
   let component: ProjectHubComponent;
@@ -25,7 +26,7 @@ describe('ProjectHubComponent', () => {
   });
 
   it('should hide the navbar', ()=>{
-    let tester=new ProjectHubComponent(new NavbarservService);
+    let tester=new ProjectHubComponent(new NavbarservService, new ActivatedRoute);
     expect(tester.show).toBeFalsy();
   });
 
