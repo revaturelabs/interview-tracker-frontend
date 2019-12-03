@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     .toPromise()
     .then((r: {username: string; password: string}) => {
       console.log(r);
-      sessionStorage.setItem('user', JSON.stringify(r));
+      localStorage.setItem('user', r.username);
       if (r != null) {
        this.onLogInButtonClick();
       }
