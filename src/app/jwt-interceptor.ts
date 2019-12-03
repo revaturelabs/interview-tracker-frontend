@@ -10,9 +10,13 @@ export class JwtInterceptor implements HttpInterceptor {
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const customReq = request.clone({
+<<<<<<< HEAD
             headers: request.headers.set("auth", localStorage.getItem('user'))
+=======
+            headers: request.headers.set('auth', sessionStorage.getItem('user'))
+>>>>>>> LyssaBranch
         });
         return next.handle(customReq);
     }
-        
+
 }
