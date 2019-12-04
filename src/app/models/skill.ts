@@ -1,8 +1,3 @@
 export class Skill {
-  constructor(id: number, title: string) {
-    this.id = id;
-    this.title = title;
-  }
-  id: number;
-  title: string;
+  constructor(public id: number, public title: string) {}
 }

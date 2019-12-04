@@ -1,17 +1,13 @@
+import { Skill } from "./skill";
+import { Profile } from "./profile";
+
 export class Job {
   constructor(
-    id: number,
-    description: string,
-    isFilled: boolean,
-    title: string
-  ) {
-    this.id = id;
-    this.description = description;
-    this.isFilled = isFilled;
-    this.title = title;
-  }
-  id: number;
-  description: string;
-  isFilled: boolean;
-  title: string;
+    public id: number,
+    public title: string,
+    public description: string,
+    public skills: Skill[],
+    public isFilled: boolean,
+    public profiles: Profile[]
+  ) {}
 }
