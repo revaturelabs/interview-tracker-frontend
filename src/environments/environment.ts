@@ -5,8 +5,8 @@ The list of file replacements can be found in `angular.json`.*/
 export const environment = {
   production: false,
 
-  login_url : 'http://localhost:8765/user-service/',
-  main_url : 'http://localhost:8765/interview-service/'
+  login_url : 'http://localhost:50222/',
+  main_url : 'http://localhost:50222/'
 };
 
 /**

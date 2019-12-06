@@ -3,9 +3,8 @@ import { Job } from "./job";
 
 export class Comment {
   constructor(
-    public id: number,
-    public date: Date,
-    public name: string,
-    public text: string
+    public date: Date = new Date(),
+    public name: string = "",
+    public text: string = ""
   ) {}
 }

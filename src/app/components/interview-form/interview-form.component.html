@@ -9,7 +9,7 @@
         <input type="text" placeholder="Interviewee" aria-label="Interviewee" matInput [formControl]="myControl"
           [matAutocomplete]="auto" name="interviewee" ngModel>
         <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="selectedOption($event)">
-          <mat-option name="profile" *ngFor="let option of filteredOptions | async" [value]="option">
+          <mat-option name="profile" *ngFor="let option of filteredProfileOptions | async" [value]="option">
             {{option.firstName}}
           </mat-option>
         </mat-autocomplete>
@@ -32,7 +32,7 @@
       </mat-form-field>
       <br>
       <h4>Select Interviewers</h4>
-        <mat-checkbox *ngFor="let u of users" [name]="u.username" [id]="u.id" (change)="getCheckboxes($event)" color="primary">{{u.username}}</mat-checkbox>
+        <mat-checkbox *ngFor="let u of users" [name]="u.username" (change)="getCheckboxes($event)" color="primary">{{u.username}}</mat-checkbox>
       <br>
       <button id="jobsbutton" class="btn-block glow-on-hover bigwords">Submit</button>
     </form>

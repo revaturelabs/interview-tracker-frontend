@@ -5,6 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { NavbarservService } from '../../services/navbarserv.service';
 import { environment } from 'src/environments/environment';
+import { UserService } from 'src/app/services/User/user.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-login',
@@ -15,29 +17,25 @@ export class LoginComponent implements OnInit {
 
   loginUserData = {};
 
-  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute, private router: Router, private nav: NavbarservService) { }
+  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute, private router: Router, private nav: NavbarservService, private userService: UserService) { }
 
   ngOnInit() {
     this.nav.hide();
   }
 
   submission(form: NgForm) {
-
-
-
-    this.http.post(environment.login_url + 'users/login', {
-      username: form.value.username,
-      password: form.value.password,
-    })
-    .toPromise()
-    .then((r: {username: string; password: string}) => {
+    console.log("into submission");
+    this.userService.login(new User(form.value.username, form.value.password)).subscribe(
+      r => {
       console.log(r);
       sessionStorage.setItem('user', r.username);
       if (r != null) {
        this.onLogInButtonClick();
       }
-    })
-    .catch(e => console.log(e));
+    }, err => {
+      console.log(err)
+    });
+
   }
   onLogInButtonClick(): void {
     this.router.navigate(['hub']);

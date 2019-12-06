@@ -1,3 +1,3 @@
 export class Skill {
-  constructor(public id: number, public title: string) {}
+  constructor(public title: string = "") {}
 }
