@@ -11,22 +11,13 @@ import { MatRadioChange } from "@angular/material";
 import { ProfileService } from "src/app/services/Profile/profile.service";
 import { JobService } from "src/app/services/Job/job.service";
 import { UserService } from "src/app/services/User/user.service";
+import { Profile } from 'src/app/models/profile';
+import { Job } from 'src/app/models/job';
+import { User } from 'src/app/models/user';
+import { InterviewService } from 'src/app/services/Interview/interview.service';
+import { Interview } from 'src/app/models/interview';
 
 // the firstName variable actually represents the first and last name together.
-
-export interface Profile {
-  firstName: any;
-  id: number;
-}
-export interface Job {
-  title: any;
-  id: number;
-  filled: boolean;
-}
-export interface User {
-  username: any;
-  id: number;
-}
 
 @Component({
   selector: "app-interview-form",
@@ -38,7 +29,7 @@ export class InterviewFormComponent implements OnInit {
   jobControl = new FormControl();
   userControl = new FormControl();
 
-  options: Profile[] = [];
+  profileOptions: Profile[] = [];
   jobOptions: Job[] = [];
   userOptions: User[] = [];
   profiles: any;
@@ -50,7 +41,7 @@ export class InterviewFormComponent implements OnInit {
   selectedValue: any;
   selectedJobValue: any;
 
-  filteredOptions: Observable<Profile[]>;
+  filteredProfileOptions: Observable<Profile[]>;
   filteredJobOptions: Observable<Job[]>;
   filteredUserOptions: Observable<User[]>;
   constructor(
@@ -59,7 +50,8 @@ export class InterviewFormComponent implements OnInit {
     private router: Router,
     private profileService: ProfileService,
     private jobService: JobService,
-    private userService: UserService
+    private userService: UserService,
+    private interviewService: InterviewService
   ) {}
 
   ngOnInit() {
@@ -68,11 +60,11 @@ export class InterviewFormComponent implements OnInit {
     this.getAllJobs();
     this.getAllUsers();
 
-    this.filteredOptions = this.myControl.valueChanges.pipe(
+    this.filteredProfileOptions = this.myControl.valueChanges.pipe(
       startWith(""),
       map(value => (typeof value === "string" ? value : value.firstName)),
       map(firstName =>
-        firstName ? this._filter(firstName) : this.options.slice()
+        firstName ? this._profileFilter(firstName) : this.profileOptions.slice()
       )
     );
 
@@ -87,12 +79,7 @@ export class InterviewFormComponent implements OnInit {
     this.profileService.getAllProfiles().subscribe(
       r => {
         this.profiles = r;
-        for (const p of this.profiles) {
-          this.options.push({
-            firstName: p.firstName + " " + p.lastName,
-            id: p.id
-          });
-        }
+        this.profileOptions = r;
       },
       err => console.log(err)
     );
@@ -102,9 +89,7 @@ export class InterviewFormComponent implements OnInit {
     this.jobService.getAllJobs().subscribe(
       s => {
         this.jobs = s;
-        for (const j of this.jobs) {
-          this.jobOptions.push({ title: j.title, id: j.id, filled: j.filled });
-        }
+        this.jobOptions = s;
       },
       err => console.log(err)
     );
@@ -114,6 +99,7 @@ export class InterviewFormComponent implements OnInit {
     this.userService.getAllUsers().subscribe(
       s => {
         this.users = s;
+        this.userOptions = s;
       },
       err => console.log(err)
     );
@@ -127,10 +113,10 @@ export class InterviewFormComponent implements OnInit {
     return job ? job.title : undefined;
   }
 
-  private _filter(firstName: string): Profile[] {
+  private _profileFilter(firstName: string): Profile[] {
     const filterValue = firstName.toLowerCase();
 
-    return this.options.filter(
+    return this.profileOptions.filter(
       option => option.firstName.toLowerCase().indexOf(filterValue) === 0
     );
   }
@@ -144,26 +130,19 @@ export class InterviewFormComponent implements OnInit {
   }
 
   submission(form: NgForm) {
-    this.http
-      .post(environment.main_url + "interviews/saveInterview", {
-        profile: this.selectedValue,
-        job: this.selectedJobValue,
-        date: form.value.date,
-        users: this.user
-      })
-      .toPromise()
-      .then(
-        (r: {
-          profile: object;
-          job: object;
-          date: Timestamp<Date>;
-          users: any;
-        }) => {
+    let interview = new Interview();
+    interview.profile = this.selectedValue;
+    interview.job = this.selectedJobValue;
+    interview.date = form.value.date;
+    interview.users = this.user;
+    this.interviewService
+      .addInterview(interview
+      ).subscribe(
+        r => {
           console.log(r);
           this.router.navigateByUrl("/hub");
-        }
+        }, err => {console.log(err)}
       )
-      .catch(e => console.log(e));
   }
   getCheckboxes(event) {
     if (event.checked === true) {

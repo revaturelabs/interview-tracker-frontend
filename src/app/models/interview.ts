@@ -5,12 +5,11 @@ import { User } from "./user";
 
 export class Interview {
   constructor(
-    public id: number,
-    public profile: Profile,
-    public comments: Comment[],
-    public date: Date,
-    public isComplete: boolean,
-    public job: Job,
-    public users: User[]
+    public profile: Profile = new Profile(),
+    public comments: Comment[] = [],
+    public date: Date = new Date(),
+    public complete: boolean = false,
+    public job: Job = new Job(),
+    public users: User[] = [],
   ) {}
 }

@@ -42,10 +42,10 @@ export class ProfileFormComponent implements OnInit {
   }
     getCheckboxes(event) {
     if (event.checked === true) {
-    this.skills.push({id : event.source.id, title: event.source.name});
+    this.skills.push({ title: event.source.name});
     }
     if (event.checked === false) {
-      this.skills.splice(this.skills.indexOf({id: event.source.id}) - 1, 1);
+      this.skills.splice(this.skills.indexOf({title: event.source.name}) - 1, 1);
     }
     }
 }
