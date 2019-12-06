@@ -12,19 +12,19 @@ pipeline {
   }
   stages {
     stage('Install Packages') {
-      when { branch "master" }
+      when { branch "development" }
       steps {
         sh 'npm install'
       }
     }
     stage('Build') {
-      when { branch "master" }
+      when { branch "development" }
       steps {
         sh 'npm run build'
         }
       }
     stage('Deployment') {
-       when { branch "master" }
+       when { branch "development" }
         steps {
          withAWS(region:'us-east-1',credentials:'project3') {
            s3Delete(bucket: 'revature-interview-tracker', path:'**/*')
