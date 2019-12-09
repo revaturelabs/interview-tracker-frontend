@@ -10,6 +10,8 @@ import { NavbarservService } from "../../services/navbarserv.service";
 import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
 import { environment } from "src/environments/environment";
+import { Job } from "src/app/models/job";
+import { JobService } from "src/app/services/Job/job.service";
 import { Skill } from "src/app/models/skill";
 import { SkillService } from "src/app/services/Skill/skill.service";
 
@@ -20,32 +22,33 @@ import { SkillService } from "src/app/services/Skill/skill.service";
 })
 export class JobFormComponent implements OnInit {
   allSkills: Skill[];
-  formSkills: Skill[] = [];
+  skillsOption: Skill[] = [];
 
   constructor(
     public nav: NavbarservService,
     private http: HttpClient,
     private router: Router,
-    private skillS: SkillService
+    private jobService: JobService,
+    private skillService: SkillService
   ) {}
 
   ngOnInit() {
     this.nav.show();
+
     this.getAllSkills();
   }
   submission(form: NgForm) {
-    this.http
-      .post(environment.main_url + "jobs/saveJob", {
-        title: form.value.title,
-        description: form.value.description,
-        skills: this.formSkills
-      })
-      .toPromise()
-      .then((r: { title: string; description: string; skills: any }) => {
-        console.log(r);
-        this.router.navigateByUrl("/hub");
-      })
-      .catch(e => console.log(e));
+    this.jobService
+      .addJob(
+        new Job(form.value.title, form.value.description, this.skillsOption)
+      )
+      .subscribe(
+        j => {
+          console.log(j);
+          this.router.navigateByUrl("/hub");
+        },
+        err => console.log(err)
+      );
   }
 
   /** @Author Lyssa Tupy, William Liederer
@@ -55,21 +58,20 @@ export class JobFormComponent implements OnInit {
    */
   getCheckboxes(event) {
     if (event.checked === true) {
-      this.formSkills.push({ id: event.source.id, title: event.source.name });
+      this.skillsOption.push({ title: event.source.name });
     }
     if (event.checked === false) {
-      this.formSkills.splice(
-        this.formSkills.indexOf({
-          id: event.source.id,
-          title: event.source.name
-        }) - 1,
+      this.skillsOption.splice(
+        this.skillsOption.indexOf({ title: event.source.name }) - 1,
         1
       );
     }
   }
-  getAllSkills(): void {
-    this.skillS.getAllSkills().subscribe(r => {
-      this.allSkills = r;
+
+  getAllSkills() {
+    this.skillService.getAllSkills().subscribe(s => {
+      console.log(s);
+      this.allSkills = s;
     });
   }
 }
