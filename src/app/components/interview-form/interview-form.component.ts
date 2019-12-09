@@ -11,11 +11,11 @@ import { MatRadioChange } from "@angular/material";
 import { ProfileService } from "src/app/services/Profile/profile.service";
 import { JobService } from "src/app/services/Job/job.service";
 import { UserService } from "src/app/services/User/user.service";
-import { Profile } from 'src/app/models/profile';
-import { Job } from 'src/app/models/job';
-import { User } from 'src/app/models/user';
-import { InterviewService } from 'src/app/services/Interview/interview.service';
-import { Interview } from 'src/app/models/interview';
+import { Profile } from "src/app/models/profile";
+import { Job } from "src/app/models/job";
+import { User } from "src/app/models/user";
+import { InterviewService } from "src/app/services/Interview/interview.service";
+import { Interview } from "src/app/models/interview";
 
 // the firstName variable actually represents the first and last name together.
 
@@ -32,13 +32,12 @@ export class InterviewFormComponent implements OnInit {
   profileOptions: Profile[] = [];
   jobOptions: Job[] = [];
   userOptions: User[] = [];
-  profiles: any;
-  jobs: any;
-  users: any;
-  user: any[] = [];
-  profile: any;
-  job: any;
-  selectedValue: any;
+  profiles: Profile[];
+  jobs: Job[];
+  allUsers: User[] = [];
+  profile: Profile;
+  job: Job;
+  selectedProfileValue: any;
   selectedJobValue: any;
 
   filteredProfileOptions: Observable<Profile[]>;
@@ -46,7 +45,6 @@ export class InterviewFormComponent implements OnInit {
   filteredUserOptions: Observable<User[]>;
   constructor(
     public nav: NavbarservService,
-    private http: HttpClient,
     private router: Router,
     private profileService: ProfileService,
     private jobService: JobService,
@@ -78,8 +76,8 @@ export class InterviewFormComponent implements OnInit {
   getAllProfiles(): void {
     this.profileService.getAllProfiles().subscribe(
       r => {
-        this.profiles = r;
-        this.profileOptions = r;
+        this.profiles = r as Profile[];
+        this.profileOptions = r as Profile[];
       },
       err => console.log(err)
     );
@@ -88,8 +86,8 @@ export class InterviewFormComponent implements OnInit {
   getAllJobs(): void {
     this.jobService.getAllJobs().subscribe(
       s => {
-        this.jobs = s;
-        this.jobOptions = s;
+        this.jobs = s as Job[];
+        this.jobOptions = s as Job[];
       },
       err => console.log(err)
     );
@@ -98,8 +96,8 @@ export class InterviewFormComponent implements OnInit {
   getAllUsers(): void {
     this.userService.getAllUsers().subscribe(
       s => {
-        this.users = s;
-        this.userOptions = s;
+        this.allUsers = s as User[];
+        console.log(this.allUsers);
       },
       err => console.log(err)
     );
@@ -131,36 +129,38 @@ export class InterviewFormComponent implements OnInit {
 
   submission(form: NgForm) {
     let interview = new Interview();
-    interview.profile = this.selectedValue;
+    interview.profile = this.selectedProfileValue;
     interview.job = this.selectedJobValue;
     interview.date = form.value.date;
-    interview.users = this.user;
-    this.interviewService
-      .addInterview(interview
-      ).subscribe(
-        r => {
-          console.log(r);
-          this.router.navigateByUrl("/hub");
-        }, err => {console.log(err)}
-      )
+    interview.users = this.userOptions;
+    console.log(interview);
+    this.interviewService.addInterview(interview).subscribe(
+      r => {
+        console.log(r);
+        // this.router.navigateByUrl("/hub");
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
   getCheckboxes(event) {
     if (event.checked === true) {
-      this.user.push({ username: event.source.name });
-      console.log(this.user);
+      this.userOptions.push(new User(event.source.name));
+      console.log(this.userOptions);
     }
     if (event.checked === false) {
-      this.user.splice(
-        this.user.indexOf({ username: event.source.name }) - 1,
+      this.userOptions.splice(
+        this.userOptions.indexOf(new User(event.source.name)) - 1,
         1
       );
-      console.log(this.user);
+      // console.log(this.users);
     }
   }
 
-  selectedOption(event) {
-    this.selectedValue = event.option.value;
-    console.log(this.selectedValue);
+  selectedProfileOption(event) {
+    this.selectedProfileValue = event.option.value;
+    console.log(this.selectedProfileValue);
   }
 
   selectedJobOption(event) {
