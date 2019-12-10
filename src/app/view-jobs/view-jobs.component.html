@@ -1,29 +1,44 @@
-<br>
-<label class="bigwords" for="sch">Filter : </label> <input [(ngModel)]="title" id="sch" >
-<br>
+<br />
+<label class="bigwords" for="sch">Filter : </label>
+<input [(ngModel)]="title" id="sch" />
+<br />
 
-
-
-<div *ngFor="let j of job" class="post-div" fxLayout="row" fxLayoutAlign="center center">
-
-<mat-card style="margin-bottom: 20px;" class="orangebox" *ngIf="!j.filled">
-
-        <mat-card *ngIf="!j.filled && filterS(j.title,title);" >
-               
-        <form #updatejobform="ngForm" (ngSubmit)="submission(updatejobform)">
+<div
+  *ngFor="let j of allJobs"
+  class="post-div"
+  fxLayout="row"
+  fxLayoutAlign="center center"
+>
+  <mat-card style="margin-bottom: 20px;" class="orangebox" *ngIf="!j.filled">
+    <mat-card *ngIf="!j.filled && filterS(j.title, title)">
+      <form #updatejobform="ngForm" (ngSubmit)="submission(updatejobform)">
         <h4>Job Title</h4>
-        <p>{{j.title}}</p>
+        <p>{{ j.title }}</p>
         <p></p>
         <h4>Job Description</h4>
-        <p>{{j.description}}</p>
+        <p>{{ j.description }}</p>
         <ul>
-        <li *ngFor=" let s of j.skills; index as i">{{j.skills[i].title}}</li>
+          <li *ngFor="let s of j.skills; index as i">
+            {{ j.skills[i].title }}
+          </li>
         </ul>
-        <mat-slide-toggle checked="{{j.filled}}" [id]="j.id" (change)="sliderChange($event)">{{slider}}</mat-slide-toggle>
-        <br>
-        <button input type="submit"  mat-raised-button color="primary" class="btn-block glow-on-hover bigwords">Update</button>
-</form>
-</mat-card>
-</mat-card>
-
+        <mat-slide-toggle
+          checked="{{ j.filled }}"
+          [id]="j.id"
+          (change)="sliderChange($event)"
+          >{{ slider }}</mat-slide-toggle
+        >
+        <br />
+        <button
+          input
+          type="submit"
+          mat-raised-button
+          color="primary"
+          class="btn-block glow-on-hover bigwords"
+        >
+          Update
+        </button>
+      </form>
+    </mat-card>
+  </mat-card>
 </div>

@@ -74,6 +74,7 @@
       <h4>Select Interviewers</h4>
       <mat-checkbox
         *ngFor="let u of allUsers"
+        [id]="u.id"
         [name]="u.username"
         (change)="getCheckboxes($event)"
         color="primary"

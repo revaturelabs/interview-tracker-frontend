@@ -7,9 +7,7 @@ import {
   FormControl
 } from "@angular/forms";
 import { NavbarservService } from "../../services/navbarserv.service";
-import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
-import { environment } from "src/environments/environment";
 import { Job } from "src/app/models/job";
 import { JobService } from "src/app/services/Job/job.service";
 import { Skill } from "src/app/models/skill";
@@ -26,7 +24,6 @@ export class JobFormComponent implements OnInit {
 
   constructor(
     public nav: NavbarservService,
-    private http: HttpClient,
     private router: Router,
     private jobService: JobService,
     private skillService: SkillService
@@ -40,7 +37,7 @@ export class JobFormComponent implements OnInit {
   submission(form: NgForm) {
     this.jobService
       .addJob(
-        new Job(form.value.title, form.value.description, this.skillsOption)
+        new Job(0, form.value.title, form.value.description, this.skillsOption)
       )
       .subscribe(
         j => {
@@ -58,11 +55,14 @@ export class JobFormComponent implements OnInit {
    */
   getCheckboxes(event) {
     if (event.checked === true) {
-      this.skillsOption.push({ title: event.source.name });
+      this.skillsOption.push({ id: event.source.id, title: event.source.name });
     }
     if (event.checked === false) {
       this.skillsOption.splice(
-        this.skillsOption.indexOf({ title: event.source.name }) - 1,
+        this.skillsOption.indexOf({
+          id: event.source.id,
+          title: event.source.name
+        }) - 1,
         1
       );
     }

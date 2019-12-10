@@ -1,51 +1,77 @@
-import { Component, OnInit } from '@angular/core';
-import { NavbarservService } from '../../services/navbarserv.service';
-import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
-import { NgForm, FormGroup, FormArray} from '@angular/forms';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { NavbarservService } from "../../services/navbarserv.service";
+import { NgForm, FormGroup, FormArray } from "@angular/forms";
+import { Router } from "@angular/router";
+import { Skill } from "src/app/models/skill";
+import { ProfileService } from "src/app/services/Profile/profile.service";
+import { SkillService } from "src/app/services/Skill/skill.service";
+import { Profile } from "src/app/models/profile";
 
 @Component({
-  selector: 'app-profile-form',
-  templateUrl: './profile-form.component.html',
-  styleUrls: ['./profile-form.component.scss']
+  selector: "app-profile-form",
+  templateUrl: "./profile-form.component.html",
+  styleUrls: ["./profile-form.component.scss"]
 })
 export class ProfileFormComponent implements OnInit {
-  skill: any;
-  skills: any[] = [];
+  allSkills: Skill[];
+  skillsOption: Skill[] = [];
 
-
-
-  constructor( public nav: NavbarservService, private http: HttpClient, private router: Router) { }
+  constructor(
+    public nav: NavbarservService,
+    private profileService: ProfileService,
+    private skillService: SkillService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.nav.show();
 
-    this.http.get(environment.main_url + 'skills/allSkills').toPromise().then(r => {
-      this.skill = r;
-    });
+    this.getAllSkills();
   }
 
   submission(form: NgForm) {
-    this.http.post(environment.main_url + 'profiles/saveProfile', {
-      firstName: form.value.firstName,
-      lastName: form.value.lastName,
-      skills: this.skills,
-      description: form.value.description
-    })
-    .toPromise()
-    .then((r: {firstName: string; lastName: string; skills: any; description: string}) => {
-      console.log(r);
-      this.router.navigateByUrl('/hub');
-    })
-    .catch(e => console.log(e));
+    this.profileService
+      .addProfiles(
+        new Profile(
+          0,
+          form.value.firstName,
+          form.value.lastName,
+          this.skillsOption,
+          form.value.description
+        )
+      )
+      .subscribe(
+        p => {
+          console.log(p);
+          this.router.navigateByUrl("/hub");
+        },
+        err => {
+          console.log(err);
+        }
+      );
   }
-    getCheckboxes(event) {
+  getCheckboxes(event) {
     if (event.checked === true) {
-    this.skills.push({ title: event.source.name});
+      this.skillsOption.push({ id: event.source.id, title: event.source.name });
     }
     if (event.checked === false) {
-      this.skills.splice(this.skills.indexOf({title: event.source.name}) - 1, 1);
+      this.skillsOption.splice(
+        this.skillsOption.indexOf({
+          id: event.source.id,
+          title: event.source.name
+        }) - 1,
+        1
+      );
     }
-    }
+  }
+  getAllSkills() {
+    this.skillService.getAllSkills().subscribe(
+      s => {
+        this.allSkills = s;
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
 }

@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "src/environments/environment";
-import { Job } from 'src/app/models/job';
+import { Job } from "src/app/models/job";
 
 @Injectable({
   providedIn: "root"
@@ -14,5 +14,11 @@ export class JobService {
   }
   addJob(job: Job) {
     return this.http.post<boolean>(environment.main_url + "jobs/saveJob", job);
+  }
+  updateJob(job: Job) {
+    return this.http.patch<boolean>(
+      environment.main_url + "jobs/updateJob",
+      job
+    );
   }
 }

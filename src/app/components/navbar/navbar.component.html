@@ -1,54 +1,78 @@
 <mat-toolbar class="bgcolor" *ngIf="nav.visible">
   <mat-toolbar-row>
-
-    
     <div>
       <button class="bigwords2" mat-button (click)="sidenav.toggle()">
         Create
-    
-    </button>
-  </div>
+      </button>
+    </div>
     <span class="menu-spacer"></span>
 
-
-
-
-
     <div>
-        <div class="twisteddiv"></div>
-      <a class="bigwords2" mat-button [routerLink]="'/view-profiles'">View Profiles </a>
+      <div class="twisteddiv"></div>
+      <a class="bigwords2" mat-button [routerLink]="'/view-profiles'"
+        >View Profiles
+      </a>
       <div class="twisteddiv"></div>
       <a class="bigwords2" mat-button [routerLink]="'/view-jobs'">View Jobs </a>
       <div class="twisteddiv"></div>
-      <a class="bigwords2" mat-button [routerLink]="'/view-interviews'">View Interviews </a>
+      <a class="bigwords2" mat-button [routerLink]="'/view-interviews'"
+        >View Interviews
+      </a>
       <div class="twisteddiv"></div>
-      <button  mat-button class="bigwords3"(click)="logout($event)" [routerLink]="'/login'">Logout</button>
-    
+      <button
+        mat-button
+        class="bigwords3"
+        (click)="logout($event)"
+        [routerLink]="'/login'"
+      >
+        Logout
+      </button>
     </div>
   </mat-toolbar-row>
-
 </mat-toolbar>
 
 <mat-sidenav-container>
   <mat-sidenav #sidenav class="bgcolor2">
     <mat-nav-list>
-
-      <a class="bigwords1" mat-list-item [routerLink]="'/create-job'" (click)="sidenav.toggle()"> Create Job </a>
-      <a class="bigwords1"  mat-list-item [routerLink]="'/create-profile'" (click)="sidenav.toggle()"> Create Profile </a>
-      <a class="bigwords1" mat-list-item [routerLink]="'/create-interview'" (click)="sidenav.toggle()"> Create Interview </a>
-     
+      <a
+        class="bigwords1"
+        mat-list-item
+        [routerLink]="'/create-job'"
+        (click)="sidenav.toggle()"
+      >
+        Create Job
+      </a>
+      <a
+        class="bigwords1"
+        mat-list-item
+        [routerLink]="'/create-profile'"
+        (click)="sidenav.toggle()"
+      >
+        Create Profile
+      </a>
+      <a
+        class="bigwords1"
+        mat-list-item
+        [routerLink]="'/create-interview'"
+        (click)="sidenav.toggle()"
+      >
+        Create Interview
+      </a>
+      <a
+        class="bigwords1"
+        mat-list-item
+        [routerLink]="'/create-skill'"
+        (click)="sidenav.toggle()"
+      >
+        Create Skill
+      </a>
     </mat-nav-list>
   </mat-sidenav>
-  
+
   <mat-sidenav-content>
-     
-      <div class ="stuff"></div>
+    <div class="stuff"></div>
     <div style="height: 90vh;">
       <router-outlet></router-outlet>
     </div>
-    
   </mat-sidenav-content>
-  
 </mat-sidenav-container>
-
-
