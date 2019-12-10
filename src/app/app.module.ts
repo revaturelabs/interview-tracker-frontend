@@ -22,6 +22,7 @@ import { ViewInterviewsComponent } from './view-interviews/view-interviews.compo
 import { ViewJobsComponent } from './view-jobs/view-jobs.component';
 import { MatSlideToggleModule } from '@angular/material';
 import { ErrorInterceptor } from './error-interceptor';
+import { JobFilterPipe } from './job-filter.pipe';
 // import { JwtInterceptor } from './jwt-interceptor';
 
 
@@ -40,7 +41,8 @@ import { ErrorInterceptor } from './error-interceptor';
     LogoutComponent,
     ViewProfilesComponent,
     ViewInterviewsComponent,
-    ViewJobsComponent
+    ViewJobsComponent,
+    JobFilterPipe
   ],
 
   imports: [
