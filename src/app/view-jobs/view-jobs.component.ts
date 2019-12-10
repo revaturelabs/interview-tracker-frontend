@@ -15,7 +15,7 @@ export class ViewJobsComponent implements OnInit {
   id: number;
   title: string;
   constructor(public nav: NavbarservService, private http: HttpClient) {}
-
+  noJobsAvailable: String;
   ngOnInit() {
     this.nav.show();
     this.http
@@ -52,6 +52,8 @@ export class ViewJobsComponent implements OnInit {
   filterS(title: string, searchJob: string): boolean {
     if (typeof searchJob === 'undefined') {
       searchJob = '';
+      this.noJobsAvailable = "Hey no jobs buddy!";
+      console.log(this.noJobsAvailable);
     }
     return (title + '').toLowerCase().includes((searchJob + '').toLowerCase());
   }

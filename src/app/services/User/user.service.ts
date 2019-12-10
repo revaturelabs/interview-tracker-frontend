@@ -15,6 +15,7 @@ export class UserService {
   }
 
   login(user: User) {
+    console.log(user);
     return this.http.post<User>(environment.main_url + "users/login", user);
   }
 }

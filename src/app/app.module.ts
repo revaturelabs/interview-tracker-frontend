@@ -22,6 +22,7 @@ import { ViewInterviewsComponent } from './view-interviews/view-interviews.compo
 import { ViewJobsComponent } from './view-jobs/view-jobs.component';
 import { MatSlideToggleModule } from '@angular/material';
 import { ErrorInterceptor } from './error-interceptor';
+import { MatInputModule } from '@angular/material/input';
 // import { JwtInterceptor } from './jwt-interceptor';
 
 
@@ -50,10 +51,8 @@ import { ErrorInterceptor } from './error-interceptor';
     ReactiveFormsModule,
     AppRoutingModule,
     AppMaterialModule,
-    BrowserModule,
-    AppRoutingModule,
     FormsModule,
-    AppMaterialModule
+    MatInputModule
   ],
   providers: [
     // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
