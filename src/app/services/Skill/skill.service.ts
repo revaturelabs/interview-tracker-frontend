@@ -12,4 +12,10 @@ export class SkillService {
   getAllSkills() {
     return this.http.get<Skill[]>(environment.main_url + "skills/allSkills");
   }
+  addSkill(skill: Skill) {
+    return this.http.post<boolean>(
+      environment.main_url + "skills/insertSkill",
+      skill
+    );
+  }
 }

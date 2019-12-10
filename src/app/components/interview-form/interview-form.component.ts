@@ -137,7 +137,7 @@ export class InterviewFormComponent implements OnInit {
     this.interviewService.addInterview(interview).subscribe(
       r => {
         console.log(r);
-        // this.router.navigateByUrl("/hub");
+        this.router.navigateByUrl("/hub");
       },
       err => {
         console.log(err);
@@ -146,12 +146,13 @@ export class InterviewFormComponent implements OnInit {
   }
   getCheckboxes(event) {
     if (event.checked === true) {
-      this.userOptions.push(new User(event.source.name));
+      this.userOptions.push(new User(event.source.id, event.source.name));
       console.log(this.userOptions);
     }
     if (event.checked === false) {
       this.userOptions.splice(
-        this.userOptions.indexOf(new User(event.source.name)) - 1,
+        this.userOptions.indexOf(new User(event.source.id, event.source.name)) -
+          1,
         1
       );
       // console.log(this.users);

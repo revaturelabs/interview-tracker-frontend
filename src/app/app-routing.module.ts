@@ -11,6 +11,7 @@ import { ViewProfilesComponent } from "./view-profiles/view-profiles.component";
 import { ViewJobsComponent } from "./view-jobs/view-jobs.component";
 import { ViewInterviewsComponent } from "./view-interviews/view-interviews.component";
 import { AuthGuard } from "./auth.guard";
+import { SkillsFormComponent } from "./components/skills-form/skills-form.component";
 
 const routes: Routes = [
   /** @Author: Ramses
@@ -36,6 +37,7 @@ const routes: Routes = [
     path: "view-interviews",
     component: ViewInterviewsComponent
   },
+  { path: "create-skill", component: SkillsFormComponent },
   { path: "**", component: LandingComponent }
 ];
 

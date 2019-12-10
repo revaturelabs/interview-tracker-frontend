@@ -12,6 +12,26 @@
     <ul>
         <li *ngFor=" let u of int.users; index as i">{{int.users[i].username}}</li>
     </ul>
+    <h4>Comments:</h4>
+    <ul>
+        <li>Comments Here!</li>
+    </ul>
+    <form (ngSubmit)="onSubmit()">
+            <mat-form-field>
+            Enter Name:<input type="text" matInput [formControl]="nameFC"> 
+            </mat-form-field>
+            <br>
+            <mat-form-field class="full-width">
+                    <textarea matInput
+                        placeholder="Add comment"
+                        [formControl]="commentFC">
+                        </textarea>
+                    </mat-form-field>
+                    <br>
+            <button id="commentButton" mat-raised-button color="primary"  class="btn-block glow-on-hover" (click)="sendComment(int.id)">Submit</button>        
+    </form>
+    
+    
     
 </mat-card><br>
 </mat-card>
