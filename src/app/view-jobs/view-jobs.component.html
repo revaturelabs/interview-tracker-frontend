@@ -1,9 +1,15 @@
 <br>
 <label class="bigwords" for="sch">Filter : </label> <input [(ngModel)]="title" id="sch" >
 <br>
+
+
+
 <div *ngFor="let j of job" class="post-div" fxLayout="row" fxLayoutAlign="center center">
+
 <mat-card style="margin-bottom: 20px;" class="orangebox" *ngIf="!j.filled">
-        <mat-card *ngIf="!j.filled && filterS(j.title,title);">
+
+        <mat-card *ngIf="!j.filled && filterS(j.title,title);" >
+               
         <form #updatejobform="ngForm" (ngSubmit)="submission(updatejobform)">
         <h4>Job Title</h4>
         <p>{{j.title}}</p>
@@ -19,4 +25,5 @@
 </form>
 </mat-card>
 </mat-card>
+
 </div>
