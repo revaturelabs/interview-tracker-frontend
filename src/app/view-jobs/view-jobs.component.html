@@ -4,12 +4,12 @@
 <br />
 
 <div
-  *ngFor="let j of allJobs"
+  *ngFor="let j of allJobs | jobFilter:title"
   class="post-div"
   fxLayout="row"
   fxLayoutAlign="center center"
 >
-  <mat-card style="margin-bottom: 20px;" class="orangebox" *ngIf="!j.filled">
+  <mat-card style="margin-bottom: 4%;" class="orangebox" *ngIf="!j.filled">
     <mat-card *ngIf="!j.filled && filterS(j.title, title)">
       <form #updatejobform="ngForm" (ngSubmit)="submission(updatejobform)">
         <h4>Job Title</h4>

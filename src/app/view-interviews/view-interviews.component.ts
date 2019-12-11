@@ -7,6 +7,7 @@ import { Interview } from "../models/interview";
 import { FormControl } from "@angular/forms";
 import { Comment } from "src/app/models/comment";
 import { CommentService } from "../services/Comment/comment.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-view-interviews",
@@ -15,28 +16,51 @@ import { CommentService } from "../services/Comment/comment.service";
 })
 export class ViewInterviewsComponent implements OnInit {
   interviews: Interview[];
+  commentList: Comment[];
+
   constructor(
     public nav: NavbarservService,
     private http: HttpClient,
     private interviewService: InterviewService,
-    private commentService: CommentService
+    private commentService: CommentService,
+    private router: Router
   ) {}
 
   comment: Comment;
   updatedInterview: Interview;
-  foundInterviewId: number;
+  foundId: number;
 
   ngOnInit() {
     this.nav.show();
     this.getAllInterviews();
+    this.getAllComments();
   }
+
   getAllInterviews() {
     this.interviewService.getAllInterviews().subscribe(
-      i => {
-        this.interviews = i;
+      data => {
+        this.interviews = data;
+        console.log(data);  
       },
-      err => console.log(err)
+      err => {console.log(err)}
     );
+  }
+  getAllComments()
+  {
+    this.commentService.returnAllComments().subscribe(
+      data => {
+        
+        // if(data === null)
+        // {
+        //   console.log(data)
+          
+        // }
+        this.commentList = data;
+      },
+      error => {
+        console.log(error)
+      }
+    ) 
   }
   nameFC = new FormControl();
   commentFC = new FormControl();
@@ -61,6 +85,8 @@ export class ViewInterviewsComponent implements OnInit {
           .subscribe(
             data => {
               console.log(data);
+              // this.router.navigateByUrl("/hub");
+              location.reload();
             },
             error => {
               console.log(error);

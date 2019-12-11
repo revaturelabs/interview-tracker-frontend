@@ -12,10 +12,14 @@
     <ul>
         <li *ngFor=" let u of int.users; index as i">{{int.users[i].username}}</li>
     </ul>
-    <h4>Comments:</h4>
-    <ul>
-        <li>Comments Here!</li>
-    </ul>
+    
+    <h4>Comments</h4>
+    <div *ngFor=" let cm of commentList; index as i">
+        <ul  *ngIf="cm.interviewId.id===int.id">
+            <li>{{commentList[i].name}}:<span style="padding: 0.5px"></span> {{commentList[i].text}} </li>
+        </ul>
+    </div>
+    
     <form (ngSubmit)="onSubmit()">
             <mat-form-field>
             Enter Name:<input type="text" matInput [formControl]="nameFC"> 
