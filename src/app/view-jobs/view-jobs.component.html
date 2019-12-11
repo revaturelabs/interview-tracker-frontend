@@ -4,7 +4,7 @@
 <br />
 
 <div
-  *ngFor="let j of allJobs | jobFilter:title"
+  *ngFor="let j of allJobs | jobFilter: title"
   class="post-div"
   fxLayout="row"
   fxLayoutAlign="center center"
@@ -26,8 +26,7 @@
           checked="{{ j.filled }}"
           [id]="j.id"
           (change)="sliderChange($event)"
-          >{{ slider }}</mat-slide-toggle
-        >
+        ></mat-slide-toggle>
         <br />
         <button
           input

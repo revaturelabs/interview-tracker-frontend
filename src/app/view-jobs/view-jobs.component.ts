@@ -22,11 +22,11 @@ export class ViewJobsComponent implements OnInit {
   }
   sliderChange(event) {
     if (event.checked === true) {
-      this.slider = "Job is filled";
+      // this.slider = "Job is filled";
       this.id = event.source.id;
     }
     if (event.checked === false) {
-      this.slider = "Job is open";
+      // this.slider = "Job is open";
     }
   }
 
