@@ -21,7 +21,6 @@ import { SkillService } from "src/app/services/Skill/skill.service";
 export class JobFormComponent implements OnInit {
   allSkills: Skill[];
   skillsOption: Skill[] = [];
-  isFilled: boolean = false;
   constructor(
     public nav: NavbarservService,
     private router: Router,
@@ -37,11 +36,10 @@ export class JobFormComponent implements OnInit {
   submission(form: NgForm) {
     this.jobService
       .addJob(
-        new Job(0, form.value.title, form.value.description, this.skillsOption, this.isFilled)
+        new Job(0, form.value.title, form.value.description, this.skillsOption)
       )
       .subscribe(
         j => {
-          console.log(j);
           this.router.navigateByUrl("/hub");
         },
         err => console.log(err)
@@ -70,7 +68,6 @@ export class JobFormComponent implements OnInit {
 
   getAllSkills() {
     this.skillService.getAllSkills().subscribe(s => {
-      console.log(s);
       this.allSkills = s;
     });
   }

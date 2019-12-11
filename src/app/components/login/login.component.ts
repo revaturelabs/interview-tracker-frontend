@@ -1,9 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
-import { ActivatedRoute, Router } from "@angular/router";
-import { HttpClient } from "@angular/common/http";
+import { Router } from "@angular/router";
 import { NavbarservService } from "../../services/navbarserv.service";
-import { environment } from "src/environments/environment";
 import { UserService } from "src/app/services/User/user.service";
 import { User } from "src/app/models/user";
 
@@ -16,8 +14,6 @@ export class LoginComponent implements OnInit {
   loginUserData = {};
 
   constructor(
-    private http: HttpClient,
-    private activatedRoute: ActivatedRoute,
     private router: Router,
     private nav: NavbarservService,
     private userService: UserService
@@ -33,7 +29,6 @@ export class LoginComponent implements OnInit {
       .login(new User(0, form.value.username, form.value.password))
       .subscribe(
         r => {
-          console.log(r);
           sessionStorage.setItem("user", r.username);
           if (r != null) {
             this.onLogInButtonClick();

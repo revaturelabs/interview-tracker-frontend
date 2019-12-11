@@ -20,24 +20,35 @@ const routes: Routes = [
   is either non existent, or the user is not currently allowed to access said feature.*/
   { path: "", pathMatch: "full", redirectTo: "login" },
   { path: "login", component: LoginComponent },
-  { path: "hub", component: ProjectHubComponent },
-  { path: "create-job", component: JobFormComponent },
-  { path: "logout", component: LogoutComponent },
+  { path: "hub", component: ProjectHubComponent, canActivate: [AuthGuard] },
+  { path: "create-job", component: JobFormComponent, canActivate: [AuthGuard] },
+  { path: "logout", component: LogoutComponent, canActivate: [AuthGuard] },
   {
     path: "create-profile",
-    component: ProfileFormComponent
+    component: ProfileFormComponent,
+    canActivate: [AuthGuard]
   },
-  { path: "create-interview", component: InterviewFormComponent },
+  {
+    path: "create-interview",
+    component: InterviewFormComponent,
+    canActivate: [AuthGuard]
+  },
   {
     path: "view-profiles",
-    component: ViewProfilesComponent
+    component: ViewProfilesComponent,
+    canActivate: [AuthGuard]
   },
-  { path: "view-jobs", component: ViewJobsComponent },
+  { path: "view-jobs", component: ViewJobsComponent, canActivate: [AuthGuard] },
   {
     path: "view-interviews",
-    component: ViewInterviewsComponent
+    component: ViewInterviewsComponent,
+    canActivate: [AuthGuard]
   },
-  { path: "create-skill", component: SkillsFormComponent },
+  {
+    path: "create-skill",
+    component: SkillsFormComponent,
+    canActivate: [AuthGuard]
+  },
   { path: "**", component: LandingComponent }
 ];
 

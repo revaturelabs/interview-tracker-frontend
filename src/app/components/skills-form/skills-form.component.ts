@@ -1,6 +1,4 @@
-import { Component, ViewChild, OnInit, NgZone } from "@angular/core";
-import { CdkTextareaAutosize } from "@angular/cdk/text-field";
-import { take } from "rxjs/operators";
+import { Component, OnInit } from "@angular/core";
 import { NavbarservService } from "../../services/navbarserv.service";
 import { SkillService } from "src/app/services/Skill/skill.service";
 import { Router } from "@angular/router";
@@ -24,7 +22,6 @@ export class SkillsFormComponent implements OnInit {
   submission(form: NgForm) {
     this.skillService.addSkill(new Skill(form.value.title)).subscribe(
       s => {
-        console.log(s);
         this.router.navigateByUrl("/hub");
       },
       err => {
