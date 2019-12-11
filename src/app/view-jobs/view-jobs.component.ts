@@ -34,7 +34,7 @@ export class ViewJobsComponent implements OnInit {
     console.log(form.value);
     this.jobService.updateJob(new Job(this.id, this.title)).subscribe(
       j => {
-        location.reload();
+        this.ngOnInit();
       },
       err => {
         console.log(err);

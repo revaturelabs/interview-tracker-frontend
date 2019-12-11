@@ -5,6 +5,7 @@ import { Interview } from "../models/interview";
 import { FormControl } from "@angular/forms";
 import { Comment } from "src/app/models/comment";
 import { CommentService } from "../services/Comment/comment.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-view-interviews",
@@ -18,7 +19,8 @@ export class ViewInterviewsComponent implements OnInit {
   constructor(
     public nav: NavbarservService,
     private interviewService: InterviewService,
-    private commentService: CommentService
+    private commentService: CommentService,
+    private router: Router
   ) {}
 
   comment: Comment;
@@ -72,7 +74,7 @@ export class ViewInterviewsComponent implements OnInit {
           )
           .subscribe(
             data => {
-              location.reload();
+              this.ngOnInit();
             },
             error => {
               console.log(error);
