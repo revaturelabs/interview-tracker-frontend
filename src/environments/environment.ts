@@ -5,10 +5,10 @@ The list of file replacements can be found in `angular.json`.*/
 export const environment = {
   production: false,
 
-  // login_url: "http://localhost:50222/",
-  // main_url: "http://localhost:50222/"
-  main_url: "http://ec2-54-87-162-64.compute-1.amazonaws.com:50222/",
-  login_url: "http://ec2-54-87-162-64.compute-1.amazonaws.com:50222/"
+  login_url: "http://localhost:50222/",
+  main_url: "http://localhost:50222/"
+  // main_url: "http://ec2-54-87-162-64.compute-1.amazonaws.com:50222/",
+  // login_url: "http://ec2-54-87-162-64.compute-1.amazonaws.com:50222/"
 };
 
 /**
