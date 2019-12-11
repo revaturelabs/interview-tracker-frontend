@@ -1,13 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { NavbarservService } from "../../services/navbarserv.service";
 import { FormControl, NgForm } from "@angular/forms";
-import { HttpClient } from "@angular/common/http";
-import { environment } from "src/environments/environment";
 import { Observable } from "rxjs";
 import { startWith, map } from "rxjs/operators";
 import { Router } from "@angular/router";
-import { Timestamp } from "rxjs/internal/operators/timestamp";
-import { MatRadioChange } from "@angular/material";
 import { ProfileService } from "src/app/services/Profile/profile.service";
 import { JobService } from "src/app/services/Job/job.service";
 import { UserService } from "src/app/services/User/user.service";
@@ -16,8 +12,6 @@ import { Job } from "src/app/models/job";
 import { User } from "src/app/models/user";
 import { InterviewService } from "src/app/services/Interview/interview.service";
 import { Interview } from "src/app/models/interview";
-
-// the firstName variable actually represents the first and last name together.
 
 @Component({
   selector: "app-interview-form",
@@ -70,7 +64,6 @@ export class InterviewFormComponent implements OnInit {
       map(value => (typeof value === "string" ? value : value.title)),
       map(title => (title ? this._jobfilter(title) : this.jobOptions.slice()))
     );
-    console.log(this.filteredJobOptions);
   }
 
   getAllProfiles(): void {
@@ -86,13 +79,11 @@ export class InterviewFormComponent implements OnInit {
   getAllJobs(): void {
     this.jobService.getAllJobs().subscribe(
       s => {
-        // this.jobOptions = s as Job[];
-        for(let j in s){
-          if(!s[j].filled){
-            this.jobOptions.push(s[j])
+        for (let j in s) {
+          if (!s[j].filled) {
+            this.jobOptions.push(s[j]);
           }
         }
-        console.log(this.jobOptions);
       },
       err => console.log(err)
     );
@@ -102,7 +93,6 @@ export class InterviewFormComponent implements OnInit {
     this.userService.getAllUsers().subscribe(
       s => {
         this.allUsers = s as User[];
-        console.log(this.allUsers);
       },
       err => console.log(err)
     );
@@ -138,10 +128,8 @@ export class InterviewFormComponent implements OnInit {
     interview.job = this.selectedJobValue;
     interview.date = form.value.date;
     interview.users = this.userOptions;
-    console.log(interview);
     this.interviewService.addInterview(interview).subscribe(
       r => {
-        console.log(r);
         this.router.navigateByUrl("/hub");
       },
       err => {
@@ -152,7 +140,6 @@ export class InterviewFormComponent implements OnInit {
   getCheckboxes(event) {
     if (event.checked === true) {
       this.userOptions.push(new User(event.source.id, event.source.name));
-      console.log(this.userOptions);
     }
     if (event.checked === false) {
       this.userOptions.splice(
@@ -166,11 +153,9 @@ export class InterviewFormComponent implements OnInit {
 
   selectedProfileOption(event) {
     this.selectedProfileValue = event.option.value;
-    console.log(this.selectedProfileValue);
   }
 
   selectedJobOption(event) {
     this.selectedJobValue = event.option.value;
-    console.log(this.selectedJobValue);
   }
 }

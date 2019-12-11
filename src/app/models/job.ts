@@ -1,5 +1,4 @@
 import { Skill } from "./skill";
-import { Profile } from "./profile";
 
 export class Job {
   constructor(

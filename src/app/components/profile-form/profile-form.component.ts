@@ -43,7 +43,6 @@ export class ProfileFormComponent implements OnInit {
       )
       .subscribe(
         p => {
-          console.log(p);
           this.router.navigateByUrl("/hub");
         },
         err => {

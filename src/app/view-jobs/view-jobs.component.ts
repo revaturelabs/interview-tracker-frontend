@@ -1,7 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { NavbarservService } from "../services/navbarserv.service";
-import { environment } from "src/environments/environment";
-import { HttpClient } from "@angular/common/http";
 import { NgForm } from "@angular/forms";
 import { JobService } from "../services/Job/job.service";
 import { Job } from "../models/job";
@@ -36,7 +34,6 @@ export class ViewJobsComponent implements OnInit {
     console.log(form.value);
     this.jobService.updateJob(new Job(this.id, this.title)).subscribe(
       j => {
-        console.log(j);
         location.reload();
       },
       err => {
@@ -48,7 +45,6 @@ export class ViewJobsComponent implements OnInit {
     if (typeof searchJob === "undefined") {
       searchJob = "";
       this.noJobsAvailable = "Hey no jobs buddy!";
-      // console.log(this.noJobsAvailable);
     }
     return (title + "").toLowerCase().includes((searchJob + "").toLowerCase());
   }
@@ -56,7 +52,6 @@ export class ViewJobsComponent implements OnInit {
     this.jobService.getAllJobs().subscribe(
       j => {
         this.allJobs = j;
-        console.log(j);
       },
       err => {
         console.log(err);

@@ -1,11 +1,10 @@
-import { Component } from '@angular/core';
-import { LoginComponent } from './components/login/login.component';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"]
 })
 export class AppComponent {
-  title = 'Interview-Angular';
+  title = "Interview-Angular";
 }
