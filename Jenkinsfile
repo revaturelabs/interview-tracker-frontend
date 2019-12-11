@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       image 'node:13-alpine'
-      args '-p 20001-20100:3000'
+      args '-p 20001-20100:3000 -e NODE_OPTIONS=--max-old-space-size=8192'
     }
   }
   environment {
@@ -21,6 +21,7 @@ pipeline {
       when { branch "development" }
       steps {
         sh 'ng build --sourceMap=false'
+
         }
       }
     stage('Deployment') {
