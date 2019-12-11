@@ -37,6 +37,7 @@ export class ProfileFormComponent implements OnInit {
           form.value.firstName,
           form.value.lastName,
           this.skillsOption,
+          [],
           form.value.description
         )
       )

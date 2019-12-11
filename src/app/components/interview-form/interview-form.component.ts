@@ -33,7 +33,6 @@ export class InterviewFormComponent implements OnInit {
   jobOptions: Job[] = [];
   userOptions: User[] = [];
   profiles: Profile[];
-  jobs: Job[];
   allUsers: User[] = [];
   profile: Profile;
   job: Job;
@@ -71,6 +70,7 @@ export class InterviewFormComponent implements OnInit {
       map(value => (typeof value === "string" ? value : value.title)),
       map(title => (title ? this._jobfilter(title) : this.jobOptions.slice()))
     );
+    console.log(this.filteredJobOptions);
   }
 
   getAllProfiles(): void {
@@ -86,8 +86,13 @@ export class InterviewFormComponent implements OnInit {
   getAllJobs(): void {
     this.jobService.getAllJobs().subscribe(
       s => {
-        this.jobs = s as Job[];
-        this.jobOptions = s as Job[];
+        // this.jobOptions = s as Job[];
+        for(let j in s){
+          if(!s[j].filled){
+            this.jobOptions.push(s[j])
+          }
+        }
+        console.log(this.jobOptions);
       },
       err => console.log(err)
     );

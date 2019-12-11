@@ -7,6 +7,6 @@ export class Job {
     public title: string = "",
     public description: string = "",
     public skills: Skill[] = [],
-    public isFilled: boolean = false
+    public filled: boolean = false
   ) {}
 }

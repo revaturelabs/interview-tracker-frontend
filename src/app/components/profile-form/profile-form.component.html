@@ -22,7 +22,7 @@
             </mat-form-field>
             <h4>Skills:</h4>
             <mat-card style="overflow-x: hidden;" class="skills-field">
-              <mat-card *ngFor="let s of skill">
+              <mat-card *ngFor="let s of allSkills">
                 <mat-checkbox
                   [name]="s.title"
                   [id]="s.id"

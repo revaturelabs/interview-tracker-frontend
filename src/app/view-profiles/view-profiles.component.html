@@ -5,7 +5,7 @@
     <option value="byskills">By Skills</option>
 </select>
 <div *ngFor="let p of profiles" class="post-div" fxLayout="row" fxLayoutAlign="center center">
-<mat-card style="margin-bottom: 20%;" class="orangebox" *ngIf="filterS(p,name);">
+<mat-card style="margin-bottom: 4%;" class="orangebox" *ngIf="filterS(p,name);">
     <mat-card>
     <h4>{{p.firstName}} {{p.lastName}}</h4>
     <h4>Skills</h4>

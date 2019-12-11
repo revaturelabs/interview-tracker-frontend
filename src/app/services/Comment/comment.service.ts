@@ -17,7 +17,11 @@ export class CommentService {
   }
 
   public grabInterview(interviewId: number): Observable<Interview> {
-    return this.http.get<Interview>(environment.main_url + `/interviews/id/${interviewId}`);
+    return this.http.get<Interview>(environment.main_url + `interviews/id/${interviewId}`);
   }
 
+  public returnAllComments(){
+    return this.http.get<Comment[]>(environment.main_url + "comment/getAllComments");
+  }
+  
 }
