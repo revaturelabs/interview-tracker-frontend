@@ -20,7 +20,7 @@ export class SkillsFormComponent implements OnInit {
     this.nav.show();
   }
   submission(form: NgForm) {
-    this.skillService.addSkill(new Skill(form.value.title)).subscribe(
+    this.skillService.addSkill(new Skill(0, form.value.title)).subscribe(
       s => {
         this.router.navigateByUrl("/hub");
       },
