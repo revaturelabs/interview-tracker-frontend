@@ -20,7 +20,7 @@ pipeline {
     stage('Build') {
       when { branch "development" }
       steps {
-        sh 'npm run build'
+        sh 'ng build --prod --sourceMap=false'
         }
       }
     stage('Deployment') {

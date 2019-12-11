@@ -1,43 +1,59 @@
-<div *ngFor="let int of interviews" class="post-div" fxLayout="row" fxLayoutAlign="center center">
-<mat-card style="margin-bottom: 20px;" class="orangebox" >
-    <br>
+<div
+  *ngFor="let int of interviews"
+  class="post-div"
+  fxLayout="row"
+  fxLayoutAlign="center center"
+>
+  <mat-card style="margin-bottom: 20px;" class="orangebox">
+    <br />
     <mat-card>
-    <h4>Interviewee</h4>
-    <p>{{int.profile.firstName}} {{int.profile.lastName}}</p>
-    <h4>Date:</h4><p>{{int.date | date:'short'}}</p>
-    <p>{{int.isComplete}}</p>
-    <h4>Job</h4>
-    <p>{{int.job.title}}</p>
-    <h4>Interviewers</h4>
-    <ul>
-        <li *ngFor=" let u of int.users; index as i">{{int.users[i].username}}</li>
-    </ul>
-    
-    <h4>Comments</h4>
-    <div *ngFor=" let cm of commentList; index as i">
-        <ul  *ngIf="cm.interviewId.id===int.id">
-            <li>{{commentList[i].name}}:<span style="padding: 0.5px"></span> {{commentList[i].text}} </li>
-        </ul>
-    </div>
-    
-    <form (ngSubmit)="onSubmit()">
-            <mat-form-field>
-            Enter Name:<input type="text" matInput [formControl]="nameFC"> 
-            </mat-form-field>
-            <br>
-            <mat-form-field class="full-width">
-                    <textarea matInput
-                        placeholder="Add comment"
-                        [formControl]="commentFC">
-                        </textarea>
-                    </mat-form-field>
-                    <br>
-            <button id="commentButton" mat-raised-button color="primary"  class="btn-block glow-on-hover" (click)="sendComment(int.id)">Submit</button>        
-    </form>
-    
-    
-    
-</mat-card><br>
-</mat-card>
+      <h4>Interviewee</h4>
+      <p>{{ int.profile.firstName }} {{ int.profile.lastName }}</p>
+      <h4>Date:</h4>
+      <p>{{ int.date | date: "short" }}</p>
+      <p>{{ int.isComplete }}</p>
+      <h4>Job</h4>
+      <p>{{ int.job.title }}</p>
+      <h4>Interviewers</h4>
+      <ul>
+        <li *ngFor="let u of int.users; index as i">
+          {{ int.users[i].username }}
+        </li>
+      </ul>
 
+      <h4>Comments</h4>
+      <div *ngFor="let cm of commentList; index as i">
+        <ul *ngIf="cm.interviewId.id === int.id">
+          <li>
+            {{ commentList[i].name }}:<span style="padding: 0.5px"></span>
+            {{ commentList[i].text }}
+          </li>
+        </ul>
+      </div>
+
+      <form (ngSubmit)="sendComment(int.id)">
+        <mat-form-field>
+          Enter Name:<input type="text" matInput [formControl]="nameFC" />
+        </mat-form-field>
+        <br />
+        <mat-form-field class="full-width">
+          <textarea
+            matInput
+            placeholder="Add comment"
+            [formControl]="commentFC"
+          >
+          </textarea>
+        </mat-form-field>
+        <br />
+        <button
+          id="commentButton"
+          mat-raised-button
+          color="primary"
+          class="btn-block glow-on-hover"
+        >
+          Submit
+        </button>
+      </form> </mat-card
+    ><br />
+  </mat-card>
 </div>
