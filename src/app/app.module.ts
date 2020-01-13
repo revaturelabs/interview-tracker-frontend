@@ -1,65 +1,67 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { LoginComponent } from './pages/login/login.component';
+import { JobsComponent } from './pages/jobs/jobs.component';
+import { ProfilesComponent } from './pages/profiles/profiles.component';
+import { InterviewsComponent } from './pages/interviews/interviews.component';
+import { MiniSearchbarComponent } from './common/mini-searchbar/mini-searchbar.component';
+import { JobCardComponent } from './cards/job-card/job-card.component';
+import { ProfileCardComponent } from './cards/profile-card/profile-card.component';
+import { FabComponent } from './common/fab/fab.component';
+import { JobModalComponent } from './pages/jobs/job-modal/job-modal.component';
+import { ProfileModalComponent } from './pages/profiles/profile-modal/profile-modal.component';
+import { CreateJobsComponent } from './create-jobs/create-jobs.component';
+import { InterviewCardComponent } from './cards/interview-card/interview-card.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { InterviewerListComponent } from './interviewer-list/interviewer-list.component';
+import { InterviewCreateComponent } from './interview-create/interview-create.component';
+import { ProfileCreateComponent } from './profile-create/profile-create.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LandingComponent } from './landing/landing.component';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AppMaterialModule } from './app-material.module';
-import { ProjectHubComponent } from './project-hub/project-hub.component';
-import { SkillsFormComponent } from './components/skills-form/skills-form.component';
-import { LogoutComponent } from './components/logout/logout.component';
-import { AuthService } from './services/auth.service';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { InterviewFormComponent } from './components/interview-form/interview-form.component';
-import { JobFormComponent } from './components/job-form/job-form.component';
-import { ProfileFormComponent } from './components/profile-form/profile-form.component';
-import { NavbarservService } from './services/navbarserv.service';
-import { ViewProfilesComponent } from './view-profiles/view-profiles.component';
-import { ViewInterviewsComponent } from './view-interviews/view-interviews.component';
-import { ViewJobsComponent } from './view-jobs/view-jobs.component';
-import { MatSlideToggleModule } from '@angular/material';
-import { ErrorInterceptor } from './error-interceptor';
-// import { JwtInterceptor } from './jwt-interceptor';
-
+import { MaterialModule } from './material/material.module';
+import { MultiSelectComponent } from './common/multi-select/multi-select.component';
+import { FullCalendarModule } from '@fullcalendar/angular'; // for FullCalendar!
+import { HttpClientModule } from "@angular/common/http";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    LandingComponent,
-    ProjectHubComponent,
     NavbarComponent,
-    InterviewFormComponent,
-    JobFormComponent,
-    ProfileFormComponent,
-    SkillsFormComponent,
-    LogoutComponent,
-    ViewProfilesComponent,
-    ViewInterviewsComponent,
-    ViewJobsComponent
+    LoginComponent,
+    JobsComponent,
+    ProfilesComponent,
+    InterviewsComponent,
+    MiniSearchbarComponent,
+    JobCardComponent,
+    ProfileCardComponent,
+    FabComponent,
+    JobModalComponent,
+    ProfileModalComponent,
+    CreateJobsComponent,
+    InterviewCardComponent,
+    CalendarComponent,
+    InterviewerListComponent,
+    InterviewCreateComponent,
+    ProfileCreateComponent,
+    MultiSelectComponent
   ],
-
   imports: [
     BrowserModule,
+    AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    AppRoutingModule,
-    AppMaterialModule,
-    BrowserModule,
-    AppRoutingModule,
+    MaterialModule,
     FormsModule,
-    AppMaterialModule
+    ReactiveFormsModule,
+    FullCalendarModule, // for FullCalendar!
+    HttpClientModule
   ],
-  providers: [
-    // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    AuthService,
-    NavbarservService],
+  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

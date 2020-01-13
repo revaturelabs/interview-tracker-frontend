@@ -1,0 +1,59 @@
+@import "../../../styles.scss";
+.card {
+  $card-side-length: 18rem;
+  height: $card-side-length;
+  width: $card-side-length;
+
+  padding: 0;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  cursor: pointer;
+
+  box-shadow: $box-shadow-low;
+  transition-duration: 0.3s;
+  &:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: $box-shadow-high;
+  }
+
+  &_header {
+    padding: 0.5rem;
+    & > * {
+      margin: 0;
+    }
+    // margin: .5rem;
+    &_title {
+      color: white;
+      &_status {
+        text-align: end;
+        color: $light-grey;
+      }
+      &_job {
+        font-size: 1.2rem;
+        color: $col-pri;
+      }
+    }
+    &_subtitle {
+      color: $light-grey;
+    }
+  }
+
+  &_content {
+    padding: 0.5rem;
+    height: 100%;
+    color: $dark-grey;
+
+    .bold {
+      font-weight: bold;
+    }
+  }
+
+  hr {
+    border: none;
+    margin: 0.5rem;
+    height: 2px;
+    background-color: $col-pri;
+  }
+}

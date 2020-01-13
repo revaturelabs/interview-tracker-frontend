@@ -1,0 +1,57 @@
+@import "../../../styles.scss";
+#fab {
+  background-color: $col-pri;
+  color: #fff;
+}
+
+.fab_anchor {
+  position: fixed;
+  right: 0rem;
+  bottom: 0rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.fab_list {
+  position: absolute;
+  top: 0;
+  list-style-type: none;
+  width: max-content;
+  transform: translate(-25%, -100%);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: $box-shadow-high;
+  li {
+    &:not(:first-child) {
+      margin-top: 1rem;
+    }
+    // background: rgba(255, 255, 255, 1);
+    padding: .5rem;
+    width: max-content;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+
+    a {
+      color: $col-pri;
+    }
+  }
+  /*
+  * Styles for animations
+  */
+  transition-duration: 0.3s;
+
+  opacity: 0;
+  pointer-events: none;
+  //   display: none;
+}
+
+.activated {
+  opacity: 1;
+  pointer-events: initial;
+  //   display: initial;
+}
