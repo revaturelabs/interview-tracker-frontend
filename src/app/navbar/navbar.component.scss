@@ -1,0 +1,77 @@
+@import "../../styles.scss";
+nav {
+  $tab-width: 10rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+
+  .side {
+    display: flex;
+  }
+
+  .tabs {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: max-content;
+    .bar {
+      &_container {
+        height: 5px;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        justify-content: flex-start;
+      }
+      position: absolute;
+      width: $tab-width;
+      height: 5px;
+      background-color: $col-pri;
+      transition-duration: 0.5s;
+      &_start {
+        left: 0;
+      }
+      &_center {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      &_end {
+        left: 100%;
+        transform: translateX(-100%);
+      }
+    }
+  }
+
+  .tab {
+    width: $tab-width;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: $dark-grey;
+    &_active {
+      color: $col-pri;
+    }
+  }
+
+  .nav {
+    &_logo_container {
+      margin-right: 1rem;
+      width: 7rem;
+      padding: 1rem;
+      img {
+        width: 100%;
+      }
+    }
+    &_icon {
+      font-size: 1.7rem;
+      color: $col-pri;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 3rem;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+<div class="profiles">
+  <app-mini-searchbar
+    (searchTermChanged)="onSearchTermChanged($event)"
+  ></app-mini-searchbar>
+  <div class="grid">
+    <app-profile-card
+      *ngFor="let profile of profiles"
+      [profile]="profile"
+    ></app-profile-card>
+  </div>
+  <app-fab></app-fab>
+</div>

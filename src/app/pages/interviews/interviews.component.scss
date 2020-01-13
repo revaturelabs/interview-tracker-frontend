@@ -1,0 +1,13 @@
+.interviewsPage {
+  display: grid;
+  grid-template-columns: 22rem 1fr;
+
+  .side {
+    margin: 2rem 1rem;
+    &_1 {
+      padding: 1rem;
+      background-color: white;
+      height: max-content;
+    }
+  }
+}

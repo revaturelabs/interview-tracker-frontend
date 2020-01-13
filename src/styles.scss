@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import '~@fullcalendar/core/main.css';
+@import '~@fullcalendar/daygrid/main.css';
+
+$col-pri: #f26925;
+$dark-grey: rgb(139, 139, 139);
+$light-grey: rgb(155, 155, 155);
+$box-shadow-low: -0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.5);
+$box-shadow-high: -0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.5);
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: content-box;
+  outline: none;
+}
+html {
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  background-color: #eee;
+}
+
+html,
+body {
+  // height: 100%;
+}
+body {
+  background-image: url('/assets/img/bg.png');
+  background-repeat: repeat;
+  // height: max-content;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 18rem);
+  grid-gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}

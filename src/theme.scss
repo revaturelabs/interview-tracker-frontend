@@ -1,0 +1,34 @@
+@import "~@angular/material/theming";
+
+@include mat-core();
+
+$mat-revature: (
+  default: #f26925,
+  light: #e68758,
+  dark: #bb521e,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $dark-primary-text,
+    600: $dark-primary-text,
+    700: $dark-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: black
+  )
+);
+
+// $col-pri: #f26925;
+$col-main: mat-palette($mat-revature, default, light, dark);
+$col-accent: mat-palette($mat-grey);
+$col-warn: mat-palette($mat-red);
+
+$col-theme: mat-light-theme($col-main, $col-accent, $col-warn);
+
+@include angular-material-theme($col-theme);
