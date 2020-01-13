@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import Interview from '../models/Interview';
 import { HttpClient } from '@angular/common/http';
-import Job from '../models/Job';
 
 @Injectable({
   providedIn: 'root'

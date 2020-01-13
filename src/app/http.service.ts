@@ -46,29 +46,29 @@ export class HttpService {
 
   // METHODS BELOW ARE NOT FUNCTIONAL AT THIS POINT - 1.13.2020
   // They are currently marking what methods will likely be needed for this project
-  public login(username: string, password: string) {
-    const loginCredentials = {username, password};
-    this.http.post<User>(`${this.rootUrl}/users/login`,
-    loginCredentials,
-    this.httpOptions
-    )
-    .subscribe(user => {
-      this.user = user;
-    });
-  }
+  // public login(username: string, password: string) {
+  //   const loginCredentials = {username, password};
+  //   this.http.post<User>(`${this.rootUrl}/users/login`,
+  //   loginCredentials,
+  //   this.httpOptions
+  //   )
+  //   .subscribe(user => {
+  //     this.user = user;
+  //   });
+  // }
 
   // No logout api to hit atm
   // Need to resolve how we want to handle users
-  public logout() {
-    this.http
-      .get<void>(`${this.rootUrl}/users/logout`, this.httpOptions)
-      .subscribe(() => {
-        this.user = null;
-        localStorage.clear();
-        sessionStorage.clear();
-        this.router.navigate(['/login']);
-      });
-  }
+  // public logout() {
+  //   this.http
+  //     .get<void>(`${this.rootUrl}/users/logout`, this.httpOptions)
+  //     .subscribe(() => {
+  //       this.user = null;
+  //       localStorage.clear();
+  //       sessionStorage.clear();
+  //       this.router.navigate(['/login']);
+  //     });
+  // }
 
   // Get Methods
   public getInterviews(): Observable<Array<Interview>> {
