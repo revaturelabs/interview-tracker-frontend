@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Job from 'src/app/models/Job';
 import Card from 'src/app/cards/Card';
+import {MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-job-card',
