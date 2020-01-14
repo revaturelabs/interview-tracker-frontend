@@ -1,42 +1,37 @@
 import { Injectable } from '@angular/core';
 import Profile from './models/Interview';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
 
-  constructor(private http: HttpClient) { }
+    private url1 = "http://localhost:8765/interview-service/profiles/allProfiles";
+
+    private url2 = "http://localhost:8765/interview-service/profiles/saveProfile";
+
+    constructor(private http: HttpClient) { }
 
   retrieveAllProfiles(){
-    const url = "http://localhost:8765/interview-service/profiles/allProfiles";
-    return this.http.get<Profile[]>(url, {});
+    return this.http.get<Profile[]>(this.url1, {});
   }
 
-  saveProfile(newProfile: Profile){
-    const url = "http://localhost:8765/interview-service/profiles/saveProfile";
-    this.http.post<Profile>(url, newProfile);
+  // saveProfile(newProfile: Profile){
+  //   this.http.post<Profile>(this.url2, newProfile);
+  // }
+
+  saveProfile(form: any): Observable<number> {
+
+    const params = new HttpParams()
+    .set('fname', form.value.fname)
+    .set('lname', form.value.lname)
+    .set('location', form.value.location)
+    .set('email', form.value.email)
+    .set('description', form.value.description);
+
+    return this.http.post<number>(this.url2, params, {withCredentials: true});
   }
 
-
-
-
-  // constructor(private http: HttpClient) { }
-
-  // createNewUser(form: any): Observable<number> {
-
-  //   const params = new HttpParams()
-  //   .set('username', form.value.username)
-  //   .set('userpassword', form.value.password)
-  //   .set('userfname', form.value.firstname)
-  //   .set('userlname', form.value.lastname)
-  //   .set('useremail', form.value.email)
-  //   .set('userbirthday', form.value.dob)
-  //   .set('usertitle', form.value.title)
-  //   .set('userbio', '')
-  //   .set('userprofilepic', 'https://campfire-project2.s3.us-east-2.amazonaws.com/profile_picture.svg');
-
-  //   return this.http.post<number>(this.url, params, {withCredentials: true});
-  }
-
+}
