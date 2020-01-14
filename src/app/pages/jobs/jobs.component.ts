@@ -14,6 +14,7 @@ export class JobsComponent implements OnInit
   constructor(private jobServ: JobServiceService) {}
 
   ngOnInit() {
+    this.retrieveJobPage(0);
   }
 
   onSearchTermChanged(e) {
