@@ -13,11 +13,13 @@ export class JobsComponent implements OnInit
 
   constructor(private jobServ: JobServiceService) {}
 
-  ngOnInit() {
+  ngOnInit()
+  {
     this.retrieveJobPage(0);
   }
 
-  onSearchTermChanged(e) {
+  onSearchTermChanged(e)
+  {
     console.log('inside of job.component, value is: ', e);
   }
 
@@ -25,6 +27,6 @@ export class JobsComponent implements OnInit
   {
     this.jobServ.getAllJobAtPage(page).subscribe(data => {
       this.jobs.concat(data);
-    })
+    });
   }
 }
