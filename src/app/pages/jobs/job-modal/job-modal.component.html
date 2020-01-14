@@ -1,2 +1,43 @@
-
-<h1>job modal</h1>
+<div id='jobModal' class='modal'>
+    <!-- Modal Content -->
+    <div class='modal-content'>
+        <div class='modal-header'>
+            <span class='close' (click)='closeModal()' >&times;</span>
+            <h2>{{job.jobTitle}}</h2>
+        </div>
+        <div class='modal-body'>
+            <div class='container'>
+                <div class='row'>
+                    <div id='description' class='col'>
+                        <h4 class='title areas'>Description</h4>
+                        <p>{{job.jobDesc}}</p>
+                    </div>
+                    <div id='schedinterview' class='col'>
+                        <h4 class='title areas'>Scheduled Interviews</h4>
+                        <!-- Insert Interview List Here -->
+                        <!-- Insert interview select and submit button here? -->
+                    </div>
+                </div>
+                <div class='row'>
+                    <div id='candidateselect' class='col'>
+                        <!-- select candidates here -->
+                    </div>
+                    <div id='skillselect' class='col'>
+                        <mat-form-field>
+                            <mat-select [formControl]="selections" multiple>
+                                <mat-option *ngFor="let skill of allSkills" [value]="skill">
+                                    {{ skill.skillTitle }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-chip-list class="selection_pool">
+                            <mat-chip *ngFor="let skill of job.jobSkillIdsList" class="selection">
+                                {{ skill.skillTitle }}
+                            </mat-chip>
+                        </mat-chip-list>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+</div>

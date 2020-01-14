@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, HostListener } from '@angular/core';
+import Job from 'src/app/models/Job';
+import { SkillService } from 'src/app/skill.service';
+import Skill from 'src/app/models/Skill';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-job-modal',
@@ -7,9 +11,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JobModalComponent implements OnInit {
 
-  constructor() { }
+  private modal = document.getElementById("jobModal");
+  private allSkills: Skill[];
+  private selections = new FormControl();
+  @Input() job: Job;
+  
+  constructor(private skillServ: SkillService) { }
 
   ngOnInit() {
+    this.skillServ.retrieveAllSkills().subscribe(data => {
+      this.allSkills = data;
+    })
   }
 
+  closeModal()
+  {
+    this.modal.style.display = "none";
+  }
+
+  @HostListener('document:event', ['$event'])
+  closeModalFromWindow(event: MouseEvent)
+  {
+    if (event.target == this.modal)
+    {
+      this.closeModal();
+    }
+  }
 }
