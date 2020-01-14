@@ -9,9 +9,11 @@ import Card from 'src/app/cards/Card';
 })
 export class JobCardComponent extends Card implements OnInit {
 
+  sampleId = 0;
   sampleTitle = 'Freelance Sloth Manager';
   sampleDescription = 'To ensure that Slothful practices are maintained and followed by the organization.';
-
+  sampleApplicants = 14;
+  sampleInterviews = 42;
 
   constructor() {
     super();
