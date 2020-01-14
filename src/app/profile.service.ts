@@ -22,7 +22,7 @@ export class ProfileService {
   //   this.http.post<Profile>(this.url2, newProfile);
   // }
 
-  saveProfile(form: any): Observable<number> {
+  saveProfile(form: any): Observable<boolean> {
 
     const params = new HttpParams()
     .set('fname', form.value.fname)
@@ -31,7 +31,7 @@ export class ProfileService {
     .set('email', form.value.email)
     .set('description', form.value.description);
 
-    return this.http.post<number>(this.url2, params, {withCredentials: true});
+    return this.http.post<boolean>(this.url2, params, {withCredentials: true});
   }
 
 }
