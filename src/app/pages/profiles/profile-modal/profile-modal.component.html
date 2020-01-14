@@ -1,1 +1,60 @@
-<h1>profile modal</h1>
+<DIV>
+    <DIV>
+        <!-- profile name -->
+        {{profile.profileFirstName + ' ' + profile.profileLastName}}
+    </DIV>
+    <DIV>
+        <DIV>
+            <DIV>
+                <!-- Contact Info -->
+                <DIV>
+                    <DIV>Contact Info</DIV>
+                    <DIV>{{profile.profileEmailAddress}}</DIV>
+                    <DIV>{{profile.profileLocation}}</DIV>
+                </DIV>
+                <!-- Description -->
+                <DIV>
+                    <DIV>Description</DIV>
+                    <DIV>{{profile.profileDescription}}</DIV>
+                </DIV>
+            </DIV>
+            <!-- Interviews Scheduled -->
+            <DIV>
+                <DIV>Interviews Scheduled</DIV>
+                <DIV>
+                    <UL>
+                        <LI>
+                            <A>
+                                {{'place_holder'}}
+                            </A>
+                        </LI>
+                    </UL>
+                </DIV>
+            </DIV>
+        </DIV>
+        <!-- skills -->
+        <DIV>
+            <DIV>
+                <DIV>Skills</DIV>
+                <DIV><INPUT type="text"></DIV>
+            </DIV>
+            <DIV>
+                <DIV>Skills</DIV>
+                <DIV>
+                    <UL>
+                        <LI *ngFor="let skill of profile.profileSkillsList">
+                            <DIV>
+                                <DIV>{{skill.skillTitle}}</DIV>
+                                <DIV><BUTTON>X</BUTTON>X</DIV>
+                            </DIV>
+                        </LI>
+                    </UL>
+                </DIV>
+            </DIV>
+        </DIV>
+        <!-- Back button -->
+        <DIV>
+            <BUTTON type="button">Back</BUTTON>
+        </DIV>
+    </DIV>
+</DIV>
