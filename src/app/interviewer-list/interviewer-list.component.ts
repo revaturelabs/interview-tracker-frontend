@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { HttpService } from '../http.service';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -15,7 +14,7 @@ export class InterviewerListComponent implements OnInit
 
   @Output() selectionChange = new EventEmitter();
   
-  constructor(private http: HttpService) { }
+  constructor() { }
 
   ngOnInit() 
   {
