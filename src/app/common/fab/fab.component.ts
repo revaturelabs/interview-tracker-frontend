@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-fab',
@@ -8,9 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class FabComponent implements OnInit {
 
   activated = false;
-  returnedContent = '';
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -20,10 +20,10 @@ export class FabComponent implements OnInit {
   }
 
   clickCreateJob(): void {
-    this.returnedContent = '<app-create-jobs />';
+    this.router.navigate(['create-jobs']);
   }
 
   clickCreateProfile(): void {
-    this.returnedContent = '<app-profile-create />';
+    this.router.navigate(['profile-create']);
   }
 }
