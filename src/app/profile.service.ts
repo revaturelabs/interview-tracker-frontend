@@ -8,9 +8,9 @@ import { Observable } from 'rxjs';
 })
 export class ProfileService {
 
-    private url1 = "http://localhost:8765/interview-service/profiles/allProfiles";
+    private url1 = 'http://localhost:8765/interview-service/profiles/allProfiles';
 
-    private url2 = "http://localhost:8765/interview-service/profiles/saveProfile";
+    private url2 = 'http://localhost:8765/interview-service/profiles/saveProfile';
 
     constructor(private http: HttpClient) { }
 

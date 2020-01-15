@@ -8,10 +8,20 @@ import Skill from './models/Skill';
 
 export class SkillService {
 
+  private url1 = 'http://localhost:8765/interview-service/skills/allSkills';
+
+  private url2 = 'http://localhost:8765/interview-service/skills/insertSkill';
+
   constructor(private http: HttpClient) { }
+
   retrieveAllSkills() {
-    const url = "http://localhost:8765/skills/allSkills";
-    return this.http.get<Skill[]>(url, {});
+    return this.http.get<Skill[]>(this.url1, {withCredentials: true});
   }
+
+  saveSkills() {
+    return this.http.post<boolean>(this.url2, {withCredentials: true});
+  }
+
+
 
 }

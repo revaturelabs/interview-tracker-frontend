@@ -17,6 +17,6 @@ export class ProfilesComponent implements OnInit {
 
   ngOnInit() {
     this.profiles = this.httpService.profiles;
-    
+
   }
 }

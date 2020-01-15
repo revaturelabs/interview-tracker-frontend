@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { SkillService } from '../skill.service';
+import { ProfileService } from '../profile.service';
+import Profile from '../models/Profile';
 
 @Component({
   selector: 'app-profile-create',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileCreateComponent implements OnInit {
 
-  constructor() { }
+  newProfile: Profile;
+
+  constructor(private profileService: ProfileService, private skillService: SkillService) { }
 
   ngOnInit() {
   }
 
+  registerProfile(form: any) {
+    console.log(form);
+
+    // this.profileService.saveProfile(form).subscribe(data => {
+    //   console.log(data);
+    //   switch(data) {
+    //     case true:
+    //       break;
+    //     case false:
+    //       break;
+    //     default:
+    //       form.reset();
+      // }
+    // });
+  }
 }
