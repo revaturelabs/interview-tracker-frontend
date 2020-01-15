@@ -1,7 +1,8 @@
+<div>{{returnedContent}}</div>
 <div class="fab_anchor">
   <ul [ngClass]="activated && 'activated'" class="fab_list">
-    <li><a routerLink="" >Create Job</a></li>
-    <li><a routerLink="" >Create Profile</a></li>
+    <li><a routerLink="" (click)="clickCreateJob()">Create Job</a></li>
+    <li><a routerLink="" (click)="clickCreateProfile()">Create Profile</a></li>
     <li><a routerLink="" >Create Interview</a></li>
   </ul>
   <button (click)="activate()" id="fab" mat-fab>
