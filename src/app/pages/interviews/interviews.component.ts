@@ -10,12 +10,12 @@ import Interview from 'src/app/models/Interview';
 export class InterviewsComponent implements OnInit {
   interviewers: string[];
 
-  interviews: Interview[];
+  interviews: Interview[] = [];
 
   constructor(private httpService: HttpService) {}
 
   ngOnInit() {
     this.interviewers = this.httpService.interviewers;
-    this.interviews = this.httpService.interviews;
+    this.httpService.getJSON('assets/seed/interviews.json').subscribe(interviewList => this.interviews = interviewList);
   }
 }
