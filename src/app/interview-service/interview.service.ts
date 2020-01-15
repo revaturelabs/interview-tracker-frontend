@@ -21,6 +21,12 @@ export class InterviewService
     return this.http.get<Interview[]>(url, {});
   }
 
+  retrieveInterviewByJobId(id: number)
+  {
+    const url = "http://localhost:8765/interviews/job/"+id;
+    return this.http.get<Interview[]>(url, {});
+  }
+
   saveInterview(newInterview: Interview)
   {
     const url = "http://localhost:8765/interview/saveInterview";
