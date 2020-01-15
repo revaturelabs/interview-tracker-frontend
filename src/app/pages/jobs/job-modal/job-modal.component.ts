@@ -13,7 +13,8 @@ export class JobModalComponent implements OnInit {
 
   private modal = document.getElementById("jobModal");
   private allSkills: Skill[];
-  private selections = new FormControl();
+  private skillSelect = new FormControl();
+  private candSelect = new FormControl();
   @Input() job: Job;
   
   constructor(private skillServ: SkillService) { }

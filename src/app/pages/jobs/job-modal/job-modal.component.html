@@ -12,19 +12,15 @@
                         <h4 class='title areas'>Description</h4>
                         <p>{{job.jobDesc}}</p>
                     </div>
-                    <div id='schedinterview' class='col'>
+                    <div id='schedinterviews' class='col'>
                         <h4 class='title areas'>Scheduled Interviews</h4>
-                        <!-- Insert Interview List Here -->
-                        <!-- Insert interview select and submit button here? -->
+                        <!-- List interviews that are already scheduled -->
                     </div>
                 </div>
                 <div class='row'>
-                    <div id='candidateselect' class='col'>
-                        <!-- select candidates here -->
-                    </div>
                     <div id='skillselect' class='col'>
                         <mat-form-field>
-                            <mat-select [formControl]="selections" multiple>
+                            <mat-select [formControl]="skillSelect" multiple>
                                 <mat-option *ngFor="let skill of allSkills" [value]="skill">
                                     {{ skill.skillTitle }}
                                 </mat-option>
@@ -35,6 +31,21 @@
                                 {{ skill.skillTitle }}
                             </mat-chip>
                         </mat-chip-list>
+                    </div>
+                    <div id='newinterview' class='col'>
+                        <mat-form-field>
+                            <mat-select [formControl]="candSelect" multiple>
+                                <mat-option *ngFor="let profile of allProfiles" [value]="skill">
+                                    {{ profile.profileFirstName }} {{ profile.profileLastName }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-chip-list class="selection_pool">
+                            <mat-chip *ngFor="let interview of #" class="selection">
+                                {{  }}
+                            </mat-chip>
+                        </mat-chip-list>
+                        <!-- Insert interview select and submit button here? -->
                     </div>
                 </div>                
             </div>
