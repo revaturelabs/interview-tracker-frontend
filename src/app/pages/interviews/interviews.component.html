@@ -7,15 +7,9 @@
   </div>
   <div class="side side_2">
     <div class="grid">
-      <app-interview-card></app-interview-card>
-      <app-interview-card></app-interview-card>
-      <app-interview-card></app-interview-card>
-      <app-interview-card></app-interview-card>
-      <app-interview-card></app-interview-card>
-      <app-interview-card></app-interview-card>
-      <app-interview-card></app-interview-card>
-      <app-interview-card></app-interview-card>
-      <app-interview-card></app-interview-card>
+      <div *ngFor='let interview of interviews'>
+        <app-interview-card [interview]="interview"></app-interview-card>
+      </div>
     </div>
   </div>
 </div>
