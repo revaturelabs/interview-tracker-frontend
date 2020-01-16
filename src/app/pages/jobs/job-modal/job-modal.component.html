@@ -1,5 +1,4 @@
 <div id='jobModal' class='modal'>
-    <!-- Modal Content -->
     <div class='modal-content'>
         <div class='modal-header'>
             <span class='close' (click)='closeModal()' >&times;</span>
@@ -14,6 +13,9 @@
                     </div>
                     <div id='schedinterviews' class='col'>
                         <h4 class='title areas'>Scheduled Interviews</h4>
+                        <mat-action-list>
+                            <button mat-list-item *ngFor='let iv of allInterviews' (click)='goToInterview(iv)'>{{ iv.interviewProfileId.profileFirstName }} {{ iv.interviewProfileId.profileFirstName }} <span *ngIf='iv.interviewCompleted' class='interviewlistcomplete'>(Completed)</span></button>
+                        </mat-action-list>
                         <!-- List interviews that are already scheduled -->
                     </div>
                 </div>
