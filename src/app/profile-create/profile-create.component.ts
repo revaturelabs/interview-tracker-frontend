@@ -22,8 +22,6 @@ export class ProfileCreateComponent implements OnInit {
 
   }
 
-  
-
   registerProfile(form: any) {
 
     this.profileService.saveProfile(form).subscribe(data => {

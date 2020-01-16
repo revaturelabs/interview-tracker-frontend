@@ -2,22 +2,22 @@
 
 <form #myForm="ngForm" (ngSubmit)="registerProfile(myForm)" style="padding: 10px 40px;" ngNativeValidate>
     <div class="col-xs-5">
-      <input [(ngModel)] = "fname" type="text" class="form-control" placeholder="Firstname" name="fname" required ngModel>
+      <input type="text" class="form-control" placeholder="Firstname" name="fname" required ngModel>
     </div>
     <div class="col-xs-5">
-      <input [(ngModel)] = "lname" type="text" class="form-control" placeholder="Lastname" name="lname" required ngModel>
+      <input type="text" class="form-control" placeholder="Lastname" name="lname" required ngModel>
     </div>
 
     <div class="col-xs-1"></div>
     <div class="col-xs-10">
-      <input [(ngModel)] = "location" type="text" class="form-control" placeholder="Location" name="location" required ngModel>
+      <input type="text" class="form-control" placeholder="Location" name="location" required ngModel>
     </div>
     
     <div class="col-xs-5">
-      <input [(ngModel)] = "email" type="email" class="form-control" placeholder="Email" name="email" required ngModel>
+      <input type="email" class="form-control" placeholder="Email" name="email" required ngModel>
     </div>
     <div class="col-xs-5">
-      <input [(ngModel)] = "description" type="text" class="form-control" placeholder="Description" name="description" required ngModel>
+      <input type="text" class="form-control" placeholder="Description" name="description" required ngModel>
     </div>
 
     <div class="col-xs-3"></div>
