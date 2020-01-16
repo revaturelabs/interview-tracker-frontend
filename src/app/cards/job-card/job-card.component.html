@@ -19,7 +19,7 @@
       class="skill"
     >
       <span *ngIf="i < 9">
-        {{ skill.title }}
+        {{ i==8 ? "..." : skill.title }}
       </span>
     </p>
   </div>
