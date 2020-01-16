@@ -33,10 +33,6 @@ const routes: Routes = [
     component: ProfileCreateComponent
   },
   {
-    path: 'createjobs',
-    component: CreateJobsComponent
-  },
-  {
     path: '**',
     component: LoginComponent
   }
