@@ -24,7 +24,7 @@ const routes: Routes = [
     component: InterviewsComponent
   },
   {
-    path: 'createjob',
+    path: 'createjobs',
     component: CreateJobsComponent
   },
   {
