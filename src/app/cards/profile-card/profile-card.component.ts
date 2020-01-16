@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import Profile from 'src/app/models/Profile';
 import Card from '../Card';
+import { ProfileService } from 'src/app/profile.service';
 
 @Component({
   selector: 'app-profile-card',
@@ -10,11 +11,14 @@ import Card from '../Card';
 export class ProfileCardComponent extends Card implements OnInit {
   @Input() profile: Profile;
 
-  constructor() { 
+  private profileList: [];
+
+  constructor(/* private profileService: ProfileService */) { 
     super();
   }
 
   ngOnInit() {
+    //this.profileService.retrieveAllProfiles();
   }
 
 }
