@@ -17,10 +17,13 @@
             .example-container {
                 display: flex;
                 flex-direction: column;
+                position: relative;
+                height: 87%;
               }
               
             .example-container > * {
-                width: 100%;
+                width: 90%;
+                margin: 0 auto;
             }
         }
     }
@@ -52,10 +55,13 @@
 
 .button-submit{
     width: 25%;
-    margin-top: 13rem;
-    align-items: baseline;
 }
 .button-container{
     text-align: center;
-    margin-bottom: 0px;
+    position:absolute;
+    bottom: 2rem;
+    left: 2rem;
+}
+.Description{
+    height: 30%;
 }
