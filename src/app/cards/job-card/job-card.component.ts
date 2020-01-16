@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import Job from 'src/app/models/Job';
+import Card from 'src/app/cards/Card';
+import { MatCardModule } from '@angular/material/card';
+import Skill from 'src/app/models/Skill';
 
 @Component({
   selector: 'app-job-card',
   templateUrl: './job-card.component.html',
   styleUrls: ['./job-card.component.scss']
 })
-export class JobCardComponent implements OnInit {
+export class JobCardComponent extends Card implements OnInit {
+  @Input() job: Job;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
+    super();
   }
 
+  ngOnInit() {}
 }
