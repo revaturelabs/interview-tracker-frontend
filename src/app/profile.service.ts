@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import Profile from './models/Interview';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,8 @@ export class ProfileService {
 
   constructor(private http: HttpClient) { }
 
-  retrieveAllProfiles(){
-    const url = "http://localhost:8765/profiles/allProfiles";
+  retrieveAllProfiles(): Observable<Profile[]>{
+    const url = 'http://localhost:8765/interview-service/profiles/allProfiles';
     return this.http.get<Profile[]>(url, {});
   }
 
