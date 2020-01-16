@@ -42,3 +42,16 @@ body {
   justify-content: center;
   align-items: center;
 }
+hr{
+  border: none;
+  margin: 0.7rem;
+  margin-bottom: 2rem;
+  height: 2px;
+  background-color: $col-pri;
+  width: 100%;
+}
+
+.btn{
+  background-color: $col-pri;
+  color: #eee;
+}
