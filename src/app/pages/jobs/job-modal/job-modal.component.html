@@ -7,11 +7,12 @@
         <div class='modal-body'>
             <div class='container'>
                 <div class='row'>
-                    <div id='description' class='col'>
+                    <div id='description' class='col-sm'>
                         <h4 class='title areas'>Description</h4>
                         <p>{{job.description}}</p>
                     </div>
-                    <div id='schedinterviews' class='col'>
+                    <mat-divider [vertical]="true"></mat-divider>
+                    <div id='schedinterviews' class='col-sm'>
                         <h4 class='title areas'>Scheduled Interviews</h4>
                         <mat-action-list>
                             <button mat-list-item *ngFor='let iv of allInterviews' (click)='goToInterview(iv)'>{{ iv.interviewProfileId.profileFirstName }} {{ iv.interviewProfileId.profileFirstName }} <span *ngIf='iv.interviewCompleted' class='interviewlistcomplete'>(Completed)</span></button>

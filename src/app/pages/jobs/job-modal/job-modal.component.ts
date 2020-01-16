@@ -25,7 +25,7 @@ export class JobModalComponent implements OnInit {
   private candSelect = new FormControl();
   @Input() job: Job;
   
-  constructor(private eRef: ElementRef, private router: Router, private skillServ: SkillService, private profServ: ProfileService, private intServ: InterviewService) { }
+  constructor(private router: Router, private skillServ: SkillService, private profServ: ProfileService, private intServ: InterviewService) { }
 
   ngOnInit() {
     this.skillServ.retrieveAllSkills().subscribe(data => {
