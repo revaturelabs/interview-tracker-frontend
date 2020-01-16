@@ -9,17 +9,36 @@ export class InterviewService {
   constructor(private http: HttpClient) { }
 
   retrieveAllInterviews() {
-    const url = 'http://localhost:8765/interview/allInterviews';
+    const url = 'http://localhost:8765/interview-service/interviews/allInterviews';
     return this.http.get<Interview[]>(url, {});
   }
 
   retrieveInterviewById(id: number) {
-    const url = 'http://localhost:8765/interview/id/' + id;
+    const url = 'http://localhost:8765/interview-service/interviews/id/' + id;
     return this.http.get<Interview[]>(url, {});
   }
 
   saveInterview(newInterview: Interview) {
-    const url = 'http://localhost:8765/interview/saveInterview';
-    this.http.post<Interview>(url, newInterview);
+    const url = 'http://localhost:8765/interview-service/interviews/saveInterview';
+    return this.http.post<Interview>(url, newInterview);
+  }
+
+  retrieveInterviewsByProfileId(id: number) {
+    const url = 'http://localhost:8765/interview-service/interviews/profile/' + id;
+    return this.http.get<Interview[]>(url, {});
+  }
+
+  retrieveInterviewsByDate(year: number, month?: number, day?: number) {
+    let url;
+    if (year) {
+      url = 'http://localhost:8765/interview-service/interviews/date/' + year;
+      if (month) {
+        url = url + '/' + month;
+        if (day) {
+          url = url + '/' + day;
+        }
+      }
+    }
+    return this.http.get<Interview[]>(url, {});
   }
 }
