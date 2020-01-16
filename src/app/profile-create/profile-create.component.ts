@@ -14,6 +14,8 @@ export class ProfileCreateComponent implements OnInit {
   newProfile: Profile;
   allSkills: Skill[] = [];
 
+  skillsFilter: Skill;
+
 
   constructor(private profileService: ProfileService, private skillService: SkillService) { }
 
@@ -35,6 +37,10 @@ export class ProfileCreateComponent implements OnInit {
           form.reset();
       }
     });
+  }
+
+  filterSkills() {
+
   }
 
 }
