@@ -26,7 +26,7 @@ export class InterviewCardComponent extends Card implements OnInit {
   }
 
   ngOnInit() {
-    this.title = this.interview.interviewJobId.jobTitle;
+    this.title = this.interview.interviewJobId.title;
     this.date = this.interview.interviewDate;
     this.interviewee = this.interview.interviewProfileId.profileFirstName.concat(' ', this.interview.interviewProfileId.profileLastName);
     this.interview.usersIdList.forEach(element => {this.interviewers.push(element.userFirstName); });
