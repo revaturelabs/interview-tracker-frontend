@@ -1,33 +1,36 @@
 <p class="cm_sign_up_main_message">Create a new profile</p>
 
-<form #myForm="ngForm" (ngSubmit)="registerProfile(myForm)" style="padding: 10px 40px;" ngNativeValidate>
+<!-- <form #myForm="ngForm" (ngSubmit)="registerProfile(myForm)" style="padding: 10px 40px;" ngNativeValidate>
+ -->
     <div class="col-xs-5">
-      <input type="text" class="form-control" placeholder="Firstname" name="fname" required ngModel>
+      <input [(ngModel)] = newProfile.firstName type="text" class="form-control" placeholder="Firstname" name="fname">
     </div>
     <div class="col-xs-5">
-      <input type="text" class="form-control" placeholder="Lastname" name="lname" required ngModel>
+      <input [(ngModel)] = newProfile.lastName type="text" class="form-control" placeholder="Lastname" name="lname">
     </div>
 
     <div class="col-xs-1"></div>
     <div class="col-xs-10">
-      <input type="text" class="form-control" placeholder="Location" name="location" required ngModel>
+      <input [(ngModel)] = newProfile.location type="text" class="form-control" placeholder="Location" name="location">
     </div>
     
     <div class="col-xs-5">
-      <input type="email" class="form-control" placeholder="Email" name="email" required ngModel>
+      <input [(ngModel)] = newProfile.emailAddress type="email" class="form-control" placeholder="Email" name="email">
     </div>
     <div class="col-xs-5">
-      <input type="text" class="form-control" placeholder="Description" name="description" required ngModel>
+      <input [(ngModel)] = newProfile.description type="text" class="form-control" placeholder="Description" name="description">
     </div>
 
     <div class="col-xs-3"></div>
     <div class="col-xs-5">
-      <button type="submit"  class="btn btn-cm_default text-center">Register Profile</button>
+      <button type="submit" (click)="registerProfile()" class="btn btn-cm_default text-center">Register Profile</button>
     </div>
 
-</form>
 
+<!-- </form>
+ -->
 <app-search-select>
+
 
 <!-- put ivan's component here -->
 

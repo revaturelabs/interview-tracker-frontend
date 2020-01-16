@@ -20,22 +20,25 @@ export class ProfileService {
   //   return this.http.get<Profile[]>(this.url1, {});
   // }
 
-  // saveProfile(newProfile: Profile){
-  //   this.http.post<Profile>(this.url2, newProfile);
+  saveProfile(newProfile: Profile): Observable<boolean> {
+    return this.http.post<boolean>(this.url2, newProfile);
+  }
+
+  // saveProfile(form: any): Observable<boolean> {
+
+  //   const params = new HttpParams()
+  //   .set('fname', form.value.fname)
+  //   .set('lname', form.value.lname)
+  //   .set('location', form.value.location)
+  //   .set('email', form.value.email)
+  //   .set('description', form.value.description)
+  //   .set('skills', form.value.skills);
+
+  //   return this.http.post<boolean>(this.url2, params, {});
+
   // }
 
-  saveProfile(form: any): Observable<boolean> {
 
-    const params = new HttpParams()
-    .set('fname', form.value.fname)
-    .set('lname', form.value.lname)
-    .set('location', form.value.location)
-    .set('email', form.value.email)
-    .set('description', form.value.description);
-
-    return this.http.post<boolean>(this.url2, params, {});
-
-  }
   retrieveSomeProfiles(){
     const url = "http://localhost:8765/interview-service/profiles/allProfiles/1";
     return this.http.get<Profile[]>(url, {});

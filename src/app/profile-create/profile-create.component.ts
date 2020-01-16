@@ -21,12 +21,12 @@ export class ProfileCreateComponent implements OnInit {
 
   ngOnInit() {
     this.skillService.retrieveAllSkills().subscribe(data => this.allSkills = data);
-
+    this.newProfile = new Profile(0, "description", "fname", "lname", "location", "email", null);
   }
 
-  registerProfile(form: any) {
+  registerProfile() {
 
-    this.profileService.saveProfile(form).subscribe(data => {
+    this.profileService.saveProfile(this.newProfile).subscribe(data => {
       console.log(data);
       switch(data) {
         case true:
@@ -34,7 +34,7 @@ export class ProfileCreateComponent implements OnInit {
         case false:
           break;
         default:
-          form.reset();
+          return this.newProfile;
       }
     });
   }
