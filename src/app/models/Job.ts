@@ -2,11 +2,11 @@ import Skill from './Skill';
 
 export default class Job {
     constructor(
-      public jobId: number,
-      public jobTitle: string,
-      public jobDesc: string,
-      public jobLoc: string,
-      public jobFilled: boolean,
-      public jobSkillIdsList: Skill[]
+      public id: number,
+      public title: string,
+      public description: string,
+      public location: string,
+      public isFilled: boolean,
+      public skills: Skill[]
     ) {}
   }
