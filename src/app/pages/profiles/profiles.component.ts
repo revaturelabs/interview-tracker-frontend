@@ -17,8 +17,8 @@ export class ProfilesComponent implements OnInit {
   constructor(private profileService: ProfileService) {}
 
   ngOnInit() {
-    this.profileService.retrieveAllProfiles().subscribe(data=> {
-     this.profiles=data;
+    this.profileService.retrieveAllProfiles().subscribe(data => {
+     this.profiles = data;
      console.log(data);
     });
     
