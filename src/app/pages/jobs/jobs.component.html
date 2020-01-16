@@ -3,15 +3,9 @@
     (searchTermChanged)="onSearchTermChanged($event)"
   ></app-mini-searchbar>
   <div class="grid">
-    <app-job-card></app-job-card>
-    <app-job-card></app-job-card>
-    <app-job-card></app-job-card>
-    <app-job-card></app-job-card>
-    <app-job-card></app-job-card>
-    <app-job-card></app-job-card>
-    <app-job-card></app-job-card>
-    <app-job-card></app-job-card>
-    <app-job-card></app-job-card>
+    <div *ngFor='let job of jobs'>
+      <app-job-card [job]='job'></app-job-card>
+    </div>
   </div>
 </div>
 <app-fab></app-fab>

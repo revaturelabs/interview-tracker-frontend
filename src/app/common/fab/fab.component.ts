@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-fab',
@@ -6,15 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./fab.component.scss']
 })
 export class FabComponent implements OnInit {
+
   activated = false;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
-  activate() {
+  activate(): void {
     this.activated = !this.activated;
   }
 
+  clickCreateJob(): void {
+    this.router.navigate(['create-jobs']);
+  }
+
+  clickCreateProfile(): void {
+    this.router.navigate(['profile-create']);
+  }
 }
