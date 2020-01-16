@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import Profile from './models/Interview';
+// import Profile from './models/Interview';
+// import { HttpClient, HttpParams } from '@angular/common/http';
+import Profile from './models/Profile';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -14,9 +16,9 @@ export class ProfileService {
 
     constructor(private http: HttpClient) { }
 
-  retrieveAllProfiles(){
-    return this.http.get<Profile[]>(this.url1, {});
-  }
+  // retrieveAllProfiles(){
+  //   return this.http.get<Profile[]>(this.url1, {});
+  // }
 
   // saveProfile(newProfile: Profile){
   //   this.http.post<Profile>(this.url2, newProfile);
@@ -32,6 +34,21 @@ export class ProfileService {
     .set('description', form.value.description);
 
     return this.http.post<boolean>(this.url2, params, {});
+
   }
+  retrieveSomeProfiles(){
+    const url = "http://localhost:8765/interview-service/profiles/allProfiles/1";
+    return this.http.get<Profile[]>(url, {});
+  }
+
+  retrieveAllProfiles(): Observable<Profile[]>{
+    const url = "http://localhost:8765/interview-service/profiles/allProfiles";
+    return this.http.get<Profile[]>(url, {});
+  }
+
+  // saveProfile(newProfile: Profile){
+  //   const url = "http://localhost:8765/interview-service/profiles/saveProfile";
+  //   this.http.post<Profile>(url, newProfile);
+  // }
 
 }

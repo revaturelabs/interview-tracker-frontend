@@ -2,12 +2,12 @@ import Skill from './Skill';
 
 export default class Profile {
   constructor(
-    public profileId: number,
-    public profileFirstName: string,
-    public profileLastName: string,
-    public profileLocation: string,
-    public profileEmailAddress: string,
-    public profileDescription: string,
-    public profileSkillsList: Skill[]
+    public id: number,
+    public description: string,
+    public firstName: string,
+    public lastName: string,
+    public location: string,
+    public emailAddress: string,
+    public skills: Skill[]
   ) {}
 }

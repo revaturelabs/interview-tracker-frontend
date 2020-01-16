@@ -1,6 +1,6 @@
 export default class Skill {
     constructor(
-      public skillId: number,
+      public id: number,
       public title: string
     ) {}
   }

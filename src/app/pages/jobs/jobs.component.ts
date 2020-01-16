@@ -26,7 +26,7 @@ export class JobsComponent implements OnInit
   retrieveJobPage(page: number)
   {
     this.jobServ.getAllJobAtPage(page).subscribe(data => {
-      this.jobs.concat(data);
+      this.jobs = data;
     });
   }
 }
