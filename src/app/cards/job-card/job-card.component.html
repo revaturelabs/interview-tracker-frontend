@@ -1,25 +1,25 @@
 <div class="card">
   <div class="card_header" color="primary">
     <div class="card_header_status">
-      {{ job.jobFilled ? "Filled" : "Open" }}
+      {{ job.isFilled ? "Filled" : "Open" }}
     </div>
     <div class="card_header_title">
-      {{ job.jobTitle }}: <i>{{ job.jobId }}</i>
+      {{ job.title }}: <i>{{ job.id }}</i>
     </div>
-    <div class="card_header_subtitle">{{ job.jobLoc }}</div>
+    <div class="card_header_subtitle">{{ job.location }}</div>
   </div>
   <div class="card_content">
-    <i>DESCRIPTION:</i>
-    <p>{{ truncate(job.jobDesc) }}</p>
+    <i>Description</i>
+    <p>{{ truncate(job.description) }}</p>
   </div>
   <hr />
   <div class="card_footer">
     <p
-      *ngFor="let skill of job.jobSkillIdsList; let i = index"
+      *ngFor="let skill of job.skills; let i = index"
       class="skill"
     >
       <span *ngIf="i < 9">
-        {{ skill.skillTitle }}
+        {{ skill.title }}
       </span>
     </p>
   </div>
