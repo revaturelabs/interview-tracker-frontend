@@ -20,19 +20,26 @@
       <input [(ngModel)] = "description" type="text" class="form-control" placeholder="Description" name="description" required ngModel>
     </div>
 
-    <!-- <div class="col-xs-5">
-      <input [(ngModel)] = "dob" type="date" class="form-control" placeholder="Date of birth" name="dob"  ngModel>
-    </div>
-    <div class="col-xs-5">
-      <input [(ngModel)] = "title" type="text" class="form-control" placeholder="title" name="title"  ngModel>
-    </div> -->
-
     <div class="col-xs-3"></div>
     <div class="col-xs-5">
       <button type="submit"  class="btn btn-cm_default text-center">Register Profile</button>
     </div>
 
 </form>
+
+
+<div class="search_bar">
+  <i class="material-icons">search</i>
+  <input type="text" [(ngModel)]='skillsFilter' placeholder="Search skills . . ." >       
+</div>
+
+
+
+
+
+
+
+
 
 
 <!-- <form>

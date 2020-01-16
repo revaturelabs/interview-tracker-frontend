@@ -31,7 +31,7 @@ export class ProfileService {
     .set('email', form.value.email)
     .set('description', form.value.description);
 
-    return this.http.post<boolean>(this.url2, params, {withCredentials: true});
+    return this.http.post<boolean>(this.url2, params, {});
   }
 
 }
