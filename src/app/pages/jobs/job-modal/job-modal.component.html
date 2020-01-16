@@ -1,22 +1,21 @@
-<div id='jobModal' class='modal'>
+<div [id]='job.id.toString()' class='modal'>
     <div class='modal-content'>
         <div class='modal-header'>
             <span class='close' (click)='closeModal()' >&times;</span>
-            <h2>{{job.jobTitle}}</h2>
+            <h2>{{job.title}}</h2>
         </div>
         <div class='modal-body'>
             <div class='container'>
                 <div class='row'>
                     <div id='description' class='col'>
                         <h4 class='title areas'>Description</h4>
-                        <p>{{job.jobDesc}}</p>
+                        <p>{{job.description}}</p>
                     </div>
                     <div id='schedinterviews' class='col'>
                         <h4 class='title areas'>Scheduled Interviews</h4>
                         <mat-action-list>
                             <button mat-list-item *ngFor='let iv of allInterviews' (click)='goToInterview(iv)'>{{ iv.interviewProfileId.profileFirstName }} {{ iv.interviewProfileId.profileFirstName }} <span *ngIf='iv.interviewCompleted' class='interviewlistcomplete'>(Completed)</span></button>
                         </mat-action-list>
-                        <!-- List interviews that are already scheduled -->
                     </div>
                 </div>
                 <div class='row'>
@@ -25,13 +24,13 @@
                         <mat-form-field>
                             <mat-select [formControl]="skillSelect" multiple>
                                 <mat-option *ngFor="let skill of allSkills" [value]="skill">
-                                    {{ skill.skillTitle }}
+                                    {{ skill.title }}
                                 </mat-option>
                             </mat-select>
                         </mat-form-field>
                         <mat-chip-list class="selection_pool">
-                            <mat-chip *ngFor="let skill of job.jobSkillIdsList" class="selection">
-                                {{ skill.skillTitle }}
+                            <mat-chip *ngFor="let skill of job.skills" class="selection">
+                                {{ skill.title }}
                             </mat-chip>
                         </mat-chip-list>
                     </div>

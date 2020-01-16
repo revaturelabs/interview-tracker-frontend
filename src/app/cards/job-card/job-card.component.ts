@@ -11,10 +11,17 @@ import Skill from 'src/app/models/Skill';
 })
 export class JobCardComponent extends Card implements OnInit {
   @Input() job: Job;
+  private modal;
 
   constructor() {
     super();
   }
 
   ngOnInit() {}
+
+  openJobModal()
+  {
+    this.modal = document.getElementById(this.job.id.toString());
+    this.modal.style.display = "block";
+  }
 }

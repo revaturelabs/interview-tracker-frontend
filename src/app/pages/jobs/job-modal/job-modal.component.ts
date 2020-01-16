@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, HostListener } from '@angular/core';
+import { Component, OnInit, Input, HostListener, ElementRef } from '@angular/core';
 import Job from 'src/app/models/Job';
 import { SkillService } from 'src/app/skill.service';
 import Skill from 'src/app/models/Skill';
@@ -8,6 +8,8 @@ import Profile from 'src/app/models/Profile';
 import { InterviewService } from 'src/app/interview-service/interview.service';
 import Interview from 'src/app/models/Interview';
 import { Router } from '@angular/router';
+import { EventEmitter } from 'protractor';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-job-modal',
@@ -16,7 +18,6 @@ import { Router } from '@angular/router';
 })
 export class JobModalComponent implements OnInit {
 
-  private modal = document.getElementById("jobModal");
   private allInterveiws: Interview[];
   private allProfiles: Profile[];
   private allSkills: Skill[];
@@ -24,7 +25,7 @@ export class JobModalComponent implements OnInit {
   private candSelect = new FormControl();
   @Input() job: Job;
   
-  constructor(private router: Router, private skillServ: SkillService, private profServ: ProfileService, private intServ: InterviewService) { }
+  constructor(private eRef: ElementRef, private router: Router, private skillServ: SkillService, private profServ: ProfileService, private intServ: InterviewService) { }
 
   ngOnInit() {
     this.skillServ.retrieveAllSkills().subscribe(data => {
@@ -33,23 +34,15 @@ export class JobModalComponent implements OnInit {
     this.profServ.retrieveAllProfiles().subscribe(data => {
       //this.allProfiles = data;
     });
-    this.intServ.retrieveInterviewByJobId(this.job.jobId).subscribe(data => {
+    this.intServ.retrieveInterviewByJobId(this.job.id).subscribe(data => {
       this.allInterveiws = data;
-    })
+    });
   }
 
   closeModal()
   {
-    this.modal.style.display = "none";
-  }
-
-  @HostListener('document:event', ['$event'])
-  closeModalFromWindow(event: MouseEvent)
-  {
-    if (event.target == this.modal)
-    {
-      this.closeModal();
-    }
+    let modal = document.getElementById(this.job.id.toString());
+    modal.style.display = "none";
   }
 
   goToInterview(interview: Interview)

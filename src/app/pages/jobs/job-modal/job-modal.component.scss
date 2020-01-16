@@ -1,3 +1,4 @@
+@import "../../../../styles.scss";
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -27,7 +28,7 @@
 
 .modal-header{
     padding: 2px 16px;
-    background-color: #5cb85c;
+    background-color: $col-pri !important;
     color: white;
 }
 
@@ -40,6 +41,7 @@
     background-color: #fefefe;
     margin: auto;
     padding: 0;
+    top: 5%;
     border: 1px solid #888;
     width: 80%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
@@ -49,5 +51,5 @@
 
 @keyframes animatetop {
     from {top: -300px; opacity: 0}
-    to {top: 0; opacity: 1}
+    to {top: 5%; opacity: 1}
 }
