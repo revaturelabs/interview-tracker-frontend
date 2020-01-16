@@ -18,7 +18,7 @@ export class SearchSelectComponent implements OnInit {
 
   termChanged(event) {
     this.options = this.allSkills.filter(el =>
-      el.skillTitle.includes(event.target.value)
+      el.title.includes(event.target.value)
     );
   }
 
@@ -29,7 +29,7 @@ export class SearchSelectComponent implements OnInit {
   ngOnInit() {
     this.skillService
       .retrieveAllSkills()
-      .subscribe(list => (this.allSkills = list));
+      .subscribe(list => {this.allSkills = list; console.log(list)});
     this.options = this.allSkills;
   }
 }

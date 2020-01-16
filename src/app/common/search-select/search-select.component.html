@@ -4,15 +4,16 @@
       <ngx-mat-select-search (input)="termChanged($event)" ></ngx-mat-select-search>
     </mat-option>
     <mat-option *ngFor="let option of options" [value]="option">
-      {{ option.skillTitle }}
+      {{ option.title }}
     </mat-option>
   </mat-select>
 </mat-form-field>
+
 <mat-chip-list class="selection_pool">
     <mat-chip
       *ngFor="let selection of selections.value"
       class="selection"
     >
-      {{ selection.skillTitle }}
+      {{ selection.title }}
     </mat-chip>
-  </mat-chip-list>
+</mat-chip-list>
