@@ -4,9 +4,37 @@
             <div class='create-form-title'>
                 <h2>Create A New Job</h2>
             </div>
-            <div class='create-job-form'>
+            <div class="example-container">
+                <mat-form-field class='Title'>
+                    <input matInput placeholder="Title">
+                </mat-form-field>
 
+                <mat-form-field>
+                    <textarea matInput placeholder="Description"></textarea>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-select [formControl]="selections" (focus)="resetOptions()" placeholder="{{ title }}" multiple>
+                        <mat-option>
+                            <ngx-mat-select-search (input)="termChanged($event)"></ngx-mat-select-search>
+                        </mat-option>
+                        <mat-option *ngFor="let option of options" [value]="option">
+                            {{ option.title }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-chip-list class="selection_pool">
+                    <mat-chip *ngFor="let selection of selections.value" class="selection">
+                        {{ selection.title }}
+                    </mat-chip>
+                </mat-chip-list>
+                <div class="button-container">
+                    <button mat-flat-button class="button-submit btn">Submit</button>
+                </div>
+                
             </div>
+
         </div>
     </div>
     <div class='right-col'>

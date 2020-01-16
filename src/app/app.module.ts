@@ -27,6 +27,7 @@ import { MaterialModule } from './material/material.module';
 import { MultiSelectComponent } from './common/multi-select/multi-select.component';
 import { FullCalendarModule } from '@fullcalendar/angular'; // for FullCalendar!
 import { HttpClientModule } from "@angular/common/http";
+import {NgxMatSelectSearchModule} from "ngx-mat-select-search";
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { HttpClientModule } from "@angular/common/http";
     FormsModule,
     ReactiveFormsModule,
     FullCalendarModule, // for FullCalendar!
-    HttpClientModule
+    HttpClientModule,
+    NgxMatSelectSearchModule
   ],
   providers: [],
   bootstrap: [AppComponent]
