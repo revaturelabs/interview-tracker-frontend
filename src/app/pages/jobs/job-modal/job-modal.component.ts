@@ -18,8 +18,8 @@ import { Observable } from 'rxjs';
 })
 export class JobModalComponent implements OnInit {
 
-  private allInterveiws: Interview[];
-  private allProfiles: Profile[];
+  private allInterviews: Interview[];
+  private allProfiles; //: Profile[];
   private allSkills: Skill[];
   private skillSelect = new FormControl();
   private candSelect = new FormControl();
@@ -31,11 +31,13 @@ export class JobModalComponent implements OnInit {
     this.skillServ.retrieveAllSkills().subscribe(data => {
       this.allSkills = data;
     });
-    this.profServ.retrieveAllProfiles().subscribe(data => {
-      //this.allProfiles = data;
+
+    this.profServ.retrieveAllProfiles().subscribe(profdata => {
+      this.allProfiles = profdata;
     });
-    this.intServ.retrieveInterviewByJobId(this.job.id).subscribe(data => {
-      this.allInterveiws = data;
+    
+    this.intServ.retrieveInterviewByJobId(this.job.id).subscribe(intdata => {
+      this.allInterviews = intdata;
     });
   }
 

@@ -10,7 +10,7 @@ export class SkillService {
 
   constructor(private http: HttpClient) { }
   retrieveAllSkills() {
-    const url = "http://localhost:8765/skills/allSkills";
+    const url = "http://localhost:8765/interview-service/skills/allSkills";
     return this.http.get<Skill[]>(url, {});
   }
 

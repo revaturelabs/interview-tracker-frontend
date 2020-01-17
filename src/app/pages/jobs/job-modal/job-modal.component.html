@@ -5,17 +5,17 @@
             <h2>{{job.title}}</h2>
         </div>
         <div class='modal-body'>
-            <div class='container'>
-                <div class='row'>
-                    <div id='description' class='col-sm'>
+            <div>
+            <!-- <div> class='container'> -->
+                <div class='container'>
+                    <div id='description' class='item'>
                         <h4 class='title areas'>Description</h4>
                         <p>{{job.description}}</p>
                     </div>
-                    <mat-divider [vertical]="true"></mat-divider>
-                    <div id='schedinterviews' class='col-sm'>
+                    <div id='schedinterviews' class='item'>
                         <h4 class='title areas'>Scheduled Interviews</h4>
                         <mat-action-list>
-                            <button mat-list-item *ngFor='let iv of allInterviews' (click)='goToInterview(iv)'>{{ iv.interviewProfileId.profileFirstName }} {{ iv.interviewProfileId.profileFirstName }} <span *ngIf='iv.interviewCompleted' class='interviewlistcomplete'>(Completed)</span></button>
+                            <button mat-list-item *ngFor='let iv of allInterviews' (click)='goToInterview(iv)'>{{ iv.profile.firstName }} {{ iv.profile.lastName }} <span *ngIf='iv.isComplete' class='interviewlistcomplete'>(Completed)</span></button>
                         </mat-action-list>
                     </div>
                 </div>
@@ -40,13 +40,13 @@
                         <mat-form-field>
                             <mat-select [formControl]="candSelect" multiple>
                                 <mat-option *ngFor="let profile of allProfiles" [value]="skill">
-                                    {{ profile.profileFirstName }} {{ profile.profileLastName }}
+                                    {{ profile.firstName }} {{ profile.lastName }}
                                 </mat-option>
                             </mat-select>
                         </mat-form-field>
                         <mat-chip-list class="selection_pool">
                             <mat-chip *ngFor="let profile of candSelect.value" class="selection">
-                                {{ profile.profileFirstName }} {{ profile.profileLastName }}
+                                {{ profile.firstName }} {{ profile.lastName }}
                             </mat-chip>
                         </mat-chip-list>
                     </div>

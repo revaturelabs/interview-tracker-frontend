@@ -59,3 +59,30 @@
     color: $col-pri;
 }
 
+.container
+{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+#description
+{
+    order: 1;
+    // flex-grow: 2;
+    flex-basis: 60%;
+}
+
+#schedinterviews
+{
+    order: 2;
+    // flex-grow: 1;
+    // flex-shrink: 1;
+    flex-basis: 40%
+}
+
+.interviewlistcomplete
+{
+    // text-align: right;
+    margin-left: 100%;
+}
