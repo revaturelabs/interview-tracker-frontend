@@ -37,8 +37,11 @@ export class ProfileModalComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck() {
-    const changes = this.skillDiffer
-    console.log("mat-select");
+    const changes = this.skillDiffer.diff(this.profile.skills);
+    if(changes)
+    {
+      console.log("mat-select");
+    }
   }
 
   close() {
