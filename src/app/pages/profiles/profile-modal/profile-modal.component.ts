@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, KeyValueDiffer, KeyValueChanges, KeyValueDiffers, DoCheck } from '@angular/core';
 import { InterviewService } from 'src/app/interview-service/interview.service';
 import Profile from 'src/app/models/Profile';
 import Interview from 'src/app/models/Interview';
@@ -11,14 +11,16 @@ import Skill from 'src/app/models/Skill';
   templateUrl: './profile-modal.component.html',
   styleUrls: ['./profile-modal.component.scss']
 })
-export class ProfileModalComponent implements OnInit {
+export class ProfileModalComponent implements OnInit, DoCheck {
 
-  constructor(private interviewService: InterviewService, private skillService: SkillService) { }
-  
+  constructor(private interviewService: InterviewService, private skillService: SkillService, private differs: KeyValueDiffers) { }
+
   @Input()
   public profile: Profile;
   public interviews: Interview[] = [];
   public allSkillsAvailable: Skill[];
+
+  private skillDiffer: KeyValueDiffer<any, any>;
 
   public skillSelect = new FormControl();
 
@@ -31,6 +33,12 @@ export class ProfileModalComponent implements OnInit {
       });
     }
     this.skillService.retrieveAllSkills().subscribe( skills => this.allSkillsAvailable = skills );
+    this.skillDiffer = this.differs.find(this.profile.skills).create();
+  }
+
+  ngDoCheck() {
+    const changes = this.skillDiffer
+    console.log("mat-select");
   }
 
   close() {

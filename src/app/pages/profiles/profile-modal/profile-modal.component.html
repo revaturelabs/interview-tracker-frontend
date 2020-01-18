@@ -40,13 +40,13 @@
             <!-- skills -->
             <DIV class="profile-modal-middle">
                 <mat-form-field (change)='console.log("changed")'>
-                    <mat-select [formControl]="skillSelect" multiple>
+                    <mat-select [formControl]="skillSelect" multiple [(ngModel)]='profile.skills'>
                         <mat-option *ngFor="let skill of allSkillsAvailable" [value]="skill">
                             {{ skill.title }}
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
-                <mat-chip-list class="selection_pool">
+                <mat-chip-list class="selection_pool" [(ngModel)]='profile.skills'>
                     <mat-chip *ngFor="let skill of skillSelect.value" class="selection">
                         {{ skill.title }} &nbsp; <BUTTON type="button">X</BUTTON>
                     </mat-chip>
