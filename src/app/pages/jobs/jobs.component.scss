@@ -1,16 +1,14 @@
+@import "../../../styles.scss";
 .jobs {
     margin: 2rem;
 }
 
-#paginationfooter
-{
-    margin: auto;
-    width: 100%;
-}
-
 #NextPageBtn
 {
-    width: 100%;
-    margin: auto;
-    
+    font-size: 15px;
+}
+
+#centernpbtn
+{
+    text-align: center;
 }

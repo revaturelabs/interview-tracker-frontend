@@ -10,13 +10,21 @@ import Job from 'src/app/models/Job';
 export class JobsComponent implements OnInit 
 {
   private jobs: Job[];
-  private page: number = 0;
+  private page: number;
+  private atEnd: boolean = false;
 
   constructor(private jobServ: JobServiceService) {}
 
   ngOnInit()
   {
-    this.retrieveJobPage(this.page);
+    this.page = 0;
+    this.jobServ.getAllJobAtPage(this.page).subscribe(data => {
+      this.jobs = data;
+      if(data.length < 10)
+      {
+        this.atEnd = true;
+      }
+    });
   }
 
   onSearchTermChanged(e)
@@ -24,18 +32,15 @@ export class JobsComponent implements OnInit
     console.log('inside of job.component, value is: ', e);
   }
 
-  retrieveJobPage(page: number)
-  {
-    this.jobServ.getAllJobAtPage(page).subscribe(data => {
-      this.jobs = data;
-    });
-  }
-
   nextPage()
   {
     this.page++;
     this.jobServ.getAllJobAtPage(this.page).subscribe(data => {
       this.jobs = this.jobs.concat(data);
+      if(data.length < 10)
+      {
+        this.atEnd = true;
+      }
     });
   }
 }
