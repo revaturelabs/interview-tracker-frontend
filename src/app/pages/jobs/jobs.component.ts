@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { JobServiceService } from 'src/app/Job-Service/job-service.service';
 import Job from 'src/app/models/Job';
 
@@ -10,12 +10,13 @@ import Job from 'src/app/models/Job';
 export class JobsComponent implements OnInit 
 {
   private jobs: Job[];
+  private page: number = 0;
 
   constructor(private jobServ: JobServiceService) {}
 
   ngOnInit()
   {
-    this.retrieveJobPage(0);
+    this.retrieveJobPage(this.page);
   }
 
   onSearchTermChanged(e)
@@ -27,6 +28,14 @@ export class JobsComponent implements OnInit
   {
     this.jobServ.getAllJobAtPage(page).subscribe(data => {
       this.jobs = data;
+    });
+  }
+
+  nextPage()
+  {
+    this.page++;
+    this.jobServ.getAllJobAtPage(this.page).subscribe(data => {
+      this.jobs = this.jobs.concat(data);
     });
   }
 }
