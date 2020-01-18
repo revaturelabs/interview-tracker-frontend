@@ -51,9 +51,16 @@
                     </div>
                 </div>
                 <div *ngIf='!job.isFilled' id='centerbutton'>
-                    <br>
-                    <button id='submitnewinterviewsbtn' (click)='submitInterviews()'>Schedule Interview(s)</button>
-                    <br>
+                    <div *ngIf='candSelect.value != null'>
+                        <br>
+                        <div *ngIf='candSelect.value.length == 1'>
+                            <button id='submitnewinterviewsbtn' color='primary' (click)='submitInterviews()' mat-button>Schedule Interview</button>
+                        </div>
+                        <div *ngIf='candSelect.value.length > 1'>
+                            <button id='submitnewinterviewsbtn' color='primary' (click)='submitInterviews()' mat-button>Schedule Interviews</button>
+                        </div>
+                        <br>
+                    </div>
                 </div>
                 <br>
             </div>
