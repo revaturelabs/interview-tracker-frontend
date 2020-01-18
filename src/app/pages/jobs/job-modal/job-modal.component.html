@@ -38,7 +38,7 @@
                         <h4 class='title areas'>Schedule New Interviews</h4>
                         <mat-form-field>
                             <mat-select [formControl]="candSelect" multiple>
-                                <mat-option *ngFor="let profile of allProfiles" [value]="skill">
+                                <mat-option *ngFor="let profile of allProfiles" [value]="profile">
                                     {{ profile.firstName }} {{ profile.lastName }}
                                 </mat-option>
                             </mat-select>

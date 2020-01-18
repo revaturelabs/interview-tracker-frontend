@@ -57,6 +57,6 @@ export class JobModalComponent implements OnInit {
   submitInterviews()
   {
     //Create interviews page
-    console.log("submittedInteviews: " + this.candSelect);    //FOR TESTING PLS REMOVE
+    console.log("submittedInteviews: " + this.candSelect.value[0].firstName + " " + this.candSelect.value[0].lastName);    //FOR TESTING PLS REMOVE
   }
 }

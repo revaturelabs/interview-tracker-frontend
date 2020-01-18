@@ -17,9 +17,7 @@ export class JobCardComponent extends Card implements OnInit {
     super();
   }
 
-  ngOnInit() {
-    console.log(this.job);
-  }
+  ngOnInit() { }
 
   openJobModal()
   {
