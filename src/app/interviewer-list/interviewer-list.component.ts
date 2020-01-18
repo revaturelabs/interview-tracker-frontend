@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import User from '../models/User';
 
 @Component({
   selector: 'app-interviewer-list',
@@ -8,18 +9,15 @@ import { FormControl } from '@angular/forms';
 })
 export class InterviewerListComponent implements OnInit 
 {
-  selections = new FormControl();
-  @Input() selectionList: string[];
-  @Input() title: string;
+  private selections = new FormControl();
+  @Input() selectionList: User[];
+  private title = "Interviewers";
 
   @Output() selectionChange = new EventEmitter();
   
   constructor() { }
 
-  ngOnInit() 
-  {
-
-  }
+  ngOnInit() { }
 
   selectionChanged()
   {

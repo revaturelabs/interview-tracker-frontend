@@ -19,7 +19,7 @@ import { Observable } from 'rxjs';
 export class JobModalComponent implements OnInit {
 
   private allInterviews: Interview[];
-  private allProfiles; //: Profile[];
+  private allProfiles: Profile[];
   private allSkills: Skill[];
   private skillSelect = new FormControl();
   private candSelect = new FormControl();
@@ -27,7 +27,8 @@ export class JobModalComponent implements OnInit {
   
   constructor(private router: Router, private skillServ: SkillService, private profServ: ProfileService, private intServ: InterviewService) { }
 
-  ngOnInit() {
+  ngOnInit() { 
+
     this.skillServ.retrieveAllSkills().subscribe(data => {
       this.allSkills = data;
     });
