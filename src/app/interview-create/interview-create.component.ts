@@ -17,7 +17,7 @@ export class InterviewCreateComponent implements OnInit {
 
    @Input() jb1: Job;
    @Input() users: User[] = [];
-    names: string[];
+    names: string[] = [];
     selectedNames: string[];
 
 
@@ -29,11 +29,20 @@ ngOnInit() {
     this.jb1 = new  Job(-1, 'Sr. Yeeter', 'High level yeeter', 'Yeetville', false, null);
     }
     console.log(tabl);
+    this.userService.retrieveAllUsers().subscribe(users => {
+          this.users.forEach(user => console.log(user.username));
 
-    this.users.forEach(user => this.names.push(user.username));
+      this.users=users;
+      console.log(users);
+    });
+
   }
 
 
 
+updateNamesList(selectionsForm) {
+  console.log(selectionsForm);
+  this.selectedNames=selectionsForm.value;
+}
 
 }

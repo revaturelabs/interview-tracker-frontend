@@ -8,8 +8,8 @@ import { FormControl } from '@angular/forms';
 })
 export class MultiSelectComponent implements OnInit {
 
- @Output() selections = new FormControl();
-
+ selections = new FormControl();
+@Output() emitSelections = new EventEmitter<any>();
   @Input() selectionList: string[];
   @Input() title: string;
 
@@ -18,5 +18,9 @@ export class MultiSelectComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
+  }
+
+  sendSelections() {
+    this.emitSelections.emit(this.selections);
   }
 }

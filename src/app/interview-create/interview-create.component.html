@@ -23,8 +23,10 @@
 
             </div>
             <div class="form">
-               <app-multi-select [selections]='selectedNames' title="Interviewers" selectionList=""></app-multi-select>
+               <app-multi-select (emitSelections)='updateNamesList($event)' title="Interviewers" [selectionList]="names"></app-multi-select>
+               <button mat-button>Submit</button>
                 </div>
+
         </div>
         <div class='candidates'>
             <div class="card">
