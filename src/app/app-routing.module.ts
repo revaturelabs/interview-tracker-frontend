@@ -4,7 +4,6 @@ import { JobsComponent } from './pages/jobs/jobs.component';
 import { ProfilesComponent } from './pages/profiles/profiles.component';
 import { InterviewsComponent } from './pages/interviews/interviews.component';
 import { LoginComponent } from './pages/login/login.component';
-import { InterviewCreateComponent } from './interview-create/interview-create.component';
 
 const routes: Routes = [
   {
@@ -22,10 +21,6 @@ const routes: Routes = [
   {
     path: 'interviews',
     component: InterviewsComponent
-  },
-  {
-    path: 'createinterview',
-    component: InterviewCreateComponent
   },
   {
     path: '**',
