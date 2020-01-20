@@ -21,4 +21,9 @@ export class ProfileCardComponent extends Card implements OnInit {
     //this.profileService.retrieveAllProfiles();
   }
 
+  openProfileModal() {
+    document.getElementById(this.profile.id.toString()).style.display = 'flex';
+    console.log(this.profile);
+    console.log(document.getElementById(this.profile.id.toString()));
+  }
 }
