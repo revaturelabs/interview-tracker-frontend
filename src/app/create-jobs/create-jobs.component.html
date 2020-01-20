@@ -6,18 +6,19 @@
             </div>
             <div class="example-container">
                 <mat-form-field class='Title'>
-                    <input matInput placeholder="Title">
+                    <input [(ngModel)] = newJob.title matInput placeholder="Title">
                 </mat-form-field>
 
                 <mat-form-field >
-                    <textarea matInput placeholder="Description" class="Description"
+                    <textarea [(ngModel)] = newJob.description matInput placeholder="Description" class="Description"
                     rows="8"></textarea>
                 </mat-form-field>
 
                 <mat-form-field>
                     <mat-select [formControl]="selections" (focus)="resetOptions()" placeholder="{{ title }}" multiple>
                         <mat-option>
-                            <ngx-mat-select-search (input)="termChanged($event)"></ngx-mat-select-search>
+                            <ngx-mat-select-search (input)="termChanged($event)" placeholderLabel="Search Skills" 
+                            noEntriesFoundLabel="No matching entries found"></ngx-mat-select-search>
                         </mat-option>
                         <mat-option *ngFor="let option of options" [value]="option">
                             {{ option.title }}
@@ -31,7 +32,7 @@
                     </mat-chip>
                 </mat-chip-list>
                 <div class="button-container">
-                    <button mat-flat-button class="button-submit btn">Submit</button>
+                    <button mat-flat-button class="button-submit btn" (click)="createJob()">Submit</button>
                 </div>
                 
             </div>
