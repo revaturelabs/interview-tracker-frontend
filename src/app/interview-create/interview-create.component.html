@@ -25,7 +25,7 @@
             <div class="form">
                 <mat-form-field>
                     <mat-label>Interviewer</mat-label>
-                    <mat-select [(ngModel)]="selectedValue" name="user">
+                    <mat-select>
                       <mat-option *ngFor="let user of users" [value]="user.username">
                         {{user.username}}
                       </mat-option>
