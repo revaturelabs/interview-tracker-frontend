@@ -1,19 +1,20 @@
-import { Component, OnInit, Input, KeyValueDiffer, KeyValueChanges, KeyValueDiffers, DoCheck } from '@angular/core';
+import { Component, OnInit, Input, KeyValueDiffer } from '@angular/core';
 import { InterviewService } from 'src/app/interview-service/interview.service';
 import Profile from 'src/app/models/Profile';
 import Interview from 'src/app/models/Interview';
 import { FormControl } from '@angular/forms';
 import { SkillService } from 'src/app/skill.service';
 import Skill from 'src/app/models/Skill';
+import { ProfileService } from 'src/app/profile.service';
 
 @Component({
   selector: 'app-profile-modal',
   templateUrl: './profile-modal.component.html',
   styleUrls: ['./profile-modal.component.scss']
 })
-export class ProfileModalComponent implements OnInit, DoCheck {
+export class ProfileModalComponent implements OnInit {
 
-  constructor(private interviewService: InterviewService, private skillService: SkillService, private differs: KeyValueDiffers) { }
+  constructor(private interviewService: InterviewService, private skillService: SkillService, private profileService: ProfileService) { }
 
   @Input()
   public profile: Profile;
@@ -25,20 +26,24 @@ export class ProfileModalComponent implements OnInit, DoCheck {
   public skillSelect = new FormControl();
 
   ngOnInit() {
-    console.log(this.profile);
-    if (this.profile) {
-      this.interviewService.retrieveInterviewsByProfileId(this.profile.id).subscribe( data => {
+    this.interviewService.retrieveInterviewsByProfileId(this.profile.id).subscribe(
+      data => {
         this.interviews = data;
-        console.log(this.interviews);
-      });
-    }
-    this.skillService.retrieveAllSkills().subscribe( skills => this.allSkillsAvailable = skills );
-    this.skillDiffer = this.differs.find(this.profile.skills).create();
-  }
-
-  ngDoCheck() {
-    const changes = this.skillDiffer
-    console.log("mat-select");
+        this.skillSelect.setValue(this.profile.skills);
+      }
+    );
+    this.skillService.retrieveAllSkills().subscribe(
+      skills => {
+        this.allSkillsAvailable = skills;
+        this.skillSelect.setValue(this.profile.skills);
+      }
+    );
+    this.skillSelect.valueChanges.subscribe(
+      selectedSkills => {
+        this.profile.skills = selectedSkills;
+        this.profileService.saveProfile(this.profile).subscribe( data => console.log('tempo:' + data));
+      }
+    );
   }
 
   close() {

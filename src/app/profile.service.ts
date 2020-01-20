@@ -20,9 +20,9 @@ export class ProfileService {
     return this.http.get<Profile[]>(url, {});
   }
 
-  saveProfile(newProfile: Profile){
+  saveProfile(newProfile: Profile): Observable<any> {
     const url = "http://localhost:8765/interview-service/profiles/saveProfile";
-    this.http.post<Profile>(url, newProfile);
+    return this.http.post<Profile>(url, newProfile);
   }
 
 }
