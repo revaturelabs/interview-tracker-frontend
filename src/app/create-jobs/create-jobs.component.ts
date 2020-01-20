@@ -21,6 +21,15 @@ export class CreateJobsComponent implements OnInit {
   title = 'Skills';
   options: Skill[];
   allSkills: Skill[];
+  compareCounter: Number;
+  
+
+  compareSkills(){
+   this.compareCounter = 0;
+   for(let iter of this.selections.value){
+     
+   }
+  }
   
 
   createJob(){
