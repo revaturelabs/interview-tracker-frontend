@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import Skill from 'src/app/models/Skill';
 import { FormControl } from '@angular/forms';
 import { SkillService } from 'src/app/skill.service';
@@ -11,10 +11,15 @@ import { SkillService } from 'src/app/skill.service';
 export class SearchSelectComponent implements OnInit {
   constructor(private skillService: SkillService) {}
 
-  @Output() selections = new FormControl();
+  selections = new FormControl();
+  @Output() emitSelections = new EventEmitter<any>();
   title = 'Skills';
   options: Skill[];
   allSkills: Skill[];
+
+  selectOption() {
+    this.emitSelections.emit(this.selections);
+  }
 
   termChanged(event) {
     this.options = this.allSkills.filter(el =>

@@ -14,6 +14,8 @@ export class ProfileCreateComponent implements OnInit {
   newProfile: Profile;
   allSkills: Skill[] = [];
 
+  selectedSkills: Skill[] = [];
+
   skillsFilter: Skill;
 
 
@@ -21,7 +23,7 @@ export class ProfileCreateComponent implements OnInit {
 
   ngOnInit() {
     this.skillService.retrieveAllSkills().subscribe(data => this.allSkills = data);
-    this.newProfile = new Profile(0, "description", "fname", "lname", "location", "email", null);
+    this.newProfile = new Profile(-1, "description", "fname", "lname", "location", "email", null);
   }
 
   registerProfile() {
@@ -39,8 +41,15 @@ export class ProfileCreateComponent implements OnInit {
     });
   }
 
-  filterSkills() {
-
+  skillSelectionHandler(selectedSkills:any) {
+    console.log(selectedSkills);
+    console.log(selectedSkills.value);
+    this.newProfile.skills = selectedSkills.value;
+    console.log(this.newProfile);
   }
+
+  // filterSkills() {
+
+  // }
 
 }

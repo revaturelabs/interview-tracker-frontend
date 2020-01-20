@@ -21,15 +21,23 @@
       <input [(ngModel)] = newProfile.description type="text" class="form-control" placeholder="Description" name="description">
     </div>
 
+
     <div class="col-xs-3"></div>
     <div class="col-xs-5">
       <button type="submit" (click)="registerProfile()" class="btn btn-cm_default text-center">Register Profile</button>
     </div>
 
+    <app-search-select 
+    (emitSelections) = "skillSelectionHandler($event)"
+    >
+
 
 <!-- </form>
  -->
-<app-search-select>
+<!-- <app-search-select 
+(selections) = "skillSelectionHandler($event)"
+[(ngModel)] = newProfile.skill
+> -->
 
 
 <!-- put ivan's component here -->
