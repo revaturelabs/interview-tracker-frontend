@@ -2,16 +2,13 @@
   <app-mini-searchbar
     (searchTermChanged)="onSearchTermChanged($event)"
   ></app-mini-searchbar>
-  <div class="grid">
-    <app-job-card></app-job-card>
-    <app-job-card></app-job-card>
-    <app-job-card></app-job-card>
-    <app-job-card></app-job-card>
-    <app-job-card></app-job-card>
-    <app-job-card></app-job-card>
-    <app-job-card></app-job-card>
-    <app-job-card></app-job-card>
-    <app-job-card></app-job-card>
+  <div id='jobslist' class="grid">
+    <div *ngFor='let job of jobs'>
+      <app-job-card [job]='job'></app-job-card>
+    </div>
+  </div>
+  <div *ngIf='!atEnd' id='centernpbtn'>
+    <button id='NextPageBtn' color="primary" (click)='nextPage()' mat-button>Load More</button>
   </div>
 </div>
 <app-fab></app-fab>

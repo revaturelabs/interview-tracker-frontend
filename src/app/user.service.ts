@@ -9,7 +9,7 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
   retrieveAllUsers() {
-    const url = 'http://localhost:8765/user-service/users/allusers';
+    const url = "http://localhost:8765/interview-service/users/allusers";
     return this.http.get<User[]>(url, {});
   }
 

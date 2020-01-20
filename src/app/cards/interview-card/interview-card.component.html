@@ -1,24 +1,24 @@
 <div class="card">
   <div class="card_header" color="primary">
     <div class="card_header_title">
-      <div class="card_header_title_status">Pending</div>
-      <div class="card_header_title_job">Software Developer</div>
+      <div class="card_header_title_status">{{completed}}</div>
+      <div class="card_header_title_job">{{title}}</div>
     </div>
     <div class="card_header_subtitle">
-      January 12, 2020 10:30 a.m.
+      {{date | date}}
     </div>
   </div>
   <div class="card_content">
     <div class="card_content_interviewee">
-      <span class="bold">Interviewee: </span> Ben Solo
+      <span class="bold">Interviewee: </span> {{interviewee}}
     </div>
     <div class="card_content_interviewer">
-      <span class="bold">Interviewer: </span> Luke Skywalker
+      <span class="bold">Interviewers: </span> <span *ngFor='let name of interviewers; let isLast=last'>{{name}}{{isLast ? '':', '}}</span>
     </div>
-    <div class="card_content_comments">
+    <!-- <div class="card_content_comments">
       <span class="bold">Comments: </span><br />
-      {{truncate(sampleDescription)}}
-    </div>
+      <div class="comment">{{(comments.length > 120)?  (comments | slice:0:120) + ' . . .' : (comments)}}</div>
+    </div> -->
   </div>
   <hr />
 </div>

@@ -2,20 +2,14 @@
   <div class="side side_1">
     <app-calendar></app-calendar>
     <div style="margin-top: 1rem;" class="interviewers_selector">
-      <app-multi-select title="interviewers" [selectionList]="interviewers" ></app-multi-select>
+      <app-interviewer-list [selectionList]="interviewers" ></app-interviewer-list>
     </div>
   </div>
   <div class="side side_2">
     <div class="grid">
-      <app-interview-card></app-interview-card>
-      <app-interview-card></app-interview-card>
-      <app-interview-card></app-interview-card>
-      <app-interview-card></app-interview-card>
-      <app-interview-card></app-interview-card>
-      <app-interview-card></app-interview-card>
-      <app-interview-card></app-interview-card>
-      <app-interview-card></app-interview-card>
-      <app-interview-card></app-interview-card>
+      <div *ngFor='let interview of interviews'>
+        <app-interview-card [interview]="interview"></app-interview-card>
+      </div>
     </div>
   </div>
 </div>
