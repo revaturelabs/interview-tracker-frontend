@@ -2,7 +2,7 @@
   <div class="side side_1">
     <app-calendar></app-calendar>
     <div style="margin-top: 1rem;" class="interviewers_selector">
-      <app-multi-select title="interviewers" [selectionList]="interviewers" ></app-multi-select>
+      <app-multi-select title="interviewers" [selectionList]="interviewers" (click)='showcreate()' ></app-multi-select>
     </div>
   </div>
   <div class="side side_2">

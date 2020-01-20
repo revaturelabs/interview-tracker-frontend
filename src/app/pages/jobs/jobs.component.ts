@@ -13,4 +13,5 @@ export class JobsComponent implements OnInit {
   onSearchTermChanged(e) {
     console.log('inside of job.component, value is: ', e);
   }
+ 
 }

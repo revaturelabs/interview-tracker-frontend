@@ -1,1 +1,40 @@
-<p>interview-create works!</p>
+<div class="container">
+    <div class='interviewcreator'>
+        <div class="card">
+            <div class="card_header" color="primary">
+                <div class="card_header_title">Interview</div>
+            </div>
+            <div class="interview_info">
+                <h3>{{jb1.jobTitle}}</h3>
+                <br>
+                <h5>Skills</h5>
+                <h4>Python, JavaScript</h4>
+                <br>
+                <h5>Description</h5>
+                <p>{{jb1.jobDesc}}</p>
+            </div>
+            <div class="comment">
+
+                <mat-form-field appearance="legacy">
+                    <mat-label>Comments</mat-label>
+                    <input matInput placeholder="Placeholder">
+                    <mat-hint>Enter any supplementary information/opinions</mat-hint>
+                </mat-form-field>
+
+            </div>
+
+        </div>
+        <div class='candidates'>
+            <div class="card">
+                <div class="card_header" color="primary">
+                    <div class="card_header_title">Candidates</div>
+                    <div class="candidates_table">
+                        <table mat-table></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
