@@ -6,7 +6,9 @@
     <div *ngFor='let job of jobs'>
       <app-job-card [job]='job'></app-job-card>
     </div>
-    <button id='NextPageBtn' (click)='nextPage()'>more!</button>
+  </div>
+  <div *ngIf='!atEnd' id='centernpbtn'>
+    <button id='NextPageBtn' color="primary" (click)='nextPage()' mat-button>Load More</button>
   </div>
 </div>
 <app-fab></app-fab>
