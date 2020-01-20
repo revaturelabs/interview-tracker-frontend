@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" (click)="openProfileModal()">
   <div class="card_header" color="primary">
     <div class="card_header_title">
       {{ profile.firstName + " " + profile.lastName }}
@@ -32,3 +32,4 @@
 
   </div>
 </div>
+<app-profile-modal [profile]='profile'></app-profile-modal>
