@@ -16,19 +16,24 @@ export class InterviewCreateComponent implements OnInit {
   constructor(private userService: UserService) { }
 
    @Input() jb1: Job;
-   @Input() users: User;
+   @Input() users: User[] = [];
+    names: string[];
+    selectedNames: string[];
 
 
-  ngOnInit() {
+
+
+ngOnInit() {
     document.title = 'Create an Interview';
     if (Job) {
     this.jb1 = new  Job(-1, 'Sr. Yeeter', 'High level yeeter', 'Yeetville', false, null);
     }
     console.log(tabl);
+
+    this.users.forEach(user => this.names.push(user.username));
   }
 
-// getThem(){
-// this.users = this.userService.retrieveAllUsers();
-// }
+
+
 
 }

@@ -23,14 +23,7 @@
 
             </div>
             <div class="form">
-                <mat-form-field>
-                    <mat-label>Interviewer</mat-label>
-                    <mat-select>
-                      <mat-option *ngFor="let user of users" [value]="user.username">
-                        {{user.username}}
-                      </mat-option>
-                    </mat-select>
-                  </mat-form-field>
+               <app-multi-select [selections]='selectedNames' title="Interviewers" selectionList=""></app-multi-select>
                 </div>
         </div>
         <div class='candidates'>
