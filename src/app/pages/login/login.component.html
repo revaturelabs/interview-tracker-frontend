@@ -21,16 +21,17 @@
       </p>
     </div>
   </div>
+
   <div class="side side_2">
     <h2>Sign In</h2>
     <mat-form-field class="login_form_field">
       <mat-label>Username</mat-label>
-      <input [(ngModel)]="username" matInput />
+      <input [(ngModel)]="username" name="username" matInput />
     </mat-form-field>
     <mat-form-field class="login_form_field">
       <mat-label>Password</mat-label>
-      <input type="password" [(ngModel)]="password" matInput />
+      <input type="password" [(ngModel)]="password" name="password" matInput />
     </mat-form-field>
-    <button routerLink="/jobs" color="primary" mat-button>Submit</button>
+    <button [disabled]="!username || !password" color="primary" (click)="login()" mat-button>Submit</button>
   </div>
 </div>
