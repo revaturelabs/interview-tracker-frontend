@@ -8,7 +8,6 @@ import { HttpClient } from '@angular/common/http';
 export class JobServiceService {
 
   private url = 'http://localhost:8765/interview-service/jobs';
-  createdJob: Job;
   constructor(private httpServ: HttpClient) { }
 
   saveJob(job: Job) {

@@ -1,2 +1,69 @@
-
-<h1>job modal</h1>
+<div [id]='job.id.toString()' class='modal' (click)="closeModal()">
+    <div class='modal-content' (click)="$event.stopPropagation()">
+        <div class='modal-header'>
+            <span class='close' (click)='closeModal()' >&times;</span>
+            <h2>{{job.title}}</h2>
+        </div>
+        <div class='modal-body'>
+            <div>
+                <div class='container'>
+                    <div id='description' class='item'>
+                        <h4 class='title areas'>Description</h4>
+                        <p>{{job.description}}</p>
+                    </div>
+                    <div id='schedinterviews' class='item'>
+                        <h4 class='title areas'>Scheduled Interviews</h4>
+                        <mat-action-list>
+                            <button mat-list-item *ngFor='let iv of allInterviews' (click)='goToInterview(iv)'>{{ iv.profile.firstName }} {{ iv.profile.lastName }} <span *ngIf='iv.isComplete' class='interviewlistcomplete'>(Completed)</span><span *ngIf='!iv.isComplete' class='interviewlistcomplete'>{{ iv.date | date }}</span></button>
+                        </mat-action-list>
+                    </div>
+                </div>
+                <br>
+                <mat-divider></mat-divider>
+                <br><br>
+                <div class='container'>
+                    <div id='skillselect' class='item'>
+                        <h4 class='title areas'>Skills</h4>
+                        <mat-chip-list class="selection_pool">
+                            <mat-chip *ngFor="let skill of job.skills" class="selection">
+                                {{ skill.title }}
+                            </mat-chip>
+                        </mat-chip-list>
+                    </div>
+                    <div *ngIf='job.isFilled' id='filledprofile'>
+                        <h4 class='title areas'>Filled By</h4>
+                        {{ job.profile.firstName }} {{ job.profile.lastName }}
+                    </div>
+                    <div *ngIf='!job.isFilled' id='newinterview' class='item'>
+                        <h4 class='title areas'>Schedule New Interviews</h4>
+                        <mat-form-field>
+                            <mat-select [formControl]="candSelect" multiple>
+                                <mat-option *ngFor="let profile of allProfiles" [value]="profile">
+                                    {{ profile.firstName }} {{ profile.lastName }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-chip-list class="selection_pool">
+                            <mat-chip *ngFor="let profile of candSelect.value" class="selection">
+                                {{ profile.firstName }} {{ profile.lastName }}
+                            </mat-chip>
+                        </mat-chip-list>
+                    </div>
+                </div>
+                <div *ngIf='!job.isFilled' id='centerbutton'>
+                    <div *ngIf='candSelect.value != null'>
+                        <br>
+                        <div *ngIf='candSelect.value.length == 1'>
+                            <button (click)='saveJob()' id='submitnewinterviewsbtn' color='primary' routerLink='/createinterview' mat-button>Schedule Interview</button>
+                        </div>
+                        <div *ngIf='candSelect.value.length > 1'>
+                            <button id='submitnewinterviewsbtn' color='primary' routerLink='/createinterview' mat-button>Schedule Interviews</button>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
