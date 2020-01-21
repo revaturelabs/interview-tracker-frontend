@@ -4,8 +4,8 @@ import { SkillService } from '../skill.service';
 import { JobServiceService } from '../Job-Service/job-service.service';
 import { FormControl } from '@angular/forms';
 import Skill from 'src/app/models/Skill';
-import Jobs from 'src/app/models/Job';
 import Job from 'src/app/models/Job';
+import Profile from '../models/Profile';
 
 @Component({
   selector: 'app-create-jobs',
@@ -21,22 +21,46 @@ export class CreateJobsComponent implements OnInit {
   title = 'Skills';
   options: Skill[];
   allSkills: Skill[];
-  compareCounter: Number;
-  
+  compareCounter: number;
+  allProfiles: Profile[];
+  percents: number[] = [];
+  displayProfiles: Profile[];
+  profileHolder: Profile[];
 
-  compareSkills(){
-   this.compareCounter = 0;
-   for(let iter of this.selections.value){
-     
-   }
+
+
+  compareSkills() {
+    if (this.selections.value != null) {
+      this.percents = [];
+
+      for (let profile of this.allProfiles) {
+        this.compareCounter = 0;
+
+        for (let skill of profile.skills) {
+
+          for (let iter of this.selections.value) {
+            if (skill.title == iter.title) {
+              this.compareCounter++;
+              console.log(this.compareCounter);
+            }
+
+          }
+          // console.log(this.compareCounter);
+          // console.log(this.compareCounter / this.selections.value.length);
+        }
+        let temp = ((this.compareCounter / this.selections.value.length)*100);
+        this.percents.push(temp);
+        console.log(this.percents);
+      }
+    }
   }
-  
 
-  createJob(){
+
+  createJob() {
     this.newJob.skills = this.selections.value;
-    this.jobServ.saveJob(this.newJob).subscribe(data =>{
+    this.jobServ.saveJob(this.newJob).subscribe(data => {
       console.log(data);
-      switch(data){
+      switch (data) {
         case true:
           break;
         case false:
@@ -46,7 +70,7 @@ export class CreateJobsComponent implements OnInit {
 
       }
     });
-    
+
   }
 
   termChanged(event) {
@@ -62,8 +86,11 @@ export class CreateJobsComponent implements OnInit {
   ngOnInit() {
     this.skillServ
       .retrieveAllSkills()
-      .subscribe(list => {this.allSkills = list; console.log(list)});
+      .subscribe(list => { this.allSkills = list; console.log(list) });
     this.options = this.allSkills;
-    this.newJob = new Job(-1, "", "", null, false,[]);
+    this.profServ
+      .retrieveAllProfiles()
+      .subscribe(list => { this.allProfiles = list; console.log(list) });
+    this.newJob = new Job(-1, "", "", null, false, []);
   }
 }

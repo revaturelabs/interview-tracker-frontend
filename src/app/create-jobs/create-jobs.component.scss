@@ -31,6 +31,8 @@
         // background-color: red;
         height: 100%;
         .job-form-2{
+            display: flex;
+            flex-direction: column;
             background-color: #eee;
             width: 22rem;
             height: 80vh;
@@ -64,4 +66,8 @@
 }
 .Description{
     height: 30%;
+}
+.candidate-list{
+    height: 100%;
+    overflow-y: scroll;
 }
