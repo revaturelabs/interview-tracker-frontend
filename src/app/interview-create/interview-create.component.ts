@@ -1,5 +1,5 @@
 
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import Job from '../models/Job';
 import Interview from '../models/Interview';
 import User from '../models/User';
@@ -10,6 +10,7 @@ import { JobServiceService } from '../Job-Service/job-service.service';
 import Skill from '../models/Skill';
 import { InterviewService } from '../interview-service/interview.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 const tabl =  document.getElementsByClassName('candidates_table');
 @Component({
@@ -17,9 +18,10 @@ const tabl =  document.getElementsByClassName('candidates_table');
   templateUrl: './interview-create.component.html',
   styleUrls: ['./interview-create.component.scss']
 })
-export class InterviewCreateComponent implements OnInit {
+export class InterviewCreateComponent implements OnInit, OnDestroy {
 
-  constructor(private router: Router, private userService: UserService, private profServ: ProfileService, private jobServ: JobServiceService, private interviewServ: InterviewService) { }
+  constructor(private router: Router, private userService: UserService, private profServ: ProfileService,
+              private jobServ: JobServiceService, private interviewServ: InterviewService, private mySnack: MatSnackBar) { }
 
    @Input() jb1: Job;
    @Input() users: User[] = [];
@@ -50,10 +52,17 @@ ngOnInit() {
       this.users = users;
       console.log(users);
     });
-
+    if (this.jobServ.queuedInterviews.length == 0) {
     this.profServ.retrieveAllProfiles().subscribe(candidates => {
      this.profiles = candidates;
     });
+  } else {
+    this.profiles = this.jobServ.queuedInterviews;
+  }
+  }
+
+  ngOnDestroy() {
+    this.jobServ.queuedInterviews = [];
   }
 
 
@@ -71,12 +80,28 @@ changeForm(profile) {
 saveinterview() {
   const selectedUsers: User[] = this.users.filter(user => {
     console.log(user);
-    return this.selectedNames.includes(user.username)});
+    return this.selectedNames.includes(user.username); });
   console.log(selectedUsers);
   const newinterview: Interview = new Interview(-1 , this.selectedCandidate, new Date(), false, this.jb1,  selectedUsers);
-  console.log("sending...");
-  this.interviewServ.saveInterview(newinterview).subscribe(() => this.router.navigate(['/interviews']));
-  
+  console.log('sending...');
+  this.interviewServ.saveInterview(newinterview).subscribe(data => {
+    switch (data) {
+      case true:
+        this.mySnack.open('Interview sucessfully submitted.', 'success', {
+          duration: 2000
+        });
+        break;
+      case false:
+        this.mySnack.open('Interview failed to create.', 'failure', {
+          duration: 2000
+        });
+        break;
+      default:
+        break;
+
+    }
+  });
+
 
 }
 
