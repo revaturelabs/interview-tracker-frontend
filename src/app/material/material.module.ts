@@ -18,7 +18,8 @@ import {
   MatFormFieldModule,
   MatSelectModule,
   MatOptionModule,
-  MatChipsModule
+  MatChipsModule,
+  MatSnackBarModule,
 } from '@angular/material';
 
 const material = [
@@ -40,7 +41,8 @@ const material = [
   MatFormFieldModule,
   MatSelectModule,
   MatOptionModule,
-  MatChipsModule
+  MatChipsModule,
+  MatSnackBarModule
 ];
 
 @NgModule({
