@@ -8,5 +8,9 @@
       [profile]="profile"
     ></app-profile-card>
   </div>
-  <app-fab></app-fab>
+
+  <div *ngIf='!atEnd' id='centernpbtn'>
+    <button id='NextPageBtn' color="primary" (click)='nextPage()' mat-button>Load More</button>
+  </div>
 </div>
+<app-fab></app-fab>
