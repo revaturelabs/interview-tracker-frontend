@@ -25,4 +25,9 @@ export class ProfileService {
     return this.http.post<Profile>(url, newProfile);
   }
 
+  retrieveAllProfilesAtPage(page: number) {
+    const url = "http://localhost:8765/interview-service/profiles/allProfiles";
+    return this.http.get<Profile[]>(url +'/' +  page);
+  }
+
 }
