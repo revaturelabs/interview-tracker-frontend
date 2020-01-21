@@ -4,6 +4,11 @@ import Job from '../models/Job';
 import Interview from '../models/Interview';
 import User from '../models/User';
 import { UserService } from '../user.service';
+import Profile from '../models/Profile';
+import { ProfileService } from '../profile.service';
+import { JobServiceService } from '../Job-Service/job-service.service';
+import Skill from '../models/Skill';
+import { InterviewService } from '../interview-service/interview.service';
 
 const tabl =  document.getElementsByClassName('candidates_table');
 @Component({
@@ -13,36 +18,66 @@ const tabl =  document.getElementsByClassName('candidates_table');
 })
 export class InterviewCreateComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private profServ: ProfileService, private jobServ: JobServiceService, private interviewServ: InterviewService) { }
 
    @Input() jb1: Job;
    @Input() users: User[] = [];
+   @Input() profiles: Profile[] = [];
     names: string[] = [];
+    candidates: string[] = [];
     selectedNames: string[];
-
-
+    selectedCandidate: Profile;
+    jobSkills: Skill[];
 
 
 ngOnInit() {
+
     document.title = 'Create an Interview';
-    if (Job) {
-    this.jb1 = new  Job(-1, 'Sr. Yeeter', 'High level yeeter', 'Yeetville', false, null);
-    }
+
+
+    this.jb1  = this.jobServ.createdJob;
+    this.jobSkills = this.jb1.skills;
     console.log(tabl);
     this.userService.retrieveAllUsers().subscribe(users => {
-          this.users.forEach(user => console.log(user.username));
+      console.log(users);
+      users.forEach(user => {
+            console.log(user.firstName);
+            this.names.push(user.username);
+          }
+        );
 
-      this.users=users;
+      this.users = users;
       console.log(users);
     });
 
+    this.profServ.retrieveAllProfiles().subscribe(candidates => {
+     this.profiles = candidates;
+    });
   }
 
 
 
 updateNamesList(selectionsForm) {
   console.log(selectionsForm);
-  this.selectedNames=selectionsForm.value;
+  this.selectedNames = selectionsForm.value;
 }
+
+changeForm(profile) {
+  this.selectedCandidate = profile;
+
+}
+
+saveinterview() {
+  const selectedUsers: User[] = this.users.filter(user => {
+    console.log(user);
+    return this.selectedNames.includes(user.username)});
+  console.log(selectedUsers);
+  const newinterview: Interview = new Interview(-1 , this.selectedCandidate, new Date(), false, this.jb1,  selectedUsers);
+  console.log("sending...");
+  this.interviewServ.saveInterview(newinterview).subscribe();
+
+}
+
+
 
 }
