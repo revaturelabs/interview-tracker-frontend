@@ -1,0 +1,68 @@
+@import '../../styles.scss';
+.job-page{
+    display: grid;
+    grid-template-columns: 7fr 6fr;
+    margin-top: 3vh;
+    .left-col{
+        // background-color: green;
+        height: 100%;
+        .job-form-1{
+            background-color: #eee;
+            width: 33rem;
+            height: 80vh;
+            margin-left: auto;
+            margin-right: 1rem;
+            border-radius: 5px;
+            .example-container {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                height: 87%;
+              }
+            .example-container > * {
+                width: 90%;
+                margin: 0 auto;
+            }
+        }
+    }
+    .right-col{
+        // background-color: red;
+        height: 100%;
+        .job-form-2{
+            display: flex;
+            flex-direction: column;
+            background-color: #eee;
+            width: 22rem;
+            height: 80vh;
+            border-radius: 5px;
+        }
+    }
+}
+.create-form-title{
+    background-color: $col-pri;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    height: 3rem;
+    color: #eee;
+    padding-top: 25px;
+    padding-left: 15px;
+}
+.title{
+    width: 100%;
+}
+.button-submit{
+    width: 25%;
+}
+.button-container{
+    text-align: center;
+    position:absolute;
+    bottom: 2rem;
+    left: 2rem;
+}
+.Description{
+    height: 30%;
+}
+.candidate-list{
+    height: 100%;
+    overflow-y: scroll;
+}
