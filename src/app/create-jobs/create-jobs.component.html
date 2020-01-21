@@ -52,8 +52,8 @@
                 <h2>Candidates</h2>
             </div>
             <div class='candidate-list' *ngIf="this.selections.value">
-                <mat-selection-list>
-                    <mat-list-option *ngFor="let record of updatedResults">
+                <mat-selection-list [formControl]="selectedProfiles" multiple>
+                    <mat-list-option *ngFor="let record of updatedResults" [value]="record.profile">
                         {{record.profile.firstName + " " + record.profile.lastName + " " + record.percent.toFixed(0) + "%"}}
                     </mat-list-option>
                 </mat-selection-list>

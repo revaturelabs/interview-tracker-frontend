@@ -6,6 +6,7 @@ import { FormControl } from '@angular/forms';
 import Skill from 'src/app/models/Skill';
 import Job from 'src/app/models/Job';
 import Profile from '../models/Profile';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-jobs',
@@ -14,9 +15,11 @@ import Profile from '../models/Profile';
 })
 export class CreateJobsComponent implements OnInit {
 
-  constructor(private profServ: ProfileService, private skillServ: SkillService, private jobServ: JobServiceService) { }
+  constructor(private profServ: ProfileService, private skillServ: SkillService, private jobServ: JobServiceService,
+    private myRouter: Router) { }
 
   @Output() selections = new FormControl();
+  selectedProfiles = new FormControl();
   newJob: Job;
   title = 'Skills';
   options: Skill[];
@@ -73,6 +76,8 @@ export class CreateJobsComponent implements OnInit {
   createJob() {
     // Persists a new job once the submit button is hit to the back-end, then it returns the response. 
     this.newJob.skills = this.selections.value;
+    this.jobServ.queuedInterviews = this.selectedProfiles.value;
+    this.jobServ.createdJob = this.newJob;
     this.jobServ.saveJob(this.newJob).subscribe(data => {
       console.log(data);
       switch (data) {
@@ -81,9 +86,10 @@ export class CreateJobsComponent implements OnInit {
         case false:
           break;
         default:
-          return this.newJob;
+          break;
 
       }
+      this.myRouter.navigate(['/createinterview']);
     });
 
   }
