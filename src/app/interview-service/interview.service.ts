@@ -27,7 +27,9 @@ export class InterviewService {
   saveInterview(newInterview: Interview)
   {
     const url = "http://localhost:8765/interview-service/interviews/saveInterview";
-    this.http.post<Interview>(url, newInterview);
+    console.log(newInterview);
+    console.log("interview sent to back end");
+    return this.http.post<Interview>(url, newInterview);
   }
 
   retrieveInterviewsByProfileId(id: number) {
