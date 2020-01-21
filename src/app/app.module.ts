@@ -28,7 +28,9 @@ import { MultiSelectComponent } from './common/multi-select/multi-select.compone
 import { FullCalendarModule } from '@fullcalendar/angular'; // for FullCalendar!
 import { HttpClientModule } from "@angular/common/http";
 import {NgxMatSelectSearchModule} from "ngx-mat-select-search";
-
+import { MatSnackBarModule } from '@angular/material';
+import { SearchSelectComponent } from './common/search-select/search-select.component';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,8 @@ import {NgxMatSelectSearchModule} from "ngx-mat-select-search";
     InterviewerListComponent,
     InterviewCreateComponent,
     ProfileCreateComponent,
-    MultiSelectComponent
+    MultiSelectComponent,
+    SearchSelectComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +64,7 @@ import {NgxMatSelectSearchModule} from "ngx-mat-select-search";
     ReactiveFormsModule,
     FullCalendarModule, // for FullCalendar!
     HttpClientModule,
+    MatSnackBarModule,
     NgxMatSelectSearchModule
   ],
   providers: [],
