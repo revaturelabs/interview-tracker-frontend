@@ -13,7 +13,7 @@
 }
 
 .close {
-    color: #aaa;
+    color: black;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -21,7 +21,7 @@
   
 .close:hover,
 .close:focus {
-    color: black;
+    color: #aaa;
     text-decoration: none;
     cursor: pointer;
 }
@@ -70,15 +70,12 @@
 #description
 {
     order: 1;
-    // flex-grow: 2;
     flex-basis: 57%;
 }
 
 #schedinterviews
 {
     order: 2;
-    // flex-grow: 1;
-    // flex-shrink: 1;
     flex-basis: 40%
 }
 
@@ -107,16 +104,11 @@
 
 .interviewlistcomplete
 {
-    // text-align: right;
     margin-left: auto;
     font-size: 12px;
 }
 
 #centerbutton
 {
-    // display: block;
     text-align: center;
-    // margin: auto;
-    // width: 100%;
-    // height: 100%
 }

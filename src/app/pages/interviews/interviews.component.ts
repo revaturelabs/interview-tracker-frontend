@@ -14,6 +14,7 @@ export class InterviewsComponent implements OnInit {
 
   private interviews: Interview[] = [];
   private interviewers: User[];
+  private filteredInterviewers: User[];
 
   constructor(private interviewService: InterviewService, private userServ: UserService) {}
 
@@ -24,6 +25,12 @@ export class InterviewsComponent implements OnInit {
 
     this.userServ.retrieveAllUsers().subscribe(users => {
       this.interviewers = users;
+      this.filteredInterviewers = this.interviewers;
     });
+  }
+
+  selectionChange(interviewers: User[])
+  {
+    this.filteredInterviewers = interviewers;
   }
 }

@@ -10,6 +10,9 @@ import { ProfileService } from 'src/app/profile.service';
 })
 export class ProfilesComponent implements OnInit {
   profiles: Profile[] = [];
+  private page: number;
+  private atEnd: boolean = false;
+
   onSearchTermChanged(e) {
     console.log('In profile.component.ts, value is: ', e);
   }
@@ -17,10 +20,28 @@ export class ProfilesComponent implements OnInit {
   constructor(private profileService: ProfileService) {}
 
   ngOnInit() {
-    this.profileService.retrieveAllProfiles().subscribe(data => {
+    this.page = 0;
+    this.profileService.retrieveAllProfilesAtPage(this.page).subscribe(data => {
      this.profiles = data;
-     console.log(data);
+     if(data.length < 10)
+     {
+       this.atEnd = true;
+     }
+     //console.log(data);
     });
     
+  }
+
+
+  nextPage()
+  {
+    this.page++;
+    this.profileService.retrieveAllProfilesAtPage(this.page).subscribe(data => {
+      this.profiles = this.profiles.concat(data);
+      if(data.length < 10)
+      {
+        this.atEnd = true;
+      }
+    });
   }
 }
