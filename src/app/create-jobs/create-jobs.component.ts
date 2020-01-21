@@ -26,6 +26,8 @@ export class CreateJobsComponent implements OnInit {
   percents: number[] = [];
   displayProfiles: Profile[];
   profileHolder: Profile[];
+  higherPrecent: number;
+  updatedResults: {profile: Profile, percent: number}[] = [];
 
 
 
@@ -33,12 +35,12 @@ export class CreateJobsComponent implements OnInit {
     if (this.selections.value != null) {
       this.percents = [];
 
-      for (let profile of this.allProfiles) {
+      for (const profile of this.allProfiles) {
         this.compareCounter = 0;
 
-        for (let skill of profile.skills) {
+        for (const skill of profile.skills) {
 
-          for (let iter of this.selections.value) {
+          for (const iter of this.selections.value) {
             if (skill.title == iter.title) {
               this.compareCounter++;
               console.log(this.compareCounter);
@@ -48,11 +50,22 @@ export class CreateJobsComponent implements OnInit {
           // console.log(this.compareCounter);
           // console.log(this.compareCounter / this.selections.value.length);
         }
-        let temp = ((this.compareCounter / this.selections.value.length)*100);
+        const temp = ((this.compareCounter / this.selections.value.length) * 100);
         this.percents.push(temp);
         console.log(this.percents);
       }
+      this.repopulateProfiles();
     }
+  }
+
+  repopulateProfiles() {
+    this.updatedResults = [];
+    for (let index = 0; index < this.allProfiles.length; index++) {
+      let newUpdatedProfile = {profile: this.allProfiles[index], percent: this.percents[index]};
+      this.updatedResults.push(newUpdatedProfile);
+      console.log(this.updatedResults);
+    }
+    this.updatedResults.sort((a, b) => b.percent - a.percent);
   }
 
 
@@ -86,11 +99,11 @@ export class CreateJobsComponent implements OnInit {
   ngOnInit() {
     this.skillServ
       .retrieveAllSkills()
-      .subscribe(list => { this.allSkills = list; console.log(list) });
+      .subscribe(list => { this.allSkills = list; console.log(list); });
     this.options = this.allSkills;
     this.profServ
       .retrieveAllProfiles()
-      .subscribe(list => { this.allProfiles = list; console.log(list) });
-    this.newJob = new Job(-1, "", "", null, false, []);
+      .subscribe(list => { this.allProfiles = list; console.log(list); });
+    this.newJob = new Job(-1, '', '', null, false, []);
   }
 }

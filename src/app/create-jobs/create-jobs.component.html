@@ -46,8 +46,8 @@
             </div>
             <div class='candidate-list' *ngIf="this.selections.value">
                 <mat-selection-list>
-                    <mat-list-option *ngFor="let profile of allProfiles; let i = index">
-                        {{profile.firstName + " " + profile.lastName + " " + percents[i].toFixed(0) + "%"}}
+                    <mat-list-option *ngFor="let record of updatedResults">
+                        {{record.profile.firstName + " " + record.profile.lastName + " " + record.percent.toFixed(0) + "%"}}
                     </mat-list-option>
                 </mat-selection-list>
             </div>
