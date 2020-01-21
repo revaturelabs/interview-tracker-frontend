@@ -9,6 +9,7 @@ import { ProfileService } from '../profile.service';
 import { JobServiceService } from '../Job-Service/job-service.service';
 import Skill from '../models/Skill';
 import { InterviewService } from '../interview-service/interview.service';
+import { Router } from '@angular/router';
 
 const tabl =  document.getElementsByClassName('candidates_table');
 @Component({
@@ -18,7 +19,7 @@ const tabl =  document.getElementsByClassName('candidates_table');
 })
 export class InterviewCreateComponent implements OnInit {
 
-  constructor(private userService: UserService, private profServ: ProfileService, private jobServ: JobServiceService, private interviewServ: InterviewService) { }
+  constructor(private router: Router, private userService: UserService, private profServ: ProfileService, private jobServ: JobServiceService, private interviewServ: InterviewService) { }
 
    @Input() jb1: Job;
    @Input() users: User[] = [];
@@ -74,7 +75,8 @@ saveinterview() {
   console.log(selectedUsers);
   const newinterview: Interview = new Interview(-1 , this.selectedCandidate, new Date(), false, this.jb1,  selectedUsers);
   console.log("sending...");
-  this.interviewServ.saveInterview(newinterview).subscribe();
+  this.interviewServ.saveInterview(newinterview).subscribe(() => this.router.navigate(['/interviews']));
+  
 
 }
 
