@@ -20,9 +20,9 @@ export class ProfileService {
   //   return this.http.get<Profile[]>(this.url1, {});
   // }
 
-  saveProfile(newProfile: Profile): Observable<boolean> {
-    return this.http.post<boolean>(this.url2, newProfile);
-  }
+  // saveProfile(newProfile: Profile): Observable<boolean> {
+  //   return this.http.post<boolean>(this.url2, newProfile);
+  // }
 
   // saveProfile(form: any): Observable<boolean> {
 

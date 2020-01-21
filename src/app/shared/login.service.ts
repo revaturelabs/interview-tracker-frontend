@@ -8,7 +8,7 @@ import User from '../models/User';
 })
 export class LoginService {
 
-  private url = 'http://localhost:8765/users/login';
+  private url = 'http://localhost:8765/user/login';
 
   constructor(private http: HttpClient) { }
 
