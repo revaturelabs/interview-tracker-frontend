@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../../http.service';
 import Interview from 'src/app/models/Interview';
 import { InterviewService } from '../../interview-service/interview.service';
+import { UserService } from 'src/app/user.service';
+import User from 'src/app/models/User';
 
 @Component({
   selector: 'app-interviews',
@@ -10,13 +12,25 @@ import { InterviewService } from '../../interview-service/interview.service';
 })
 export class InterviewsComponent implements OnInit {
 
-  interviews: Interview[] = [];
+  private interviews: Interview[] = [];
+  private interviewers: User[];
+  private filteredInterviewers: User[];
 
-  constructor(private interviewService: InterviewService) {}
+  constructor(private interviewService: InterviewService, private userServ: UserService) {}
 
   ngOnInit() {
-    this.interviewService.retrieveAllInterviews().subscribe(interviewList => this.interviews = interviewList);
-    // Dummy Data v
-    // this.httpService.getJSON('assets/seed/interviews.json').subscribe(interviewList => this.interviews = interviewList);
+    this.interviewService.retrieveAllInterviews().subscribe(interviewList => {
+      this.interviews = interviewList;
+    });
+
+    this.userServ.retrieveAllUsers().subscribe(users => {
+      this.interviewers = users;
+      this.filteredInterviewers = this.interviewers;
+    });
+  }
+
+  selectionChange(interviewers: User[])
+  {
+    this.filteredInterviewers = interviewers;
   }
 }

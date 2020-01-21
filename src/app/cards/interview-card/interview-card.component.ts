@@ -26,13 +26,13 @@ export class InterviewCardComponent extends Card implements OnInit {
   }
 
   ngOnInit() {
-    this.title = this.interview.interviewJobId.title;
-    this.date = this.interview.interviewDate;
-    this.interviewee = this.interview.interviewProfileId.firstName.concat(' ', this.interview.interviewProfileId.lastName);
-    this.interview.usersIdList.forEach(element => {this.interviewers.push(element.userFirstName); });
+    this.title = this.interview.job.title;
+    this.date = this.interview.date;
+    this.interviewee = this.interview.profile.firstName.concat(' ', this.interview.profile.lastName);
+    this.interview.users.forEach(element => {this.interviewers.push(element.firstName); });
     // Comments are sample text currently
-    this.comments = this.sampleDescription;
-    if (this.interview.interviewCompleted) {
+    // this.comments = this.sampleDescription;
+    if (this.interview.isCompleted) {
       this.completed = 'completed';
     }
   }

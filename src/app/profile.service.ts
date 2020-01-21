@@ -48,10 +48,14 @@ export class ProfileService {
     const url = "http://localhost:8765/interview-service/profiles/allProfiles";
     return this.http.get<Profile[]>(url, {});
   }
+  
+  saveProfile(newProfile: Profile): Observable<any> {
+    const url = "http://localhost:8765/interview-service/profiles/saveProfile";
+    return this.http.post<Profile>(url, newProfile);
+  }
 
-  // saveProfile(newProfile: Profile){
-  //   const url = "http://localhost:8765/interview-service/profiles/saveProfile";
-  //   this.http.post<Profile>(url, newProfile);
-  // }
-
+  retrieveAllProfilesAtPage(page: number) {
+    const url = "http://localhost:8765/interview-service/profiles/allProfiles";
+    return this.http.get<Profile[]>(url +'/' +  page);
+  }
 }

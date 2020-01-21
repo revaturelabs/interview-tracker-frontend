@@ -1,60 +1,61 @@
-<DIV>
-    <DIV>
-        <!-- profile name -->
-        {{profile.profileFirstName + ' ' + profile.profileLastName}}
-    </DIV>
-    <DIV>
-        <DIV>
-            <DIV>
-                <!-- Contact Info -->
-                <DIV>
-                    <DIV>Contact Info</DIV>
-                    <DIV>{{profile.profileEmailAddress}}</DIV>
-                    <DIV>{{profile.profileLocation}}</DIV>
-                </DIV>
-                <!-- Description -->
-                <DIV>
-                    <DIV>Description</DIV>
-                    <DIV>{{profile.profileDescription}}</DIV>
-                </DIV>
-            </DIV>
-            <!-- Interviews Scheduled -->
-            <DIV>
-                <DIV>Interviews Scheduled</DIV>
-                <DIV>
-                    <UL>
-                        <LI>
-                            <A>
-                                {{'place_holder'}}
-                            </A>
-                        </LI>
-                    </UL>
-                </DIV>
-            </DIV>
+<DIV class='profile-modal-container'  [id]='profile.id.toString()'>
+    <DIV class="profile-modal">
+        <DIV class="profile-modal-titlebar">
+            <!-- profile name -->
+            <DIV class="profile-modal-name">{{profile.firstName + ' ' + profile.lastName}}</DIV>
+            <DIV class="profile-modal-close"><BUTTON type="button" (click)="close()">X</BUTTON></DIV>
         </DIV>
-        <!-- skills -->
-        <DIV>
-            <DIV>
-                <DIV>Skills</DIV>
-                <DIV><INPUT type="text"></DIV>
-            </DIV>
-            <DIV>
-                <DIV>Skills</DIV>
+        <DIV class="profile-modal-content">
+            <DIV class="profile-modal-top">
                 <DIV>
-                    <UL>
-                        <LI *ngFor="let skill of profile.profileSkillsList">
-                            <DIV>
-                                <DIV>{{skill.skillTitle}}</DIV>
-                                <DIV><BUTTON>X</BUTTON>X</DIV>
-                            </DIV>
-                        </LI>
-                    </UL>
+                    <!-- Contact Info -->
+                    <DIV>
+                        <DIV class="profile-modal-contact-title">Contact Info</DIV>
+                        <DIV>{{profile.emailAddress}}</DIV>
+                        <DIV>{{profile.location}}</DIV>
+                    </DIV>
+                    <!-- Description -->
+                    <DIV>
+                        <DIV class="profile-modal-description-title">Description</DIV>
+                        <DIV>{{profile.description}}</DIV>
+                    </DIV>
+                </DIV>
+                <!-- Interviews Scheduled -->
+                <DIV>
+                    <DIV class="profile-modal-interviews-title">Interviews Scheduled</DIV>
+                    <DIV>
+                        <UL>
+                            <LI *ngFor="let interview of interviews" style="display: flex; justify-content: space-between;">
+                                <DIV>
+                                    <A>{{interview.job.title}}</A>
+                                </DIV>
+                                <DIV class="profile-modal-interview-date">
+                                    {{interview.date | date}}
+                                </DIV>
+                            </LI>
+                        </UL>
+                    </DIV>
                 </DIV>
             </DIV>
-        </DIV>
-        <!-- Back button -->
-        <DIV>
-            <BUTTON type="button">Back</BUTTON>
+            <!-- skills -->
+            <DIV class="profile-modal-middle">
+                <mat-form-field (change)='console.log("changed")'>
+                    <mat-select [formControl]="skillSelect" multiple>
+                        <mat-option *ngFor="let skill of allSkillsAvailable" [value]="skill">
+                            {{ skill.title }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-chip-list class="selection_pool">
+                    <mat-chip *ngFor="let skill of skillSelect.value" class="selection">
+                        {{ skill.title }}
+                    </mat-chip>
+                </mat-chip-list>
+            </DIV>
+            <!-- Back button -->
+            <DIV class="profile-modal-bottom">
+                <BUTTON type="button" (click)="close()">Back</BUTTON>
+            </DIV>
         </DIV>
     </DIV>
 </DIV>

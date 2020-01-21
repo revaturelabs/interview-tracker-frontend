@@ -10,4 +10,8 @@ export default class Profile {
     public emailAddress: string,
     public skills: Skill[]
   ) {}
+
+ newString = function addParentheses() {
+    return `(${this.firstName} ${this.lastName})`;
+  };
 }
