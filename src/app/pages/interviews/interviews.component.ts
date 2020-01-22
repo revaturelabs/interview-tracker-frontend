@@ -13,7 +13,7 @@ import User from 'src/app/models/User';
 export class InterviewsComponent implements OnInit {
   
   private interviews: Interview[] = [];
-  private filteredInterviews: Interview[];
+  private filteredInterviews: Interview[] = [];
   private interviewers: User[];
   private filteredInterviewers: User[];
   private names: string[];
