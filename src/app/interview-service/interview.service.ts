@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import Interview from '../models/Interview';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,16 +19,16 @@ export class InterviewService {
     return this.http.get<Interview[]>(url, {});
   }
 
-  retrieveInterviewByJobId(id: number)
-  {
-    const url = "http://localhost:8765/interview-service/interviews/job/"+id;
+  retrieveInterviewByJobId(id: number) {
+    const url = 'http://localhost:8765/interview-service/interviews/job/'+ id;
     return this.http.get<Interview[]>(url, {});
   }
 
-  saveInterview(newInterview: Interview)
-  {
-    const url = "http://localhost:8765/interview-service/interviews/saveInterview";
-    this.http.post<Interview>(url, newInterview);
+  saveInterview(newInterview: Interview) {
+    const url = 'http://localhost:8765/interview-service/interviews/saveInterview';
+    console.log(newInterview);
+    console.log('interview sent to back end');
+    return this.http.post<boolean>(url, newInterview);
   }
 
   retrieveInterviewsByProfileId(id: number) {

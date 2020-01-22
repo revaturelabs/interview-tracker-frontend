@@ -11,7 +11,7 @@ import User from 'src/app/models/User';
   styleUrls: ['./interviews.component.scss']
 })
 export class InterviewsComponent implements OnInit {
-
+  
   private interviews: Interview[] = [];
   private filteredInterviews: Interview[];
   private interviewers: User[];

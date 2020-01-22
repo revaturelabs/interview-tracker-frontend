@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 import { Component, OnInit, Input } from '@angular/core';
 import Job from 'src/app/models/Job';
 import Card from 'src/app/cards/Card';
@@ -17,11 +19,15 @@ export class JobCardComponent extends Card implements OnInit {
     super();
   }
 
+  showCreate() {
+    console.log('yessah');
+  }
+
+
   ngOnInit() { }
 
-  openJobModal()
-  {
+  openJobModal() {
     this.modal = document.getElementById(this.job.id.toString());
-    this.modal.style.display = "block";
+    this.modal.style.display = 'block';
   }
 }

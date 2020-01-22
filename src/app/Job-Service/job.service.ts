@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import Job from '../models/Job';
 import { HttpClient } from '@angular/common/http';
-import Profile from '../models/Profile';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +8,6 @@ import Profile from '../models/Profile';
 export class JobServiceService {
 
   private url = 'http://localhost:8765/interview-service/jobs';
-  createdJob: Job;
-  queuedInterviews: Profile[];
   constructor(private httpServ: HttpClient) { }
 
   saveJob(job: Job) {

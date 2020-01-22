@@ -29,7 +29,7 @@ export class ProfilesComponent implements OnInit {
      }
      //console.log(data);
     });
-    
+
   }
 
 
