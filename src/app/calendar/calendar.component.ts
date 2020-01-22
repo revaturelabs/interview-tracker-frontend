@@ -10,7 +10,7 @@ import Interview from '../models/Interview';
 export class CalendarComponent implements OnInit {
   calendarPlugins = [dayGridPlugin]; // important!
   @Input() interviews: Interview[];
-  allDays: any[] = [];
+  allDays: Day[] = [];
 
   headerOptions = {
     left: 'prev',
@@ -21,13 +21,14 @@ export class CalendarComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    let exists: Day[];
+    let exists: Day;
     for (const interview of this.interviews) {
-      exists = this.allDays.filter(
+      exists = this.allDays.find(
         day => day.date === interview.date.toISOString()
       );
-      if (exists.length > 0) {
-        exists[0].interviews.push(interview);
+      if (exists) {
+        exists.title++;
+        exists.interviews.push(interview);
       } else {
         this.allDays.push(
           new Day(1, interview.date.toISOString(), [interview])
