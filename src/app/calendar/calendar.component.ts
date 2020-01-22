@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import Interview from '../models/Interview';
 
@@ -7,9 +7,9 @@ import Interview from '../models/Interview';
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss']
 })
-export class CalendarComponent implements OnInit {
+export class CalendarComponent implements OnInit, OnChanges {
   calendarPlugins = [dayGridPlugin]; // important!
-  @Input() interviews: Interview[];
+  @Input() interviews: Interview[] = [];
   allDays: Day[] = [];
 
   headerOptions = {
@@ -20,21 +20,39 @@ export class CalendarComponent implements OnInit {
 
   constructor() {}
 
+  ngOnChanges(changes) {
+    if (
+      changes.interviews.currentValue &&
+      changes.interviews.currentValue.length > 0
+    ) {
+      this.populate(changes.interviews.currentValue);
+    }
+  }
+
   ngOnInit() {
+    // this.populate();
+  }
+
+  populate(interviews) {
+    this.allDays = [];
     let exists: Day;
-    for (const interview of this.interviews) {
+    let interviewDate: string;
+    for (const interview of interviews) {
+      interviewDate = new Date(interview.date).toISOString();
+      console.log('date to string', interviewDate);
       exists = this.allDays.find(
-        day => day.date === interview.date.toISOString()
-      );
+        day => day.date === interviewDate
+      )
       if (exists) {
         exists.title++;
         exists.interviews.push(interview);
       } else {
         this.allDays.push(
-          new Day(1, interview.date.toISOString(), [interview])
+          new Day(1, interviewDate, [interview])
         );
       }
     }
+    console.log(this.allDays)
   }
 }
 

@@ -32,18 +32,11 @@ export class JobModalComponent implements OnInit {
     
     this.profServ.retrieveAllProfiles().subscribe(profdata => {
       this.allProfiles = profdata;
-      console.log(this.allProfiles);
-      console.log("this is all profiles");
     });
     
     this.intServ.retrieveInterviewByJobId(this.job.id).subscribe(intdata => {
       this.allInterviews = intdata;
-      console.log(this.allInterviews);
-      console.log("these are all interviews, jobId:" + this.job.id);
-      
-      
     });
-    console.log(this.job);
   }
 
 
@@ -58,16 +51,10 @@ export class JobModalComponent implements OnInit {
     console.log(interview);   //FOR TESTING PLS REMOVE
     // this.router.navigate(['/interview/'+interviews]);
   }
-saveJob() {
-  this.jobServ.createdJob = this.job;
-  this.jobServ.queuedInterviews = this.candSelect.value;
-  this.router.navigate(['/createinterview']);
 
-}
-  submitInterviews()
-  {
-    //Create interviews page
-    // this.router.navigate(createinterview);
-    console.log("submittedInteviews: " + this.candSelect.value[0].firstName + " " + this.candSelect.value[0].lastName);    //FOR TESTING PLS REMOVE
+  saveJob() {
+    this.jobServ.createdJob = this.job;
+    this.jobServ.queuedInterviews = this.candSelect.value;
+    this.router.navigate(['/createinterview']);
   }
 }

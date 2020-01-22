@@ -5,7 +5,12 @@
       {{ job.filled ? "Filled" : "Open" }}
     </div>
     <div class="card_header_title">
-      {{ job.title }}: <i>{{ job.id }}</i>
+      <div *ngIf='job.title.length < 20'>
+        {{ job.title }}: <i>{{ job.id }}</i>
+      </div>
+      <div *ngIf='job.title.length >= 20'>
+        {{ job.title | slice:0:17 }}...: <i>{{ job.id }}</i>
+      </div>
     </div>
     <div class="card_header_subtitle">{{ job.location }}</div>
   </div>
