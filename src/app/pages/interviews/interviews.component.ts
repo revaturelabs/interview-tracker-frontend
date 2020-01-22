@@ -12,7 +12,7 @@ import User from 'src/app/models/User';
 })
 export class InterviewsComponent implements OnInit {
 
-  private interviews: Interview[] = [];
+  public interviews: Interview[] = [];
   private interviewers: User[];
   private filteredInterviewers: User[];
 
