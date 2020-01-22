@@ -87,7 +87,6 @@ export class CreateJobsComponent implements OnInit {
           break;
         default:
           break;
-
       }
       this.myRouter.navigate(['/createinterview']);
     });

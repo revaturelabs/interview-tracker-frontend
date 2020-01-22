@@ -1,11 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './pages/login/login.component';
 import { JobsComponent } from './pages/jobs/jobs.component';
 import { ProfilesComponent } from './pages/profiles/profiles.component';
@@ -23,6 +20,9 @@ import { InterviewerListComponent } from './interviewer-list/interviewer-list.co
 import { InterviewCreateComponent } from './interview-create/interview-create.component';
 import { ProfileCreateComponent } from './profile-create/profile-create.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSlideToggleModule } from '@angular/material';
+// import { JwtInterceptor } from './jwt-interceptor';
+
 import { MaterialModule } from './material/material.module';
 import { MultiSelectComponent } from './common/multi-select/multi-select.component';
 import { FullCalendarModule } from '@fullcalendar/angular'; // for FullCalendar!
@@ -34,7 +34,6 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     LoginComponent,
     JobsComponent,
     ProfilesComponent,

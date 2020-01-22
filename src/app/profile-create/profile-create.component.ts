@@ -3,6 +3,7 @@ import { SkillService } from '../skill.service';
 import { ProfileService } from '../profile.service';
 import Profile from '../models/Profile';
 import Skill from '../models/Skill';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile-create',
@@ -19,7 +20,7 @@ export class ProfileCreateComponent implements OnInit {
   skillsFilter: Skill;
 
 
-  constructor(private profileService: ProfileService, private skillService: SkillService) { }
+  constructor(private profileService: ProfileService, private skillService: SkillService, private router: Router) { }
 
   ngOnInit() {
     this.skillService.retrieveAllSkills().subscribe(data => this.allSkills = data);
@@ -38,6 +39,7 @@ export class ProfileCreateComponent implements OnInit {
         default:
           return this.newProfile;
       }
+      this.router.navigate(['/profiles']);
     });
   }
 

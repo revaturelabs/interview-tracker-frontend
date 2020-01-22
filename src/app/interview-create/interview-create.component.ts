@@ -100,11 +100,9 @@ saveinterview() {
         break;
 
     }
+    //this.router.navigate(['/interviews']);
   });
 
-
 }
-
-
 
 }
