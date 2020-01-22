@@ -1,0 +1,16 @@
+<div class="profiles">
+  <app-mini-searchbar
+    (searchTermChanged)="onSearchTermChanged($event)"
+  ></app-mini-searchbar>
+  <div class="grid">
+    <app-profile-card
+      *ngFor="let profile of profiles"
+      [profile]="profile"
+    ></app-profile-card>
+  </div>
+
+  <div *ngIf='!atEnd' id='centernpbtn'>
+    <button id='NextPageBtn' color="primary" (click)='nextPage()' mat-button>Load More</button>
+  </div>
+</div>
+<app-fab></app-fab>

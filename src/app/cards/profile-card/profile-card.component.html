@@ -1,0 +1,35 @@
+<div class="card" (click)="openProfileModal()">
+  <div class="card_header" color="primary">
+    <div class="card_header_title">
+      {{ profile.firstName + " " + profile.lastName }}
+    </div>
+    <div class="card_header_subtitle">{{ (profile.emailAddress) }}</div>
+    <div class="card_header_subtitle">{{ profile.location }}</div>
+  </div>
+  <div class="card_content">
+    <p>{{ truncate(profile.description) }}</p>
+  </div>
+  <hr />
+  <div class="card_skills">
+    <ul>
+    <li *ngFor="let skill of profile.skills">
+      {{ skill.title }}
+    </li>
+  </ul>
+
+
+    <!-- <ul>
+      <li>JavaScript</li>
+      <li>Ruby</li>
+      <li>PHP</li>
+      <li>Java</li>
+      <li>C++</li>
+      <li>Spring</li>
+      <li>Node</li>
+      <li>Microservices</li>
+      <li>Compilers</li>
+    </ul> -->
+
+  </div>
+</div>
+<app-profile-modal [profile]='profile'></app-profile-modal>

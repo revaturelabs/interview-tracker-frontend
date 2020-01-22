@@ -1,0 +1,39 @@
+<nav #nav>
+  <div class="side side_1">
+    <span class="nav_logo_container">
+      <img src="assets/img/logo.png" alt="Revature Logo" class="nav_logo" />
+    </span>
+    <div class="tabs">
+      <div class="bar_container">
+        <div [ngClass]="barPosition" class="bar"></div>
+      </div>
+      <div routerLinkActive="tab_active" routerLink="jobs" class="nav_tab tab">
+        <h3 class="">Jobs</h3>
+      </div>
+      <div
+        routerLinkActive="tab_active"
+        routerLink="profiles"
+        class="nav_tab tab"
+      >
+        <h3 class="">Profiles</h3>
+      </div>
+      <div
+        routerLinkActive="tab_active"
+        routerLink="interviews"
+        class="nav_tab tab"
+      >
+        <h3 class="">Interviews</h3>
+      </div>
+    </div>
+  </div>
+  <div class="side side_2">
+    <span class="nav_icon">
+      <!-- <i class="fas fa-search"></i> -->
+      <mat-icon color="primary" matSuffix>search</mat-icon>
+    </span>
+    <span class="nav_icon">
+      <!-- <i class="fas fa-user"></i> -->
+      <mat-icon color="primary" matSuffix>person</mat-icon>
+    </span>
+  </div>
+</nav>

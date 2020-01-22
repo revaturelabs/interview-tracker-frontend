@@ -1,0 +1,24 @@
+@import "../../../styles.scss";
+.interviewsPage {
+  display: grid;
+  grid-template-columns: 22rem 1fr;
+
+  .side {
+    margin: 2rem 1rem;
+    &_1 {
+      padding: 1rem;
+      background-color: white;
+      height: max-content;
+    }
+  }
+}
+
+.grid {
+  margin-top: 1rem;
+}
+
+.filter {
+  color: $light-grey;
+  font-size: 1.5rem;
+  padding-left: 2.5rem;
+}

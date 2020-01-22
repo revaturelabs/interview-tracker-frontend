@@ -1,0 +1,28 @@
+
+<div class="card" (click)='openJobModal()'>
+  <div class="card_header" color="primary">
+    <div class="card_header_status">
+      {{ job.isFilled ? "Filled" : "Open" }}
+    </div>
+    <div class="card_header_title">
+      {{ job.title }}: <i>{{ job.id }}</i>
+    </div>
+    <div class="card_header_subtitle">{{ job.location }}</div>
+  </div>
+  <div class="card_content">
+    <i>Description</i>
+    <p>{{ truncate(job.description) }}</p>
+  </div>
+  <hr />
+  <div class="card_footer">
+    <p
+      *ngFor="let skill of job.skills; let i = index"
+      class="skill"
+    >
+      <span *ngIf="i < 9">
+        {{ i==8 ? "..." : skill.title }}
+      </span>
+    </p>
+  </div>
+</div>
+<app-job-modal [job]='job' [id]='modalId'></app-job-modal>

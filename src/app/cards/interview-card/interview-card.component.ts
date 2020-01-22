@@ -10,8 +10,7 @@ import User from 'src/app/models/User';
 })
 export class InterviewCardComponent extends Card implements OnInit {
   // tslint:disable-next-line: max-line-length
-  //DO NOT TOUCH BELOW VARIABLE!!!!
-  sampleDescription = 'Ben Solo has a lot of potential but has dark side tendencies. Dont give him a lightsabre. With his parents being Lea Organa and Han Solo, Kylo is likely to be force sensitive and a scoundrel.';
+  sampleDescription = 'Ben Solo has a lot of potential but has dark side tendencies. Dont give him a lightsabre. With his parents being Lea Organa and Han Solo, Kylo is likely to be force sensetive and a scoundrel.';
 
   @Input() interview: Interview;
 
@@ -36,7 +35,6 @@ export class InterviewCardComponent extends Card implements OnInit {
     if (this.interview.isCompleted) {
       this.completed = 'completed';
     }
-    
   }
 
 }

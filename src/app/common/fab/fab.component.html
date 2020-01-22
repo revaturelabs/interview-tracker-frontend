@@ -1,0 +1,9 @@
+<div class="fab_anchor">
+  <ul [ngClass]="activated && 'activated'" class="fab_list">
+    <li><a routerLink="/create-jobs" (click)="clickCreateJob()">Create Job</a></li>
+    <li><a routerLink="/profile-create" (click)="clickCreateProfile()">Create Profile</a></li>
+  </ul>
+  <button (click)="activate()" id="fab" mat-fab>
+    <mat-icon aria-hidden="false" aria-label="Plus">add</mat-icon>
+  </button>
+</div>

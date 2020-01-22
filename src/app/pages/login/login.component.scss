@@ -1,0 +1,43 @@
+@import "../../../styles.scss";
+.login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  height: 90vh;
+  background-color: #fff;
+  display: flex;
+  box-shadow: $box-shadow-low;
+  border: 1px solid $light-grey;
+}
+
+.heading {
+  color: $col-pri;
+  margin-bottom: 1rem;
+}
+
+.content {
+  color: $light-grey;
+}
+
+.side {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  &_1 {
+    width: 100%;
+  }
+
+  &_2 {
+    h2 {
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    color: $col-pri;
+    width: 25rem;
+    display: flex;
+    flex-direction: column;
+  }
+}

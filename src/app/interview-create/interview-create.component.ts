@@ -81,7 +81,6 @@ saveinterview() {
   const selectedUsers: User[] = this.users.filter(user => {
     console.log(user);
     return this.selectedNames.includes(user.username); });
-  console.log("This is the interviewer name:");
   console.log(selectedUsers);
   const newinterview: Interview = new Interview(-1 , this.selectedCandidate, new Date(), false, this.jb1,  selectedUsers);
   console.log('sending...');

@@ -1,35 +1,48 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
-import { LandingComponent } from './landing/landing.component';
-import { ProjectHubComponent } from './project-hub/project-hub.component';
-import { LogoutComponent } from './components/logout/logout.component';
-import { InterviewFormComponent } from './components/interview-form/interview-form.component';
-import { JobFormComponent } from './components/job-form/job-form.component';
-import { ProfileFormComponent } from './components/profile-form/profile-form.component';
-import { ViewProfilesComponent } from './view-profiles/view-profiles.component';
-import { ViewJobsComponent } from './view-jobs/view-jobs.component';
-import { ViewInterviewsComponent } from './view-interviews/view-interviews.component';
-import { AuthGuard } from './auth.guard';
-
-
+import { JobsComponent } from './pages/jobs/jobs.component';
+import { ProfilesComponent } from './pages/profiles/profiles.component';
+import { InterviewsComponent } from './pages/interviews/interviews.component';
+import { LoginComponent } from './pages/login/login.component';
+import { InterviewCreateComponent } from './interview-create/interview-create.component';
+import { CreateJobsComponent } from './create-jobs/create-jobs.component';
+import { ProfileCreateComponent } from './profile-create/profile-create.component';
 
 const routes: Routes = [
-  /** @Author: Ramses
-  Set up the paths setting the blank space as the first page, providing a gateway and sending the user to the log-in page
-  The ** wildcard has been used in order to send the user onto a error page in case the user tries to type in a path that
-  is either non existent, or the user is not currently allowed to access said feature.*/
-  { path: '', pathMatch: 'full', redirectTo: 'login' },
-  { path: 'login', component: LoginComponent },
-  { path: 'hub', component: ProjectHubComponent, canActivate : [AuthGuard]},
-  { path: 'create-job', component: JobFormComponent, canActivate : [AuthGuard] },
-  { path: 'logout' , component: LogoutComponent, canActivate : [AuthGuard] },
-  { path: 'create-profile', component: ProfileFormComponent, canActivate : [AuthGuard] },
-  { path: 'create-interview', component: InterviewFormComponent, canActivate : [AuthGuard] },
-  { path: 'view-profiles', component: ViewProfilesComponent, canActivate : [AuthGuard] },
-  { path: 'view-jobs', component: ViewJobsComponent, canActivate : [AuthGuard] },
-  { path: 'view-interviews', component: ViewInterviewsComponent, canActivate : [AuthGuard] },
-  { path: '**', component: LandingComponent }
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'jobs',
+    component: JobsComponent
+  },
+  {
+    path: 'profiles',
+    component: ProfilesComponent
+  },
+  {
+    path: 'interviews',
+    component: InterviewsComponent
+  },
+
+{
+  path: 'createinterview',
+  component: InterviewCreateComponent
+},
+    {
+    path: 'create-jobs',
+    component: CreateJobsComponent
+  },
+  {
+    path: 'profile-create',
+    component: ProfileCreateComponent
+  },
+  {
+    path: '**',
+    component: LoginComponent
+  }
+
 ];
 
 @NgModule({

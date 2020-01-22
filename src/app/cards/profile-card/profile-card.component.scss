@@ -1,0 +1,77 @@
+@import "../../../styles.scss";
+.card {
+  $card-side-length: 18rem;
+  height: $card-side-length;
+  width: $card-side-length;
+
+  padding: 0;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  cursor: pointer;
+
+  box-shadow: $box-shadow-low;
+  transition-duration: 0.3s;
+  &:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: $box-shadow-high;
+  }
+
+  &_header {
+    background-color: rgb(250, 248, 248) !important;
+    border-radius: 5px 5px 0 0;
+    padding: 0.5rem;
+    & > * {
+      margin: 0;
+    }
+    // margin: .5rem;
+    &_title {
+      color: $col-pri;
+      font-size: 1.5rem;
+    }
+    &_subtitle {
+      color: $col-pri;
+      font-style: italic;
+    }
+  }
+
+  &_content {
+    padding: 0.5rem;
+    height: 100%;
+    width: 100%;
+    color: $dark-grey;
+    overflow: hidden;
+    p {
+      padding: .5rem;
+    }
+  }
+
+  hr {
+    border: none;
+    margin: 0.5rem;
+    height: 2px;
+    background-color: $col-pri;
+  }
+
+  &_footer {
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &_skills {
+    margin: 0.5rem;
+    ul {
+      list-style-type: none;
+      display: grid;
+      grid-template-columns: repeat(3, 33%);
+      grid-template-rows: repeat(3, 33%);
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      font-size: 0.8rem;
+      color: $light-grey;
+    }
+  }
+}

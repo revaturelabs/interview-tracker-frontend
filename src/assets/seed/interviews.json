@@ -1,0 +1,208 @@
+[
+  {
+    "interviewId": 1,
+    "interviewDate": "January 13, 2020 11:30 a.m.",
+    "interviewCompleted": false,
+    "interviewJobId": {
+      "jobId": 1,
+      "jobTitle": "Java Full Stack Developer",
+      "jobDesc": "Build the stuff in Java and stuff and spring and stuff",
+      "jobLoc": "Austin, TX",
+      "jobFilled": false,
+      "jobSkillIdsList": [
+        {"skillId": 1,
+        "skillTitle": "Java"},
+        {"skillId": 2,
+          "skillTitle": "Spring"}
+      ]
+    },
+    "interviewProfileId": {
+      "profileId": 1,
+      "profileDescription": "I am a developer",
+      "profileFirstName": "Jeffery",
+      "profileLastName": "Bottlam",
+      "profileLocation": "Tampa, FL",
+      "profileEmailAddress": "devMan@Revature.com",
+      "profileSkillsList": [
+        {"skillId": 1,
+          "skillTitle": "Java"},
+        {"skillId": 2,
+          "skillTitle": "Spring"}
+      ]
+    },
+    "usersIdList": [
+      {
+        "userId": 1,
+        "username": "Trevy",
+        "userFirstName": "Trevin",
+        "userLastName": "Chester"
+      }
+    ]
+  },
+  {
+    "interviewId": 2,
+    "interviewDate": "January 14, 2020 10:30 a.m.",
+    "interviewCompleted": false,
+    "interviewJobId": {
+      "jobId": 2,
+      "jobTitle": "Java Full Stack Teacher",
+      "jobDesc": "Teach all of the stuff",
+      "jobLoc": "Austin, TX",
+      "jobFilled": false,
+      "jobSkillIdsList": [
+        {"skillId": 1,
+        "skillTitle": "Java"},
+        {"skillId": 2,
+          "skillTitle": "Spring"}
+      ]
+    },
+    "interviewProfileId": {
+      "profileId": 1,
+      "profileDescription": "I am a developer teacher",
+      "profileFirstName": "Mandy",
+      "profileLastName": "Frumpy",
+      "profileLocation": "Tampa, FL",
+      "profileEmailAddress": "devGirl@Revature.com",
+      "profileSkillsList": [
+        {"skillId": 1,
+          "skillTitle": "Java"},
+        {"skillId": 2,
+          "skillTitle": "Spring"}
+      ]
+    },
+    "usersIdList": [
+      {
+        "userId": 1,
+        "username": "Quinnnnn",
+        "userFirstName": "Quintin",
+        "userLastName": "Donnelly"
+      },
+      {
+        "userId": 1,
+        "username": "Trevy",
+        "userFirstName": "Trevin",
+        "userLastName": "Chester"
+      }
+    ]
+  },
+  {
+    "interviewId": 3,
+    "interviewDate": "January 15, 2020 1:00 p.m.",
+    "interviewCompleted": true,
+    "interviewJobId": {
+      "jobId": 2,
+      "jobTitle": "Java Full Stack Teacher",
+      "jobDesc": "Teach all of the stuff",
+      "jobLoc": "Austin, TX",
+      "jobFilled": false,
+      "jobSkillIdsList": [
+        {"skillId": 1,
+        "skillTitle": "Java"},
+        {"skillId": 2,
+          "skillTitle": "Spring"}
+      ]
+    },
+    "interviewProfileId": {
+      "profileId": 1,
+      "profileDescription": "I am a developer teacher",
+      "profileFirstName": "Mandy",
+      "profileLastName": "Frumpy",
+      "profileLocation": "Tampa, FL",
+      "profileEmailAddress": "devGirl@Revature.com",
+      "profileSkillsList": [
+        {"skillId": 1,
+          "skillTitle": "Java"},
+        {"skillId": 2,
+          "skillTitle": "Spring"}
+      ]
+    },
+    "usersIdList": [
+      {
+        "userId": 1,
+        "username": "Quinnnnn",
+        "userFirstName": "Quintin",
+        "userLastName": "Donnelly"
+      }
+    ]
+  },
+  {
+    "interviewId": 4,
+    "interviewDate": "January 16, 2020 9:30 a.m.",
+    "interviewCompleted": true,
+    "interviewJobId": {
+      "jobId": 3,
+      "jobTitle": "PEGA Teacher",
+      "jobDesc": "Teach all of the PEGA stuff",
+      "jobLoc": "Austin, TX",
+      "jobFilled": true,
+      "jobSkillIdsList": [
+        {"skillId": 1,
+        "skillTitle": "PEGA"},
+        {"skillId": 2,
+          "skillTitle": "Oracle SQL"}
+      ]
+    },
+    "interviewProfileId": {
+      "profileId": 1,
+      "profileDescription": "I know all about PEGA and stuff",
+      "profileFirstName": "Jared",
+      "profileLastName": "Chestnut",
+      "profileLocation": "Tampa, FL",
+      "profileEmailAddress": "chestnut@Revature.com",
+      "profileSkillsList": [
+        {"skillId": 1,
+          "skillTitle": "PEGA"},
+        {"skillId": 2,
+          "skillTitle": "Java"}
+      ]
+    },
+    "usersIdList": [
+      {
+        "userId": 1,
+        "username": "Trevy",
+        "userFirstName": "Trevin",
+        "userLastName": "Chester"
+      }
+    ]
+  },
+  {
+    "interviewId": 5,
+    "interviewDate": "January 21, 2020 12:00 p.m.",
+    "interviewCompleted": false,
+    "interviewJobId": {
+      "jobId": 3,
+      "jobTitle": "C# Instructor",
+      "jobDesc": "C language instructor",
+      "jobLoc": "Orlando, FL",
+      "jobFilled": false,
+      "jobSkillIdsList": [
+        {"skillId": 1,
+        "skillTitle": "C#"},
+        {"skillId": 2,
+          "skillTitle": "Visual Basic"}
+      ]
+    },
+    "interviewProfileId": {
+      "profileId": 1,
+      "profileDescription": "I made stuff from 20 years ago",
+      "profileFirstName": "Eric",
+      "profileLastName": "Mannnn",
+      "profileLocation": "Tampa, FL",
+      "profileEmailAddress": "Mannnn@Revature.com",
+      "profileSkillsList": [
+        {"skillId": 1,
+          "skillTitle": "C#"},
+        {"skillId": 2,
+          "skillTitle": "C++"}
+      ]
+    },
+    "usersIdList": [
+      {
+        "userId": 1,
+        "username": "Trevy",
+        "userFirstName": "Trevin",
+        "userLastName": "Chester"
+      }
+    ]
+  }
+]
