@@ -21,6 +21,7 @@ import { InterviewCreateComponent } from './interview-create/interview-create.co
 import { ProfileCreateComponent } from './profile-create/profile-create.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material';
+import { NavbarComponent} from './navbar/navbar.component';
 // import { JwtInterceptor } from './jwt-interceptor';
 
 import { MaterialModule } from './material/material.module';
@@ -51,7 +52,8 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
     InterviewCreateComponent,
     ProfileCreateComponent,
     MultiSelectComponent,
-    SearchSelectComponent
+    SearchSelectComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
