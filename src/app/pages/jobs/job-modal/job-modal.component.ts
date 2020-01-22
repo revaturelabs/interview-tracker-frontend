@@ -10,7 +10,7 @@ import Interview from 'src/app/models/Interview';
 import { Router } from '@angular/router';
 import { EventEmitter } from 'protractor';
 import { Observable } from 'rxjs';
-import { JobServiceService } from 'src/app/Job-Service/job-service.service';
+import { JobService } from 'src/app/Job-Service/job.service';
 
 @Component({
   selector: 'app-job-modal',
@@ -25,7 +25,7 @@ export class JobModalComponent implements OnInit {
   private candSelect = new FormControl();
   @Input() job: Job;
   
-  constructor(private router: Router, private skillServ: SkillService, private profServ: ProfileService, private intServ: InterviewService, private jobServ: JobServiceService) { }
+  constructor(private router: Router, private skillServ: SkillService, private profServ: ProfileService, private intServ: InterviewService, private jobServ: JobService) { }
 
   ngOnInit() {
     

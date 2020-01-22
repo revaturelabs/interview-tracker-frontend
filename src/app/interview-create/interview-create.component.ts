@@ -6,7 +6,7 @@ import User from '../models/User';
 import { UserService } from '../user.service';
 import Profile from '../models/Profile';
 import { ProfileService } from '../profile.service';
-import { JobServiceService } from '../Job-Service/job-service.service';
+import { JobService } from '../Job-Service/job.service';
 import Skill from '../models/Skill';
 import { InterviewService } from '../interview-service/interview.service';
 import { Router } from '@angular/router';
@@ -21,7 +21,7 @@ const tabl =  document.getElementsByClassName('candidates_table');
 export class InterviewCreateComponent implements OnInit, OnDestroy {
 
   constructor(private router: Router, private userService: UserService, private profServ: ProfileService,
-              private jobServ: JobServiceService, private interviewServ: InterviewService, private mySnack: MatSnackBar) { }
+              private jobServ: JobService, private interviewServ: InterviewService, private mySnack: MatSnackBar) { }
 
    @Input() jb1: Job;
    @Input() users: User[] = [];
@@ -84,7 +84,7 @@ ngOnInit() {
     console.log(user);
     return this.selectedNames.includes(user.username); });
   console.log(selectedUsers);
-  console.log("selected date is...");
+  console.log('selected date is...');
   console.log(this.selectedDate);
 
   const newinterview: Interview = new Interview(-1 , this.selectedCandidate, this.selectedDate, false, this.jb1,  selectedUsers);

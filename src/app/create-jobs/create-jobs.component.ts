@@ -1,7 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { ProfileService } from '../profile.service';
 import { SkillService } from '../skill.service';
-import { JobServiceService } from '../Job-Service/job-service.service';
+import { JobService } from '../Job-Service/job.service';
 import { FormControl } from '@angular/forms';
 import Skill from 'src/app/models/Skill';
 import Job from 'src/app/models/Job';
@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-jobs.component.scss']
 })
 export class CreateJobsComponent implements OnInit {
+
 
   constructor(private profServ: ProfileService, private skillServ: SkillService, private jobServ: JobServiceService,
               private myRouter: Router) { }
@@ -35,8 +36,8 @@ export class CreateJobsComponent implements OnInit {
 
 
   compareSkills() {
-    // Each time a new selection is made on the left column, the right column will update to assign each profile a 
-    // respective percent match. These percents are sorted by the repopulateProfiles() function. 
+    // Each time a new selection is made on the left column, the right column will update to assign each profile a
+    // respective percent match. These percents are sorted by the repopulateProfiles() function.
     if (this.selections.value != null) {
       this.percents = [];
 
@@ -63,7 +64,7 @@ export class CreateJobsComponent implements OnInit {
     // This method takes the profiles after they've had their percent match of skills to the selection determined and sorts them
     this.updatedResults = [];
     for (let index = 0; index < this.allProfiles.length; index++) {
-      let newUpdatedProfile = {profile: this.allProfiles[index], percent: this.percents[index]};
+      const newUpdatedProfile = {profile: this.allProfiles[index], percent: this.percents[index]};
       this.updatedResults.push(newUpdatedProfile);
     }
     this.updatedResults.sort((a, b) => b.percent - a.percent);
@@ -71,19 +72,12 @@ export class CreateJobsComponent implements OnInit {
 
 
   createJob() {
-    // Persists a new job once the submit button is hit to the back-end, then it returns the response. 
+    // Persists a new job once the submit button is hit to the back-end, then it returns the response.
     this.newJob.skills = this.selections.value;
     this.jobServ.queuedInterviews = this.selectedProfiles.value;
     this.jobServ.createdJob = this.newJob;
     this.jobServ.saveJob(this.newJob).subscribe(data => {
-      switch (data) {
-        case true:
-          break;
-        case false:
-          break;
-        default:
-          break;
-      }
+      this.jobServ.createdJob = data;
       this.myRouter.navigate(['/createinterview']);
     });
 

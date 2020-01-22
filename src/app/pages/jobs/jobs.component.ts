@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { JobServiceService } from 'src/app/Job-Service/job-service.service';
+import { JobService } from 'src/app/Job-Service/job.service';
 import Job from 'src/app/models/Job';
 
 @Component({
@@ -7,13 +7,13 @@ import Job from 'src/app/models/Job';
   templateUrl: './jobs.component.html',
   styleUrls: ['./jobs.component.scss']
 })
-export class JobsComponent implements OnInit 
+export class JobsComponent implements OnInit
 {
   private jobs: Job[];
   private page: number;
   private atEnd: boolean = false;
 
-  constructor(private jobServ: JobServiceService) {}
+  constructor(private jobServ: JobService) {}
 
   ngOnInit()
   {
