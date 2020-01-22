@@ -15,7 +15,8 @@ import { Router } from '@angular/router';
 })
 export class CreateJobsComponent implements OnInit {
 
-  constructor(private profServ: ProfileService, private skillServ: SkillService, private jobServ: JobService,
+
+  constructor(private profServ: ProfileService, private skillServ: SkillService, private jobServ: JobServiceService,
               private myRouter: Router) { }
 
   @Output() selections = new FormControl();
@@ -46,16 +47,14 @@ export class CreateJobsComponent implements OnInit {
         for (const skill of profile.skills) {
 
           for (const iter of this.selections.value) {
-            if (skill.title == iter.title) {
+            if (skill.title === iter.title) {
               this.compareCounter++;
-              console.log(this.compareCounter);
             }
 
           }
         }
-        const temp = ((this.compareCounter / this.selections.value.length) * 100);
+        const temp = ((this.compareCounter / this.selections.value.length) * 100) || 0;
         this.percents.push(temp);
-        console.log(this.percents);
       }
       this.repopulateProfiles();
     }
@@ -67,7 +66,6 @@ export class CreateJobsComponent implements OnInit {
     for (let index = 0; index < this.allProfiles.length; index++) {
       const newUpdatedProfile = {profile: this.allProfiles[index], percent: this.percents[index]};
       this.updatedResults.push(newUpdatedProfile);
-      console.log(this.updatedResults);
     }
     this.updatedResults.sort((a, b) => b.percent - a.percent);
   }
@@ -100,11 +98,11 @@ export class CreateJobsComponent implements OnInit {
   ngOnInit() {
     this.skillServ
       .retrieveAllSkills()
-      .subscribe(list => { this.allSkills = list; console.log(list); });
+      .subscribe(list => { this.allSkills = list; });
     this.options = this.allSkills;
     this.profServ
       .retrieveAllProfiles()
-      .subscribe(list => { this.allProfiles = list; console.log(list); });
+      .subscribe(list => { this.allProfiles = list; });
     this.newJob = new Job(-1, '', '', null, false, []);
   }
 }

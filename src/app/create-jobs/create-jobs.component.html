@@ -19,6 +19,11 @@
                 </mat-form-field>
 
                 <mat-form-field>
+                    <!--Location input-->
+                    <input [(ngModel)] = newJob.location matInput placeholder="Location">
+                </mat-form-field>
+
+                <mat-form-field>
                     <!--The selection panel of the skills. -->
                     <mat-select [formControl]="selections" (focus)="resetOptions()" placeholder="{{ title }}" multiple>
                         <mat-option>

@@ -13,10 +13,11 @@ import User from 'src/app/models/User';
 export class InterviewsComponent implements OnInit {
   
   private interviews: Interview[] = [];
-  private filteredInterviews: Interview[];
+  private filteredInterviews: Interview[] = [];
   private interviewers: User[];
   private filteredInterviewers: User[];
-  private names: string[];
+  private names: string[] = ['All'];
+  private added: boolean;
 
   constructor(private interviewService: InterviewService, private userServ: UserService) {}
 
@@ -36,19 +37,25 @@ export class InterviewsComponent implements OnInit {
     this.filteredInterviewers = interviewers;
     this.filteredInterviews = [];
     this.names = [];
+
     interviewers.forEach(user => {
       this.names.push(user.firstName);
     });
+    if (this.names.length === 0) {
+      this.names.push('All');
+    }
     this.interviews.forEach(interview => {
+      this.added = false;
       interview.users.forEach(user => {
         this.filteredInterviewers.forEach(interviewer => {
-          if (interviewer.firstName === user.firstName) {
+          if (interviewer.firstName === user.firstName && !this.added) {
             this.filteredInterviews.push(interview);
+            this.added = true;
           }
         });
       });
     });
-    if (this.filteredInterviews.length === 0) {
+    if (this.filteredInterviewers.length === 0) {
       this.filteredInterviews = this.interviews;
     }
   }

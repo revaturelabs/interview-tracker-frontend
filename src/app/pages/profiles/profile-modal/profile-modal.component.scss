@@ -14,6 +14,7 @@
 
 .profile-modal {
     position: absolute;
+    border-radius: 5px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -30,7 +31,12 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    font-size: 1.5rem;
+    height: 3rem;
     background-color: #f26925 !important;
     color: #FFFFFF;
 }
@@ -50,6 +56,7 @@
 
 .profile-modal-interviews-title {
     color: #f26925 !important;
+    margin-bottom: .3rem;
 }
 
 .profile-modal-interview-date {
@@ -96,4 +103,28 @@
 
 LI {
     all: unset;
+}
+.right {
+    margin-right: 2rem;
+}
+
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    padding-right: 1rem;
+    margin-top: -.2rem;
+}
+  
+.close:hover,
+.close:focus {
+    color: #aaa;
+    text-decoration: none;
+    cursor: pointer;
+}
+#info {
+    color: $light-grey;
+    margin-bottom: 1rem;
+    margin-top: .3rem;
 }

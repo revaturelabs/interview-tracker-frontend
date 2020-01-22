@@ -9,16 +9,16 @@
                 <div class='container'>
                     <div id='description' class='item'>
                         <h4 class='title areas'>Description</h4>
+                        <br>
                         <p>{{job.description}}</p>
                     </div>
                     <div id='schedinterviews' class='item'>
                         <h4 class='title areas'>Scheduled Interviews</h4>
                         <mat-action-list>
-                            
                             <button mat-list-item *ngFor='let iv of allInterviews' (click)='goToInterview(iv)'>
                                 {{ iv.profile.firstName }} {{ iv.profile.lastName }} 
                                 <span *ngIf='iv.isComplete' class='interviewlistcomplete'>
-                                    (Completed)
+                                    Completed
                                 </span>
                                 <span *ngIf='!iv.isComplete' class='interviewlistcomplete'>
                                     {{ iv.date | date }}
@@ -33,6 +33,7 @@
                 <div class='container'>
                     <div id='skillselect' class='item'>
                         <h4 class='title areas'>Skills</h4>
+                        <br>
                         <mat-chip-list class="selection_pool">
                             <mat-chip *ngFor="let skill of job.skills" class="selection">
                                 {{ skill.title }}
@@ -41,6 +42,7 @@
                     </div>
                     <div *ngIf='job.filled' id='filledprofile'>
                         <h4 class='title areas'>Filled By</h4>
+                        <br>
                         {{ job.profile.firstName }} {{ job.profile.lastName }}
                     </div>
                     <div *ngIf='!job.filled' id='newinterview' class='item'>
@@ -66,9 +68,8 @@
                             <button (click)='saveJob()' id='submitnewinterviewsbtn' color='primary' mat-button>Schedule Interview</button>
                         </div>
                         <div *ngIf='candSelect.value.length > 1'>
-                            <button (click)='savejob()' id='submitnewinterviewsbtn' color='primary' mat-button>Schedule Interviews</button>
+                            <button (click)='saveJob()' id='submitnewinterviewsbtn' color='primary' mat-button>Schedule Interviews</button>
                         </div>
-                        <br>
                     </div>
                 </div>
                 <br>
