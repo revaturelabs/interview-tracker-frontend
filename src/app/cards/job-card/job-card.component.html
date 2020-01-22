@@ -2,7 +2,7 @@
 <div class="card" (click)='openJobModal()'>
   <div class="card_header" color="primary">
     <div class="card_header_status">
-      {{ job.isFilled ? "Filled" : "Open" }}
+      {{ job.filled ? "Filled" : "Open" }}
     </div>
     <div class="card_header_title">
       {{ job.title }}: <i>{{ job.id }}</i>
