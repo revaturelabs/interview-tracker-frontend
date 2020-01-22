@@ -77,7 +77,8 @@
 {
     order: 1;
     flex-basis: 50%;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
     max-height: 30vh;
 }
 
@@ -85,7 +86,8 @@
 {
     order: 2;
     flex-basis: 45%;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
     max-height: 30vh;
 }
 
@@ -93,16 +95,18 @@
 {
     order: 1;
     flex-basis: 50%;
-    overflow: auto;
-    max-height: 25vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 30vh;
 }
 
 #newinterview
 {
     order: 2;
     flex-basis: 45%;
-    overflow: auto;
-    max-height: 25vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 30vh;
 }
 
 #filledprofile
