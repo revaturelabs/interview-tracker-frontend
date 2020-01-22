@@ -46,6 +46,7 @@ export class JobModalComponent implements OnInit {
     console.log(this.job);
   }
 
+
   closeModal()
   {
     let modal = document.getElementById(this.job.id.toString());
@@ -57,8 +58,16 @@ export class JobModalComponent implements OnInit {
     console.log(interview);   //FOR TESTING PLS REMOVE
     // this.router.navigate(['/interview/'+interviews]);
   }
-  saveJob() {
-    this.jobServ.createdJob = this.job;
-    this.router.navigate(['/createinterview']);
+saveJob() {
+  this.jobServ.createdJob = this.job;
+  this.jobServ.queuedInterviews = this.candSelect.value;
+  this.router.navigate(['/createinterview']);
+
+}
+  submitInterviews()
+  {
+    //Create interviews page
+    // this.router.navigate(createinterview);
+    console.log("submittedInteviews: " + this.candSelect.value[0].firstName + " " + this.candSelect.value[0].lastName);    //FOR TESTING PLS REMOVE
   }
 }
