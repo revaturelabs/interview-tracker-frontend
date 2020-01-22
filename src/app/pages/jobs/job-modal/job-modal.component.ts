@@ -57,14 +57,8 @@ export class JobModalComponent implements OnInit {
     console.log(interview);   //FOR TESTING PLS REMOVE
     // this.router.navigate(['/interview/'+interviews]);
   }
-saveJob() {
-  this.jobServ.createdJob = this.job;
-
-}
-  submitInterviews()
-  {
-    //Create interviews page
-    // this.router.navigate(createinterview);
-    console.log("submittedInteviews: " + this.candSelect.value[0].firstName + " " + this.candSelect.value[0].lastName);    //FOR TESTING PLS REMOVE
+  saveJob() {
+    this.jobServ.createdJob = this.job;
+    this.router.navigate(['/createinterview']);
   }
 }
