@@ -14,7 +14,16 @@
                     <div id='schedinterviews' class='item'>
                         <h4 class='title areas'>Scheduled Interviews</h4>
                         <mat-action-list>
-                            <button mat-list-item *ngFor='let iv of allInterviews' (click)='goToInterview(iv)'>{{ iv.profile.firstName }} {{ iv.profile.lastName }} <span *ngIf='iv.isComplete' class='interviewlistcomplete'>(Completed)</span><span *ngIf='!iv.isComplete' class='interviewlistcomplete'>{{ iv.date | date }}</span></button>
+                            
+                            <button mat-list-item *ngFor='let iv of allInterviews' (click)='goToInterview(iv)'>
+                                {{ iv.profile.firstName }} {{ iv.profile.lastName }} 
+                                <span *ngIf='iv.isComplete' class='interviewlistcomplete'>
+                                    (Completed)
+                                </span>
+                                <span *ngIf='!iv.isComplete' class='interviewlistcomplete'>
+                                    {{ iv.date | date }}
+                                </span>
+                            </button>
                         </mat-action-list>
                     </div>
                 </div>
