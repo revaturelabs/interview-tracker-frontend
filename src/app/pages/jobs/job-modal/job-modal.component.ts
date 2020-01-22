@@ -32,18 +32,11 @@ export class JobModalComponent implements OnInit {
     
     this.profServ.retrieveAllProfiles().subscribe(profdata => {
       this.allProfiles = profdata;
-      console.log(this.allProfiles);
-      console.log("this is all profiles");
     });
     
     this.intServ.retrieveInterviewByJobId(this.job.id).subscribe(intdata => {
       this.allInterviews = intdata;
-      console.log(this.allInterviews);
-      console.log("these are all interviews, jobId:" + this.job.id);
-      
-      
     });
-    console.log(this.job);
   }
 
 

@@ -77,24 +77,32 @@
 {
     order: 1;
     flex-basis: 50%;
+    overflow: auto;
+    max-height: 30vh;
 }
 
 #schedinterviews
 {
     order: 2;
-    flex-basis: 45%
+    flex-basis: 45%;
+    overflow: auto;
+    max-height: 30vh;
 }
 
 #skillselect
 {
     order: 1;
     flex-basis: 50%;
+    overflow: auto;
+    max-height: 25vh;
 }
 
 #newinterview
 {
     order: 2;
     flex-basis: 45%;
+    overflow: auto;
+    max-height: 25vh;
 }
 
 #filledprofile
