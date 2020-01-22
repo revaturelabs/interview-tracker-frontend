@@ -13,7 +13,7 @@
 }
 
 .close {
-    color: black;
+    color: #eee;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -27,26 +27,32 @@
 }
 
 .modal-header{
-    padding: 2px 16px;
-    background-color: $col-pri !important;
-    color: white;
+    position: relative;
+    background-color: $col-pri;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    height: 3rem;
+    color: #eee;
+    padding-top: 20px;
+    padding-left: 15px;
+    padding-right: 20px;
 }
 
 .modal-body {
-    padding: 2px 16px;
+    padding: 10px 20px;
 }
 
 .modal-content {
     position: relative;
     background-color: #fefefe;
+    border-radius: 5px;
     margin: auto;
     padding: 0;
     top: 5%;
-    border: 1px solid #888;
     width: 80%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     animation-name: animatetop;
-    animation-duration: 0.4s
+    animation-duration: 0.5s
 }
 
 @keyframes animatetop {
@@ -70,25 +76,37 @@
 #description
 {
     order: 1;
-    flex-basis: 57%;
+    flex-basis: 50%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 30vh;
 }
 
 #schedinterviews
 {
     order: 2;
-    flex-basis: 40%
+    flex-basis: 45%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 30vh;
 }
 
 #skillselect
 {
     order: 1;
-    flex-basis: 45%;
+    flex-basis: 50%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 30vh;
 }
 
 #newinterview
 {
     order: 2;
     flex-basis: 45%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 30vh;
 }
 
 #filledprofile
