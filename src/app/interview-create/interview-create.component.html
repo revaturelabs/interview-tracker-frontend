@@ -18,7 +18,12 @@
 
             </div>
             <div class="form">  
-               <app-multi-select (emitSelections)='updateNamesList($event)' title="Interviewers" [selectionList]="names"></app-multi-select>
+               
+                <app-multi-select (emitSelections)='updateNamesList($event)' title="Interviewers" [selectionList]="names"></app-multi-select>
+                <mat-form-field>
+                    <input matInput type="datetime-local" placeholder="start date" [(ngModel)]='selectedDate'>
+                  </mat-form-field>
+                  <br>
                <button (click)='saveinterview()' mat-button>Submit</button>
                 </div>
         </div>

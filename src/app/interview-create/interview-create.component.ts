@@ -26,11 +26,13 @@ export class InterviewCreateComponent implements OnInit, OnDestroy {
    @Input() jb1: Job;
    @Input() users: User[] = [];
    @Input() profiles: Profile[] = [];
+   @Input() date: Date;
     names: string[] = [];
     candidates: string[] = [];
     selectedNames: string[];
     selectedCandidate: Profile;
     jobSkills: Skill[];
+    selectedDate: any;
 
 
 ngOnInit() {
@@ -52,7 +54,7 @@ ngOnInit() {
       this.users = users;
       console.log(users);
     });
-    if (this.jobServ.queuedInterviews.length == 0) {
+    if (this.jobServ.queuedInterviews.length === 0) {
     this.profServ.retrieveAllProfiles().subscribe(candidates => {
      this.profiles = candidates;
     });
@@ -67,22 +69,25 @@ ngOnInit() {
 
 
 
-updateNamesList(selectionsForm) {
+    updateNamesList(selectionsForm) {
   console.log(selectionsForm);
   this.selectedNames = selectionsForm.value;
 }
 
-changeForm(profile) {
+    changeForm(profile) {
   this.selectedCandidate = profile;
 
 }
 
-saveinterview() {
+    saveinterview() {
   const selectedUsers: User[] = this.users.filter(user => {
     console.log(user);
     return this.selectedNames.includes(user.username); });
   console.log(selectedUsers);
-  const newinterview: Interview = new Interview(-1 , this.selectedCandidate, new Date(), false, this.jb1,  selectedUsers);
+  console.log("selected date is...");
+  console.log(this.selectedDate);
+
+  const newinterview: Interview = new Interview(-1 , this.selectedCandidate, this.selectedDate, false, this.jb1,  selectedUsers);
   console.log('sending...');
   this.interviewServ.saveInterview(newinterview).subscribe(data => {
     switch (data) {
@@ -100,8 +105,8 @@ saveinterview() {
         break;
 
     }
-    //this.router.navigate(['/interviews']);
   });
+
 
 }
 
