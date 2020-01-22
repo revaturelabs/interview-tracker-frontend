@@ -8,25 +8,35 @@
         <h2>Create A New Profile</h2>
       </div>
 
-      <mat-form-field class='FirstName'>
-        <input [(ngModel)]=newProfile.firstName matInput type="text" placeholder="Firstname">
-      </mat-form-field>
+      <div>
+        <mat-form-field class='FirstName' id="input">
+          <input [(ngModel)]=newProfile.firstName matInput type="text" placeholder="Firstname">
+        </mat-form-field>
+      </div>
 
-      <mat-form-field class='LastName'>
-        <input [(ngModel)]=newProfile.lastName matInput type="text" placeholder="Lastname">
-      </mat-form-field>
+      <div>
+        <mat-form-field class='LastName' id="input">
+          <input [(ngModel)]=newProfile.lastName matInput type="text" placeholder="Lastname">
+        </mat-form-field>
+      </div>
 
-      <mat-form-field class='Location'>
-        <input [(ngModel)]=newProfile.location matInput type="text" placeholder="Location">
-      </mat-form-field>
+      <div>
+        <mat-form-field class='Description' id="input">
+          <textarea [(ngModel)]=newProfile.description matInput type="text" placeholder="Description" rows="8"></textarea>
+        </mat-form-field>
+      </div>
 
-      <mat-form-field class='EmailAddress'>
-        <input [(ngModel)]=newProfile.emailAddress matInput type="email" placeholder="Email">
-      </mat-form-field>
+      <div>
+        <mat-form-field class='Location' id="input">
+          <input [(ngModel)]=newProfile.location matInput type="text" placeholder="Location">
+        </mat-form-field>
+      </div>
 
-      <mat-form-field class='Description'>
-        <input [(ngModel)]=newProfile.description matInput type="text" placeholder="Description">
-      </mat-form-field>
+      <div>
+        <mat-form-field class='EmailAddress' id="input">
+          <input [(ngModel)]=newProfile.emailAddress matInput type="email" placeholder="Email">
+        </mat-form-field>
+      </div>
 
       <app-search-select (emitSelections)="skillSelectionHandler($event)"></app-search-select>
       <br>
