@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+<<<<<<< Updated upstream
 import { LandingComponent } from './landing/landing.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppMaterialModule } from './app-material.module';
@@ -25,6 +26,15 @@ import { ErrorInterceptor } from './error-interceptor';
 // import { JwtInterceptor } from './jwt-interceptor';
 
 
+=======
+import { MaterialModule } from './material/material.module';
+import { MultiSelectComponent } from './common/multi-select/multi-select.component';
+import { FullCalendarModule } from '@fullcalendar/angular'; // for FullCalendar!
+import { HttpClientModule } from "@angular/common/http";
+import { MatSnackBarModule } from '@angular/material';
+import { SearchSelectComponent } from './common/search-select/search-select.component';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+>>>>>>> Stashed changes
 
 @NgModule({
   declarations: [

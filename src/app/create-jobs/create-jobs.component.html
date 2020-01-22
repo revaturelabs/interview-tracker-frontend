@@ -1,0 +1,63 @@
+<div class='job-page'>
+    <!--Creation of a job -->
+    <div class='left-col'>
+        <div class='job-form-1'>
+            <!--Left column creates the basic fields of the job: Title, Description and Requisite skills. -->
+            <div class='create-form-title'>
+                <h2>Create A New Job</h2>
+            </div>
+            <div class="example-container">
+                <mat-form-field class='Title'>
+                    <!--Title input-->
+                    <input [(ngModel)] = newJob.title matInput placeholder="Title">
+                </mat-form-field>
+
+                <mat-form-field >
+                    <!--Description input-->
+                    <textarea [(ngModel)] = newJob.description matInput placeholder="Description" class="Description"
+                    rows="8"></textarea>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <!--The selection panel of the skills. -->
+                    <mat-select [formControl]="selections" (focus)="resetOptions()" placeholder="Search" multiple>
+                        <mat-option>
+                            <ngx-mat-select-search (input)="termChanged($event)" placeholderLabel="Search Skills" 
+                            noEntriesFoundLabel="No matching entries found"></ngx-mat-select-search>
+                        </mat-option>
+                        <mat-option *ngFor="let option of options" [value]="option" (click)="compareSkills()">
+                            {{ option.title }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-chip-list class="selection_pool">
+                    <!--The chip display of skills.-->
+                    <mat-chip *ngFor="let selection of selections.value" class="selection">
+                        {{ selection.title }}
+                    </mat-chip>
+                </mat-chip-list>
+                <div class="button-container">
+                    <button mat-flat-button class="button-submit btn" (click)="createJob()">Submit</button>
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+    <div class='right-col'>
+        <!-- Displays profiles only when given a selection, and then sorts the profiles by how many relevant skills they have-->
+        <div class='job-form-2'>
+            <div class='create-form-title'>
+                <h2>Candidates</h2>
+            </div>
+            <div class='candidate-list' *ngIf="this.selections.value">
+                <mat-selection-list [formControl]="selectedProfiles" multiple>
+                    <mat-list-option *ngFor="let record of updatedResults" [value]="record.profile">
+                        {{record.profile.firstName + " " + record.profile.lastName + " " + record.percent.toFixed(0) + "%"}}
+                    </mat-list-option>
+                </mat-selection-list>
+            </div>
+        </div>
+    </div>
+</div>
