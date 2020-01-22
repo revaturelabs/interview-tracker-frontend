@@ -1,48 +1,62 @@
 <div class="container">
-    <div class='interviewcreator'>
-        <div class="card">
-            <div class="card_header" color="primary">
-                <div class="card_header_title">Interview {{selectedCandidate ? selectedCandidate.firstName: "" }}</div>
-            </div>
-            <div class="interview_info">
-                <h3>{{jb1.title}}</h3>
-                <br>
-                <h5>Skills</h5>
-                <h4 *ngFor = 'let skill of jobSkills'>{{skill.title}}</h4>
-                <br>
-                <h5>Description</h5>
-                <p>{{jb1.description}}</p>
-            </div>
-            <div class="comment">
-
-
-            </div>
-            <div class="form">  
-               
-                <app-multi-select (emitSelections)='updateNamesList($event)' title="Interviewers" [selectionList]="names"></app-multi-select>
-                <mat-form-field>
-                    <input matInput type="datetime-local" placeholder="start date" [(ngModel)]='selectedDate'>
-                  </mat-form-field>
-                  <br>
-               <button (click)='saveinterview()' mat-button>Submit</button>
-                </div>
+  <div class="interviewCreator">
+    <div class="card">
+      <div class="card_header" color="primary">
+        <div class="card_header_title">
+          Interview {{ selectedCandidate ? selectedCandidate.firstName : "" }}
         </div>
-        <div class='candidates'>
-            <div class="card">
-                <div class="card_header" color="primary">
-                    <div class="card_header_title">Candidates</div>
-                    
-                </div>
-                <div class="candidates_table">
-                        
-                    <mat-action-list>
-                        <button *ngFor="let profile of profiles" (click)='changeForm(profile)' mat-list-item>{{profile.firstName}}</button>
-                      </mat-action-list>
-                </div>
+      </div>
+      <div class="sideBySide">
+        <div class="card_side">
+          <div class="interview_info">
+            <h1>{{ jb1.title }}</h1>
+            <br />
+            <h3>Skills</h3>
+            <ul class="skills_list">
+              <li *ngFor="let skill of jobSkills">{{ skill.title }}</li>
+            </ul>
+            <br />
+            <h3>Description</h3>
+            <p>{{ jb1.description }}</p>
+          </div>
+          <div class="comment"></div>
+          <div class="form">
+            <app-multi-select
+              (emitSelections)="updateNamesList($event)"
+              title="Interviewers"
+              [selectionList]="names"
+            ></app-multi-select>
+            <mat-form-field>
+              <input
+                matInput
+                type="datetime-local"
+                placeholder="start date"
+                [(ngModel)]="selectedDate"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="candidates">
+            <div class="candidates_title" color="primary">
+              <h3>Candidates</h3>
+            </div>
+            <div class="candidates_table">
+              <mat-action-list>
+                <button
+                  *ngFor="let profile of profiles"
+                  (click)="changeForm(profile)"
+                  mat-list-item
+                >
+                  {{ profile.firstName }}
+                </button>
+              </mat-action-list>
             </div>
         </div>
+      </div>
     </div>
-
-
-
+    <hr />
+    <div class="button_container">
+      <button (click)="saveinterview()" mat-button>Submit</button>
+    </div>
+  </div>
 </div>
