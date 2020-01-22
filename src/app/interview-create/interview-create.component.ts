@@ -54,7 +54,7 @@ ngOnInit() {
       this.users = users;
       console.log(users);
     });
-    if (this.jobServ.queuedInterviews.length == 0) {
+    if (this.jobServ.queuedInterviews.length === 0) {
     this.profServ.retrieveAllProfiles().subscribe(candidates => {
      this.profiles = candidates;
     });
