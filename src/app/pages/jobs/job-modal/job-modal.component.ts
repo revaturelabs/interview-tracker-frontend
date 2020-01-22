@@ -55,7 +55,7 @@ export class JobModalComponent implements OnInit {
   goToInterview(interview: Interview)
   {
     console.log(interview);   //FOR TESTING PLS REMOVE
-    // this.router.navigate(['/interview/'+#]);
+    // this.router.navigate(['/interview/'+interviews]);
   }
 saveJob() {
   this.jobServ.createdJob = this.job;

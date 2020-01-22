@@ -1,5 +1,5 @@
 
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import Job from '../models/Job';
 import Interview from '../models/Interview';
 import User from '../models/User';
@@ -11,7 +11,6 @@ import Skill from '../models/Skill';
 import { InterviewService } from '../interview-service/interview.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
-import { FormControl } from '@angular/forms';
 
 const tabl =  document.getElementsByClassName('candidates_table');
 @Component({
@@ -19,9 +18,10 @@ const tabl =  document.getElementsByClassName('candidates_table');
   templateUrl: './interview-create.component.html',
   styleUrls: ['./interview-create.component.scss']
 })
-export class InterviewCreateComponent implements OnInit {
+export class InterviewCreateComponent implements OnInit, OnDestroy {
 
-  constructor(private router: Router, private userService: UserService, private profServ: ProfileService, private jobServ: JobServiceService, private interviewServ: InterviewService) { }
+  constructor(private router: Router, private userService: UserService, private profServ: ProfileService,
+              private jobServ: JobServiceService, private interviewServ: InterviewService, private mySnack: MatSnackBar) { }
 
    @Input() jb1: Job;
    @Input() users: User[] = [];
@@ -54,10 +54,17 @@ ngOnInit() {
       this.users = users;
       console.log(users);
     });
-    if (this.jobServ.queuedInterviews.length === 0) {
+    if (this.jobServ.queuedInterviews.length == 0) {
     this.profServ.retrieveAllProfiles().subscribe(candidates => {
      this.profiles = candidates;
     });
+  } else {
+    this.profiles = this.jobServ.queuedInterviews;
+  }
+  }
+
+  ngOnDestroy() {
+    this.jobServ.queuedInterviews = [];
   }
 
 
@@ -75,7 +82,7 @@ ngOnInit() {
     saveinterview() {
   const selectedUsers: User[] = this.users.filter(user => {
     console.log(user);
-    return this.selectedNames.includes(user.username)});
+    return this.selectedNames.includes(user.username); });
   console.log(selectedUsers);
   console.log("selected date is...");
   console.log(this.selectedDate);
@@ -102,7 +109,5 @@ ngOnInit() {
 
 
 }
-
-
 
 }

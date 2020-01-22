@@ -1,3 +1,4 @@
+@import "../../../styles.scss";
 .interviewsPage {
   display: grid;
   grid-template-columns: 22rem 1fr;
@@ -10,4 +11,14 @@
       height: max-content;
     }
   }
+}
+
+.grid {
+  margin-top: 1rem;
+}
+
+.filter {
+  color: $light-grey;
+  font-size: 1.5rem;
+  padding-left: 2.5rem;
 }
