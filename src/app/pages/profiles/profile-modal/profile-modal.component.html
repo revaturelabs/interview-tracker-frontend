@@ -3,25 +3,25 @@
         <DIV class="profile-modal-titlebar">
             <!-- profile name -->
             <DIV class="profile-modal-name">{{profile.firstName + ' ' + profile.lastName}}</DIV>
-            <DIV class="profile-modal-close"><BUTTON type="button" (click)="close()">X</BUTTON></DIV>
+            <span class='close' (click)='close()' >&times;</span>
         </DIV>
         <DIV class="profile-modal-content">
             <DIV class="profile-modal-top">
-                <DIV>
+                <DIV class="left">
                     <!-- Contact Info -->
                     <DIV>
                         <DIV class="profile-modal-contact-title">Contact Info</DIV>
-                        <DIV>{{profile.emailAddress}}</DIV>
-                        <DIV>{{profile.location}}</DIV>
+                        <DIV id="info">{{profile.emailAddress}}
+                        <br/>{{profile.location}}</DIV>
                     </DIV>
                     <!-- Description -->
                     <DIV>
                         <DIV class="profile-modal-description-title">Description</DIV>
-                        <DIV>{{profile.description}}</DIV>
+                        <DIV id="info">{{profile.description}}</DIV>
                     </DIV>
                 </DIV>
                 <!-- Interviews Scheduled -->
-                <DIV>
+                <DIV class="right">
                     <DIV class="profile-modal-interviews-title">Interviews Scheduled</DIV>
                     <DIV>
                         <UL>
@@ -40,7 +40,7 @@
             <!-- skills -->
             <DIV class="profile-modal-middle">
                 <mat-form-field (change)='console.log("changed")'>
-                    <mat-select [formControl]="skillSelect" multiple>
+                    <mat-select [formControl]="skillSelect" placeholder="Search Skills" multiple>
                         <mat-option *ngFor="let skill of allSkillsAvailable" [value]="skill">
                             {{ skill.title }}
                         </mat-option>
@@ -54,7 +54,7 @@
             </DIV>
             <!-- Back button -->
             <DIV class="profile-modal-bottom">
-                <BUTTON type="button" (click)="close()">Back</BUTTON>
+                <BUTTON mat-flat-button class="btn" (click)="close()">Back</BUTTON>
             </DIV>
         </DIV>
     </DIV>
