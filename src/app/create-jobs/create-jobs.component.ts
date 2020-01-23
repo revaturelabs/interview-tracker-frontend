@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 export class CreateJobsComponent implements OnInit {
 
 
-  constructor(private profServ: ProfileService, private skillServ: SkillService, private jobServ: JobServiceService,
+  constructor(private profServ: ProfileService, private skillServ: SkillService, private jobServ: JobService,
               private myRouter: Router) { }
 
   @Output() selections = new FormControl();
