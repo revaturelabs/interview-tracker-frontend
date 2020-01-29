@@ -13,8 +13,8 @@ export class SkillService {
   private profileSkills = new BehaviorSubject<Skill>(null);
   profileSkills$ = this.profileSkills.asObservable();
 
-  private url1 = 'http://localhost:8765/interview-service/skills/allSkills';
-  private url2 = 'http://localhost:8765/interview-service/skills/insertSkill';
+  public url1 = 'http://localhost:8765/interview-service/skills/allSkills';
+  public url2 = 'http://localhost:8765/interview-service/skills/insertSkill';
 
   constructor(private http: HttpClient) { }
 

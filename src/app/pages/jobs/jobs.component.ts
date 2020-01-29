@@ -9,9 +9,9 @@ import Job from 'src/app/models/Job';
 })
 export class JobsComponent implements OnInit
 {
-  private jobs: Job[];
-  private page: number;
-  private atEnd: boolean = false;
+  public jobs: Job[];
+  public page: number;
+  public atEnd: boolean = false;
 
   constructor(private jobServ: JobService) {}
 

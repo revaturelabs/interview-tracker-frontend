@@ -8,7 +8,7 @@ import Profile from '../models/Profile';
 })
 export class JobService {
 
-  private url = 'http://localhost:8765/interview-service/jobs';
+  public url = 'http://localhost:8765/interview-service/jobs';
   createdJob: Job;
   queuedInterviews: Profile[];
   constructor(private httpServ: HttpClient) { }

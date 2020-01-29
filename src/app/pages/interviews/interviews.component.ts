@@ -12,12 +12,12 @@ import User from 'src/app/models/User';
 })
 export class InterviewsComponent implements OnInit {
   
-  private interviews: Interview[] = [];
-  private filteredInterviews: Interview[] = [];
-  private interviewers: User[];
-  private filteredInterviewers: User[];
-  private names: string[] = ['All'];
-  private added: boolean;
+  public interviews: Interview[] = [];
+  public filteredInterviews: Interview[] = [];
+  public interviewers: User[];
+  public filteredInterviewers: User[];
+  public names: string[] = ['All'];
+  public added: boolean;
 
   constructor(private interviewService: InterviewService, private userServ: UserService) {}
 
