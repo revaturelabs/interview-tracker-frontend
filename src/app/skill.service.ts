@@ -22,8 +22,8 @@ export class SkillService {
     return this.http.get<Skill[]>(this.url1, {});
   }
 
-  saveSkills() {
-    return this.http.post<boolean>(this.url2, {});
+  saveSkills(skill: Skill) {
+    return this.http.post<boolean>(this.url2, skill);
   }
 
 

@@ -28,6 +28,8 @@ export class SearchSelectComponent implements OnInit {
   allSkills: Skill[];
   @Output() skillExistsEmitter = new EventEmitter<any>();
   skillExists = true;
+  @Output() skillTitleEmitter = new EventEmitter<any>();
+
 
   selectOption() {
     this.emitSelections.emit(this.selections);
@@ -49,6 +51,7 @@ export class SearchSelectComponent implements OnInit {
     if(this.options.length == 0){
       this.skillExists = false;
       this.skillExistsEmitter.emit(this.skillExists);
+      this.skillTitleEmitter.emit(event.target.value);
     } else {
       this.skillExists = true;
       this.skillExistsEmitter.emit(this.skillExists);

@@ -38,8 +38,8 @@
         </mat-form-field>
       </div>
 
-      <div  (clickOutside)="onClickOutside()">
-        <app-search-select (emitSelections)="skillSelectionHandler($event)" (skillExistsEmitter)="changeSkillExists($event)" ></app-search-select>
+      <div>
+        <app-search-select (emitSelections)="skillSelectionHandler($event)" (skillExistsEmitter)="changeSkillExists($event)" (skillTitleEmitter)="changeSkillTitle($event)" ></app-search-select>
         <br>
         <div *ngIf="!skillExists">
           <button mat-flat-button class="button-submit btn" (click)="addSkill()" >Add Skill</button>

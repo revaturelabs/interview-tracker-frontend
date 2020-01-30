@@ -20,6 +20,7 @@ export class ProfileCreateComponent implements OnInit {
 
   skillsFilter: Skill;
   skillExists = true;
+  skillTitle: string = '';
 
 
   constructor(private profileService: ProfileService, private skillService: SkillService, private router: Router) { }
@@ -62,6 +63,18 @@ export class ProfileCreateComponent implements OnInit {
 
   addSkill(){
     console.log('Add Skill button clicked');
+    this.skillService.saveSkills(new Skill(0, this.skillTitle)).subscribe(
+      data => {
+        if(data){         
+        }
+      }, error => {
+          console.log('Error ', error);
+      }
+    )
+  }
+
+  changeSkillTitle(title: string){
+    this.skillTitle = title;
   }
   
 }
