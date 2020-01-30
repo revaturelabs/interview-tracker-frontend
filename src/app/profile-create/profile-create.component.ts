@@ -18,6 +18,7 @@ export class ProfileCreateComponent implements OnInit {
   selectedSkills: Skill[] = [];
 
   skillsFilter: Skill;
+  skillExists = true;
 
 
   constructor(private profileService: ProfileService, private skillService: SkillService, private router: Router) { }
@@ -48,6 +49,10 @@ export class ProfileCreateComponent implements OnInit {
     console.log(selectedSkills.value);
     this.newProfile.skills = selectedSkills.value;
     console.log(this.newProfile);
+  }
+
+  changeSkillExists(skillExists: boolean){
+    this.skillExists = skillExists;
   }
 
 }

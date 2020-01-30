@@ -38,12 +38,15 @@
         </mat-form-field>
       </div>
 
-      <app-search-select (emitSelections)="skillSelectionHandler($event)"></app-search-select>
+      <app-search-select (emitSelections)="skillSelectionHandler($event)" (skillExistsEmitter)="changeSkillExists($event)"></app-search-select>
       <br>
+      <div *ngIf="!skillExists">
+        <button mat-flat-button class="button-submit btn" >Add Skill</button>
+      </div>
       <br>
       <button mat-flat-button class="button-submit btn" type="submit" (click)="registerProfile()">Register
         Profile</button>
-
+       
     </div>
   </div>
 </div>

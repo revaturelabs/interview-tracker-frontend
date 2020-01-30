@@ -4,7 +4,7 @@
       <ngx-mat-select-search (input)="termChanged($event)" ></ngx-mat-select-search>
     </mat-option>
     <mat-option (click)="selectOption()" *ngFor="let option of options" [value]="option">
-      {{ option.title }}
+        {{ option.title }}
     </mat-option>
   </mat-select>
 </mat-form-field>
@@ -17,3 +17,4 @@
       {{ selection.title }}
     </mat-chip>
 </mat-chip-list>
+
