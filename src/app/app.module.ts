@@ -31,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material';
 import { SearchSelectComponent } from './common/search-select/search-select.component';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { ClickOutsideDirective } from './click-outside.directive';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
     ProfileCreateComponent,
     MultiSelectComponent,
     SearchSelectComponent,
-    NavbarComponent
+    NavbarComponent,
+    ClickOutsideDirective
   ],
   imports: [
     BrowserModule,
@@ -66,7 +68,7 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
     FullCalendarModule, // for FullCalendar!
     HttpClientModule,
     MatSnackBarModule,
-    NgxMatSelectSearchModule
+    NgxMatSelectSearchModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

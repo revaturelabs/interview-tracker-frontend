@@ -33,14 +33,14 @@ export class SearchSelectComponent implements OnInit {
     this.emitSelections.emit(this.selections);
   }
 
-  @HostListener('document:click', ['$event'])
-  clickout(event) {
-    if(this.eRef.nativeElement.contains(event.target)) {
-    } else {
-      this.skillExists = true;
-      this.skillExistsEmitter.emit(this.skillExists);
-    }
-  }
+  // @HostListener('document:click', ['$event'])
+  // clickout(event) {
+  //   if(this.eRef.nativeElement.contains(event.target)) {
+  //   } else {
+  //     this.skillExists = true;
+  //     this.skillExistsEmitter.emit(this.skillExists);
+  //   }
+  // }
 
   termChanged(event) {
     this.options = this.allSkills.filter(el =>
@@ -49,6 +49,9 @@ export class SearchSelectComponent implements OnInit {
     if(this.options.length == 0){
       this.skillExists = false;
       this.skillExistsEmitter.emit(this.skillExists);
+    } else {
+      this.skillExists = true;
+      this.skillExistsEmitter.emit(this.skillExists);
     }
   }
 
@@ -56,6 +59,8 @@ export class SearchSelectComponent implements OnInit {
     this.options = this.allSkills;
     
   }
+
+
 
   ngOnInit() {
     // this.skillService
