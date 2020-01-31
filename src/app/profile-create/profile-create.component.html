@@ -42,7 +42,7 @@
         <app-search-select (emitSelections)="skillSelectionHandler($event)" (skillExistsEmitter)="changeSkillExists($event)" (skillTitleEmitter)="changeSkillTitle($event)" ></app-search-select>
         <br>
         <div *ngIf="!skillExists">
-          <button mat-flat-button class="button-submit btn" (click)="addSkill()" >Add Skill</button>
+          <button mat-flat-button class="button-submit btn" [disabled]="skillExists" (click)="addSkill()" >Add Skill {{skillTitle}}</button>
         </div>
       </div>
         

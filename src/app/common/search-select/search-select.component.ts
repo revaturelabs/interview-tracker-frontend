@@ -29,29 +29,33 @@ export class SearchSelectComponent implements OnInit {
   @Output() skillExistsEmitter = new EventEmitter<any>();
   skillExists = true;
   @Output() skillTitleEmitter = new EventEmitter<any>();
+  searchTerm: string = "";
 
 
   selectOption() {
     this.emitSelections.emit(this.selections);
   }
 
-  // @HostListener('document:click', ['$event'])
-  // clickout(event) {
-  //   if(this.eRef.nativeElement.contains(event.target)) {
-  //   } else {
-  //     this.skillExists = true;
-  //     this.skillExistsEmitter.emit(this.skillExists);
-  //   }
-  // }
+  @HostListener('document:click', ['$event'])
+  clickout(event) {
+    if(this.eRef.nativeElement.contains(event.target)) {
+      console.log('Clicked within search component');
+    } else {
+      console.log('Clicked outside search component');
+      //this.skillExists = true;
+      //this.skillExistsEmitter.emit(this.skillExists);
+    }
+  }
 
   termChanged(event) {
+    this.searchTerm = event.target.value;
     this.options = this.allSkills.filter(el =>
-      el.title.toUpperCase().includes(event.target.value.toUpperCase())
+      el.title.toUpperCase().includes(this.searchTerm.toUpperCase())
     );
     if(this.options.length == 0){
       this.skillExists = false;
       this.skillExistsEmitter.emit(this.skillExists);
-      this.skillTitleEmitter.emit(event.target.value);
+      this.skillTitleEmitter.emit(this.searchTerm);
     } else {
       this.skillExists = true;
       this.skillExistsEmitter.emit(this.skillExists);
