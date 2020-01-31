@@ -28,7 +28,7 @@ export class ProfileCreateComponent implements OnInit {
   }
 
   registerProfile() {
-
+    console.log(this.newProfile);
     this.profileService.saveProfile(this.newProfile).subscribe(data => {
       console.log(data);
       switch(data) {

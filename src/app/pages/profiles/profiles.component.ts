@@ -15,6 +15,14 @@ export class ProfilesComponent implements OnInit {
 
   onSearchTermChanged(e) {
     console.log('In profile.component.ts, value is: ', e);
+    this.page = 0;
+    this.profileService.retrieveAllProfilesAtPage(this.page, true, e).subscribe(data => {
+      this.profiles = data;
+      if(data.length < 10)
+      {
+        this.atEnd = true;
+      }
+    });
   }
 
   constructor(private profileService: ProfileService) {}

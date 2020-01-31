@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 // import Profile from './models/Interview';
 // import { HttpClient, HttpParams } from '@angular/common/http';
 import Profile from './models/Profile';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -10,11 +10,11 @@ import { Observable } from 'rxjs';
 })
 export class ProfileService {
 
-    public url1 = 'http://localhost:8765/interview-service/profiles/allProfiles';
+  public url1 = 'http://localhost:8765/interview-service/profiles/allProfiles';
 
-    public url2 = 'http://localhost:8765/interview-service/profiles/saveProfile';
+  public url2 = 'http://localhost:8765/interview-service/profiles/saveProfile';
 
-    constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   // retrieveAllProfiles(){
   //   return this.http.get<Profile[]>(this.url1, {});
@@ -39,23 +39,29 @@ export class ProfileService {
   // }
 
 
-  retrieveSomeProfiles(){
+  retrieveSomeProfiles() {
     const url = "http://localhost:8765/interview-service/profiles/allProfiles/1";
     return this.http.get<Profile[]>(url, {});
   }
 
-  retrieveAllProfiles(): Observable<Profile[]>{
+  retrieveAllProfiles(): Observable<Profile[]> {
     const url = "http://localhost:8765/interview-service/profiles/allProfiles";
     return this.http.get<Profile[]>(url, {});
   }
-  
+
   saveProfile(newProfile: Profile): Observable<any> {
     const url = "http://localhost:8765/interview-service/profiles/saveProfile";
     return this.http.post<Profile>(url, newProfile);
   }
 
-  retrieveAllProfilesAtPage(page: number) {
+  retrieveAllProfilesAtPage(page: number, useFilter: boolean = false, value: string = "") {
+    let headers = new HttpHeaders({
+      "Content-Type": "application/JSON",
+      "usefilter": useFilter == true ? "1" : "0",
+      "value" : value
+    });
+
     const url = "http://localhost:8765/interview-service/profiles/allProfiles";
-    return this.http.get<Profile[]>(url +'/' +  page);
+    return this.http.get<Profile[]>(url + '/' + page, { headers });
   }
 }
