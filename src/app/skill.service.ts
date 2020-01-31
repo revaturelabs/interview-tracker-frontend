@@ -8,6 +8,9 @@ import { BehaviorSubject } from 'rxjs';
 })
 
 export class SkillService {
+  all() {
+    throw new Error("Method not implemented.");
+  }
 
   allSkills: Skill[] = [];
   private profileSkills = new BehaviorSubject<Skill>(null);
