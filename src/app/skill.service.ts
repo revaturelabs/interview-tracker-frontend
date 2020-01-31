@@ -9,12 +9,12 @@ import { BehaviorSubject } from 'rxjs';
 
 export class SkillService {
 
-  allSkills: Skill[] = [];
+  private allSkills: Skill[] = [];
   private profileSkills = new BehaviorSubject<Skill>(null);
   profileSkills$ = this.profileSkills.asObservable();
 
-  public url1 = 'http://localhost:8765/interview-service/skills/allSkills';
-  public url2 = 'http://localhost:8765/interview-service/skills/insertSkill';
+  private url1 = 'http://localhost:8765/interview-service/skills/allSkills';
+  private url2 = 'http://localhost:8765/interview-service/skills/insertSkill';
 
   constructor(private http: HttpClient) { }
 
