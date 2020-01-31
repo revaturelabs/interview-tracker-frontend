@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import Job from '../models/Job';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import Profile from '../models/Profile';
 
 @Injectable({
@@ -25,8 +25,13 @@ export class JobService {
     return this.httpServ.get<Job[]>(this.url + '/allJobs');
   }
 
-  getAllJobAtPage(page: number) {
-    return this.httpServ.get<Job[]>(this.url + '/allJobs/' + page);
+  getAllJobAtPage(page: number, useFilter: boolean = false, value: string = "") {
+    let headers = new HttpHeaders({
+      "Content-Type": "application/JSON",
+      "usefilter": useFilter == true ? "1" : "0",
+      "value": value
+    });
+    return this.httpServ.get<Job[]>(this.url + '/allJobs/' + page, { headers });
   }
 
   getByTitle(title: string) {

@@ -26,10 +26,18 @@ export class JobsComponent implements OnInit
       }
     });
   }
-
+//need look here..
   onSearchTermChanged(e)
   {
     console.log('inside of job.component, value is: ', e);
+    this.page = 0;
+    this.jobServ.getAllJobAtPage(this.page, true, e).subscribe(data => {
+      this.jobs = data;
+      if(data.length < 10)
+      {
+        this.atEnd = true;
+      }
+    });
   }
 
   nextPage()
