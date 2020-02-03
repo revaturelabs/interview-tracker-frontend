@@ -8,6 +8,9 @@ import { BehaviorSubject } from 'rxjs';
 })
 
 export class SkillService {
+  all() {
+    throw new Error("Method not implemented.");
+  }
 
   allSkills: Skill[] = [];
   private profileSkills = new BehaviorSubject<Skill>(null);
@@ -22,8 +25,8 @@ export class SkillService {
     return this.http.get<Skill[]>(this.url1, {});
   }
 
-  saveSkills() {
-    return this.http.post<boolean>(this.url2, {});
+  saveSkills(skill: Skill) {
+    return this.http.post<boolean>(this.url2, skill);
   }
 
 

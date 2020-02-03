@@ -1,4 +1,4 @@
-<div class='job-page'>
+<div class='job-page' >
   <div class='left-col'>
     <div class='job-form-1'>
 
@@ -38,12 +38,18 @@
         </mat-form-field>
       </div>
 
-      <app-search-select (emitSelections)="skillSelectionHandler($event)"></app-search-select>
-      <br>
+      <div>
+        <app-search-select (emitSelections)="skillSelectionHandler($event)" (skillExistsEmitter)="changeSkillExists($event)" (skillTitleEmitter)="changeSkillTitle($event)" ></app-search-select>
+        <br>
+        <div *ngIf="!skillExists">
+          <button mat-flat-button class="button-submit btn" [disabled]="skillExists" (click)="addSkill()" >Add Skill {{skillTitle}}</button>
+        </div>
+      </div>
+        
       <br>
       <button mat-flat-button class="button-submit btn" type="submit" (click)="registerProfile()">Register
         Profile</button>
-
+       
     </div>
   </div>
 </div>

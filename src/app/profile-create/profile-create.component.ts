@@ -4,6 +4,7 @@ import { ProfileService } from '../profile.service';
 import Profile from '../models/Profile';
 import Skill from '../models/Skill';
 import { Router } from '@angular/router';
+import { ClickOutsideDirective } from '../click-outside.directive';
 
 @Component({
   selector: 'app-profile-create',
@@ -18,6 +19,8 @@ export class ProfileCreateComponent implements OnInit {
   selectedSkills: Skill[] = [];
 
   skillsFilter: Skill;
+  skillExists = true;
+  skillTitle: string = '';
 
 
   constructor(private profileService: ProfileService, private skillService: SkillService, private router: Router) { }
@@ -50,4 +53,29 @@ export class ProfileCreateComponent implements OnInit {
     console.log(this.newProfile);
   }
 
+  changeSkillExists(skillExists: boolean){
+    this.skillExists = skillExists;
+  }
+
+  onClickOutside(){
+    this.skillExists = true;
+  }
+
+  addSkill(){
+    console.log('Add Skill button clicked');
+    this.skillExists = true;
+    this.skillService.saveSkills(new Skill(0, this.skillTitle)).subscribe(
+      data => {
+        if(data){         
+        }
+      }, error => {
+          console.log('Error ', error);
+      }
+    )
+  }
+
+  changeSkillTitle(title: string){
+    this.skillTitle = title;
+  }
+  
 }
