@@ -4,7 +4,6 @@ import { ProfileService } from '../profile.service';
 import Profile from '../models/Profile';
 import Skill from '../models/Skill';
 import { Router } from '@angular/router';
-import { ClickOutsideDirective } from '../click-outside.directive';
 
 @Component({
   selector: 'app-profile-create',

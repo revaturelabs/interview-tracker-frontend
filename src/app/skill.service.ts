@@ -12,7 +12,7 @@ export class SkillService {
     throw new Error("Method not implemented.");
   }
 
-  allSkills: Skill[] = [];
+  private allSkills: Skill[] = [];
   private profileSkills = new BehaviorSubject<Skill>(null);
   profileSkills$ = this.profileSkills.asObservable();
 

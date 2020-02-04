@@ -12,8 +12,8 @@ import User from './models/User';
   providedIn: 'root'
 })
 export class HttpService {
-  rootUrl = 'http://localhost:8761';
-  httpOptions = {
+  private rootUrl = 'http://localhost:8761';
+  private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     withCredentials: true
   };

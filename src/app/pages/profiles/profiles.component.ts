@@ -10,8 +10,8 @@ import { ProfileService } from 'src/app/profile.service';
 })
 export class ProfilesComponent implements OnInit {
   profiles: Profile[] = [];
-  private page: number;
-  private atEnd: boolean = false;
+  public page: number;
+  public atEnd: boolean = false;
 
   onSearchTermChanged(e) {
     console.log('In profile.component.ts, value is: ', e);
