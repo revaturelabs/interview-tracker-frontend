@@ -9,7 +9,7 @@ import { BehaviorSubject } from 'rxjs';
 
 export class SkillService {
 
-  allSkills: Skill[] = [];
+  private allSkills: Skill[] = [];
   private profileSkills = new BehaviorSubject<Skill>(null);
   profileSkills$ = this.profileSkills.asObservable();
 
