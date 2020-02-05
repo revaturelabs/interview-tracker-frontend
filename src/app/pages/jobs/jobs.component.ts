@@ -33,6 +33,7 @@ export class JobsComponent implements OnInit
     this.page = 0;
     this.jobServ.getAllJobAtPage(this.page, true, e).subscribe(data => {
       this.jobs = data;
+      console.log(this.jobs);
       if(data.length < 10)
       {
         this.atEnd = true;
