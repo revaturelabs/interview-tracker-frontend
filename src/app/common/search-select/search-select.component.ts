@@ -30,17 +30,6 @@ export class SearchSelectComponent implements OnInit {
     this.emitSelections.emit(this.selections);
   }
 
-  // @HostListener('document:click', ['$event'])
-  // clickout(event) {
-  //   if(this.eRef.nativeElement.contains(event.target)) {
-  //     console.log('Clicked within search component');
-  //   } else {
-  //     console.log('Clicked outside search component');
-  //     //this.skillExists = true;
-  //     //this.skillExistsEmitter.emit(this.skillExists);
-  //   }
-  // }
-
   termChanged(event) {
     this.searchTerm = event.target.value;
     this.options = this.allSkills.filter(el =>
@@ -58,10 +47,7 @@ export class SearchSelectComponent implements OnInit {
 
   resetOptions() {
     this.options = this.allSkills;
-    
   }
-
-
 
   ngOnInit() {
     this.skillService

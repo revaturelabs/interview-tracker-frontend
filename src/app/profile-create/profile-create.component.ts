@@ -61,7 +61,6 @@ export class ProfileCreateComponent implements OnInit {
   }
 
   addSkill(){
-    console.log('Add Skill button clicked');
     this.skillExists = true;
     this.skillService.saveSkills(new Skill(0, this.skillTitle)).subscribe(
       data => {

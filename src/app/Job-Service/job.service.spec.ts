@@ -39,22 +39,3 @@ describe('JobService', () => {
 
   });
 });
-
-// describe('getByTitle', () => {
-//   it('should return a job by title', () => {
-//     const titleResponse =[
-//     {id: 0,
-//     title: "Tester",
-//     description: "",
-//     location: "",
-//     isFIlled: true,
-//     skills: []
-//     }];
-//     let response;
-//     spyOn(jobService, 'getByTitle').and.returnValue(of(titleResponse));
-//     jobService.getByTitle("Tester").subscribe(res => {
-//       response = res;
-//     });
-//     expect(response).toEqual(titleResponse);
-//   });
-// })
