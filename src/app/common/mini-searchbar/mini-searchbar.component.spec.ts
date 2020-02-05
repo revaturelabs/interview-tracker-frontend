@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CalendarComponent } from './calendar.component';
+import { MiniSearchbarComponent } from './mini-searchbar.component';
 
-xdescribe('CalendarComponent', () => {
-  let component: CalendarComponent;
-  let fixture: ComponentFixture<CalendarComponent>;
+xdescribe('MiniSearchbarComponent', () => {
+  let component: MiniSearchbarComponent;
+  let fixture: ComponentFixture<MiniSearchbarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CalendarComponent ]
+      declarations: [ MiniSearchbarComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CalendarComponent);
+    fixture = TestBed.createComponent(MiniSearchbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
