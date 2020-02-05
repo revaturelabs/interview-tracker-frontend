@@ -12,7 +12,6 @@ export class SearchSelectComponent implements OnInit {
   constructor(private skillService: SkillService,
     private eRef: ElementRef) {
     this.allSkills = [];
-    this.skillExistsEmitter.emit(this.skillExists);
   }
 
   selections = new FormControl();
@@ -29,17 +28,6 @@ export class SearchSelectComponent implements OnInit {
   selectOption() {
     this.emitSelections.emit(this.selections);
   }
-
-  // @HostListener('document:click', ['$event'])
-  // clickout(event) {
-  //   if(this.eRef.nativeElement.contains(event.target)) {
-  //     console.log('Clicked within search component');
-  //   } else {
-  //     console.log('Clicked outside search component');
-  //     //this.skillExists = true;
-  //     //this.skillExistsEmitter.emit(this.skillExists);
-  //   }
-  // }
 
   termChanged(event) {
     this.searchTerm = event.target.value;
