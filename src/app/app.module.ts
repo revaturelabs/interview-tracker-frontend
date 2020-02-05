@@ -31,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material';
 import { SearchSelectComponent } from './common/search-select/search-select.component';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
-import { ClickOutsideDirective } from './click-outside.directive';
+import { MatTooltipModule } from '@angular/material';
+
 
 @NgModule({
   declarations: [
@@ -56,7 +57,6 @@ import { ClickOutsideDirective } from './click-outside.directive';
     MultiSelectComponent,
     SearchSelectComponent,
     NavbarComponent,
-    ClickOutsideDirective
   ],
   imports: [
     BrowserModule,
@@ -69,6 +69,7 @@ import { ClickOutsideDirective } from './click-outside.directive';
     HttpClientModule,
     MatSnackBarModule,
     NgxMatSelectSearchModule,
+    MatTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

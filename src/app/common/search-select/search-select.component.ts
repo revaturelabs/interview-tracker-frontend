@@ -12,12 +12,6 @@ export class SearchSelectComponent implements OnInit {
   constructor(private skillService: SkillService,
     private eRef: ElementRef) {
     this.allSkills = [];
-    this.allSkills.push(new Skill(1, 'Java'));
-    this.allSkills.push(new Skill(2, 'React'));
-    this.allSkills.push(new Skill(3, 'SQL'));
-    this.allSkills.push(new Skill(4, 'Angular'));
-    this.allSkills.push(new Skill(5, 'Servlets'));
-    this.allSkills.push(new Skill(6, 'JavaScript'));
     this.skillExistsEmitter.emit(this.skillExists);
   }
 
@@ -36,16 +30,16 @@ export class SearchSelectComponent implements OnInit {
     this.emitSelections.emit(this.selections);
   }
 
-  @HostListener('document:click', ['$event'])
-  clickout(event) {
-    if(this.eRef.nativeElement.contains(event.target)) {
-      console.log('Clicked within search component');
-    } else {
-      console.log('Clicked outside search component');
-      //this.skillExists = true;
-      //this.skillExistsEmitter.emit(this.skillExists);
-    }
-  }
+  // @HostListener('document:click', ['$event'])
+  // clickout(event) {
+  //   if(this.eRef.nativeElement.contains(event.target)) {
+  //     console.log('Clicked within search component');
+  //   } else {
+  //     console.log('Clicked outside search component');
+  //     //this.skillExists = true;
+  //     //this.skillExistsEmitter.emit(this.skillExists);
+  //   }
+  // }
 
   termChanged(event) {
     this.searchTerm = event.target.value;
@@ -70,9 +64,9 @@ export class SearchSelectComponent implements OnInit {
 
 
   ngOnInit() {
-    // this.skillService
-    //   .retrieveAllSkills()
-    //   .subscribe(list => {this.allSkills = list; console.log(list)});
-    // this.options = this.allSkills;
+    this.skillService
+      .retrieveAllSkills()
+      .subscribe(list => {this.allSkills = list; console.log(list)});
+    this.options = this.allSkills;
   }
 }
