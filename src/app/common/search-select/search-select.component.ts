@@ -69,7 +69,5 @@ export class SearchSelectComponent implements OnInit {
         console.log("Skill already exists");
       }
     }
-   
-    
   }
 
