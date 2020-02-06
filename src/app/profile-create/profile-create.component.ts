@@ -18,7 +18,6 @@ export class ProfileCreateComponent implements OnInit {
   selectedSkills: Skill[] = [];
 
   skillsFilter: Skill;
-  //skillExists = true;
   skillTitle: string = '';
 
 
@@ -52,28 +51,4 @@ export class ProfileCreateComponent implements OnInit {
     console.log(this.newProfile);
   }
 
-  // changeSkillExists(skillExists: boolean){
-  //   this.skillExists = skillExists;
-  // }
-
-  // onClickOutside(){
-  //   this.skillExists = true;
-  // }
-
-  // addSkill(){
-  //   this.skillExists = true;
-  //   this.skillService.saveSkills(new Skill(0, this.skillTitle)).subscribe(
-  //     data => {
-  //       if(data){         
-  //       }
-  //     }, error => {
-  //         console.log('Error ', error);
-  //     }
-  //   )
-  // }
-
-  // changeSkillTitle(title: string){
-  //   this.skillTitle = title;
-  // }
-  
 }

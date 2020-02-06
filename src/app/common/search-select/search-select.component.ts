@@ -19,9 +19,7 @@ export class SearchSelectComponent implements OnInit {
   title = 'Skills';
   options: Skill[];
   allSkills: Skill[];
-  // @Output() skillExistsEmitter = new EventEmitter<any>();
   skillExists = true;
-  // @Output() skillTitleEmitter = new EventEmitter<any>();
   searchTerm: string = "";
   skillCreated = false;
 
@@ -31,17 +29,13 @@ export class SearchSelectComponent implements OnInit {
   }
 
   termChanged(searchTerm) {
-    //this.searchTerm = event.target.value;
     this.options = this.allSkills.filter(el =>
       el.title.toUpperCase().includes(this.searchTerm.toUpperCase())
     );
     if(this.options.length == 0){
       this.skillExists = false;
-      // this.skillExistsEmitter.emit(this.skillExists);
-      // this.skillTitleEmitter.emit(this.searchTerm);
     } else {
       this.skillExists = true;
-      // this.skillExistsEmitter.emit(this.skillExists);
     }
   }
 
