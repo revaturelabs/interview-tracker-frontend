@@ -52,8 +52,6 @@ export class SearchSelectComponent implements OnInit {
   }
 
   addSkill(searchTerm){
-    console.log('Enter has been pressed');
-    console.log(this.searchTerm);
     if(this.options.length == 0){
       this.skillService.saveSkills(new Skill(0, this.searchTerm)).subscribe(
         data => {
