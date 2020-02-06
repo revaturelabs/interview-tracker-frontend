@@ -23,7 +23,7 @@ export class LoginService {
     console.log('From Service: ' + user.username);
     console.log('From Service: ' + user.password);
 
-    return this.http.post<User>(this.url, user).pipe(map(this.extractData)).pipe(catchError(this.handleError));
+    return this.http.post<User>(this.url, user).pipe(map(this.extractData), catchError(this.handleError));
   }
 
   private extractData(res: any) {

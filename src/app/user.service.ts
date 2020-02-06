@@ -34,5 +34,4 @@ export class UserService {
     }
     return Observable.throwError(errMsg);
   }
-
 }

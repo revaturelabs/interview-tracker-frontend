@@ -30,7 +30,7 @@ describe('UserService', () => {
   });
 
   describe('retrieveAllUsers', () =>{
-    it('should return all users ', () => {
+    it('should return all users ', async() => {
       const userResponse = [{
         id: 0,
         firstName: "Larry",
@@ -55,9 +55,10 @@ describe('UserService', () => {
       const req = httpMock.expectOne('http://localhost:8765/interview-service/users/allusers');
       expect(req.request.method).toBe('GET');
       req.flush(userResponse);
+      httpMock.verify();
     });
 
-    it('should throw an http error', () => {
+    it('should throw an http error', async() => {
       let response: any;
       let errResponse: any;
       const mockErrorResponse = { status: 400, statusText: 'Bad Request' };
@@ -65,6 +66,8 @@ describe('UserService', () => {
       userService.retrieveAllUsers().subscribe(res => response = res, err => errResponse = err);
       httpMock.expectOne('http://localhost:8765/interview-service/users/allusers').flush(data, mockErrorResponse);
       expect(isEqual(errResponse, data)).toBe(true);
+      httpMock.verify();
+
     }); 
   });
 });

@@ -29,7 +29,7 @@ describe('LoginService', () => {
   });
 
   describe('getUserInfo', () => {
-    it('should return user information', () => {
+    it('should return user information', async() => {
       const user = {
         id: 3,
         firstName: "Frank",
@@ -44,8 +44,9 @@ describe('LoginService', () => {
         const req = httpMock.expectOne('http://localhost:8765/user/login');
         expect(req.request.method).toBe('POST');
         req.flush(user);
+        httpMock.verify();
     });
-    it('should fail when a user does not exist for that login attempt', () => {
+    it('should fail when a user does not exist for that login attempt', async() => {
         const user = {
           id: 4,
           firstName: "Daniel",
@@ -67,6 +68,7 @@ describe('LoginService', () => {
         loginService.getUserInfo(login).subscribe(res => response = res, err => errResponse = err);
         httpMock.expectOne('http://localhost:8765/user/login').flush(data, mockErrorResponse);
         expect(isEqual(errResponse, data)).toBe(true);
+        httpMock.verify();
     });
   });
 });
