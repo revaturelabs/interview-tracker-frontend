@@ -28,4 +28,12 @@ describe('ProfileCreateComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  xit('should register profile', () => {
+
+  });
+
+  xit('should handle skill selection', () => {
+
+  });
 });
