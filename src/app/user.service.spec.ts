@@ -1,8 +1,7 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed, getTestBed } from '@angular/core/testing';
-import { Observable } from 'rxjs/Observable';
 import { UserService } from './user.service';
-import { of } from 'rxjs';
+import { isEqual } from 'lodash/lang';
 
 describe('UserService', () => {
   let injector: TestBed;
@@ -58,15 +57,14 @@ describe('UserService', () => {
       req.flush(userResponse);
     });
 
-    // it('should throw an http error', () => {
-    //   let response: any;
-    //   let errResponse: any;
-    //   const mockErrorResponse = { status: 400, statusText: 'Bad Request' };
-    //   const data = 'There was an error getting all users.';
-    //   userService.retrieveAllUsers().subscribe(res => response = res, err => errResponse = err);
-    //   httpMock.expectOne('http://localhost:8765/interview-service/users/allusers').flush(data, mockErrorResponse);
-    //   expect(errResponse).toBe(data);
-    // }); 
-    // Test not currently working: Expected TypeError: rxjs_Observable__WEBPACK_IMPORTED_MODULE_3__.Observable.throw is not a function to be 'There was an error getting all users.'.
+    it('should throw an http error', () => {
+      let response: any;
+      let errResponse: any;
+      const mockErrorResponse = { status: 400, statusText: 'Bad Request' };
+      const data = 'There was an error getting all users.';
+      userService.retrieveAllUsers().subscribe(res => response = res, err => errResponse = err);
+      httpMock.expectOne('http://localhost:8765/interview-service/users/allusers').flush(data, mockErrorResponse);
+      expect(isEqual(errResponse, data)).toBe(true);
+    }); 
   });
 });

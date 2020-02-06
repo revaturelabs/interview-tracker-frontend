@@ -3,6 +3,7 @@ import User from './models/User';
 import { HttpClient } from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import { map, catchError } from 'rxjs/operators';
+import 'rxjs/add/observable/throw';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +11,9 @@ import { map, catchError } from 'rxjs/operators';
 export class UserService {
 
   constructor(private http: HttpClient) { }
-  retrieveAllUsers() {
+  retrieveAllUsers(): Observable<any> {
     const url = 'http://localhost:8765/interview-service/users/allusers';
-    return this.http.get(url, {}).pipe(map(this.extractData)).pipe(catchError(this.handleError));
+    return this.http.get<User[]>(url, {}).pipe(map(this.extractData)).pipe(catchError(this.handleError));
   }
 
   private extractData(res: any) {
@@ -31,7 +32,7 @@ export class UserService {
     } catch(e){
       errMsg = 'There was an error getting all users.';
     }
-    return Observable.throw(new Error(errMsg));
+    return Observable.throwError(errMsg);
   }
 
 }
