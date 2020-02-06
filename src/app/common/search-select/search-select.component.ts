@@ -54,4 +54,23 @@ export class SearchSelectComponent implements OnInit {
       .subscribe(list => {this.allSkills = list; console.log(list)});
     this.options = this.allSkills;
   }
-}
+
+  addSkill(event){
+    console.log('Enter has been pressed');
+    console.log(event.target.value);
+    if(this.options.length == 0){
+      this.skillService.saveSkills(new Skill(0, event.target.value)).subscribe(
+        data => {
+          if(data){         
+          }
+        }, error => {
+            console.log('Error ', error);
+        }
+      );
+      } else {
+        console.log("Skill already exists");
+      }
+      this.skillExists = true;
+    }
+  }
+
