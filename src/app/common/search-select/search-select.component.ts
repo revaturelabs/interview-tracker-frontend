@@ -12,7 +12,6 @@ export class SearchSelectComponent implements OnInit {
   constructor(private skillService: SkillService,
     private eRef: ElementRef) {
     this.allSkills = [];
-    this.skillExistsEmitter.emit(this.skillExists);
   }
 
   selections = new FormControl();
