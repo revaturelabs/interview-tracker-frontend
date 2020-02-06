@@ -39,17 +39,9 @@
       </div>
 
       <div>
-        <app-search-select (emitSelections)="skillSelectionHandler($event)" (skillExistsEmitter)="changeSkillExists($event)" (skillTitleEmitter)="changeSkillTitle($event)" ></app-search-select>
-        <br>
-        <div *ngIf="!skillExists">
-          <span>
-
-            <button mat-flat-button class="button-submit btn" matTooltipClass="custom-tooltip" matTooltip="Add Skill: {{skillTitle}}" matTooltipPosition="right"  [disabled]="skillExists" (click)="addSkill()"  >Add Skill</button>
-          </span>
-          
-        </div>
+        <app-search-select (emitSelections)="skillSelectionHandler($event)"></app-search-select>
       </div>
-        
+      <!-- (skillExistsEmitter)="changeSkillExists($event)" (skillTitleEmitter)="changeSkillTitle($event)" -->
       <br>
       <button mat-flat-button class="button-submit btn" type="submit" (click)="registerProfile()">Register
         Profile</button>

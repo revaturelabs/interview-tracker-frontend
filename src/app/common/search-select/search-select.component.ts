@@ -19,32 +19,34 @@ export class SearchSelectComponent implements OnInit {
   title = 'Skills';
   options: Skill[];
   allSkills: Skill[];
-  @Output() skillExistsEmitter = new EventEmitter<any>();
+  // @Output() skillExistsEmitter = new EventEmitter<any>();
   skillExists = true;
-  @Output() skillTitleEmitter = new EventEmitter<any>();
+  // @Output() skillTitleEmitter = new EventEmitter<any>();
   searchTerm: string = "";
+  skillCreated = false;
 
 
   selectOption() {
     this.emitSelections.emit(this.selections);
   }
 
-  termChanged(event) {
-    this.searchTerm = event.target.value;
+  termChanged(searchTerm) {
+    //this.searchTerm = event.target.value;
     this.options = this.allSkills.filter(el =>
       el.title.toUpperCase().includes(this.searchTerm.toUpperCase())
     );
     if(this.options.length == 0){
       this.skillExists = false;
-      this.skillExistsEmitter.emit(this.skillExists);
-      this.skillTitleEmitter.emit(this.searchTerm);
+      // this.skillExistsEmitter.emit(this.skillExists);
+      // this.skillTitleEmitter.emit(this.searchTerm);
     } else {
       this.skillExists = true;
-      this.skillExistsEmitter.emit(this.skillExists);
+      // this.skillExistsEmitter.emit(this.skillExists);
     }
   }
 
   resetOptions() {
+    this.allSkills
     this.options = this.allSkills;
   }
 
@@ -55,13 +57,17 @@ export class SearchSelectComponent implements OnInit {
     this.options = this.allSkills;
   }
 
-  addSkill(event){
+  addSkill(searchTerm){
     console.log('Enter has been pressed');
-    console.log(event.target.value);
+    console.log(this.searchTerm);
     if(this.options.length == 0){
-      this.skillService.saveSkills(new Skill(0, event.target.value)).subscribe(
+      this.skillService.saveSkills(new Skill(0, this.searchTerm)).subscribe(
         data => {
-          if(data){         
+          if(data){    
+            this.skillExists = true;
+            this.skillCreated = true;
+            this.allSkills.push(new Skill(0, this.searchTerm));   
+            setTimeout(()=>{ this.searchTerm = ""; this.skillCreated=false; }, 1100)  
           }
         }, error => {
             console.log('Error ', error);
@@ -70,7 +76,8 @@ export class SearchSelectComponent implements OnInit {
       } else {
         console.log("Skill already exists");
       }
-      this.skillExists = true;
     }
+   
+    
   }
 
