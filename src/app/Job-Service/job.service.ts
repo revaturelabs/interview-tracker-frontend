@@ -27,14 +27,12 @@ export class JobService {
   }
 
   getAllJobAtPage(page: number, useFilter: boolean = false, value: string = "", skillIds: number[] = null) {
-    // let tempIds = [1, 2];
-    // let tempIdStrs = tempIds.join(",");
-    // console.log(tempIdStrs);
+    
     let headers = new HttpHeaders({
       "Content-Type": "application/JSON",
       "usefilter": useFilter == true ? "1" : "0",
       "value": value,
-      "skillids": skillIds.join(",")
+      "skillids": skillIds != null ? skillIds.join(",") : ""
     });
     return this.httpServ.get<Job[]>(this.url + '/allJobs/' + page, { headers });
   }
