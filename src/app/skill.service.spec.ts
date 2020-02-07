@@ -49,13 +49,8 @@ afterEach(() => {
       }, err => errResponse = err);
       
       const req = httpMock.expectOne('http://localhost:8765/interview-service/skills/allSkills');
-      if(errResponse === undefined){
       expect(req.request.method).toBe('GET');
       req.flush(skillResponse);
-      }else {
-        expect(isEqual(data, mockErrorResponse)).toBe(true);
-        req.flush(data, mockErrorResponse);
-      }
       httpMock.verify();
     });
 

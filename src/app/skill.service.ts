@@ -24,11 +24,7 @@ export class SkillService {
   constructor(private http: HttpClient) { }
 
   retrieveAllSkills(): Observable<any> {
-    return this.http.get<Skill[]>(this.url1, {}).pipe(map(this.extractData)).pipe(catchError(this.handleError));
-  }
-  private extractData(res: any){
-    let body = res.json();
-    return body || {}
+    return this.http.get<Skill[]>(this.url1, {}).pipe(catchError(this.handleError));
   }
 
   private handleError(error: any){
