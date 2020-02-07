@@ -2,6 +2,7 @@ import { TestBed, getTestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { LoginService } from './login.service';
 import { isEqual } from 'lodash/lang';
+import { createUrlResolverWithoutPackagePrefix } from '@angular/compiler';
 
 
 describe('LoginService', () => {
@@ -37,13 +38,21 @@ describe('LoginService', () => {
         password: "doctor",
         username: "mshelley"
       }
-      
+      const mockErrorResponse = { status: 400, statusText: 'Bad Request' };
+      const data = 'There was an error logging in.';
+      let errResponse: any;
       loginService.getUserInfo(user).subscribe(res => {
         expect(res).toEqual(user);
-      });
+      }, err => errResponse = err);
         const req = httpMock.expectOne('http://localhost:8765/user/login');
-        expect(req.request.method).toBe('POST');
-        req.flush(user);
+        //req.flush(data, mockErrorResponse);
+        if(errResponse === undefined){
+          expect(req.request.method).toBe('POST');
+          req.flush(user);
+        } else {
+          expect(isEqual(data, errResponse)).toBe(true);
+          req.flush(data, errResponse);
+        }
         httpMock.verify();
     });
     it('should fail when a user does not exist for that login attempt', async() => {

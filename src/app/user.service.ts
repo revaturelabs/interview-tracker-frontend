@@ -25,11 +25,13 @@ export class UserService {
     let errMsg: string;
     try {
       if(JSON.parse(error._body)) {
+        console.log(error._body);
         errMsg = JSON.parse(error._body);
-      } else {
-        errMsg = 'There was an error getting all users.';
       }
     } catch(e){
+      errMsg = 'There was an error getting all users.';
+    }
+    if(errMsg === undefined || errMsg == ''){
       errMsg = 'There was an error getting all users.';
     }
     return Observable.throwError(errMsg);

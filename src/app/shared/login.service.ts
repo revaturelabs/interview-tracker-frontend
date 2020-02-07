@@ -35,11 +35,13 @@ export class LoginService {
     let errMsg: string;
     try {
       if(JSON.parse(error._body)) {
+        console.log(error._body);
         errMsg = JSON.parse(error._body);
-      } else {
-        errMsg = 'There was an error logging in.';
       }
     } catch(e){
+      errMsg = 'There was an error logging in.';
+    }
+    if(errMsg === undefined || errMsg == ''){
       errMsg = 'There was an error logging in.';
     }
     return Observable.throwError(errMsg);
