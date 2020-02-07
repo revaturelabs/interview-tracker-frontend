@@ -65,7 +65,7 @@ describe('UserService', () => {
       httpMock.verify();
     });
 
-    it('should throw an http error', async() => {
+    it('should throw an http error if the request is bad', async() => {
       let response: any;
       let errResponse: any;
       const mockErrorResponse = { status: 400, statusText: 'Bad Request' };
