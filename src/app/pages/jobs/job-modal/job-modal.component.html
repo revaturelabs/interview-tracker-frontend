@@ -40,12 +40,10 @@
                             </mat-chip>
                         </mat-chip-list>
                     </div>
-                    <div *ngIf='job.filled' id='filledprofile'>
-                        <h4 class='title areas'>Filled By</h4>
-                        <br>
-                        {{ job.profile.firstName }} {{ job.profile.lastName }}
+                    <div *ngIf='job.isFilled' id='filledprofile'>
+                        <p>Job was filled.</p>
                     </div>
-                    <div *ngIf='!job.filled' id='newinterview' class='item'>
+                    <div *ngIf='!job.isFilled' id='newinterview' class='item'>
                         <h4 class='title areas'>Schedule New Interviews</h4>
                         <mat-form-field>
                             <mat-select [formControl]="candSelect" multiple>
@@ -61,7 +59,7 @@
                         </mat-chip-list>
                     </div>
                 </div>
-                <div *ngIf='!job.filled' id='centerbutton'>
+                <div *ngIf='!job.isFilled' id='centerbutton'>
                     <div *ngIf='candSelect.value != null'>
                         <br>
                         <div *ngIf='candSelect.value.length == 1'>

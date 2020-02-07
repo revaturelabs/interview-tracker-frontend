@@ -2,6 +2,7 @@
   <app-mini-searchbar
     (searchTermChanged)="onSearchTermChanged($event)"
   ></app-mini-searchbar>
+  <label *ngIf="noEntry">No matching entries found</label>
 
   <div class='left-col'>
     <div class='job-form-1'>
