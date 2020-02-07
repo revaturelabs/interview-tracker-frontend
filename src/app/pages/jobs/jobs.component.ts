@@ -10,6 +10,7 @@ import { SkillService } from 'src/app/skill.service';
   templateUrl: './jobs.component.html',
   styleUrls: ['./jobs.component.scss']
 })
+
 export class JobsComponent implements OnInit {
   @Output()
   selections = new FormControl();

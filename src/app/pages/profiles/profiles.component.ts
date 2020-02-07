@@ -21,6 +21,7 @@ export class ProfilesComponent implements OnInit {
   public page: number;
   public atEnd: boolean = false;
   noEntry: boolean = false;
+
   onSearchTermChanged(e) {
     this.page = 0;
     this.noEntry = false;
