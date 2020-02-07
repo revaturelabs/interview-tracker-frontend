@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, HostListener, ElementRef } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ElementRef } from '@angular/core';
 import Skill from 'src/app/models/Skill';
 import { FormControl } from '@angular/forms';
 import { SkillService } from 'src/app/skill.service';
@@ -22,7 +22,6 @@ export class SearchSelectComponent implements OnInit {
   skillExists = true;
   searchTerm: string = "";
   skillCreated = false;
-
 
   selectOption() {
     this.emitSelections.emit(this.selections);
@@ -70,3 +69,4 @@ export class SearchSelectComponent implements OnInit {
       }
     }
   }
+
