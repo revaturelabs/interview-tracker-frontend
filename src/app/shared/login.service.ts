@@ -34,14 +34,8 @@ export class LoginService {
   private handleError(error: any) {
     let errMsg: string;
     try {
-      if(JSON.parse(error._body)) {
-        console.log(error._body);
         errMsg = JSON.parse(error._body);
-      }
     } catch(e){
-      errMsg = 'There was an error logging in.';
-    }
-    if(errMsg === undefined || errMsg == ''){
       errMsg = 'There was an error logging in.';
     }
     return Observable.throwError(errMsg);
