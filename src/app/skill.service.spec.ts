@@ -1,7 +1,6 @@
 import { SkillService } from 'src/app/skill.service';
 import { TestBed, getTestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { of } from 'rxjs/internal/observable/of';
 import { isEqual } from 'lodash/lang';
 
 describe('SkillService', () => {
@@ -10,7 +9,6 @@ describe('SkillService', () => {
   let httpMock: HttpTestingController;
 
   beforeEach(() => {
-
     TestBed.configureTestingModule({
     imports: [HttpClientTestingModule],
     providers: [SkillService]
@@ -74,4 +72,3 @@ afterEach(() => {
       })
     });
   });
-

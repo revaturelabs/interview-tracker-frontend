@@ -74,7 +74,6 @@ describe('UserService', () => {
       httpMock.expectOne('http://localhost:8765/interview-service/users/allusers').flush(data, mockErrorResponse);
       expect(isEqual(errResponse, data)).toBe(true);
       httpMock.verify();
-
     }); 
   });
 });

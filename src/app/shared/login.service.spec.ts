@@ -2,7 +2,6 @@ import { TestBed, getTestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { LoginService } from './login.service';
 import { isEqual } from 'lodash/lang';
-import { createUrlResolverWithoutPackagePrefix } from '@angular/compiler';
 
 
 describe('LoginService', () => {

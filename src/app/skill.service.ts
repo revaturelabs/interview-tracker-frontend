@@ -50,7 +50,4 @@ export class SkillService {
   saveSkills(skill: Skill) {
     return this.http.post<boolean>(this.url2, skill);
   }
-
-
-
 }
