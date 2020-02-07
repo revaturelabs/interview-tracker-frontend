@@ -24,14 +24,8 @@ export class UserService {
   private handleError(error: any) {
     let errMsg: string;
     try {
-      if(JSON.parse(error._body)) {
-        console.log(error._body);
-        errMsg = JSON.parse(error._body);
-      }
+      errMsg = JSON.parse(error._body);
     } catch(e){
-      errMsg = 'There was an error getting all users.';
-    }
-    if(errMsg === undefined || errMsg == ''){
       errMsg = 'There was an error getting all users.';
     }
     return Observable.throwError(errMsg);

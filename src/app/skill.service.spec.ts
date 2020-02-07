@@ -5,7 +5,7 @@ import { isEqual } from 'lodash/lang';
 
 describe('SkillService', () => {
   let injector: TestBed;
-  let skillService: SkillService; //added for testing
+  let skillService: SkillService;
   let httpMock: HttpTestingController;
 
   beforeEach(() => {
@@ -22,7 +22,6 @@ afterEach(() => {
 });
 
   it('should be created', () => {
-    // const service: SkillService = TestBed.get(SkillService);
     expect(skillService).toBeTruthy();
   });
   describe('retrieveAllSkills', () => {
