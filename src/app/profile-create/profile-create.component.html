@@ -1,9 +1,7 @@
-<div class='job-page'>
+<div class='job-page' >
   <div class='left-col'>
     <div class='job-form-1'>
 
-      <!-- <form #myForm="ngForm" (ngSubmit)="registerProfile(myForm)" style="padding: 10px 40px;" ngNativeValidate>
- -->
       <div class='create-form-title'>
         <h2>Create A New Profile</h2>
       </div>
@@ -38,36 +36,14 @@
         </mat-form-field>
       </div>
 
-      <app-search-select (emitSelections)="skillSelectionHandler($event)"></app-search-select>
-      <br>
+      <div>
+        <app-search-select (emitSelections)="skillSelectionHandler($event)"></app-search-select>
+      </div>
       <br>
       <button mat-flat-button class="button-submit btn" type="submit" (click)="registerProfile()">Register
         Profile</button>
-
     </div>
   </div>
 </div>
 
 
-<!-- <div class="col-xs-5">
-  <input [(ngModel)]=newProfile.firstName type="text" class="form-control" placeholder="Firstname">
-</div>
-<div class="col-xs-5">
-  <input [(ngModel)]=newProfile.lastName type="text" class="form-control" placeholder="Lastname">
-</div>
-
-<div class="col-xs-10">
-  <input [(ngModel)]=newProfile.location type="text" class="form-control" placeholder="Location">
-</div>
-
-<div class="col-xs-5">
-  <input [(ngModel)]=newProfile.emailAddress type="email" class="form-control" placeholder="Email">
-</div>
-<div class="col-xs-5">
-  <input [(ngModel)]=newProfile.description type="text" class="form-control" placeholder="Description">
-</div>
-
-
-<div class="col-xs-5">
-  <button type="submit" (click)="registerProfile()" class="btn btn-cm_default text-center">Register Profile</button>
-</div> -->

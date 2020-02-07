@@ -1,15 +1,22 @@
 <mat-form-field>
   <mat-select [formControl]="selections" (focus)="resetOptions()" placeholder="{{ title }}" multiple>
     <mat-option>
-      <ngx-mat-select-search (input)="termChanged($event)" ></ngx-mat-select-search>
+      <ngx-mat-select-search [(ngModel)]="searchTerm" (input)="termChanged(searchTerm)" (keydown.enter)="addSkill(searchTerm)"></ngx-mat-select-search>
     </mat-option>
     <mat-option (click)="selectOption()" *ngFor="let option of options" [value]="option">
-      {{ option.title }}
+        {{ option.title }}
     </mat-option>
   </mat-select>
 </mat-form-field>
-
+<div *ngIf="!skillExists">
+  <span>Skill does not exist. Press enter to add skill</span>
+</div>
+<div *ngIf="skillCreated">
+  <span>Skill '{{searchTerm}}' has been created.</span>
+</div>
+<br>
 <mat-chip-list class="selection_pool">
+   Profile Skills: 
     <mat-chip
       *ngFor="let selection of selections.value"
       class="selection"

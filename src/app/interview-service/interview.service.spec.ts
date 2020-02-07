@@ -1,12 +1,20 @@
 import { TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { InterviewService } from './interview.service';
 
 describe('InterviewService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+let interviewService: InterviewService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+    imports: [HttpClientTestingModule],
+    providers: [InterviewService]
+  });
+  interviewService =TestBed.get(InterviewService);
+});
 
   it('should be created', () => {
-    const service: InterviewService = TestBed.get(InterviewService);
-    expect(service).toBeTruthy();
+    // const service: InterviewService = TestBed.get(InterviewService);
+    expect(interviewService).toBeTruthy();
   });
 });
