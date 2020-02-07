@@ -9,9 +9,9 @@ import User from '../models/User';
 })
 export class InterviewerListComponent implements OnInit 
 {
-  private selections = new FormControl();
+  public selections = new FormControl();
   @Input() selectionList: User[];
-  private title = "Interviewers";
+  public title = "Interviewers";
 
   @Output() selectionChange = new EventEmitter();
   
