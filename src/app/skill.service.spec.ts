@@ -1,18 +1,26 @@
 import { SkillService } from 'src/app/skill.service';
-import { TestBed } from '@angular/core/testing';
+import { TestBed, getTestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { of } from 'rxjs/internal/observable/of';
-// import { SkillService } from './skill.service';
+import { isEqual } from 'lodash/lang';
 
 describe('SkillService', () => {
+  let injector: TestBed;
   let skillService: SkillService; //added for testing
+  let httpMock: HttpTestingController;
 
   beforeEach(() => {
+
     TestBed.configureTestingModule({
     imports: [HttpClientTestingModule],
     providers: [SkillService]
   });
-  skillService = TestBed.get(SkillService);//added for testing 
+  injector = getTestBed();
+  skillService = injector.get(SkillService);
+  httpMock = injector.get(HttpTestingController); 
+});
+afterEach(() => {
+  httpMock.verify();
 });
 
   it('should be created', () => {
@@ -35,47 +43,35 @@ describe('SkillService', () => {
           title: 'JavaScript'
         }
       ];
-      let response;
-      spyOn(skillService, 'retrieveAllSkills').and.returnValue(of(skillResponse));
-
+      let errResponse: any;
+      const mockErrorResponse = { status: 400, statusText: 'Bad Request' };
+      const data = 'There was an error getting all skills.';
       skillService.retrieveAllSkills().subscribe(res => {
-        response = res;
-      });
-      expect(response).toEqual(skillResponse);
-    });
-
-    describe('saveSkills',() => {
-      it('should return true', () => {
-        const testSkill = {
-          id: 3,
-          title: 'JavaScript'
-        }
-        let response;
-        spyOn(skillService, 'saveSkills').and.returnValue(of(true));
-
-        skillService.saveSkills(testSkill).subscribe(res => {
-          response = res;
-        });
-        expect(response).toBe(true);
-      });
-
-    });
-  });
-  describe('saveSkills',() => {
-    it('should return false', () => {
-      const testSkill = {
-        id: 3,
-        title: 'JavaScript'
+        expect(res.length).toBe(3);
+       expect(res).toEqual(skillResponse);
+      }, err => errResponse = err);
+      
+      const req = httpMock.expectOne('http://localhost:8765/interview-service/skills/allSkills');
+      if(errResponse === undefined){
+      expect(req.request.method).toBe('GET');
+      req.flush(skillResponse);
+      }else {
+        expect(isEqual(data, mockErrorResponse)).toBe(true);
+        req.flush(data, mockErrorResponse);
       }
-      let response;
-      spyOn(skillService, 'saveSkills').and.returnValue(of(false));
-
-      skillService.saveSkills(testSkill).subscribe(res => {
-        response = res;
-      });
-      expect(response).toBe(false);
+      httpMock.verify();
     });
-    
+
+      it('should throw an http error', () => {
+        let response: any;
+        let errResponse: any;
+        const mockErrorResponse = { status: 400, statusText: 'Bad Request' };
+        const data = 'There was an error getting all skills.';
+        skillService.retrieveAllSkills().subscribe(res => response = res, err => errResponse = err);
+        httpMock.expectOne('http://localhost:8765/interview-service/skills/allSkills').flush(data, mockErrorResponse);
+        expect(isEqual(errResponse, data)).toBe(true);
+        httpMock.verify();
+      })
+    });
   });
-});
 

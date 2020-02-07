@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import Skill from './models/Skill';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
+import 'rxjs/add/observable/throw';
 
 @Injectable({
   providedIn: 'root'
@@ -21,8 +23,28 @@ export class SkillService {
 
   constructor(private http: HttpClient) { }
 
-  retrieveAllSkills() {
-    return this.http.get<Skill[]>(this.url1, {});
+  retrieveAllSkills(): Observable<any> {
+    return this.http.get<Skill[]>(this.url1, {}).pipe(map(this.extractData)).pipe(catchError(this.handleError));
+  }
+  private extractData(res: any){
+    let body = res.json();
+    return body || {}
+  }
+
+  private handleError(error: any){
+    let errMsg: string;
+    try{
+      if(JSON.parse(error._body)){
+        console.log(error._body);
+        errMsg = JSON.parse(error._body);
+      }
+    } catch(e){
+      errMsg = 'There was an error getting all skills.';
+    }
+    if(errMsg === undefined || errMsg == ''){
+      errMsg = 'There was an error getting all skills'
+    }
+    return Observable.throwError(errMsg);
   }
 
   saveSkills(skill: Skill) {
