@@ -28,13 +28,16 @@ export class JobService {
 
   getAllJobAtPage(page: number, useFilter: boolean = false, value: string = "", skillIds: number[] = null) {
     
-    let headers = new HttpHeaders({
-      "Content-Type": "application/JSON",
-      "usefilter": useFilter == true ? "1" : "0",
-      "value": value,
-      "skillids": skillIds != null ? skillIds.join(",") : ""
-    });
-    return this.httpServ.get<Job[]>(this.url + '/allJobs/' + page, { headers });
+    let idstr: string = skillIds != null ? skillIds.join(",") : "";
+    let params: string = "?filtervalue="+value+"&skillids="+idstr;
+
+    // let headers = new HttpHeaders({
+    //   "Content-Type": "application/JSON",
+    //   "usefilter": useFilter == true ? "1" : "0",
+    //   "value": value,
+    //   "skillids": skillIds != null ? skillIds.join(",") : ""
+    // });
+    return this.httpServ.get<Job[]>(this.url + '/allJobs/' + page + params);
   }
 
   getByTitle(title: string) {

@@ -19,6 +19,7 @@ export class JobsComponent implements OnInit {
   public atEnd: boolean = false;
   options: Skill[];
   allSkills: Skill[];
+  noEntry: boolean = false;
 
   constructor(private jobServ: JobService, private skillServ: SkillService, ) { }
 
@@ -40,6 +41,7 @@ export class JobsComponent implements OnInit {
   //need look here..
   onSearchTermChanged(e) {
     this.page = 0;
+    this.noEntry=false;
     let ids: number[] = [];
     if (this.selections.value != null) {
       for (let i = 0; i < this.selections.value.length; i++) {
@@ -49,7 +51,10 @@ export class JobsComponent implements OnInit {
 
     this.jobServ.getAllJobAtPage(this.page, true, e, ids).subscribe(data => {
       this.jobs = data;
-      if (data.length < 10) {
+      if (data.length == 0) {
+        this.noEntry = true;
+        this.atEnd = true;
+      }else if (data.length < 10) {
         this.atEnd = true;
       }
     });
