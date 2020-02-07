@@ -70,4 +70,3 @@ export class SearchSelectComponent implements OnInit {
       }
     }
   }
-
