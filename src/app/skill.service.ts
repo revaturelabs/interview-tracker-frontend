@@ -24,22 +24,19 @@ export class SkillService {
   constructor(private http: HttpClient) { }
 
   retrieveAllSkills(): Observable<any> {
-    return this.http.get<Skill[]>(this.url1, {}).pipe(map(this.extractData)).pipe(catchError(this.handleError));
-  }
-  private extractData(res: any){
-    let body = res.json();
-    return body || {}
+    return this.http.get<Skill[]>(this.url1, {}).pipe(catchError(this.handleError));
   }
 
-  private handleError(error: any){
-    let errMsg: string;
-    try{
-        errMsg = JSON.parse(error._body);      
-    } catch(e){
-      errMsg = 'There was an error getting all skills.';
+    private handleError(error: any){
+      let errMsg: string;
+      try{
+          console.log(error);
+          errMsg = JSON.parse(error._body);      
+      } catch(e){
+        errMsg = 'There was an error getting all skills.';
+      }
+      return Observable.throwError(errMsg);
     }
-    return Observable.throwError(errMsg);
-  }
 
   saveSkills(skill: Skill) {
     return this.http.post<boolean>(this.url2, skill);
