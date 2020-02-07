@@ -22,7 +22,6 @@ afterEach(() => {
 });
 
   it('should be created', () => {
-    // const service: SkillService = TestBed.get(SkillService);
     expect(skillService).toBeTruthy();
   });
   describe('retrieveAllSkills', () => {
