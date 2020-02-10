@@ -1,31 +1,25 @@
 import { TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { InterviewService } from './interview.service';
 
 describe('InterviewService', () => {
-  let service: InterviewService;
+let interviewService: InterviewService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      providers: [InterviewService]
-    });
-
-    service = TestBed.get(InterviewService);
-    spyOn(service, 'retrieveAllInterviews');
-    spyOn(service, 'retrieveInterviewById');
-    spyOn(service, 'retrieveInterviewByJobId');
-    spyOn(service, 'saveInterview');
-    spyOn(service, 'retrieveInterviewsByProfileId');
-    spyOn(service, 'retrieveInterviewsByDate');
+    imports: [HttpClientTestingModule],
+    providers: [InterviewService]
   });
+  interviewService =TestBed.get(InterviewService);
+});
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    // const service: InterviewService = TestBed.get(InterviewService);
+    expect(interviewService).toBeTruthy();
   });
 
   xit('should retrieve all interviews when calling retrieveAllInterviews', () => {
 
-    service.retrieveAllInterviews();
+    interviewService.retrieveAllInterviews();
   });
 });

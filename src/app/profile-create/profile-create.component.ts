@@ -18,6 +18,7 @@ export class ProfileCreateComponent implements OnInit {
   selectedSkills: Skill[] = [];
 
   skillsFilter: Skill;
+  skillTitle: string = '';
 
 
   constructor(private profileService: ProfileService, private skillService: SkillService, private router: Router) { }

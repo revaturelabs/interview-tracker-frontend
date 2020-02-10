@@ -25,8 +25,10 @@
     "@fullcalendar/core": "^4.3.1",
     "@fullcalendar/daygrid": "^4.3.0",
     "angular": "^1.7.9",
+    "lodash": "^4.17.15",
     "ngx-mat-select-search": "^2.1.1",
-    "rxjs": "~6.4.0",
+    "rxjs": "^6.4.0",
+    "rxjs-compat": "^6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },
