@@ -33,20 +33,4 @@ describe('SearchSelectComponent', () => {
     fixture.detectChanges();
     de = fixture.debugElement;
   });
-
-  xit('should populate via ngOnInit', () => {
-
-  });
-
-  xdescribe('selectOption', () => {
-
-  });
-
-  xdescribe('termChanged', () => {
-
-  });
-
-  xdescribe('resetOptions', () => {
-
-  });
 });

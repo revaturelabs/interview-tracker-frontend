@@ -30,7 +30,7 @@ export class ProfileService {
 
   retrieveAllProfilesAtPage(page: number, useFilter: boolean = false, value: string = "", skillIds: number[] = null) {
     let idstr: string = skillIds != null ? skillIds.join(",") : "";
-    let params: string = "?filtervalue=" + value + "&skillids=" + idstr;
+    let params: string = "?filtertext=" + value + "&skillids=" + idstr;
 
     return this.http.get<Profile[]>(this.url1 + "/" + page + params);
   }

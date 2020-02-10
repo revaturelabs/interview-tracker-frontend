@@ -30,12 +30,4 @@ describe('FabComponent', () => {
     component.activate();
     expect(component.activated).toBe(true);
   });
-
-  xit('should reroute to create-jobs', () => {
-
-  });
-
-  xit('should reroute to profile-create', () => {
-
-  });
 });
