@@ -14,27 +14,27 @@ export class JobService {
   constructor(private httpServ: HttpClient) { }
 
   saveJob(job: Job) {
-    return this.httpServ.post<Job>(this.url + '/saveJob', job);
+    return this.httpServ.post<Job>(this.url, job);
   }
 
   updateJob(job: Job) {
-    return this.httpServ.patch<boolean>(this.url + '/updateJob', job);
+    return this.httpServ.patch<boolean>(this.url, job);
   }
 
   getAllJobs() {
-    return this.httpServ.get<Job[]>(this.url + '/allJobs');
+    return this.httpServ.get<Job[]>(this.url);
   }
 
   getAllJobAtPage(page: number) {
-    return this.httpServ.get<Job[]>(this.url + '/allJobs/' + page);
+    return this.httpServ.get<Job[]>(this.url + '/' + page);
   }
 
   getByTitle(title: string) {
-    return this.httpServ.get<Job>(this.url + '/jobTitle/' + title);
+    return this.httpServ.get<Job>(this.url + '/title/' + title);
   }
 
   getByTitlePaged(title: string, page: number) {
-    return this.httpServ.get<Job>(this.url + '/jobTitle/' + title + '/' + page);
+    return this.httpServ.get<Job>(this.url + '/title/' + title + '/' + page);
   }
 
 }

@@ -10,12 +10,12 @@ export class InterviewService {
   constructor(private http: HttpClient) { }
 
   retrieveAllInterviews() {
-    const url = 'http://localhost:8765/interview-service/interviews/allInterviews';
+    const url = 'http://localhost:8765/interview-service/interviews';
     return this.http.get<Interview[]>(url, {});
   }
 
   retrieveInterviewById(id: number) {
-    const url = 'http://localhost:8765/interview-service/interviews/id/' + id;
+    const url = 'http://localhost:8765/interview-service/interviews/' + id;
     return this.http.get<Interview[]>(url, {});
   }
 
@@ -25,9 +25,7 @@ export class InterviewService {
   }
 
   saveInterview(newInterview: Interview) {
-    const url = 'http://localhost:8765/interview-service/interviews/saveInterview';
-    console.log(newInterview);
-    console.log('interview sent to back end');
+    const url = 'http://localhost:8765/interview-service/interviews';
     return this.http.post<boolean>(url, newInterview);
   }
 

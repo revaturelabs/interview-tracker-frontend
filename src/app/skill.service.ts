@@ -18,8 +18,8 @@ export class SkillService {
   private profileSkills = new BehaviorSubject<Skill>(null);
   profileSkills$ = this.profileSkills.asObservable();
 
-  private url1 = 'http://localhost:8765/interview-service/skills/allSkills';
-  private url2 = 'http://localhost:8765/interview-service/skills/insertSkill';
+  private url1 = 'http://localhost:8765/interview-service/skills';
+
 
   constructor(private http: HttpClient) { }
 
@@ -39,6 +39,6 @@ export class SkillService {
     }
 
   saveSkills(skill: Skill) {
-    return this.http.post<boolean>(this.url2, skill);
+    return this.http.post<boolean>(this.url1, skill);
   }
 }

@@ -10,10 +10,6 @@ import { Observable } from 'rxjs';
 })
 export class ProfileService {
 
-    private url1 = 'http://localhost:8765/interview-service/profiles/allProfiles';
-
-    private url2 = 'http://localhost:8765/interview-service/profiles/saveProfile';
-
     constructor(private http: HttpClient) { }
 
   // retrieveAllProfiles(){
@@ -40,22 +36,22 @@ export class ProfileService {
 
 
   retrieveSomeProfiles(){
-    const url = "http://localhost:8765/interview-service/profiles/allProfiles/1";
+    const url = "http://localhost:8765/interview-service/profiles/1";
     return this.http.get<Profile[]>(url, {});
   }
 
   retrieveAllProfiles(): Observable<Profile[]>{
-    const url = "http://localhost:8765/interview-service/profiles/allProfiles";
+    const url = "http://localhost:8765/interview-service/profiles";
     return this.http.get<Profile[]>(url, {});
   }
   
   saveProfile(newProfile: Profile): Observable<any> {
-    const url = "http://localhost:8765/interview-service/profiles/saveProfile";
+    const url = "http://localhost:8765/interview-service/profiles";
     return this.http.post<Profile>(url, newProfile);
   }
 
   retrieveAllProfilesAtPage(page: number) {
-    const url = "http://localhost:8765/interview-service/profiles/allProfiles";
+    const url = "http://localhost:8765/interview-service/profiles";
     return this.http.get<Profile[]>(url +'/' +  page);
   }
 }
