@@ -27,8 +27,6 @@ export class InterviewService {
 
   saveInterview(newInterview: Interview) {
     const url = 'http://localhost:8765/interview-service/interviews/saveInterview';
-    console.log(newInterview);
-    console.log('interview sent to back end');
     return this.http.post<boolean>(url, newInterview).pipe(catchError(this.handleError));
   }
 

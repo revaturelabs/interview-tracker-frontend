@@ -1,22 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
-import { Router } from '@angular/router';
-
 import { FabComponent } from './fab.component';
 
 describe('FabComponent', () => {
   let component: FabComponent;
   let fixture: ComponentFixture<FabComponent>;
-  // class MockRouterService {
-  //   navigate() { }
-  // }
-  // const mockRouterService = new MockRouterService();
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ FabComponent ],
-      // providers: [ {provide: Router, useValue: mockRouterService} ],
       imports: [ RouterTestingModule ],
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })

@@ -20,9 +20,6 @@ export class LoginService {
     .set('username', user.username)
     .set('password', user.password);
 
-    console.log('From Service: ' + user.username);
-    console.log('From Service: ' + user.password);
-
     return this.http.post<User>(this.url, user).pipe(catchError(this.handleError));
   }
 
