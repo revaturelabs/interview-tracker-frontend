@@ -138,37 +138,6 @@ afterEach(() => {
   });
 
   describe('retrieveAllInterviews', () => {
-    it('should return all interviews', async() => {
-      const mockInterviews: Interview[] = [
-        {
-          id: 14,
-          profile: userProfiles[0],
-          date: new Date(2020, 2, 25, 10, 30, 0, 0),
-          isCompleted: false,
-          job: allJobs[0],
-          users: [users[0]]
-        },
-        {
-          id: 25,
-          profile: userProfiles[2],
-          date: new Date(2020, 2, 15, 16, 15, 0, 0),
-          isCompleted: false,
-          job: allJobs[0],
-          users: [users[1]]
-        }
-      ]
-      let errResponse: any;
-      interviewService.retrieveAllInterviews().subscribe(res => {
-        expect(res.length).toBe(2);
-        expect(res[0].id).toEqual(14);
-        expect(res[1].id).toEqual(25);
-        expect(isEqual(res, mockInterviews)).toBe(true);
-      }, err => errResponse = err);
-      const req = httpMock.expectOne('http://localhost:8765/interview-service/interviews/allInterviews');
-      expect(req.request.method).toBe('GET');
-      req.flush(mockInterviews);
-      httpMock.verify();
-    });
     it('should throw an http error if the request is bad', async() => {
       let response: any;
       let errResponse: any;
@@ -182,35 +151,6 @@ afterEach(() => {
   });
 
   describe('retrieveInterviewById', () => {
-    it('should return the correct interview', async() => {
-      const mockInterviews: Interview[] = [
-        {
-          id: 14,
-          profile: userProfiles[0],
-          date: new Date(2020, 2, 25, 10, 30, 0, 0),
-          isCompleted: false,
-          job: allJobs[0],
-          users: [users[0]]
-        },
-        {
-          id: 25,
-          profile: userProfiles[2],
-          date: new Date(2020, 2, 15, 16, 15, 0, 0),
-          isCompleted: false,
-          job: allJobs[0],
-          users: [users[1]]
-        }
-      ]
-      let errResponse: any;
-      interviewService.retrieveInterviewById(25).subscribe(res => {
-        expect(res.id).toBe(25);
-        expect(isEqual(res, mockInterviews[1])).toBe(true);
-      }, err => errResponse = err);
-      const req = httpMock.expectOne('http://localhost:8765/interview-service/interviews/id/' + 25);
-      expect(req.request.method).toBe('GET');
-      req.flush(mockInterviews[1]);
-      httpMock.verify();
-    });
     it('should throw an http error if the request is bad', async() => {
       let response: any;
       let errResponse: any;
@@ -224,35 +164,6 @@ afterEach(() => {
   });
 
   describe('retrieveInterviewByJobId', () => {
-    it('should return all interviews with the specific job id', async () => {
-      const mockInterviews: Interview[] = [
-        {
-          id: 14,
-          profile: userProfiles[0],
-          date: new Date(2020, 2, 25, 10, 30, 0, 0),
-          isCompleted: false,
-          job: allJobs[0],
-          users: [users[0]]
-        },
-        {
-          id: 25,
-          profile: userProfiles[2],
-          date: new Date(2020, 2, 15, 16, 15, 0, 0),
-          isCompleted: false,
-          job: allJobs[0],
-          users: [users[1]]
-        }
-      ]
-      let errResponse: any;
-      interviewService.retrieveInterviewByJobId(22).subscribe(res => {
-        expect(res.length).toBe(2);
-        expect(isEqual(res, mockInterviews)).toBe(true);
-      }, err => errResponse = err);
-      const req = httpMock.expectOne('http://localhost:8765/interview-service/interviews/job/' + 22);
-      expect(req.request.method).toBe('GET');
-      req.flush(mockInterviews);
-      httpMock.verify();
-    });
     it('should throw an http error if the request is bad', async() => {
       let response: any;
       let errResponse: any;
@@ -266,35 +177,6 @@ afterEach(() => {
   });
 
   describe('saveInterview', () => {
-    it('should save the interview and return true', async () => {
-      const mockInterviews: Interview[] = [
-        {
-          id: 14,
-          profile: userProfiles[0],
-          date: new Date(2020, 2, 25, 10, 30, 0, 0),
-          isCompleted: false,
-          job: allJobs[0],
-          users: [users[0]]
-        },
-        {
-          id: 25,
-          profile: userProfiles[2],
-          date: new Date(2020, 2, 15, 16, 15, 0, 0),
-          isCompleted: false,
-          job: allJobs[0],
-          users: [users[1]]
-        }
-      ]
-      let errResponse: any;
-      let newInterview = new Interview(mockInterviews[1]);
-      interviewService.saveInterview(newInterview).subscribe(res => {  
-        expect(res === true);
-      }, err => errResponse = err);
-      let req = httpMock.expectOne('http://localhost:8765/interview-service/interviews/saveInterview');
-      expect(req.request.method).toBe('POST');
-      req.flush(mockInterviews[1]);
-      httpMock.verify();
-    });
     it('should throw an http error if the request is bad', async() => {
       let response: any;
       let errResponse: any;
@@ -303,66 +185,6 @@ afterEach(() => {
       interviewService.saveInterview(new Interview()).subscribe(res => response = res, err => errResponse = err);
       httpMock.expectOne('http://localhost:8765/interview-service/interviews/saveInterview').flush(data, mockErrorResponse);
       expect(isEqual(errResponse, data)).toBe(true);
-      httpMock.verify();
-    });
-  });
-
-  describe('retrieveInterviewsByDate', () => {
-    it('should retrieve the correct interviews by date when filtered by year', async () => {
-      const mockInterviews: Interview[] = [
-        {
-          id: 14,
-          profile: userProfiles[0],
-          date: new Date(2020, 2, 25, 10, 30, 0, 0),
-          isCompleted: false,
-          job: allJobs[0],
-          users: [users[0]]
-        },
-        {
-          id: 25,
-          profile: userProfiles[2],
-          date: new Date(2020, 2, 15, 16, 15, 0, 0),
-          isCompleted: false,
-          job: allJobs[0],
-          users: [users[1]]
-        }
-      ]
-      let errResponse: any;
-      interviewService.retrieveInterviewsByDate(2020).subscribe(res => {
-        expect(res.length).toBe(2);
-        expect(isEqual(res, mockInterviews)).toBe(true);
-      }, err => errResponse = err);
-      let req = httpMock.expectOne('http://localhost:8765/interview-service/interviews/date/' + 2020);
-      expect(req.request.method).toBe('GET');
-      req.flush(mockInterviews);
-      httpMock.verify();
-    });
-    it('should retrieve the correct interviews by date when filtered by year, month, and day', async () => {
-      const mockInterviews: Interview[] = [
-        {
-          id: 14,
-          profile: userProfiles[0],
-          date: new Date(2020, 2, 25, 10, 30, 0, 0),
-          isCompleted: false,
-          job: allJobs[0],
-          users: [users[0]]
-        },
-        {
-          id: 25,
-          profile: userProfiles[2],
-          date: new Date(2020, 2, 15, 16, 15, 0, 0),
-          isCompleted: false,
-          job: allJobs[0],
-          users: [users[1]]
-        }
-      ]
-      let errResponse: any;
-      interviewService.retrieveInterviewsByDate(2020, 2, 25).subscribe(res => {
-        expect(isEqual(res, mockInterviews[0])).toBe(true);
-      }, err => errResponse = err);
-      let req = httpMock.expectOne('http://localhost:8765/interview-service/interviews/date/' + 2020 + '/' + 2 + '/' + 25);
-      expect(req.request.method).toBe('GET');
-      req.flush(mockInterviews[0]);
       httpMock.verify();
     });
   });

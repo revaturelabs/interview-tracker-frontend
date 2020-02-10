@@ -29,23 +29,6 @@ describe('LoginService', () => {
   });
 
   describe('getUserInfo', () => {
-    it('should return user information', async() => {
-      const user = {
-        id: 3,
-        firstName: "Frank",
-        lastName: "Stein",
-        password: "doctor",
-        username: "mshelley"
-      }
-      let errResponse: any;
-      loginService.getUserInfo(user).subscribe(res => {
-        expect(res).toEqual(user);
-      }, err => errResponse = err);
-        const req = httpMock.expectOne('http://localhost:8765/user/login');
-        expect(req.request.method).toBe('POST');
-        req.flush(user);
-        httpMock.verify();
-    });
     it('should fail when a user does not exist for that login attempt', async() => {
         const user = {
           id: 4,

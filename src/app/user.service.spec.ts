@@ -28,34 +28,7 @@ describe('UserService', () => {
     expect(userService).toBeTruthy();
   });
 
-  describe('retrieveAllUsers', () =>{
-    it('should return all users ', async() => {
-      const userResponse = [{
-        id: 0,
-        firstName: "Larry",
-        lastName: "King",
-        password: "",
-        username: "lking"
-      },
-      {
-        id: 1,
-        firstName: "Mary",
-        lastName: "Queen",
-        password: "secure",
-        username: "mqueen"
-      }
-    ];
-      let errResponse: any;
-      userService.retrieveAllUsers().subscribe(res => {
-        expect(res.length).toBe(2);
-        expect(res).toEqual(userResponse);
-      }, err => errResponse = err);
-      const req = httpMock.expectOne('http://localhost:8765/interview-service/users/allusers');
-      expect(req.request.method).toBe('GET');
-      req.flush(userResponse);
-      httpMock.verify();
-    });
-
+  describe('retrieveAllUsers', () => {
     it('should throw an http error if the request is bad', async() => {
       let response: any;
       let errResponse: any;
