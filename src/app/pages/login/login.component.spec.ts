@@ -1,5 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MaterialModule } from './../../material/material.module';
+import { FormsModule } from '@angular/forms';
+import { LoginService } from 'src/app/shared/login.service';
 import { LoginComponent } from './login.component';
 
 xdescribe('LoginComponent', () => {
@@ -8,9 +10,12 @@ xdescribe('LoginComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginComponent ]
+      declarations: [ LoginComponent ],
+      imports: [ FormsModule, MaterialModule ],
+      providers: [ LoginService ]
     })
     .compileComponents();
+
   }));
 
   beforeEach(() => {

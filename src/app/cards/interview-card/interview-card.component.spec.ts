@@ -1,8 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import Interview from '../../models/Interview';
 
 import { InterviewCardComponent } from './interview-card.component';
 
-xdescribe('InterviewCardComponent', () => {
+describe('InterviewCardComponent', () => {
   let component: InterviewCardComponent;
   let fixture: ComponentFixture<InterviewCardComponent>;
 
@@ -19,7 +20,7 @@ xdescribe('InterviewCardComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  xit('should create', () => {
     expect(component).toBeTruthy();
   });
 });
