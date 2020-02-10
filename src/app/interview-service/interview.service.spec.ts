@@ -162,6 +162,7 @@ afterEach(() => {
         expect(res.length).toBe(2);
         expect(res[0].id).toEqual(14);
         expect(res[1].id).toEqual(25);
+        expect(isEqual(res, mockInterviews)).toBe(true);
       }, err => errResponse = err);
       const req = httpMock.expectOne('http://localhost:8765/interview-service/interviews/allInterviews');
       expect(req.request.method).toBe('GET');
@@ -179,7 +180,7 @@ afterEach(() => {
       httpMock.verify();
     });
   });
-  // Every test that retrieves interviews past this point does not work as intended when mocked. Specific filters return the entire array for whatever reason.
+
   describe('retrieveInterviewById', () => {
     it('should return the correct interview', async() => {
       const mockInterviews: Interview[] = [
@@ -201,14 +202,13 @@ afterEach(() => {
         }
       ]
       let errResponse: any;
-      // retrieveInterviewById should not be returning an array of Interviews, however, adjusting it to a single Interview causes res to be undefined
       interviewService.retrieveInterviewById(25).subscribe(res => {
-        expect(res[1].id).toBe(25);
-        expect(isEqual(res[1], mockInterviews[1])).toBe(true);
+        expect(res.id).toBe(25);
+        expect(isEqual(res, mockInterviews[1])).toBe(true);
       }, err => errResponse = err);
       const req = httpMock.expectOne('http://localhost:8765/interview-service/interviews/id/' + 25);
       expect(req.request.method).toBe('GET');
-      req.flush(mockInterviews);
+      req.flush(mockInterviews[1]);
       httpMock.verify();
     });
     it('should throw an http error if the request is bad', async() => {
@@ -292,7 +292,7 @@ afterEach(() => {
       }, err => errResponse = err);
       let req = httpMock.expectOne('http://localhost:8765/interview-service/interviews/saveInterview');
       expect(req.request.method).toBe('POST');
-      req.flush(mockInterviews);
+      req.flush(mockInterviews[1]);
       httpMock.verify();
     });
     it('should throw an http error if the request is bad', async() => {
@@ -330,8 +330,7 @@ afterEach(() => {
       let errResponse: any;
       interviewService.retrieveInterviewsByDate(2020).subscribe(res => {
         expect(res.length).toBe(2);
-        expect(res[0].id).toBe(14);
-        expect(res[1].id).toBe(25);
+        expect(isEqual(res, mockInterviews)).toBe(true);
       }, err => errResponse = err);
       let req = httpMock.expectOne('http://localhost:8765/interview-service/interviews/date/' + 2020);
       expect(req.request.method).toBe('GET');
@@ -359,11 +358,11 @@ afterEach(() => {
       ]
       let errResponse: any;
       interviewService.retrieveInterviewsByDate(2020, 2, 25).subscribe(res => {
-        expect(res[0].id).toBe(14);
+        expect(isEqual(res, mockInterviews[0])).toBe(true);
       }, err => errResponse = err);
       let req = httpMock.expectOne('http://localhost:8765/interview-service/interviews/date/' + 2020 + '/' + 2 + '/' + 25);
       expect(req.request.method).toBe('GET');
-      req.flush(mockInterviews);
+      req.flush(mockInterviews[0]);
       httpMock.verify();
     });
   });

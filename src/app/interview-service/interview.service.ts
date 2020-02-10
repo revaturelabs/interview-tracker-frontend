@@ -17,7 +17,7 @@ export class InterviewService {
 
   retrieveInterviewById(id: number) {
     const url = 'http://localhost:8765/interview-service/interviews/id/' + id;
-    return this.http.get<Interview[]>(url, {}).pipe(catchError(this.handleError));
+    return this.http.get<Interview>(url, {}).pipe(catchError(this.handleError));
   }
 
   retrieveInterviewByJobId(id: number) {
