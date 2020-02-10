@@ -55,15 +55,9 @@ export class ProfileService {
   }
 
   retrieveAllProfilesAtPage(page: number, useFilter: boolean = false, value: string = "", skillIds: number[] = null) {
-   
     let idstr: string = skillIds != null ? skillIds.join(",") : "";
-    let params: string = "?filtervalue="+value+"&skillids="+idstr;
-    // let headers = new HttpHeaders({
-    //   "Content-Type": "application/JSON",
-    //   "usefilter": useFilter == true ? "1" : "0",
-    //   "value" : value
-   
-  return this.http.get<Profile[]>(this.url1 + "/" + page + params);
-  
+    let params: string = "?filtervalue=" + value + "&skillids=" + idstr;
+
+    return this.http.get<Profile[]>(this.url1 + "/" + page + params);
   }
 }

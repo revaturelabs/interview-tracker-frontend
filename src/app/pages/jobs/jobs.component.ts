@@ -42,7 +42,7 @@ export class JobsComponent implements OnInit {
   //need look here..
   onSearchTermChanged(e) {
     this.page = 0;
-    this.noEntry=false;
+    this.noEntry = false;
     let ids: number[] = [];
     if (this.selections.value != null) {
       for (let i = 0; i < this.selections.value.length; i++) {
@@ -55,7 +55,7 @@ export class JobsComponent implements OnInit {
       if (data.length == 0) {
         this.noEntry = true;
         this.atEnd = true;
-      }else if (data.length < 10) {
+      } else if (data.length < 10) {
         this.atEnd = true;
       }
     });
@@ -82,7 +82,4 @@ export class JobsComponent implements OnInit {
       el.title.includes(event.target.value)
     );
   }
-
-
-
 }
