@@ -20,15 +20,7 @@ export class LoginService {
     .set('username', user.username)
     .set('password', user.password);
 
-    console.log('From Service: ' + user.username);
-    console.log('From Service: ' + user.password);
-
-    return this.http.post<User>(this.url, user).pipe(map(this.extractData)).pipe(catchError(this.handleError));
-  }
-
-  private extractData(res: any) {
-    let body = res.json();
-    return body || {};
+    return this.http.post<User>(this.url, user).pipe(catchError(this.handleError));
   }
 
   private handleError(error: any) {
@@ -38,6 +30,6 @@ export class LoginService {
     } catch(e){
       errMsg = 'There was an error logging in.';
     }
-    return Observable.throwError(errMsg);
+    return Observable.throw(errMsg);
   }
 }

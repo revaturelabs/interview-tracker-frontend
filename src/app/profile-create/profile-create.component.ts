@@ -20,7 +20,6 @@ export class ProfileCreateComponent implements OnInit {
   skillsFilter: Skill;
   skillTitle: string = '';
 
-
   constructor(private profileService: ProfileService, private skillService: SkillService, private router: Router) { }
 
   ngOnInit() {
@@ -29,9 +28,7 @@ export class ProfileCreateComponent implements OnInit {
   }
 
   registerProfile() {
-
     this.profileService.saveProfile(this.newProfile).subscribe(data => {
-      console.log(data);
       switch(data) {
         case true:
           break;
@@ -45,10 +42,6 @@ export class ProfileCreateComponent implements OnInit {
   }
 
   skillSelectionHandler(selectedSkills:any) {
-    console.log(selectedSkills);
-    console.log(selectedSkills.value);
     this.newProfile.skills = selectedSkills.value;
-    console.log(this.newProfile);
   }
-
 }

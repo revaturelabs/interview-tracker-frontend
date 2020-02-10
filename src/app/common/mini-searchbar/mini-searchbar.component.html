@@ -1,5 +1,5 @@
 <mat-form-field class="mini-searchbar-component">
     <mat-label>{{label}}</mat-label>
-    <input (input)="termChanged()" [(ngModel)]='value' matInput>
-    <mat-icon color="primary" matSuffix>search</mat-icon>
+    <input [(ngModel)]='value' matInput>
+    <mat-icon color="primary" matSuffix (click)="termChanged()">search</mat-icon>
 </mat-form-field>

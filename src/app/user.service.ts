@@ -13,12 +13,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
   retrieveAllUsers(): Observable<any> {
     const url = 'http://localhost:8765/interview-service/users/allusers';
-    return this.http.get<User[]>(url, {}).pipe(map(this.extractData)).pipe(catchError(this.handleError));
-  }
-
-  private extractData(res: any) {
-    let body = res.json();
-    return body || {};
+    return this.http.get<User[]>(url, {}).pipe(catchError(this.handleError));
   }
 
   private handleError(error: any) {
