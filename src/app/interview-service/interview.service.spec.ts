@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import { TestBed, getTestBed, async } from '@angular/core/testing';
-=======
-import { TestBed } from '@angular/core/testing';
->>>>>>> dev
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { InterviewService } from './interview.service';
 import { isEqual } from 'lodash/lang';
@@ -12,7 +8,6 @@ import Profile from '../models/Profile';
 import User from '../models/User';
 
 describe('InterviewService', () => {
-<<<<<<< HEAD
   let interviewService: InterviewService;
   let injector: TestBed;
   let httpMock: HttpTestingController;
@@ -122,16 +117,12 @@ describe('InterviewService', () => {
 
     }
   ]
-=======
-let interviewService: InterviewService;
->>>>>>> dev
 
   beforeEach(() => {
     TestBed.configureTestingModule({
     imports: [HttpClientTestingModule],
     providers: [InterviewService]
   });
-<<<<<<< HEAD
   injector = getTestBed();
   interviewService = injector.get(InterviewService);
   httpMock = injector.get(HttpTestingController);
@@ -230,14 +221,6 @@ afterEach(() => {
       expect(isEqual(errResponse, data)).toBe(true);
       httpMock.verify();
     });
-=======
-  interviewService =TestBed.get(InterviewService);
-});
-
-  it('should be created', () => {
-    // const service: InterviewService = TestBed.get(InterviewService);
-    expect(interviewService).toBeTruthy();
->>>>>>> dev
   });
 
   describe('retrieveInterviewByJobId', () => {

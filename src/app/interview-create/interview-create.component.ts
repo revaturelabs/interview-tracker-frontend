@@ -86,8 +86,15 @@ ngOnInit() {
   console.log(selectedUsers);
   console.log('selected date is...');
   console.log(this.selectedDate);
-
-  const newinterview: Interview = new Interview(-1 , this.selectedCandidate, this.selectedDate, false, this.jb1,  selectedUsers);
+  let temp = {
+    id: -1 , 
+    profile: this.selectedCandidate, 
+    date: this.selectedDate, 
+    isCompleted: false, 
+    job: this.jb1,  
+    users: selectedUsers
+  }
+  const newinterview: Interview = new Interview(temp);
   console.log('sending...');
   this.interviewServ.saveInterview(newinterview).subscribe(data => {
     switch (data) {
