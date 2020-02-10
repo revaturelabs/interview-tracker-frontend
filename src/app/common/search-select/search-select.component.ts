@@ -9,8 +9,7 @@ import { SkillService } from 'src/app/skill.service';
   styleUrls: ['./search-select.component.scss']
 })
 export class SearchSelectComponent implements OnInit {
-  constructor(private skillService: SkillService,
-    private eRef: ElementRef) {
+  constructor(private skillService: SkillService) {
     this.allSkills = [];
   }
 
