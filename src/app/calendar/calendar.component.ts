@@ -8,7 +8,7 @@ import Interview from '../models/Interview';
   styleUrls: ['./calendar.component.scss']
 })
 export class CalendarComponent implements OnInit, OnChanges {
-  calendarPlugins = [dayGridPlugin]; // important!
+  calendarPlugins = [dayGridPlugin];
   @Input() interviews: Interview[] = [];
   allDays: Day[] = [];
 
@@ -30,7 +30,6 @@ export class CalendarComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    // this.populate();
   }
 
   populate(interviews) {
@@ -39,7 +38,6 @@ export class CalendarComponent implements OnInit, OnChanges {
     let interviewDate: string;
     for (const interview of interviews) {
       interviewDate = new Date(interview.date).toISOString();
-      console.log('date to string', interviewDate);
       exists = this.allDays.find(
         day => day.date === interviewDate
       )
@@ -52,7 +50,6 @@ export class CalendarComponent implements OnInit, OnChanges {
         );
       }
     }
-    console.log(this.allDays)
   }
 }
 

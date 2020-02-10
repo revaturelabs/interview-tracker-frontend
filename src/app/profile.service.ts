@@ -28,9 +28,9 @@ export class ProfileService {
     return this.http.post<Profile>(url, newProfile);
   }
 
-  retrieveAllProfilesAtPage(page: number, useFilter: boolean = false, value: string = "", skillIds: number[] = null) {
-    let idstr: string = skillIds != null ? skillIds.join(",") : "";
-    let params: string = "?filtertext=" + value + "&skillids=" + idstr;
+  retrieveAllProfilesAtPage(page: number, text: string = "", skillIds: number[] = null) {
+    let idstr: string = skillIds ? skillIds.join(",") : "";
+    let params: string = "?filtertext=" + text + "&skillids=" + idstr;
 
     return this.http.get<Profile[]>(this.url1 + "/" + page + params);
   }

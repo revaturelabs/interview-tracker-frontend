@@ -25,9 +25,9 @@ export class JobService {
     return this.httpServ.get<Job[]>(this.url + '/allJobs');
   }
 
-  getAllJobAtPage(page: number, useFilter: boolean = false, value: string = "", skillIds: number[] = null) {
-    let idstr: string = skillIds != null ? skillIds.join(",") : "";
-    let params: string = "?filtertext=" + value + "&skillids=" + idstr;
+  getAllJobAtPage(page: number, text: string = "", skillIds: number[] = null) {
+    let idstr: string = skillIds ? skillIds.join(",") : "";
+    let params: string = "?filtertext=" + text + "&skillids=" + idstr;
 
     return this.httpServ.get<Job[]>(this.url + '/allJobs/' + page + params);
   }

@@ -32,7 +32,7 @@ export class ProfilesComponent implements OnInit {
       }
     }
 
-    this.profileService.retrieveAllProfilesAtPage(this.page, true, e, ids).subscribe(data => {
+    this.profileService.retrieveAllProfilesAtPage(this.page, e, ids).subscribe(data => {
       this.profiles = data;
       if (data.length == 0) {
         this.noEntry = true;

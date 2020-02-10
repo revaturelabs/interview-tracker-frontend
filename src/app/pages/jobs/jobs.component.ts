@@ -50,7 +50,7 @@ export class JobsComponent implements OnInit {
       }
     }
 
-    this.jobServ.getAllJobAtPage(this.page, true, e, ids).subscribe(data => {
+    this.jobServ.getAllJobAtPage(this.page, e, ids).subscribe(data => {
       this.jobs = data;
       if (data.length == 0) {
         this.noEntry = true;
