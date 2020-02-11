@@ -28,43 +28,8 @@ describe('UserService', () => {
     expect(userService).toBeTruthy();
   });
 
-  describe('retrieveAllUsers', () =>{
-    it('should return all users ', async() => {
-      const userResponse = [{
-        id: 0,
-        firstName: "Larry",
-        lastName: "King",
-        password: "",
-        username: "lking"
-      },
-      {
-        id: 1,
-        firstName: "Mary",
-        lastName: "Queen",
-        password: "secure",
-        username: "mqueen"
-      }
-    ];
-      let errResponse: any;
-      const mockErrorResponse = { status: 400, statusText: 'Bad Request' };
-      const data = 'There was an error getting all users.';
-      userService.retrieveAllUsers().subscribe(res => {
-        expect(res.length).toBe(2);
-        expect(res).toEqual(userResponse);
-      }, err => errResponse = err);
-
-      const req = httpMock.expectOne('http://localhost:8765/interview-service/users/allusers');
-      if(errResponse === undefined){
-        expect(req.request.method).toBe('GET');
-        req.flush(userResponse);
-      } else {
-        expect(isEqual(data, mockErrorResponse)).toBe(true);
-        req.flush(data, mockErrorResponse);
-      }
-      httpMock.verify();
-    });
-
-    it('should throw an http error', async() => {
+  describe('retrieveAllUsers', () => {
+    it('should throw an http error if the request is bad', async() => {
       let response: any;
       let errResponse: any;
       const mockErrorResponse = { status: 400, statusText: 'Bad Request' };

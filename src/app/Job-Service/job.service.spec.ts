@@ -3,18 +3,17 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { JobService } from './job.service';
 
 describe('JobService', () => {
-  let jobService: JobService; // added for testing
+  let jobService: JobService;
 
   beforeEach(() =>{
     TestBed.configureTestingModule({
     imports: [HttpClientTestingModule],
     providers: [JobService] 
   });
-  jobService = TestBed.get(JobService); //added for testing
+  jobService = TestBed.get(JobService);
 });
 
   it('should be created', () => {
-    // const service: JobService = TestBed.get(JobService);
     expect(jobService).toBeTruthy();
   });
 });

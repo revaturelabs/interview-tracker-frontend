@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import Job from '../models/Job';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import Profile from '../models/Profile';
 
 @Injectable({
@@ -25,8 +25,11 @@ export class JobService {
     return this.httpServ.get<Job[]>(this.url);
   }
 
-  getAllJobAtPage(page: number) {
-    return this.httpServ.get<Job[]>(this.url + '/' + page);
+  getAllJobAtPage(page: number, text: string = "", skillIds: number[] = null) {
+    let idstr: string = skillIds ? skillIds.join(",") : "";
+    let params: string = "?filtertext=" + text + "&skillids=" + idstr;
+
+    return this.httpServ.get<Job[]>(this.url + '/allJobs/' + page + params);
   }
 
   getByTitle(title: string) {
@@ -36,5 +39,4 @@ export class JobService {
   getByTitlePaged(title: string, page: number) {
     return this.httpServ.get<Job>(this.url + '/title/' + title + '/' + page);
   }
-
 }

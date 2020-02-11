@@ -38,15 +38,15 @@ export class ProfileModalComponent implements OnInit {
         this.skillSelect.setValue(this.profile.skills);
       }
     );
-    this.skillSelect.valueChanges.subscribe(
-      selectedSkills => {
-        this.profile.skills = selectedSkills;
-        this.profileService.saveProfile(this.profile).subscribe( data => console.log('tempo:' + data));
-      }
-    );
   }
 
   close() {
     document.getElementById(this.profile.id.toString()).style.display = 'none';
+    this.skillSelect.valueChanges.subscribe(
+      selectedSkills => {
+        this.profile.skills = selectedSkills;
+        this.profileService.saveProfile(this.profile).subscribe(data => console.log('tempo:' + data));
+      }
+    );
   }
 }
