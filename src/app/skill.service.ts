@@ -18,13 +18,13 @@ export class SkillService {
   private profileSkills = new BehaviorSubject<Skill>(null);
   profileSkills$ = this.profileSkills.asObservable();
 
-  private url1 = 'http://localhost:8765/interview-service/skills';
+  private baseUrl = 'http://localhost:8765/interview-service/skills';
 
 
   constructor(private http: HttpClient) { }
 
   retrieveAllSkills(): Observable<any> {
-    return this.http.get<Skill[]>(this.url1, {}).pipe(catchError(this.handleError));
+    return this.http.get<Skill[]>(this.baseUrl, {}).pipe(catchError(this.handleError));
   }
 
     private handleError(error: any){
@@ -39,6 +39,6 @@ export class SkillService {
     }
 
   saveSkills(skill: Skill) {
-    return this.http.post<boolean>(this.url1, skill);
+    return this.http.post<boolean>(this.baseUrl, skill);
   }
 }
