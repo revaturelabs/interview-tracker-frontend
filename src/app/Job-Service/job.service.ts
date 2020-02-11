@@ -17,10 +17,6 @@ export class JobService {
     return this.httpServ.post<Job>(this.url, job);
   }
 
-  updateJob(job: Job) {
-    return this.httpServ.patch<boolean>(this.url, job);
-  }
-
   getAllJobs() {
     return this.httpServ.get<Job[]>(this.url);
   }
