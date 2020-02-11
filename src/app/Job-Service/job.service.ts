@@ -29,7 +29,7 @@ export class JobService {
     let idstr: string = skillIds ? skillIds.join(",") : "";
     let params: string = "?filtertext=" + text + "&skillids=" + idstr;
 
-    return this.httpServ.get<Job[]>(this.url + '/allJobs/' + page + params);
+    return this.httpServ.get<Job[]>(this.url + '/' + page + params);
   }
 
   getByTitle(title: string) {
