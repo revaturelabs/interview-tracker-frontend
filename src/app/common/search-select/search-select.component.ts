@@ -57,7 +57,8 @@ export class SearchSelectComponent implements OnInit {
             this.skillExists = true;
             this.skillCreated = true;
             this.allSkills.push(new Skill(0, this.searchTerm));   
-            setTimeout(()=>{ this.searchTerm = ""; this.skillCreated=false; }, 1100)  
+            setTimeout(()=>{ this.searchTerm = ""; this.skillCreated=false; this.options = this.allSkills; }, 1100);
+             
           }
         }, error => {
             console.log('Error ', error);

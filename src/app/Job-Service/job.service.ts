@@ -14,29 +14,25 @@ export class JobService {
   constructor(private httpServ: HttpClient) { }
 
   saveJob(job: Job) {
-    return this.httpServ.post<Job>(this.url + '/saveJob', job);
-  }
-
-  updateJob(job: Job) {
-    return this.httpServ.patch<boolean>(this.url + '/updateJob', job);
+    return this.httpServ.post<Job>(this.url, job);
   }
 
   getAllJobs() {
-    return this.httpServ.get<Job[]>(this.url + '/allJobs');
+    return this.httpServ.get<Job[]>(this.url);
   }
 
   getAllJobAtPage(page: number, text: string = "", skillIds: number[] = null) {
     let idstr: string = skillIds ? skillIds.join(",") : "";
     let params: string = "?filtertext=" + text + "&skillids=" + idstr;
 
-    return this.httpServ.get<Job[]>(this.url + '/allJobs/' + page + params);
+    return this.httpServ.get<Job[]>(this.url + '/' + page + params);
   }
 
   getByTitle(title: string) {
-    return this.httpServ.get<Job>(this.url + '/jobTitle/' + title);
+    return this.httpServ.get<Job>(this.url + '/title/' + title);
   }
 
   getByTitlePaged(title: string, page: number) {
-    return this.httpServ.get<Job>(this.url + '/jobTitle/' + title + '/' + page);
+    return this.httpServ.get<Job>(this.url + '/title/' + title + '/' + page);
   }
 }

@@ -11,12 +11,12 @@ export class InterviewService {
   constructor(private http: HttpClient) { }
 
   retrieveAllInterviews() {
-    const url = 'http://localhost:8765/interview-service/interviews/allInterviews';
+    const url = 'http://localhost:8765/interview-service/interviews';
     return this.http.get<Interview[]>(url, {}).pipe(catchError(this.handleError));
   }
 
   retrieveInterviewById(id: number) {
-    const url = 'http://localhost:8765/interview-service/interviews/id/' + id;
+    const url = 'http://localhost:8765/interview-service/interviews/' + id;
     return this.http.get<Interview>(url, {}).pipe(catchError(this.handleError));
   }
 
@@ -26,7 +26,7 @@ export class InterviewService {
   }
 
   saveInterview(newInterview: Interview) {
-    const url = 'http://localhost:8765/interview-service/interviews/saveInterview';
+    const url = 'http://localhost:8765/interview-service/interviews';
     return this.http.post<boolean>(url, newInterview).pipe(catchError(this.handleError));
   }
 

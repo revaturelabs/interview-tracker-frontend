@@ -46,7 +46,7 @@ export class ProfilesComponent implements OnInit {
   constructor(private profileService: ProfileService, private skillServ: SkillService, ) { }
 
   ngOnInit() {
-    this.page = 0;
+    this.page = 1;
     this.profileService.retrieveAllProfilesAtPage(this.page).subscribe(data => {
       this.profiles = data;
       if (data.length < 10) {

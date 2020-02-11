@@ -8,30 +8,27 @@ import { Observable } from 'rxjs';
 })
 export class ProfileService {
 
-  private url1 = 'http://localhost:8765/interview-service/profiles/allProfiles';
-  private url2 = 'http://localhost:8765/interview-service/profiles/saveProfile';
+  private baseUrl = 'http://localhost:8765/interview-service/profiles';
 
   constructor(private http: HttpClient) { }
 
   retrieveSomeProfiles() {
-    const url = "http://localhost:8765/interview-service/profiles/allProfiles/1";
-    return this.http.get<Profile[]>(url, {});
+
+    return this.http.get<Profile[]>(this.baseUrl + '/1', {});
   }
 
   retrieveAllProfiles(): Observable<Profile[]> {
-    const url = "http://localhost:8765/interview-service/profiles/allProfiles";
-    return this.http.get<Profile[]>(url, {});
+    return this.http.get<Profile[]>(this.baseUrl, {});
   }
 
   saveProfile(newProfile: Profile): Observable<any> {
-    const url = "http://localhost:8765/interview-service/profiles/saveProfile";
-    return this.http.post<Profile>(url, newProfile);
+    return this.http.post<Profile>(this.baseUrl, newProfile);
   }
 
   retrieveAllProfilesAtPage(page: number, text: string = "", skillIds: number[] = null) {
     let idstr: string = skillIds ? skillIds.join(",") : "";
     let params: string = "?filtertext=" + text + "&skillids=" + idstr;
 
-    return this.http.get<Profile[]>(this.url1 + "/" + page + params);
+    return this.http.get<Profile[]>(this.baseUrl + "/" + page + params);
   }
 }
