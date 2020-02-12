@@ -49,7 +49,9 @@ describe('LoginService', () => {
         const mockErrorResponse = { status: 400, statusText: 'Bad Request' };
         const data = 'There was an error logging in.';
         loginService.getUserInfo(login).subscribe(res => response = res, err => errResponse = err);
-        httpMock.expectOne('http://localhost:8765/user/login').flush(data, mockErrorResponse);
+        let req = httpMock.expectOne('http://localhost:8765/user/login');
+        expect(req.request.method).toBe('POST');
+        req.flush(data, mockErrorResponse);
         expect(isEqual(errResponse, data)).toBe(true);
         httpMock.verify();
     });

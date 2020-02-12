@@ -35,7 +35,9 @@ afterEach(() => {
       let response: any;
       let errResponse: any;
       interviewService.retrieveAllInterviews().subscribe(res => response = res, err => errResponse = err);
-      httpMock.expectOne('http://localhost:8765/interview-service/interviews').flush(data, mockErrorResponse);
+      let req = httpMock.expectOne('http://localhost:8765/interview-service/interviews');
+      expect(req.request.method).toBe('GET');
+      req.flush(data, mockErrorResponse);
       expect(isEqual(errResponse, data)).toBe(true);
       httpMock.verify();
     });
@@ -46,7 +48,9 @@ afterEach(() => {
       let response: any;
       let errResponse: any;
       interviewService.retrieveInterviewById(2).subscribe(res => response = res, err => errResponse = err);
-      httpMock.expectOne('http://localhost:8765/interview-service/interviews/' + 2).flush(data, mockErrorResponse);
+      let req = httpMock.expectOne('http://localhost:8765/interview-service/interviews/' + 2);
+      expect(req.request.method).toBe('GET');
+      req.flush(data, mockErrorResponse);
       expect(isEqual(errResponse, data)).toBe(true);
       httpMock.verify();
     });
@@ -57,7 +61,9 @@ afterEach(() => {
       let response: any;
       let errResponse: any;
       interviewService.retrieveInterviewByJobId(-1).subscribe(res => response = res, err => errResponse = err);
-      httpMock.expectOne('http://localhost:8765/interview-service/interviews/job/' + -1).flush(data, mockErrorResponse);
+      let req = httpMock.expectOne('http://localhost:8765/interview-service/interviews/job/' + -1);
+      expect(req.request.method).toBe('GET');
+      req.flush(data, mockErrorResponse);
       expect(isEqual(errResponse, data)).toBe(true);
       httpMock.verify();
     });
@@ -68,7 +74,9 @@ afterEach(() => {
       let response: any;
       let errResponse: any;
       interviewService.saveInterview(new Interview()).subscribe(res => response = res, err => errResponse = err);
-      httpMock.expectOne('http://localhost:8765/interview-service/interviews').flush(data, mockErrorResponse);
+      let req = httpMock.expectOne('http://localhost:8765/interview-service/interviews');
+      expect(req.request.method).toBe('POST');
+      req.flush(data, mockErrorResponse);
       expect(isEqual(errResponse, data)).toBe(true);
       httpMock.verify();
     });
@@ -79,7 +87,9 @@ afterEach(() => {
       let response: any;
       let errResponse: any;
       interviewService.retrieveInterviewsByProfileId(5).subscribe(res => response = res, err => errResponse = err);
-      httpMock.expectOne('http://localhost:8765/interview-service/interviews/profile/' + 5).flush(data, mockErrorResponse);
+      let req = httpMock.expectOne('http://localhost:8765/interview-service/interviews/profile/' + 5)
+      expect(req.request.method).toBe('GET');
+      req.flush(data, mockErrorResponse);
       expect(isEqual(errResponse, data)).toBe(true);
       httpMock.verify();
     });
@@ -90,7 +100,9 @@ afterEach(() => {
       let response: any;
       let errResponse: any;
       interviewService.retrieveInterviewsByDate(2020).subscribe(res => response = res, err => errResponse = err);
-      httpMock.expectOne('http://localhost:8765/interview-service/interviews/date/' + 2020).flush(data, mockErrorResponse);
+      let req = httpMock.expectOne('http://localhost:8765/interview-service/interviews/date/' + 2020);
+      expect(req.request.method).toBe('GET');
+      req.flush(data, mockErrorResponse);
       expect(isEqual(errResponse, data)).toBe(true);
       httpMock.verify();
     });

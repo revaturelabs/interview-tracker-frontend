@@ -35,7 +35,9 @@ describe('UserService', () => {
       const mockErrorResponse = { status: 400, statusText: 'Bad Request' };
       const data = 'There was an error getting all users.';
       userService.retrieveAllUsers().subscribe(res => response = res, err => errResponse = err);
-      httpMock.expectOne('http://localhost:8765/interview-service/users/allusers').flush(data, mockErrorResponse);
+      let req = httpMock.expectOne('http://localhost:8765/interview-service/users/allusers');
+      expect(req.request.method).toBe('GET');
+      req.flush(data, mockErrorResponse);
       expect(isEqual(errResponse, data)).toBe(true);
       httpMock.verify();
     }); 

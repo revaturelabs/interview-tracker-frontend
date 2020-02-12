@@ -31,7 +31,9 @@ afterEach(() => {
         const mockErrorResponse = { status: 400, statusText: 'Bad Request' };
         const data = 'There was an error getting all skills.';
         skillService.retrieveAllSkills().subscribe(res => response = res, err => errResponse = err);
-        httpMock.expectOne('http://localhost:8765/interview-service/skills').flush(data, mockErrorResponse);
+        let req = httpMock.expectOne('http://localhost:8765/interview-service/skills')
+        expect(req.request.method).toBe('GET');
+        req.flush(data, mockErrorResponse);
         expect(isEqual(errResponse, data)).toBe(true);
         httpMock.verify();
       })
